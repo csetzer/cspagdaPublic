@@ -1,0 +1,1594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >addTickOperator</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1"
+      >
+</a
+      ><a name="2" class="Keyword"
+      >module</a
+      ><a name="8"
+      > </a
+      ><a name="9" href="addTickOperator.html#1" class="Module"
+      >addTickOperator</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >where</a
+      ><a name="30"
+      >
+
+</a
+      ><a name="32" class="Keyword"
+      >open</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >import</a
+      ><a name="43"
+      > </a
+      ><a name="44" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="48"
+      >
+</a
+      ><a name="49" class="Keyword"
+      >open</a
+      ><a name="53"
+      > </a
+      ><a name="54" class="Keyword"
+      >import</a
+      ><a name="60"
+      > </a
+      ><a name="61" href="process.html#1" class="Module"
+      >process</a
+      ><a name="68"
+      >
+</a
+      ><a name="69" class="Keyword"
+      >open</a
+      ><a name="73"
+      > </a
+      ><a name="74" class="Keyword"
+      >import</a
+      ><a name="80"
+      > </a
+      ><a name="81" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="91"
+      >
+</a
+      ><a name="92" class="Keyword"
+      >open</a
+      ><a name="96"
+      > </a
+      ><a name="97" class="Keyword"
+      >import</a
+      ><a name="103"
+      > </a
+      ><a name="104" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="120"
+      >
+</a
+      ><a name="121" class="Keyword"
+      >open</a
+      ><a name="125"
+      > </a
+      ><a name="126" class="Keyword"
+      >import</a
+      ><a name="132"
+      > </a
+      ><a name="133" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="141"
+      >
+</a
+      ><a name="142" class="Keyword"
+      >open</a
+      ><a name="146"
+      > </a
+      ><a name="147" class="Keyword"
+      >import</a
+      ><a name="153"
+      > </a
+      ><a name="154" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="165"
+      > </a
+      ><a name="166" class="Keyword"
+      >renaming</a
+      ><a name="174"
+      > </a
+      ><a name="175" class="Symbol"
+      >(</a
+      ><a name="176" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="180"
+      > </a
+      ><a name="181" class="Symbol"
+      >to</a
+      ><a name="183"
+      > </a
+      ><a name="184" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="189" class="Symbol"
+      >)</a
+      ><a name="190"
+      >
+</a
+      ><a name="191" class="Keyword"
+      >open</a
+      ><a name="195"
+      > </a
+      ><a name="196" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="204"
+      >
+</a
+      ><a name="205" class="Keyword"
+      >open</a
+      ><a name="209"
+      > </a
+      ><a name="210" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="218"
+      >
+
+</a
+      ><a name="220" href="addTickOperator.html#220" class="Function"
+      >choiceFunctionAddEl</a
+      ><a name="239"
+      > </a
+      ><a name="240" class="Symbol"
+      >:</a
+      ><a name="241"
+      > </a
+      ><a name="242" class="Symbol"
+      >{</a
+      ><a name="243" href="addTickOperator.html#243" class="Bound"
+      >ca</a
+      ><a name="245"
+      > </a
+      ><a name="246" class="Symbol"
+      >:</a
+      ><a name="247"
+      > </a
+      ><a name="248" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="254" class="Symbol"
+      >}</a
+      ><a name="255"
+      > </a
+      ><a name="256" class="Symbol"
+      >&#8594;</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Symbol"
+      >(</a
+      ><a name="259" href="addTickOperator.html#259" class="Bound"
+      >c</a
+      ><a name="260"
+      > </a
+      ><a name="261" class="Symbol"
+      >:</a
+      ><a name="262"
+      > </a
+      ><a name="263" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="269" class="Symbol"
+      >)</a
+      ><a name="270"
+      > 
+                      </a
+      ><a name="294" class="Symbol"
+      >&#8594;</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Symbol"
+      >(</a
+      ><a name="297" href="addTickOperator.html#297" class="Bound"
+      >f</a
+      ><a name="298"
+      > </a
+      ><a name="299" class="Symbol"
+      >:</a
+      ><a name="300"
+      > </a
+      ><a name="301" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="310"
+      > </a
+      ><a name="311" href="addTickOperator.html#259" class="Bound"
+      >c</a
+      ><a name="312"
+      >  </a
+      ><a name="314" class="Symbol"
+      >&#8594;</a
+      ><a name="315"
+      > </a
+      ><a name="316" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="addTickOperator.html#243" class="Bound"
+      >ca</a
+      ><a name="328" class="Symbol"
+      >)</a
+      ><a name="329"
+      >
+                      </a
+      ><a name="352" class="Symbol"
+      >&#8594;</a
+      ><a name="353"
+      > </a
+      ><a name="354" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="363"
+      > </a
+      ><a name="364" href="addTickOperator.html#243" class="Bound"
+      >ca</a
+      ><a name="366"
+      > 
+                      </a
+      ><a name="390" class="Symbol"
+      >&#8594;</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="401"
+      > </a
+      ><a name="402" class="Symbol"
+      >(</a
+      ><a name="403" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="406"
+      > </a
+      ><a name="407" class="Number"
+      >1</a
+      ><a name="408"
+      > </a
+      ><a name="409" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="addTickOperator.html#259" class="Bound"
+      >c</a
+      ><a name="413" class="Symbol"
+      >)</a
+      ><a name="414"
+      >  
+                      </a
+      ><a name="439" class="Symbol"
+      >&#8594;</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="addTickOperator.html#243" class="Bound"
+      >ca</a
+      ><a name="453"
+      >
+</a
+      ><a name="454" href="addTickOperator.html#220" class="Function"
+      >choiceFunctionAddEl</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="addTickOperator.html#474" class="Bound"
+      >c</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="addTickOperator.html#476" class="Bound"
+      >f</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="addTickOperator.html#478" class="Bound"
+      >a</a
+      ><a name="479"
+      > </a
+      ><a name="480" class="Symbol"
+      >(</a
+      ><a name="481" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="485"
+      > </a
+      ><a name="486" href="addTickOperator.html#486" class="Bound"
+      >x</a
+      ><a name="487" class="Symbol"
+      >)</a
+      ><a name="488"
+      > </a
+      ><a name="489" class="Symbol"
+      >=</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="addTickOperator.html#478" class="Bound"
+      >a</a
+      ><a name="492"
+      >
+</a
+      ><a name="493" href="addTickOperator.html#220" class="Function"
+      >choiceFunctionAddEl</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="addTickOperator.html#513" class="Bound"
+      >c</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="addTickOperator.html#515" class="Bound"
+      >f</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="addTickOperator.html#517" class="Bound"
+      >a</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >(</a
+      ><a name="520" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="addTickOperator.html#525" class="Bound"
+      >y</a
+      ><a name="526" class="Symbol"
+      >)</a
+      ><a name="527"
+      > </a
+      ><a name="528" class="Symbol"
+      >=</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="addTickOperator.html#515" class="Bound"
+      >f</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="addTickOperator.html#525" class="Bound"
+      >y</a
+      ><a name="533"
+      >
+
+</a
+      ><a name="535" class="Keyword"
+      >mutual</a
+      ><a name="541"
+      >
+  </a
+      ><a name="544" href="addTickOperator.html#544" class="Function"
+      >addTickStr</a
+      ><a name="554"
+      > </a
+      ><a name="555" class="Symbol"
+      >:</a
+      ><a name="556"
+      > </a
+      ><a name="557" class="Symbol"
+      >{</a
+      ><a name="558" href="addTickOperator.html#558" class="Bound"
+      >ca</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >:</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="569" class="Symbol"
+      >}</a
+      ><a name="570"
+      > </a
+      ><a name="571" class="Symbol"
+      >&#8594;</a
+      ><a name="572"
+      > </a
+      ><a name="573" class="Symbol"
+      >(</a
+      ><a name="574" href="addTickOperator.html#574" class="Bound"
+      >c</a
+      ><a name="575"
+      > </a
+      ><a name="576" class="Symbol"
+      >:</a
+      ><a name="577"
+      > </a
+      ><a name="578" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="584" class="Symbol"
+      >)</a
+      ><a name="585"
+      > 
+              </a
+      ><a name="601" class="Symbol"
+      >&#8594;</a
+      ><a name="602"
+      > </a
+      ><a name="603" class="Symbol"
+      >(</a
+      ><a name="604" href="addTickOperator.html#604" class="Bound"
+      >f</a
+      ><a name="605"
+      > </a
+      ><a name="606" class="Symbol"
+      >:</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="addTickOperator.html#574" class="Bound"
+      >c</a
+      ><a name="619"
+      > </a
+      ><a name="620" class="Symbol"
+      >&#8594;</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="addTickOperator.html#558" class="Bound"
+      >ca</a
+      ><a name="634" class="Symbol"
+      >)</a
+      ><a name="635"
+      >
+              </a
+      ><a name="650" class="Symbol"
+      >&#8594;</a
+      ><a name="651"
+      > </a
+      ><a name="652" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="658"
+      > </a
+      ><a name="659" class="Symbol"
+      >&#8594;</a
+      ><a name="660"
+      >  </a
+      ><a name="662" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="668"
+      > 
+  </a
+      ><a name="672" href="addTickOperator.html#544" class="Function"
+      >addTickStr</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="addTickOperator.html#683" class="Bound"
+      >c</a
+      ><a name="684"
+      > </a
+      ><a name="685" href="addTickOperator.html#685" class="Bound"
+      >f</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="addTickOperator.html#687" class="Bound"
+      >s</a
+      ><a name="688"
+      > </a
+      ><a name="689" class="Symbol"
+      >=</a
+      ><a name="690"
+      > </a
+      ><a name="691" class="String"
+      >&quot;Something&quot;</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="addTickOperator.html#687" class="Bound"
+      >s</a
+      ><a name="708"
+      >
+
+  </a
+      ><a name="712" href="addTickOperator.html#712" class="Function"
+      >addTick&#8734;</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >:</a
+      ><a name="722"
+      > </a
+      ><a name="723" class="Symbol"
+      >{</a
+      ><a name="724" href="addTickOperator.html#724" class="Bound"
+      >ca</a
+      ><a name="726"
+      > </a
+      ><a name="727" class="Symbol"
+      >:</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="735" class="Symbol"
+      >}</a
+      ><a name="736"
+      > </a
+      ><a name="737" class="Symbol"
+      >&#8594;</a
+      ><a name="738"
+      > </a
+      ><a name="739" class="Symbol"
+      >{</a
+      ><a name="740" href="addTickOperator.html#740" class="Bound"
+      >i</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Symbol"
+      >:</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="748" class="Symbol"
+      >}</a
+      ><a name="749"
+      > </a
+      ><a name="750" class="Symbol"
+      >&#8594;</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Symbol"
+      >(</a
+      ><a name="753" href="addTickOperator.html#753" class="Bound"
+      >c</a
+      ><a name="754"
+      > </a
+      ><a name="755" class="Symbol"
+      >:</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="763" class="Symbol"
+      >)</a
+      ><a name="764"
+      > 
+             </a
+      ><a name="779" class="Symbol"
+      >&#8594;</a
+      ><a name="780"
+      > </a
+      ><a name="781" class="Symbol"
+      >(</a
+      ><a name="782" href="addTickOperator.html#782" class="Bound"
+      >f</a
+      ><a name="783"
+      > </a
+      ><a name="784" class="Symbol"
+      >:</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="addTickOperator.html#753" class="Bound"
+      >c</a
+      ><a name="797"
+      > </a
+      ><a name="798" class="Symbol"
+      >&#8594;</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="809"
+      > </a
+      ><a name="810" href="addTickOperator.html#724" class="Bound"
+      >ca</a
+      ><a name="812" class="Symbol"
+      >)</a
+      ><a name="813"
+      >
+             </a
+      ><a name="827" class="Symbol"
+      >&#8594;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="837"
+      > </a
+      ><a name="838" href="addTickOperator.html#740" class="Bound"
+      >i</a
+      ><a name="839"
+      > </a
+      ><a name="840" href="addTickOperator.html#724" class="Bound"
+      >ca</a
+      ><a name="842"
+      >
+             </a
+      ><a name="856" class="Symbol"
+      >&#8594;</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="866"
+      > </a
+      ><a name="867" href="addTickOperator.html#740" class="Bound"
+      >i</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="addTickOperator.html#724" class="Bound"
+      >ca</a
+      ><a name="871"
+      >
+  </a
+      ><a name="874" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="880"
+      > </a
+      ><a name="881" class="Symbol"
+      >(</a
+      ><a name="882" href="addTickOperator.html#712" class="Function"
+      >addTick&#8734;</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="addTickOperator.html#891" class="Bound"
+      >c</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="addTickOperator.html#893" class="Bound"
+      >f</a
+      ><a name="894"
+      >  </a
+      ><a name="896" href="addTickOperator.html#896" class="Bound"
+      >P</a
+      ><a name="897" class="Symbol"
+      >)</a
+      ><a name="898"
+      > </a
+      ><a name="899" class="Symbol"
+      >{</a
+      ><a name="900" href="addTickOperator.html#900" class="Bound"
+      >j</a
+      ><a name="901" class="Symbol"
+      >}</a
+      ><a name="902"
+      > </a
+      ><a name="903" class="Symbol"
+      >=</a
+      ><a name="904"
+      > </a
+      ><a name="905" href="addTickOperator.html#995" class="Function"
+      >addTick</a
+      ><a name="912"
+      >    </a
+      ><a name="916" href="addTickOperator.html#891" class="Bound"
+      >c</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="addTickOperator.html#893" class="Bound"
+      >f</a
+      ><a name="919"
+      > </a
+      ><a name="920" class="Symbol"
+      >(</a
+      ><a name="921" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="addTickOperator.html#896" class="Bound"
+      >P</a
+      ><a name="929"
+      > </a
+      ><a name="930" class="Symbol"
+      >{</a
+      ><a name="931" href="addTickOperator.html#900" class="Bound"
+      >j</a
+      ><a name="932" class="Symbol"
+      >})</a
+      ><a name="934"
+      >
+  </a
+      ><a name="937" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="941"
+      >   </a
+      ><a name="944" class="Symbol"
+      >(</a
+      ><a name="945" href="addTickOperator.html#712" class="Function"
+      >addTick&#8734;</a
+      ><a name="953"
+      > </a
+      ><a name="954" href="addTickOperator.html#954" class="Bound"
+      >c</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="addTickOperator.html#956" class="Bound"
+      >f</a
+      ><a name="957"
+      >  </a
+      ><a name="959" href="addTickOperator.html#959" class="Bound"
+      >P</a
+      ><a name="960" class="Symbol"
+      >)</a
+      ><a name="961"
+      >     </a
+      ><a name="966" class="Symbol"
+      >=</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="addTickOperator.html#544" class="Function"
+      >addTickStr</a
+      ><a name="978"
+      > </a
+      ><a name="979" href="addTickOperator.html#954" class="Bound"
+      >c</a
+      ><a name="980"
+      > </a
+      ><a name="981" href="addTickOperator.html#956" class="Bound"
+      >f</a
+      ><a name="982"
+      > </a
+      ><a name="983" class="Symbol"
+      >(</a
+      ><a name="984" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="addTickOperator.html#959" class="Bound"
+      >P</a
+      ><a name="990" class="Symbol"
+      >)</a
+      ><a name="991"
+      >
+
+  </a
+      ><a name="995" href="addTickOperator.html#995" class="Function"
+      >addTick</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" class="Symbol"
+      >:</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" class="Symbol"
+      >{</a
+      ><a name="1006" href="addTickOperator.html#1006" class="Bound"
+      >ca</a
+      ><a name="1008"
+      > </a
+      ><a name="1009" class="Symbol"
+      >:</a
+      ><a name="1010"
+      > </a
+      ><a name="1011" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1017" class="Symbol"
+      >}</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" class="Symbol"
+      >&#8594;</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" class="Symbol"
+      >{</a
+      ><a name="1022" href="addTickOperator.html#1022" class="Bound"
+      >i</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" class="Symbol"
+      >:</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1030" class="Symbol"
+      >}</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" class="Symbol"
+      >&#8594;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" class="Symbol"
+      >(</a
+      ><a name="1035" href="addTickOperator.html#1035" class="Bound"
+      >c</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" class="Symbol"
+      >:</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1045" class="Symbol"
+      >)</a
+      ><a name="1046"
+      >
+             </a
+      ><a name="1060" class="Symbol"
+      >&#8594;</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Symbol"
+      >(</a
+      ><a name="1063" href="addTickOperator.html#1063" class="Bound"
+      >f</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >:</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="addTickOperator.html#1035" class="Bound"
+      >c</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" class="Symbol"
+      >&#8594;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="addTickOperator.html#1006" class="Bound"
+      >ca</a
+      ><a name="1093" class="Symbol"
+      >)</a
+      ><a name="1094"
+      >
+             </a
+      ><a name="1108" class="Symbol"
+      >&#8594;</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" href="addTickOperator.html#1022" class="Bound"
+      >i</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" href="addTickOperator.html#1006" class="Bound"
+      >ca</a
+      ><a name="1122"
+      >
+             </a
+      ><a name="1136" class="Symbol"
+      >&#8594;</a
+      ><a name="1137"
+      > </a
+      ><a name="1138" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="addTickOperator.html#1022" class="Bound"
+      >i</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="addTickOperator.html#1006" class="Bound"
+      >ca</a
+      ><a name="1150"
+      >
+  </a
+      ><a name="1153" href="addTickOperator.html#995" class="Function"
+      >addTick</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" class="Symbol"
+      >{</a
+      ><a name="1162" href="addTickOperator.html#1162" class="Bound"
+      >ca</a
+      ><a name="1164" class="Symbol"
+      >}</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" class="Symbol"
+      >{</a
+      ><a name="1167" href="addTickOperator.html#1167" class="Bound"
+      >i</a
+      ><a name="1168" class="Symbol"
+      >}</a
+      ><a name="1169"
+      > </a
+      ><a name="1170" href="addTickOperator.html#1170" class="Bound"
+      >c</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" href="addTickOperator.html#1172" class="Bound"
+      >f</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" class="Symbol"
+      >(</a
+      ><a name="1175" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="addTickOperator.html#1185" class="Bound"
+      >a</a
+      ><a name="1186" class="Symbol"
+      >)</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" class="Symbol"
+      >=</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="primitiveProcess.html#603" class="Function"
+      >MSKIP</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" href="addTickOperator.html#1167" class="Bound"
+      >i</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" href="addTickOperator.html#1162" class="Bound"
+      >ca</a
+      ><a name="1200" class="Symbol"
+      >(</a
+      ><a name="1201" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" class="Number"
+      >1</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="addTickOperator.html#1170" class="Bound"
+      >c</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" class="Symbol"
+      >)</a
+      ><a name="1213"
+      >
+                                    </a
+      ><a name="1250" class="Symbol"
+      >(</a
+      ><a name="1251" href="addTickOperator.html#220" class="Function"
+      >choiceFunctionAddEl</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="addTickOperator.html#1170" class="Bound"
+      >c</a
+      ><a name="1272"
+      > </a
+      ><a name="1273" href="addTickOperator.html#1172" class="Bound"
+      >f</a
+      ><a name="1274"
+      > </a
+      ><a name="1275" href="addTickOperator.html#1185" class="Bound"
+      >a</a
+      ><a name="1276" class="Symbol"
+      >)</a
+      ><a name="1277"
+      > 
+  </a
+      ><a name="1281" href="addTickOperator.html#995" class="Function"
+      >addTick</a
+      ><a name="1288"
+      > </a
+      ><a name="1289" href="addTickOperator.html#1289" class="Bound"
+      >c</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="addTickOperator.html#1291" class="Bound"
+      >f</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >(</a
+      ><a name="1294" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="addTickOperator.html#1299" class="Bound"
+      >Q</a
+      ><a name="1300" class="Symbol"
+      >)</a
+      ><a name="1301"
+      > </a
+      ><a name="1302" class="Symbol"
+      >=</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1308"
+      > </a
+      ><a name="1309" class="Symbol"
+      >(</a
+      ><a name="1310" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="addTickOperator.html#1289" class="Bound"
+      >c</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="addTickOperator.html#1291" class="Bound"
+      >f</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="addTickOperator.html#1299" class="Bound"
+      >Q</a
+      ><a name="1324" class="Symbol"
+      >)</a
+      ><a name="1325"
+      >
+
+
+  </a
+      ><a name="1330" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1338"
+      > </a
+      ><a name="1339" class="Symbol"
+      >:</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" class="Symbol"
+      >{</a
+      ><a name="1342" href="addTickOperator.html#1342" class="Bound"
+      >ca</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" class="Symbol"
+      >:</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1353" class="Symbol"
+      >}</a
+      ><a name="1354"
+      > </a
+      ><a name="1355" class="Symbol"
+      >&#8594;</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" class="Symbol"
+      >{</a
+      ><a name="1358" href="addTickOperator.html#1358" class="Bound"
+      >i</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" class="Symbol"
+      >:</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1366" class="Symbol"
+      >}</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" class="Symbol"
+      >&#8594;</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" class="Symbol"
+      >(</a
+      ><a name="1371" href="addTickOperator.html#1371" class="Bound"
+      >c</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" class="Symbol"
+      >:</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1381" class="Symbol"
+      >)</a
+      ><a name="1382"
+      >
+             </a
+      ><a name="1396" class="Symbol"
+      >&#8594;</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" class="Symbol"
+      >(</a
+      ><a name="1399" href="addTickOperator.html#1399" class="Bound"
+      >f</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" class="Symbol"
+      >:</a
+      ><a name="1402"
+      > </a
+      ><a name="1403" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" href="addTickOperator.html#1371" class="Bound"
+      >c</a
+      ><a name="1414"
+      > </a
+      ><a name="1415" class="Symbol"
+      >&#8594;</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="addTickOperator.html#1342" class="Bound"
+      >ca</a
+      ><a name="1429" class="Symbol"
+      >)</a
+      ><a name="1430"
+      >
+             </a
+      ><a name="1444" class="Symbol"
+      >&#8594;</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="addTickOperator.html#1358" class="Bound"
+      >i</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="addTickOperator.html#1342" class="Bound"
+      >ca</a
+      ><a name="1459"
+      >
+             </a
+      ><a name="1473" class="Symbol"
+      >&#8594;</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="addTickOperator.html#1358" class="Bound"
+      >i</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="addTickOperator.html#1342" class="Bound"
+      >ca</a
+      ><a name="1488"
+      >
+  </a
+      ><a name="1491" href="process.html#570" class="Field"
+      >E</a
+      ><a name="1492"
+      >    </a
+      ><a name="1496" class="Symbol"
+      >(</a
+      ><a name="1497" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="addTickOperator.html#1506" class="Bound"
+      >c</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="addTickOperator.html#1508" class="Bound"
+      >f</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="addTickOperator.html#1510" class="Bound"
+      >P</a
+      ><a name="1511" class="Symbol"
+      >)</a
+      ><a name="1512"
+      >          </a
+      ><a name="1522" class="Symbol"
+      >=</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="process.html#570" class="Field"
+      >E</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" href="addTickOperator.html#1510" class="Bound"
+      >P</a
+      ><a name="1527"
+      >
+  </a
+      ><a name="1530" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1533"
+      >  </a
+      ><a name="1535" class="Symbol"
+      >(</a
+      ><a name="1536" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" href="addTickOperator.html#1545" class="Bound"
+      >c</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="addTickOperator.html#1547" class="Bound"
+      >f</a
+      ><a name="1548"
+      > </a
+      ><a name="1549" href="addTickOperator.html#1549" class="Bound"
+      >P</a
+      ><a name="1550" class="Symbol"
+      >)</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" href="addTickOperator.html#1552" class="Bound"
+      >x</a
+      ><a name="1553"
+      >        </a
+      ><a name="1561" class="Symbol"
+      >=</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" href="addTickOperator.html#1549" class="Bound"
+      >P</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" href="addTickOperator.html#1552" class="Bound"
+      >x</a
+      ><a name="1570"
+      >
+  </a
+      ><a name="1573" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="1575"
+      >   </a
+      ><a name="1578" class="Symbol"
+      >(</a
+      ><a name="1579" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="addTickOperator.html#1588" class="Bound"
+      >c</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" href="addTickOperator.html#1590" class="Bound"
+      >f</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" href="addTickOperator.html#1592" class="Bound"
+      >P</a
+      ><a name="1593" class="Symbol"
+      >)</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="addTickOperator.html#1595" class="Bound"
+      >x</a
+      ><a name="1596"
+      >        </a
+      ><a name="1604" class="Symbol"
+      >=</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="1608"
+      > </a
+      ><a name="1609" href="addTickOperator.html#1592" class="Bound"
+      >P</a
+      ><a name="1610"
+      > </a
+      ><a name="1611" href="addTickOperator.html#1595" class="Bound"
+      >x</a
+      ><a name="1612"
+      >
+  </a
+      ><a name="1615" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1616"
+      >    </a
+      ><a name="1620" class="Symbol"
+      >(</a
+      ><a name="1621" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="addTickOperator.html#1630" class="Bound"
+      >c</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="addTickOperator.html#1632" class="Bound"
+      >f</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="addTickOperator.html#1634" class="Bound"
+      >P</a
+      ><a name="1635" class="Symbol"
+      >)</a
+      ><a name="1636"
+      >          </a
+      ><a name="1646" class="Symbol"
+      >=</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" href="addTickOperator.html#1634" class="Bound"
+      >P</a
+      ><a name="1651"
+      >
+  </a
+      ><a name="1654" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="1656"
+      >   </a
+      ><a name="1659" class="Symbol"
+      >(</a
+      ><a name="1660" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="addTickOperator.html#1669" class="Bound"
+      >c</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="addTickOperator.html#1671" class="Bound"
+      >f</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="addTickOperator.html#1673" class="Bound"
+      >P</a
+      ><a name="1674" class="Symbol"
+      >)</a
+      ><a name="1675"
+      > </a
+      ><a name="1676" href="addTickOperator.html#1676" class="Bound"
+      >x</a
+      ><a name="1677"
+      >        </a
+      ><a name="1685" class="Symbol"
+      >=</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="1689"
+      > </a
+      ><a name="1690" href="addTickOperator.html#1673" class="Bound"
+      >P</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="addTickOperator.html#1676" class="Bound"
+      >x</a
+      ><a name="1693"
+      >
+  </a
+      ><a name="1696" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1697"
+      >    </a
+      ><a name="1701" class="Symbol"
+      >(</a
+      ><a name="1702" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" href="addTickOperator.html#1711" class="Bound"
+      >c</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" href="addTickOperator.html#1713" class="Bound"
+      >f</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" href="addTickOperator.html#1715" class="Bound"
+      >P</a
+      ><a name="1716" class="Symbol"
+      >)</a
+      ><a name="1717"
+      >          </a
+      ><a name="1727" class="Symbol"
+      >=</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" href="addTickOperator.html#1711" class="Bound"
+      >c</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="addTickOperator.html#1715" class="Bound"
+      >P</a
+      ><a name="1737"
+      >
+  </a
+      ><a name="1740" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1742"
+      >   </a
+      ><a name="1745" class="Symbol"
+      >(</a
+      ><a name="1746" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" href="addTickOperator.html#1755" class="Bound"
+      >c</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" href="addTickOperator.html#1757" class="Bound"
+      >f</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" href="addTickOperator.html#1759" class="Bound"
+      >P</a
+      ><a name="1760" class="Symbol"
+      >)</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" class="Symbol"
+      >(</a
+      ><a name="1763" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="1767"
+      > </a
+      ><a name="1768" href="addTickOperator.html#1768" class="Bound"
+      >x</a
+      ><a name="1769" class="Symbol"
+      >)</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" class="Symbol"
+      >=</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" href="addTickOperator.html#1757" class="Bound"
+      >f</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="addTickOperator.html#1768" class="Bound"
+      >x</a
+      ><a name="1776"
+      >
+  </a
+      ><a name="1779" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1781"
+      >   </a
+      ><a name="1784" class="Symbol"
+      >(</a
+      ><a name="1785" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1793"
+      > </a
+      ><a name="1794" href="addTickOperator.html#1794" class="Bound"
+      >c</a
+      ><a name="1795"
+      > </a
+      ><a name="1796" href="addTickOperator.html#1796" class="Bound"
+      >f</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="addTickOperator.html#1798" class="Bound"
+      >P</a
+      ><a name="1799" class="Symbol"
+      >)</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" class="Symbol"
+      >(</a
+      ><a name="1802" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="1806"
+      > </a
+      ><a name="1807" href="addTickOperator.html#1807" class="Bound"
+      >y</a
+      ><a name="1808" class="Symbol"
+      >)</a
+      ><a name="1809"
+      > </a
+      ><a name="1810" class="Symbol"
+      >=</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" href="addTickOperator.html#1798" class="Bound"
+      >P</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" href="addTickOperator.html#1807" class="Bound"
+      >y</a
+      ><a name="1818"
+      >
+  </a
+      ><a name="1821" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" class="Symbol"
+      >(</a
+      ><a name="1827" href="addTickOperator.html#1330" class="Function"
+      >addTick+</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" href="addTickOperator.html#1836" class="Bound"
+      >c</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="addTickOperator.html#1838" class="Bound"
+      >f</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="addTickOperator.html#1840" class="Bound"
+      >P</a
+      ><a name="1841" class="Symbol"
+      >)</a
+      ><a name="1842"
+      >          </a
+      ><a name="1852" class="Symbol"
+      >=</a
+      ><a name="1853"
+      > </a
+      ><a name="1854" href="addTickOperator.html#544" class="Function"
+      >addTickStr</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="addTickOperator.html#1836" class="Bound"
+      >c</a
+      ><a name="1866"
+      > </a
+      ><a name="1867" href="addTickOperator.html#1838" class="Bound"
+      >f</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" class="Symbol"
+      >(</a
+      ><a name="1870" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1874"
+      > </a
+      ><a name="1875" href="addTickOperator.html#1840" class="Bound"
+      >P</a
+      ><a name="1876" class="Symbol"
+      >)</a
+      ><a name="1877"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

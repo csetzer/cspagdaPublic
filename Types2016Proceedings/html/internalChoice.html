@@ -1,0 +1,2382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >internalChoice</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="internalChoice.html#1" class="Module"
+      >internalChoice</a
+      ><a name="22"
+      > </a
+      ><a name="23" class="Keyword"
+      >where</a
+      ><a name="28"
+      > 
+
+
+</a
+      ><a name="32" class="Keyword"
+      >open</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >import</a
+      ><a name="43"
+      > </a
+      ><a name="44" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="55"
+      > </a
+      ><a name="56" class="Keyword"
+      >renaming</a
+      ><a name="64"
+      >  </a
+      ><a name="66" class="Symbol"
+      >(</a
+      ><a name="67" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="71"
+      > </a
+      ><a name="72" class="Symbol"
+      >to</a
+      ><a name="74"
+      > </a
+      ><a name="75" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="83" class="Symbol"
+      >;</a
+      ><a name="84"
+      > </a
+      ><a name="85" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="89"
+      > </a
+      ><a name="90" class="Symbol"
+      >to</a
+      ><a name="92"
+      > </a
+      ><a name="93" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="98" class="Symbol"
+      >)</a
+      ><a name="99"
+      >
+</a
+      ><a name="100" class="Keyword"
+      >open</a
+      ><a name="104"
+      > </a
+      ><a name="105" class="Keyword"
+      >import</a
+      ><a name="111"
+      > </a
+      ><a name="112" href="Data.List.Base.html#1" class="Module"
+      >Data.List.Base</a
+      ><a name="126"
+      > </a
+      ><a name="127" class="Keyword"
+      >renaming</a
+      ><a name="135"
+      > </a
+      ><a name="136" class="Symbol"
+      >(</a
+      ><a name="137" href="Data.List.Base.html#1207" class="Function"
+      >map</a
+      ><a name="140"
+      > </a
+      ><a name="141" class="Symbol"
+      >to</a
+      ><a name="143"
+      > </a
+      ><a name="144" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="148" class="Symbol"
+      >)</a
+      ><a name="149"
+      >
+</a
+      ><a name="150" class="Keyword"
+      >open</a
+      ><a name="154"
+      > </a
+      ><a name="155" class="Keyword"
+      >import</a
+      ><a name="161"
+      > </a
+      ><a name="162" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="170"
+      >
+</a
+      ><a name="171" class="Keyword"
+      >open</a
+      ><a name="175"
+      > </a
+      ><a name="176" class="Keyword"
+      >import</a
+      ><a name="182"
+      > </a
+      ><a name="183" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="187"
+      >
+</a
+      ><a name="188" class="Keyword"
+      >open</a
+      ><a name="192"
+      > </a
+      ><a name="193" class="Keyword"
+      >import</a
+      ><a name="199"
+      > </a
+      ><a name="200" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="210"
+      >
+</a
+      ><a name="211" class="Keyword"
+      >open</a
+      ><a name="215"
+      > </a
+      ><a name="216" class="Keyword"
+      >import</a
+      ><a name="222"
+      > </a
+      ><a name="223" href="process.html#1" class="Module"
+      >process</a
+      ><a name="230"
+      >
+</a
+      ><a name="231" class="Keyword"
+      >open</a
+      ><a name="235"
+      > </a
+      ><a name="236" class="Keyword"
+      >import</a
+      ><a name="242"
+      > </a
+      ><a name="243" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="255"
+      >
+</a
+      ><a name="256" class="Keyword"
+      >open</a
+      ><a name="260"
+      > </a
+      ><a name="261" class="Keyword"
+      >import</a
+      ><a name="267"
+      > </a
+      ><a name="268" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="283"
+      >
+</a
+      ><a name="284" class="Keyword"
+      >open</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="process.html#445" class="Module"
+      >Process+</a
+      ><a name="297"
+      >
+</a
+      ><a name="298" class="Keyword"
+      >open</a
+      ><a name="302"
+      > </a
+      ><a name="303" href="process.html#151" class="Module"
+      >Process&#8734;</a
+      ><a name="311"
+      >
+
+
+</a
+      ><a name="314" href="internalChoice.html#314" class="Function"
+      >bool</a
+      ><a name="318"
+      > </a
+      ><a name="319" class="Symbol"
+      >:</a
+      ><a name="320"
+      > </a
+      ><a name="321" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="327"
+      >
+</a
+      ><a name="328" href="internalChoice.html#314" class="Function"
+      >bool</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Symbol"
+      >=</a
+      ><a name="334"
+      > </a
+      ><a name="335" href="choiceSetU.html#665" class="InductiveConstructor"
+      >fin</a
+      ><a name="338"
+      > </a
+      ><a name="339" class="Number"
+      >2</a
+      ><a name="340"
+      >  
+
+</a
+      ><a name="344" href="internalChoice.html#344" class="Function Operator"
+      >if_then_else</a
+      ><a name="356"
+      > </a
+      ><a name="357" class="Symbol"
+      >:</a
+      ><a name="358"
+      > </a
+      ><a name="359" class="Symbol"
+      >{</a
+      ><a name="360" href="internalChoice.html#360" class="Bound"
+      >A</a
+      ><a name="361"
+      > </a
+      ><a name="362" class="Symbol"
+      >:</a
+      ><a name="363"
+      > </a
+      ><a name="364" class="PrimitiveType"
+      >Set</a
+      ><a name="367" class="Symbol"
+      >}</a
+      ><a name="368"
+      > </a
+      ><a name="369" class="Symbol"
+      >&#8594;</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="380"
+      > </a
+      ><a name="381" href="internalChoice.html#314" class="Function"
+      >bool</a
+      ><a name="385"
+      > </a
+      ><a name="386" class="Symbol"
+      >&#8594;</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="internalChoice.html#360" class="Bound"
+      >A</a
+      ><a name="389"
+      > </a
+      ><a name="390" class="Symbol"
+      >&#8594;</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="internalChoice.html#360" class="Bound"
+      >A</a
+      ><a name="393"
+      > </a
+      ><a name="394" class="Symbol"
+      >&#8594;</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="internalChoice.html#360" class="Bound"
+      >A</a
+      ><a name="397"
+      >
+</a
+      ><a name="398" href="internalChoice.html#344" class="Function Operator"
+      >if</a
+      ><a name="400"
+      > </a
+      ><a name="401" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="internalChoice.html#344" class="Function Operator"
+      >then</a
+      ><a name="410"
+      > </a
+      ><a name="411" href="internalChoice.html#411" class="Bound"
+      >a</a
+      ><a name="412"
+      > </a
+      ><a name="413" href="internalChoice.html#344" class="Function Operator"
+      >else</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="internalChoice.html#418" class="Bound"
+      >b</a
+      ><a name="419"
+      > </a
+      ><a name="420" class="Symbol"
+      >=</a
+      ><a name="421"
+      > </a
+      ><a name="422" href="internalChoice.html#411" class="Bound"
+      >a</a
+      ><a name="423"
+      >
+</a
+      ><a name="424" href="internalChoice.html#344" class="Function Operator"
+      >if</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >(</a
+      ><a name="428" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="431"
+      > </a
+      ><a name="432" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="436" class="Symbol"
+      >)</a
+      ><a name="437"
+      > </a
+      ><a name="438" href="internalChoice.html#344" class="Function Operator"
+      >then</a
+      ><a name="442"
+      > </a
+      ><a name="443" href="internalChoice.html#443" class="Bound"
+      >a</a
+      ><a name="444"
+      > </a
+      ><a name="445" href="internalChoice.html#344" class="Function Operator"
+      >else</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="internalChoice.html#450" class="Bound"
+      >b</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >=</a
+      ><a name="453"
+      > </a
+      ><a name="454" href="internalChoice.html#450" class="Bound"
+      >b</a
+      ><a name="455"
+      >
+</a
+      ><a name="456" href="internalChoice.html#344" class="Function Operator"
+      >if</a
+      ><a name="458"
+      > </a
+      ><a name="459" class="Symbol"
+      >(</a
+      ><a name="460" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Symbol"
+      >(</a
+      ><a name="465" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="468"
+      > </a
+      ><a name="469" class="Symbol"
+      >()))</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="internalChoice.html#344" class="Function Operator"
+      >then</a
+      ><a name="478"
+      > </a
+      ><a name="479" href="internalChoice.html#479" class="Bound"
+      >a</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="internalChoice.html#344" class="Function Operator"
+      >else</a
+      ><a name="485"
+      > </a
+      ><a name="486" href="internalChoice.html#486" class="Bound"
+      >b</a
+      ><a name="487"
+      >
+
+</a
+      ><a name="489" href="internalChoice.html#489" class="Function Operator"
+      >_&#8851;Str_</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Symbol"
+      >:</a
+      ><a name="497"
+      > </a
+      ><a name="498" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="504"
+      > </a
+      ><a name="505" class="Symbol"
+      >&#8594;</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="Symbol"
+      >&#8594;</a
+      ><a name="515"
+      > </a
+      ><a name="516" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="522"
+      >
+</a
+      ><a name="523" href="internalChoice.html#523" class="Bound"
+      >s</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="internalChoice.html#489" class="Function Operator"
+      >&#8851;Str</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="internalChoice.html#530" class="Bound"
+      >s'</a
+      ><a name="532"
+      > </a
+      ><a name="533" class="Symbol"
+      >=</a
+      ><a name="534"
+      >  </a
+      ><a name="536" class="String"
+      >&quot;(&quot;</a
+      ><a name="539"
+      > </a
+      ><a name="540" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="internalChoice.html#523" class="Bound"
+      >s</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="549"
+      > </a
+      ><a name="550" class="String"
+      >&quot; &#8851; &quot;</a
+      ><a name="555"
+      > </a
+      ><a name="556" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="internalChoice.html#530" class="Bound"
+      >s'</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="566"
+      > </a
+      ><a name="567" class="String"
+      >&quot;)&quot;</a
+      ><a name="570"
+      >
+
+
+
+</a
+      ><a name="574" href="internalChoice.html#574" class="Function Operator"
+      >_&#8851;+_</a
+      ><a name="578"
+      > </a
+      ><a name="579" class="Symbol"
+      >:</a
+      ><a name="580"
+      > </a
+      ><a name="581" class="Symbol"
+      >{</a
+      ><a name="582" href="internalChoice.html#582" class="Bound"
+      >i</a
+      ><a name="583"
+      > </a
+      ><a name="584" class="Symbol"
+      >:</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="590" class="Symbol"
+      >}</a
+      ><a name="591"
+      > </a
+      ><a name="592" class="Symbol"
+      >&#8594;</a
+      ><a name="593"
+      > </a
+      ><a name="594" class="Symbol"
+      >{</a
+      ><a name="595" href="internalChoice.html#595" class="Bound"
+      >c</a
+      ><a name="596"
+      > </a
+      ><a name="597" class="Symbol"
+      >:</a
+      ><a name="598"
+      > </a
+      ><a name="599" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="605" class="Symbol"
+      >}</a
+      ><a name="606"
+      > </a
+      ><a name="607" class="Symbol"
+      >&#8594;</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="internalChoice.html#582" class="Bound"
+      >i</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="internalChoice.html#595" class="Bound"
+      >c</a
+      ><a name="621"
+      >
+       </a
+      ><a name="629" class="Symbol"
+      >&#8594;</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="internalChoice.html#582" class="Bound"
+      >i</a
+      ><a name="641"
+      > </a
+      ><a name="642" href="internalChoice.html#595" class="Bound"
+      >c</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >&#8594;</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="internalChoice.html#582" class="Bound"
+      >i</a
+      ><a name="656"
+      > </a
+      ><a name="657" href="internalChoice.html#595" class="Bound"
+      >c</a
+      ><a name="658"
+      >
+</a
+      ><a name="659" href="internalChoice.html#659" class="Bound"
+      >P</a
+      ><a name="660"
+      > </a
+      ><a name="661" href="internalChoice.html#574" class="Function Operator"
+      >&#8851;+</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="internalChoice.html#664" class="Bound"
+      >Q</a
+      ><a name="665"
+      > </a
+      ><a name="666" class="Symbol"
+      >=</a
+      ><a name="667"
+      > </a
+      ><a name="668" href="process.html#506" class="CoinductiveConstructor"
+      >process+</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="679"
+      > </a
+      ><a name="680" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="internalChoice.html#314" class="Function"
+      >bool</a
+      ><a name="692"
+      > </a
+      ><a name="693" class="Symbol"
+      >(&#955;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="internalChoice.html#696" class="Bound"
+      >b</a
+      ><a name="697"
+      > </a
+      ><a name="698" class="Symbol"
+      >&#8594;</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="internalChoice.html#344" class="Function Operator"
+      >if</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="internalChoice.html#696" class="Bound"
+      >b</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="internalChoice.html#344" class="Function Operator"
+      >then</a
+      ><a name="709"
+      > </a
+      ><a name="710" href="internalChoice.html#659" class="Bound"
+      >P</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="internalChoice.html#344" class="Function Operator"
+      >else</a
+      ><a name="716"
+      > </a
+      ><a name="717" href="internalChoice.html#664" class="Bound"
+      >Q</a
+      ><a name="718" class="Symbol"
+      >)</a
+      ><a name="719"
+      > </a
+      ><a name="720" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="726"
+      >
+           </a
+      ><a name="738" class="Symbol"
+      >(</a
+      ><a name="739" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="internalChoice.html#659" class="Bound"
+      >P</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="internalChoice.html#489" class="Function Operator"
+      >&#8851;Str</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="internalChoice.html#664" class="Bound"
+      >Q</a
+      ><a name="757" class="Symbol"
+      >)</a
+      ><a name="758"
+      >
+
+
+</a
+      ><a name="761" href="internalChoice.html#761" class="Function Operator"
+      >_&#8851;+'_</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >:</a
+      ><a name="768"
+      > </a
+      ><a name="769" class="Symbol"
+      >{</a
+      ><a name="770" href="internalChoice.html#770" class="Bound"
+      >i</a
+      ><a name="771"
+      > </a
+      ><a name="772" class="Symbol"
+      >:</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="778" class="Symbol"
+      >}</a
+      ><a name="779"
+      > </a
+      ><a name="780" class="Symbol"
+      >&#8594;</a
+      ><a name="781"
+      > </a
+      ><a name="782" class="Symbol"
+      >{</a
+      ><a name="783" href="internalChoice.html#783" class="Bound"
+      >c</a
+      ><a name="784"
+      > </a
+      ><a name="785" class="Symbol"
+      >:</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="793" class="Symbol"
+      >}</a
+      ><a name="794"
+      > </a
+      ><a name="795" class="Symbol"
+      >&#8594;</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="805"
+      > </a
+      ><a name="806" href="internalChoice.html#770" class="Bound"
+      >i</a
+      ><a name="807"
+      > </a
+      ><a name="808" href="internalChoice.html#783" class="Bound"
+      >c</a
+      ><a name="809"
+      > 
+      </a
+      ><a name="817" class="Symbol"
+      >&#8594;</a
+      ><a name="818"
+      > </a
+      ><a name="819" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="internalChoice.html#770" class="Bound"
+      >i</a
+      ><a name="829"
+      > </a
+      ><a name="830" href="internalChoice.html#783" class="Bound"
+      >c</a
+      ><a name="831"
+      > </a
+      ><a name="832" class="Symbol"
+      >&#8594;</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="842"
+      > </a
+      ><a name="843" href="internalChoice.html#770" class="Bound"
+      >i</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="internalChoice.html#783" class="Bound"
+      >c</a
+      ><a name="846"
+      >
+</a
+      ><a name="847" href="process.html#547" class="Field"
+      >E</a
+      ><a name="848"
+      >    </a
+      ><a name="852" class="Symbol"
+      >(</a
+      ><a name="853" href="internalChoice.html#853" class="Bound"
+      >P</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="internalChoice.html#859" class="Bound"
+      >Q</a
+      ><a name="860" class="Symbol"
+      >)</a
+      ><a name="861"
+      >              </a
+      ><a name="875" class="Symbol"
+      >=</a
+      ><a name="876"
+      > </a
+      ><a name="877" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="879"
+      >
+</a
+      ><a name="880" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="883"
+      >  </a
+      ><a name="885" class="Symbol"
+      >(</a
+      ><a name="886" href="internalChoice.html#886" class="Bound"
+      >P</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="internalChoice.html#892" class="Bound"
+      >Q</a
+      ><a name="893" class="Symbol"
+      >)</a
+      ><a name="894"
+      > </a
+      ><a name="895" class="Symbol"
+      >()</a
+      ><a name="897"
+      >  
+</a
+      ><a name="900" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="902"
+      >   </a
+      ><a name="905" class="Symbol"
+      >(</a
+      ><a name="906" href="internalChoice.html#906" class="Bound"
+      >P</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="internalChoice.html#912" class="Bound"
+      >Q</a
+      ><a name="913" class="Symbol"
+      >)</a
+      ><a name="914"
+      > </a
+      ><a name="915" class="Symbol"
+      >()</a
+      ><a name="917"
+      > 
+</a
+      ><a name="919" href="process.html#654" class="Field"
+      >I</a
+      ><a name="920"
+      >    </a
+      ><a name="924" class="Symbol"
+      >(</a
+      ><a name="925" href="internalChoice.html#925" class="Bound"
+      >P</a
+      ><a name="926"
+      > </a
+      ><a name="927" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="930"
+      > </a
+      ><a name="931" href="internalChoice.html#931" class="Bound"
+      >Q</a
+      ><a name="932" class="Symbol"
+      >)</a
+      ><a name="933"
+      >              </a
+      ><a name="947" class="Symbol"
+      >=</a
+      ><a name="948"
+      > </a
+      ><a name="949" href="choiceSetU.html#665" class="InductiveConstructor"
+      >fin</a
+      ><a name="952"
+      > </a
+      ><a name="953" class="Number"
+      >2</a
+      ><a name="954"
+      >
+</a
+      ><a name="955" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="957"
+      >   </a
+      ><a name="960" class="Symbol"
+      >(</a
+      ><a name="961" href="internalChoice.html#961" class="Bound"
+      >P</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="966"
+      > </a
+      ><a name="967" href="internalChoice.html#967" class="Bound"
+      >Q</a
+      ><a name="968" class="Symbol"
+      >)</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="974"
+      >         </a
+      ><a name="983" class="Symbol"
+      >=</a
+      ><a name="984"
+      > </a
+      ><a name="985" href="internalChoice.html#961" class="Bound"
+      >P</a
+      ><a name="986"
+      >
+</a
+      ><a name="987" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="989"
+      >   </a
+      ><a name="992" class="Symbol"
+      >(</a
+      ><a name="993" href="internalChoice.html#993" class="Bound"
+      >P</a
+      ><a name="994"
+      > </a
+      ><a name="995" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="998"
+      > </a
+      ><a name="999" href="internalChoice.html#999" class="Bound"
+      >Q</a
+      ><a name="1000" class="Symbol"
+      >)</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Symbol"
+      >(</a
+      ><a name="1003" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1011" class="Symbol"
+      >)</a
+      ><a name="1012"
+      >   </a
+      ><a name="1015" class="Symbol"
+      >=</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="internalChoice.html#999" class="Bound"
+      >Q</a
+      ><a name="1018"
+      >
+</a
+      ><a name="1019" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="1021"
+      >   </a
+      ><a name="1024" class="Symbol"
+      >(</a
+      ><a name="1025" href="internalChoice.html#1025" class="Bound"
+      >P</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="internalChoice.html#1031" class="Bound"
+      >Q</a
+      ><a name="1032" class="Symbol"
+      >)</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" class="Symbol"
+      >(</a
+      ><a name="1035" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" class="Symbol"
+      >(</a
+      ><a name="1040" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" class="Symbol"
+      >()))</a
+      ><a name="1048"
+      > 
+</a
+      ><a name="1050" href="process.html#723" class="Field"
+      >T</a
+      ><a name="1051"
+      >    </a
+      ><a name="1055" class="Symbol"
+      >(</a
+      ><a name="1056" href="internalChoice.html#1056" class="Bound"
+      >P</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" href="internalChoice.html#1062" class="Bound"
+      >Q</a
+      ><a name="1063" class="Symbol"
+      >)</a
+      ><a name="1064"
+      >              </a
+      ><a name="1078" class="Symbol"
+      >=</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="1082"
+      >
+</a
+      ><a name="1083" href="process.html#745" class="Field"
+      >PT</a
+      ><a name="1085"
+      >   </a
+      ><a name="1088" class="Symbol"
+      >(</a
+      ><a name="1089" href="internalChoice.html#1089" class="Bound"
+      >P</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" href="internalChoice.html#1095" class="Bound"
+      >Q</a
+      ><a name="1096" class="Symbol"
+      >)</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" class="Symbol"
+      >()</a
+      ><a name="1100"
+      > 
+</a
+      ><a name="1102" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" class="Symbol"
+      >(</a
+      ><a name="1108" href="internalChoice.html#1108" class="Bound"
+      >P</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" href="internalChoice.html#761" class="Function Operator"
+      >&#8851;+'</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="internalChoice.html#1114" class="Bound"
+      >Q</a
+      ><a name="1115" class="Symbol"
+      >)</a
+      ><a name="1116"
+      >              </a
+      ><a name="1130" class="Symbol"
+      >=</a
+      ><a name="1131"
+      > </a
+      ><a name="1132" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" href="internalChoice.html#1108" class="Bound"
+      >P</a
+      ><a name="1138"
+      >  </a
+      ><a name="1140" href="internalChoice.html#489" class="Function Operator"
+      >&#8851;Str</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="internalChoice.html#1114" class="Bound"
+      >Q</a
+      ><a name="1151"
+      >
+
+
+</a
+      ><a name="1154" class="Comment"
+      >{-
+_&#8851;++_ : {i : Size} &#8594; {c : Choice} &#8594; Process+ i c 
+      &#8594; Process+ i c &#8594; Process+ i c
+E    (P &#8851;++ Q)              = &#8709;'
+Lab  (P &#8851;++ Q) ()  
+PE   (P &#8851;++ Q) () 
+I    (P &#8851;++ Q)              = fin 2
+PI   (P &#8851;++ Q) zero         = {!P!}
+PI   (P &#8851;++ Q) (suc zero)   = PI Q {!1!} -- Q
+PI   (P &#8851;++ Q) (suc (suc ())) 
+T    (P &#8851;++ Q)              = &#8709;'
+PT   (P &#8851;++ Q) () 
+Str+ (P &#8851;++ Q)              = Str+ P  &#8851;Str Str+ Q
+-}</a
+      ><a name="1568"
+      >
+
+
+
+</a
+      ><a name="1572" href="internalChoice.html#1572" class="Function Operator"
+      >_&#8851;_</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" class="Symbol"
+      >:</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" class="Symbol"
+      >{</a
+      ><a name="1579" href="internalChoice.html#1579" class="Bound"
+      >i</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" class="Symbol"
+      >:</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1587" class="Symbol"
+      >}</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" class="Symbol"
+      >&#8594;</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" class="Symbol"
+      >{</a
+      ><a name="1592" href="internalChoice.html#1592" class="Bound"
+      >c</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" class="Symbol"
+      >:</a
+      ><a name="1595"
+      > </a
+      ><a name="1596" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1602" class="Symbol"
+      >}</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" class="Symbol"
+      >&#8594;</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="internalChoice.html#1579" class="Bound"
+      >i</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" href="internalChoice.html#1592" class="Bound"
+      >c</a
+      ><a name="1618"
+      >
+      </a
+      ><a name="1625" class="Symbol"
+      >&#8594;</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="internalChoice.html#1579" class="Bound"
+      >i</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="internalChoice.html#1592" class="Bound"
+      >c</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" class="Symbol"
+      >&#8594;</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" href="internalChoice.html#1579" class="Bound"
+      >i</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" href="internalChoice.html#1592" class="Bound"
+      >c</a
+      ><a name="1653"
+      > 
+</a
+      ><a name="1655" href="internalChoice.html#1655" class="Bound"
+      >P</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" href="internalChoice.html#1572" class="Function Operator"
+      >&#8851;</a
+      ><a name="1658"
+      >  </a
+      ><a name="1660" href="internalChoice.html#1660" class="Bound"
+      >Q</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" class="Symbol"
+      >=</a
+      ><a name="1663"
+      > </a
+      ><a name="1664" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" class="Symbol"
+      >(</a
+      ><a name="1670" href="internalChoice.html#1655" class="Bound"
+      >P</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" href="internalChoice.html#574" class="Function Operator"
+      >&#8851;+</a
+      ><a name="1674"
+      >  </a
+      ><a name="1676" href="internalChoice.html#1660" class="Bound"
+      >Q</a
+      ><a name="1677" class="Symbol"
+      >)</a
+      ><a name="1678"
+      >
+
+</a
+      ><a name="1680" href="internalChoice.html#1680" class="Function Operator"
+      >_&#8851;&#8734;_</a
+      ><a name="1684"
+      > </a
+      ><a name="1685" class="Symbol"
+      >:</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" class="Symbol"
+      >{</a
+      ><a name="1688" href="internalChoice.html#1688" class="Bound"
+      >i</a
+      ><a name="1689"
+      > </a
+      ><a name="1690" class="Symbol"
+      >:</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1696" class="Symbol"
+      >}</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" class="Symbol"
+      >&#8594;</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" class="Symbol"
+      >{</a
+      ><a name="1701" href="internalChoice.html#1701" class="Bound"
+      >c</a
+      ><a name="1702"
+      > </a
+      ><a name="1703" class="Symbol"
+      >:</a
+      ><a name="1704"
+      > </a
+      ><a name="1705" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1711" class="Symbol"
+      >}</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >&#8594;</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="internalChoice.html#1688" class="Bound"
+      >i</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="internalChoice.html#1701" class="Bound"
+      >c</a
+      ><a name="1727"
+      >
+       </a
+      ><a name="1735" class="Symbol"
+      >&#8594;</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" href="internalChoice.html#1688" class="Bound"
+      >i</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="internalChoice.html#1701" class="Bound"
+      >c</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" class="Symbol"
+      >&#8594;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" class="Symbol"
+      >(</a
+      ><a name="1762" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" href="internalChoice.html#1688" class="Bound"
+      >i</a
+      ><a name="1765" class="Symbol"
+      >)</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" href="internalChoice.html#1701" class="Bound"
+      >c</a
+      ><a name="1768"
+      > 
+</a
+      ><a name="1770" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="1776"
+      > </a
+      ><a name="1777" class="Symbol"
+      >(</a
+      ><a name="1778" href="internalChoice.html#1778" class="Bound"
+      >P</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="internalChoice.html#1680" class="Function Operator"
+      >&#8851;&#8734;</a
+      ><a name="1782"
+      >  </a
+      ><a name="1784" href="internalChoice.html#1784" class="Bound"
+      >Q</a
+      ><a name="1785" class="Symbol"
+      >)</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" class="Symbol"
+      >{</a
+      ><a name="1788" href="internalChoice.html#1788" class="Bound"
+      >j</a
+      ><a name="1789" class="Symbol"
+      >}</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" class="Symbol"
+      >=</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="internalChoice.html#1778" class="Bound"
+      >P</a
+      ><a name="1794"
+      >  </a
+      ><a name="1796" href="internalChoice.html#1572" class="Function Operator"
+      >&#8851;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="internalChoice.html#1784" class="Bound"
+      >Q</a
+      ><a name="1799"
+      > 
+</a
+      ><a name="1801" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1805"
+      >   </a
+      ><a name="1808" class="Symbol"
+      >(</a
+      ><a name="1809" href="internalChoice.html#1809" class="Bound"
+      >P</a
+      ><a name="1810"
+      > </a
+      ><a name="1811" href="internalChoice.html#1680" class="Function Operator"
+      >&#8851;&#8734;</a
+      ><a name="1813"
+      >  </a
+      ><a name="1815" href="internalChoice.html#1815" class="Bound"
+      >Q</a
+      ><a name="1816" class="Symbol"
+      >)</a
+      ><a name="1817"
+      >   </a
+      ><a name="1820" class="Symbol"
+      >=</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" class="Symbol"
+      >(</a
+      ><a name="1823" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" href="internalChoice.html#1809" class="Bound"
+      >P</a
+      ><a name="1829" class="Symbol"
+      >)</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" href="internalChoice.html#489" class="Function Operator"
+      >&#8851;Str</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" class="Symbol"
+      >(</a
+      ><a name="1837" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1841"
+      >  </a
+      ><a name="1843" href="internalChoice.html#1815" class="Bound"
+      >Q</a
+      ><a name="1844" class="Symbol"
+      >)</a
+      ><a name="1845"
+      >
+
+
+
+
+</a
+      ><a name="1850" class="Keyword"
+      >mutual</a
+      ><a name="1856"
+      >
+  </a
+      ><a name="1859" href="internalChoice.html#1859" class="Function"
+      >IntChoiceStr</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" class="Symbol"
+      >:</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" class="Symbol"
+      >{</a
+      ><a name="1875" href="internalChoice.html#1875" class="Bound"
+      >c</a
+      ><a name="1876"
+      > </a
+      ><a name="1877" class="Symbol"
+      >:</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1885" class="Symbol"
+      >}</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" class="Symbol"
+      >&#8594;</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" class="Symbol"
+      >(</a
+      ><a name="1890" href="internalChoice.html#1890" class="Bound"
+      >f</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" class="Symbol"
+      >:</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" href="internalChoice.html#1875" class="Bound"
+      >c</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" class="Symbol"
+      >&#8594;</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1914" class="Symbol"
+      >)</a
+      ><a name="1915"
+      >  </a
+      ><a name="1917" class="Symbol"
+      >&#8594;</a
+      ><a name="1918"
+      > </a
+      ><a name="1919" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1925"
+      >
+  </a
+      ><a name="1928" href="internalChoice.html#1859" class="Function"
+      >IntChoiceStr</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" href="internalChoice.html#1941" class="Bound"
+      >f</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" class="Symbol"
+      >=</a
+      ><a name="1944"
+      >  </a
+      ><a name="1946" class="String"
+      >&quot; \t &#8851; \t &quot;</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="showFunction.html#3427" class="Function"
+      >choice2Str2Str</a
+      ><a name="1976"
+      > </a
+      ><a name="1977" href="internalChoice.html#1941" class="Bound"
+      >f</a
+      ><a name="1978"
+      >  
+
+  </a
+      ><a name="1984" href="internalChoice.html#1984" class="Function"
+      >IntChoice&#8734;</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" class="Symbol"
+      >:</a
+      ><a name="1996"
+      > </a
+      ><a name="1997" class="Symbol"
+      >(</a
+      ><a name="1998" href="internalChoice.html#1998" class="Bound"
+      >i</a
+      ><a name="1999"
+      > </a
+      ><a name="2000" class="Symbol"
+      >:</a
+      ><a name="2001"
+      > </a
+      ><a name="2002" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="2006" class="Symbol"
+      >)</a
+      ><a name="2007"
+      > </a
+      ><a name="2008" class="Symbol"
+      >&#8594;</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" class="Symbol"
+      >{</a
+      ><a name="2011" href="internalChoice.html#2011" class="Bound"
+      >c&#8320;</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" class="Symbol"
+      >:</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2022" class="Symbol"
+      >}</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" class="Symbol"
+      >&#8594;</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" class="Symbol"
+      >(</a
+      ><a name="2027" href="internalChoice.html#2027" class="Bound"
+      >c</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" class="Symbol"
+      >:</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2037" class="Symbol"
+      >)</a
+      ><a name="2038"
+      > 
+          </a
+      ><a name="2050" class="Symbol"
+      >&#8594;</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" class="Symbol"
+      >(</a
+      ><a name="2053" href="internalChoice.html#2053" class="Bound"
+      >PI</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" class="Symbol"
+      >:</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2067"
+      > </a
+      ><a name="2068" href="internalChoice.html#2027" class="Bound"
+      >c</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" class="Symbol"
+      >&#8594;</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" href="internalChoice.html#1998" class="Bound"
+      >i</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" href="internalChoice.html#2011" class="Bound"
+      >c&#8320;</a
+      ><a name="2085" class="Symbol"
+      >)</a
+      ><a name="2086"
+      > 
+          </a
+      ><a name="2098" class="Symbol"
+      >&#8594;</a
+      ><a name="2099"
+      > </a
+      ><a name="2100" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" class="Symbol"
+      >(</a
+      ><a name="2110" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" href="internalChoice.html#1998" class="Bound"
+      >i</a
+      ><a name="2113" class="Symbol"
+      >)</a
+      ><a name="2114"
+      > </a
+      ><a name="2115" href="internalChoice.html#2011" class="Bound"
+      >c&#8320;</a
+      ><a name="2117"
+      >  
+  </a
+      ><a name="2122" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="2128"
+      > </a
+      ><a name="2129" class="Symbol"
+      >(</a
+      ><a name="2130" href="internalChoice.html#1984" class="Function"
+      >IntChoice&#8734;</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" href="internalChoice.html#2141" class="Bound"
+      >i</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" href="internalChoice.html#2143" class="Bound"
+      >c</a
+      ><a name="2144"
+      > </a
+      ><a name="2145" href="internalChoice.html#2145" class="Bound"
+      >PI</a
+      ><a name="2147" class="Symbol"
+      >)</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" class="Symbol"
+      >{</a
+      ><a name="2150" href="internalChoice.html#2150" class="Bound"
+      >j</a
+      ><a name="2151" class="Symbol"
+      >}</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" class="Symbol"
+      >=</a
+      ><a name="2154"
+      > </a
+      ><a name="2155" href="internalChoice.html#2233" class="Function"
+      >IntChoice</a
+      ><a name="2164"
+      > </a
+      ><a name="2165" href="internalChoice.html#2150" class="Bound"
+      >j</a
+      ><a name="2166"
+      > </a
+      ><a name="2167" href="internalChoice.html#2143" class="Bound"
+      >c</a
+      ><a name="2168"
+      > </a
+      ><a name="2169" href="internalChoice.html#2145" class="Bound"
+      >PI</a
+      ><a name="2171"
+      >
+  </a
+      ><a name="2174" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="2178"
+      >   </a
+      ><a name="2181" class="Symbol"
+      >(</a
+      ><a name="2182" href="internalChoice.html#1984" class="Function"
+      >IntChoice&#8734;</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="internalChoice.html#2193" class="Bound"
+      >i</a
+      ><a name="2194"
+      > </a
+      ><a name="2195" href="internalChoice.html#2195" class="Bound"
+      >c</a
+      ><a name="2196"
+      > </a
+      ><a name="2197" href="internalChoice.html#2197" class="Bound"
+      >PI</a
+      ><a name="2199" class="Symbol"
+      >)</a
+      ><a name="2200"
+      >   </a
+      ><a name="2203" class="Symbol"
+      >=</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="internalChoice.html#1859" class="Function"
+      >IntChoiceStr</a
+      ><a name="2217"
+      > </a
+      ><a name="2218" class="Symbol"
+      >(</a
+      ><a name="2219" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="2223"
+      > </a
+      ><a name="2224" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="2225"
+      > </a
+      ><a name="2226" href="internalChoice.html#2197" class="Bound"
+      >PI</a
+      ><a name="2228" class="Symbol"
+      >)</a
+      ><a name="2229"
+      >
+
+  </a
+      ><a name="2233" href="internalChoice.html#2233" class="Function"
+      >IntChoice</a
+      ><a name="2242"
+      > </a
+      ><a name="2243" class="Symbol"
+      >:</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" class="Symbol"
+      >(</a
+      ><a name="2246" href="internalChoice.html#2246" class="Bound"
+      >i</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" class="Symbol"
+      >:</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="2254" class="Symbol"
+      >)</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" class="Symbol"
+      >&#8594;</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" class="Symbol"
+      >{</a
+      ><a name="2259" href="internalChoice.html#2259" class="Bound"
+      >c&#8320;</a
+      ><a name="2261"
+      > </a
+      ><a name="2262" class="Symbol"
+      >:</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2270" class="Symbol"
+      >}</a
+      ><a name="2271"
+      > </a
+      ><a name="2272" class="Symbol"
+      >&#8594;</a
+      ><a name="2273"
+      > </a
+      ><a name="2274" class="Symbol"
+      >(</a
+      ><a name="2275" href="internalChoice.html#2275" class="Bound"
+      >c</a
+      ><a name="2276"
+      > </a
+      ><a name="2277" class="Symbol"
+      >:</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2285" class="Symbol"
+      >)</a
+      ><a name="2286"
+      > 
+          </a
+      ><a name="2298" class="Symbol"
+      >&#8594;</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" class="Symbol"
+      >(</a
+      ><a name="2301" href="internalChoice.html#2301" class="Bound"
+      >PI</a
+      ><a name="2303"
+      > </a
+      ><a name="2304" class="Symbol"
+      >:</a
+      ><a name="2305"
+      > </a
+      ><a name="2306" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" href="internalChoice.html#2275" class="Bound"
+      >c</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" class="Symbol"
+      >&#8594;</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="internalChoice.html#2246" class="Bound"
+      >i</a
+      ><a name="2330"
+      > </a
+      ><a name="2331" href="internalChoice.html#2259" class="Bound"
+      >c&#8320;</a
+      ><a name="2333" class="Symbol"
+      >)</a
+      ><a name="2334"
+      >
+          </a
+      ><a name="2345" class="Symbol"
+      >&#8594;</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="2354"
+      > </a
+      ><a name="2355" href="internalChoice.html#2246" class="Bound"
+      >i</a
+      ><a name="2356"
+      > </a
+      ><a name="2357" href="internalChoice.html#2259" class="Bound"
+      >c&#8320;</a
+      ><a name="2359"
+      >  
+  </a
+      ><a name="2364" href="internalChoice.html#2233" class="Function"
+      >IntChoice</a
+      ><a name="2373"
+      > </a
+      ><a name="2374" href="internalChoice.html#2374" class="Bound"
+      >i</a
+      ><a name="2375"
+      > </a
+      ><a name="2376" href="internalChoice.html#2376" class="Bound"
+      >c</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" href="internalChoice.html#2378" class="Bound"
+      >PI</a
+      ><a name="2380"
+      > </a
+      ><a name="2381" class="Symbol"
+      >=</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" class="Symbol"
+      >(</a
+      ><a name="2389" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="internalChoice.html#2374" class="Bound"
+      >i</a
+      ><a name="2401"
+      > </a
+      ><a name="2402" href="internalChoice.html#2376" class="Bound"
+      >c</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="internalChoice.html#2378" class="Bound"
+      >PI</a
+      ><a name="2406" class="Symbol"
+      >)</a
+      ><a name="2407"
+      >
+
+  </a
+      ><a name="2411" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" class="Symbol"
+      >:</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" class="Symbol"
+      >(</a
+      ><a name="2425" href="internalChoice.html#2425" class="Bound"
+      >i</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" class="Symbol"
+      >:</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="2433" class="Symbol"
+      >)</a
+      ><a name="2434"
+      > </a
+      ><a name="2435" class="Symbol"
+      >&#8594;</a
+      ><a name="2436"
+      > </a
+      ><a name="2437" class="Symbol"
+      >{</a
+      ><a name="2438" href="internalChoice.html#2438" class="Bound"
+      >c&#8320;</a
+      ><a name="2440"
+      > </a
+      ><a name="2441" class="Symbol"
+      >:</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2449" class="Symbol"
+      >}</a
+      ><a name="2450"
+      > </a
+      ><a name="2451" class="Symbol"
+      >&#8594;</a
+      ><a name="2452"
+      > </a
+      ><a name="2453" class="Symbol"
+      >(</a
+      ><a name="2454" href="internalChoice.html#2454" class="Bound"
+      >c</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" class="Symbol"
+      >:</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2464" class="Symbol"
+      >)</a
+      ><a name="2465"
+      > 
+          </a
+      ><a name="2477" class="Symbol"
+      >&#8594;</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" class="Symbol"
+      >(</a
+      ><a name="2480" href="internalChoice.html#2480" class="Bound"
+      >P</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" class="Symbol"
+      >:</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2493"
+      > </a
+      ><a name="2494" href="internalChoice.html#2454" class="Bound"
+      >c</a
+      ><a name="2495"
+      > </a
+      ><a name="2496" class="Symbol"
+      >&#8594;</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="2506"
+      > </a
+      ><a name="2507" href="internalChoice.html#2425" class="Bound"
+      >i</a
+      ><a name="2508"
+      > </a
+      ><a name="2509" href="internalChoice.html#2438" class="Bound"
+      >c&#8320;</a
+      ><a name="2511" class="Symbol"
+      >)</a
+      ><a name="2512"
+      > 
+          </a
+      ><a name="2524" class="Symbol"
+      >&#8594;</a
+      ><a name="2525"
+      > </a
+      ><a name="2526" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="2534"
+      > </a
+      ><a name="2535" href="internalChoice.html#2425" class="Bound"
+      >i</a
+      ><a name="2536"
+      > </a
+      ><a name="2537" href="internalChoice.html#2438" class="Bound"
+      >c&#8320;</a
+      ><a name="2539"
+      >  
+  </a
+      ><a name="2544" href="process.html#547" class="Field"
+      >E</a
+      ><a name="2545"
+      >    </a
+      ><a name="2549" class="Symbol"
+      >(</a
+      ><a name="2550" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" href="internalChoice.html#2561" class="Bound"
+      >i</a
+      ><a name="2562"
+      > </a
+      ><a name="2563" href="internalChoice.html#2563" class="Bound"
+      >c</a
+      ><a name="2564"
+      > </a
+      ><a name="2565" href="internalChoice.html#2565" class="Bound"
+      >P</a
+      ><a name="2566" class="Symbol"
+      >)</a
+      ><a name="2567"
+      >  </a
+      ><a name="2569" class="Symbol"
+      >=</a
+      ><a name="2570"
+      > </a
+      ><a name="2571" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="2573"
+      >
+  </a
+      ><a name="2576" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="2579"
+      >  </a
+      ><a name="2581" class="Symbol"
+      >(</a
+      ><a name="2582" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="internalChoice.html#2593" class="Bound"
+      >i</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" href="internalChoice.html#2595" class="Bound"
+      >c</a
+      ><a name="2596"
+      > </a
+      ><a name="2597" href="internalChoice.html#2597" class="Bound"
+      >P</a
+      ><a name="2598" class="Symbol"
+      >)</a
+      ><a name="2599"
+      >  </a
+      ><a name="2601" class="Symbol"
+      >=</a
+      ><a name="2602"
+      > </a
+      ><a name="2603" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="2606"
+      > 
+  </a
+      ><a name="2610" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="2612"
+      >   </a
+      ><a name="2615" class="Symbol"
+      >(</a
+      ><a name="2616" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2626"
+      > </a
+      ><a name="2627" href="internalChoice.html#2627" class="Bound"
+      >i</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" href="internalChoice.html#2629" class="Bound"
+      >c</a
+      ><a name="2630"
+      > </a
+      ><a name="2631" href="internalChoice.html#2631" class="Bound"
+      >P</a
+      ><a name="2632" class="Symbol"
+      >)</a
+      ><a name="2633"
+      >  </a
+      ><a name="2635" class="Symbol"
+      >=</a
+      ><a name="2636"
+      > </a
+      ><a name="2637" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="2640"
+      > 
+  </a
+      ><a name="2644" href="process.html#654" class="Field"
+      >I</a
+      ><a name="2645"
+      >    </a
+      ><a name="2649" class="Symbol"
+      >(</a
+      ><a name="2650" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2660"
+      > </a
+      ><a name="2661" href="internalChoice.html#2661" class="Bound"
+      >i</a
+      ><a name="2662"
+      > </a
+      ><a name="2663" href="internalChoice.html#2663" class="Bound"
+      >c</a
+      ><a name="2664"
+      > </a
+      ><a name="2665" href="internalChoice.html#2665" class="Bound"
+      >P</a
+      ><a name="2666" class="Symbol"
+      >)</a
+      ><a name="2667"
+      >  </a
+      ><a name="2669" class="Symbol"
+      >=</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" href="internalChoice.html#2663" class="Bound"
+      >c</a
+      ><a name="2672"
+      >
+  </a
+      ><a name="2675" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="2677"
+      >   </a
+      ><a name="2680" class="Symbol"
+      >(</a
+      ><a name="2681" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" href="internalChoice.html#2692" class="Bound"
+      >i</a
+      ><a name="2693"
+      > </a
+      ><a name="2694" href="internalChoice.html#2694" class="Bound"
+      >c</a
+      ><a name="2695"
+      > </a
+      ><a name="2696" href="internalChoice.html#2696" class="Bound"
+      >P</a
+      ><a name="2697" class="Symbol"
+      >)</a
+      ><a name="2698"
+      >  </a
+      ><a name="2700" class="Symbol"
+      >=</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" href="internalChoice.html#2696" class="Bound"
+      >P</a
+      ><a name="2703"
+      > 
+  </a
+      ><a name="2707" href="process.html#723" class="Field"
+      >T</a
+      ><a name="2708"
+      >    </a
+      ><a name="2712" class="Symbol"
+      >(</a
+      ><a name="2713" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2723"
+      > </a
+      ><a name="2724" href="internalChoice.html#2724" class="Bound"
+      >i</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" href="internalChoice.html#2726" class="Bound"
+      >c</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" href="internalChoice.html#2728" class="Bound"
+      >P</a
+      ><a name="2729" class="Symbol"
+      >)</a
+      ><a name="2730"
+      >  </a
+      ><a name="2732" class="Symbol"
+      >=</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="2736"
+      >
+  </a
+      ><a name="2739" href="process.html#745" class="Field"
+      >PT</a
+      ><a name="2741"
+      >   </a
+      ><a name="2744" class="Symbol"
+      >(</a
+      ><a name="2745" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" href="internalChoice.html#2756" class="Bound"
+      >i</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="internalChoice.html#2758" class="Bound"
+      >c</a
+      ><a name="2759"
+      > </a
+      ><a name="2760" href="internalChoice.html#2760" class="Bound"
+      >P</a
+      ><a name="2761" class="Symbol"
+      >)</a
+      ><a name="2762"
+      >  </a
+      ><a name="2764" class="Symbol"
+      >=</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="2769"
+      >      
+  </a
+      ><a name="2778" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="2782"
+      > </a
+      ><a name="2783" class="Symbol"
+      >(</a
+      ><a name="2784" href="internalChoice.html#2411" class="Function"
+      >IntChoice+</a
+      ><a name="2794"
+      > </a
+      ><a name="2795" href="internalChoice.html#2795" class="Bound"
+      >i</a
+      ><a name="2796"
+      > </a
+      ><a name="2797" href="internalChoice.html#2797" class="Bound"
+      >c</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" href="internalChoice.html#2799" class="Bound"
+      >P</a
+      ><a name="2800" class="Symbol"
+      >)</a
+      ><a name="2801"
+      >  </a
+      ><a name="2803" class="Symbol"
+      >=</a
+      ><a name="2804"
+      > </a
+      ><a name="2805" href="internalChoice.html#1859" class="Function"
+      >IntChoiceStr</a
+      ><a name="2817"
+      > </a
+      ><a name="2818" class="Symbol"
+      >(</a
+      ><a name="2819" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="2823"
+      > </a
+      ><a name="2824" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="2825"
+      > </a
+      ><a name="2826" href="internalChoice.html#2799" class="Bound"
+      >P</a
+      ><a name="2827" class="Symbol"
+      >)</a
+      ><a name="2828"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

@@ -1,0 +1,3958 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >parallelSimple</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="parallelSimple.html#1" class="Module"
+      >parallelSimple</a
+      ><a name="22"
+      > </a
+      ><a name="23" class="Keyword"
+      >where</a
+      ><a name="28"
+      > 
+
+</a
+      ><a name="31" class="Comment"
+      >-- version of parallel which is as in standard CSP</a
+      ><a name="81"
+      >
+ 
+
+</a
+      ><a name="85" class="Keyword"
+      >open</a
+      ><a name="89"
+      > </a
+      ><a name="90" class="Keyword"
+      >import</a
+      ><a name="96"
+      > </a
+      ><a name="97" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="106"
+      > </a
+      ><a name="107" class="Keyword"
+      >renaming</a
+      ><a name="115"
+      > </a
+      ><a name="116" class="Symbol"
+      >(</a
+      ><a name="117" href="Data.Bool.Base.html#791" class="Function"
+      >T</a
+      ><a name="118"
+      > </a
+      ><a name="119" class="Symbol"
+      >to</a
+      ><a name="121"
+      > </a
+      ><a name="122" href="Data.Bool.Base.html#791" class="Function"
+      >True</a
+      ><a name="126" class="Symbol"
+      >)</a
+      ><a name="127"
+      >
+</a
+      ><a name="128" class="Keyword"
+      >open</a
+      ><a name="132"
+      > </a
+      ><a name="133" class="Keyword"
+      >import</a
+      ><a name="139"
+      > </a
+      ><a name="140" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="148"
+      >
+</a
+      ><a name="149" class="Keyword"
+      >open</a
+      ><a name="153"
+      > </a
+      ><a name="154" class="Keyword"
+      >import</a
+      ><a name="160"
+      > </a
+      ><a name="161" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="172"
+      > </a
+      ><a name="173" class="Keyword"
+      >renaming</a
+      ><a name="181"
+      > </a
+      ><a name="182" class="Symbol"
+      >(</a
+      ><a name="183" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="187"
+      > </a
+      ><a name="188" class="Symbol"
+      >to</a
+      ><a name="190"
+      > </a
+      ><a name="191" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="196" class="Symbol"
+      >)</a
+      ><a name="197"
+      >
+</a
+      ><a name="198" class="Keyword"
+      >open</a
+      ><a name="202"
+      > </a
+      ><a name="203" class="Keyword"
+      >import</a
+      ><a name="209"
+      > </a
+      ><a name="210" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="214"
+      > 
+</a
+      ><a name="216" class="Keyword"
+      >open</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="Keyword"
+      >import</a
+      ><a name="227"
+      > </a
+      ><a name="228" href="process.html#1" class="Module"
+      >process</a
+      ><a name="235"
+      > 
+</a
+      ><a name="237" class="Keyword"
+      >open</a
+      ><a name="241"
+      > </a
+      ><a name="242" class="Keyword"
+      >import</a
+      ><a name="248"
+      > </a
+      ><a name="249" href="label.html#1" class="Module"
+      >label</a
+      ><a name="254"
+      >
+</a
+      ><a name="255" class="Keyword"
+      >open</a
+      ><a name="259"
+      > </a
+      ><a name="260" class="Keyword"
+      >import</a
+      ><a name="266"
+      > </a
+      ><a name="267" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="274"
+      >
+</a
+      ><a name="275" class="Keyword"
+      >open</a
+      ><a name="279"
+      > </a
+      ><a name="280" class="Keyword"
+      >import</a
+      ><a name="286"
+      > </a
+      ><a name="287" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="302"
+      >
+</a
+      ><a name="303" class="Keyword"
+      >open</a
+      ><a name="307"
+      > </a
+      ><a name="308" class="Keyword"
+      >import</a
+      ><a name="314"
+      > </a
+      ><a name="315" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="325"
+      >
+</a
+      ><a name="326" class="Keyword"
+      >open</a
+      ><a name="330"
+      > </a
+      ><a name="331" class="Keyword"
+      >import</a
+      ><a name="337"
+      > </a
+      ><a name="338" href="renamingResult.html#1" class="Module"
+      >renamingResult</a
+      ><a name="352"
+      >
+</a
+      ><a name="353" class="Keyword"
+      >open</a
+      ><a name="357"
+      > </a
+      ><a name="358" class="Keyword"
+      >import</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="375"
+      >
+</a
+      ><a name="376" class="Keyword"
+      >open</a
+      ><a name="380"
+      > </a
+      ><a name="381" class="Keyword"
+      >import</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="labelEq.html#1" class="Module"
+      >labelEq</a
+      ><a name="395"
+      >
+</a
+      ><a name="396" class="Keyword"
+      >open</a
+      ><a name="400"
+      > </a
+      ><a name="401" class="Keyword"
+      >import</a
+      ><a name="407"
+      > </a
+      ><a name="408" href="restrict.html#1" class="Module"
+      >restrict</a
+      ><a name="416"
+      >
+
+</a
+      ><a name="418" href="parallelSimple.html#418" class="Function Operator"
+      >_&#8726;_</a
+      ><a name="421"
+      > </a
+      ><a name="422" class="Symbol"
+      >:</a
+      ><a name="423"
+      > </a
+      ><a name="424" class="Symbol"
+      >{</a
+      ><a name="425" href="parallelSimple.html#425" class="Bound"
+      >X</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >:</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="PrimitiveType"
+      >Set</a
+      ><a name="432" class="Symbol"
+      >}</a
+      ><a name="433"
+      > </a
+      ><a name="434" class="Symbol"
+      >&#8594;</a
+      ><a name="435"
+      > </a
+      ><a name="436" class="Symbol"
+      >(</a
+      ><a name="437" href="parallelSimple.html#437" class="Bound"
+      >A</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="parallelSimple.html#439" class="Bound"
+      >B</a
+      ><a name="440"
+      > </a
+      ><a name="441" class="Symbol"
+      >:</a
+      ><a name="442"
+      > </a
+      ><a name="443" href="parallelSimple.html#425" class="Bound"
+      >X</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >&#8594;</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="451" class="Symbol"
+      >)</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >&#8594;</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="parallelSimple.html#425" class="Bound"
+      >X</a
+      ><a name="456"
+      > </a
+      ><a name="457" class="Symbol"
+      >&#8594;</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="463"
+      >
+</a
+      ><a name="464" class="Symbol"
+      >(</a
+      ><a name="465" href="parallelSimple.html#465" class="Bound"
+      >A</a
+      ><a name="466"
+      > </a
+      ><a name="467" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="468"
+      > </a
+      ><a name="469" href="parallelSimple.html#469" class="Bound"
+      >B</a
+      ><a name="470" class="Symbol"
+      >)</a
+      ><a name="471"
+      >  </a
+      ><a name="473" href="parallelSimple.html#473" class="Bound"
+      >c</a
+      ><a name="474"
+      >  </a
+      ><a name="476" class="Symbol"
+      >=</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="parallelSimple.html#465" class="Bound"
+      >A</a
+      ><a name="479"
+      > </a
+      ><a name="480" href="parallelSimple.html#473" class="Bound"
+      >c</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="Data.Bool.Base.html#939" class="Function Operator"
+      >&#8743;</a
+      ><a name="483"
+      > </a
+      ><a name="484" class="Symbol"
+      >(</a
+      ><a name="485" href="dataAuxFunction.html#600" class="Function"
+      >&#172;b</a
+      ><a name="487"
+      > </a
+      ><a name="488" class="Symbol"
+      >(</a
+      ><a name="489" href="parallelSimple.html#469" class="Bound"
+      >B</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="parallelSimple.html#473" class="Bound"
+      >c</a
+      ><a name="492" class="Symbol"
+      >))</a
+      ><a name="494"
+      >
+
+</a
+      ><a name="496" class="Comment"
+      >-- &#8726;   is input as \setminus</a
+      ><a name="524"
+      >
+
+</a
+      ><a name="526" href="parallelSimple.html#526" class="Function Operator"
+      >_[_]||Str[_]_</a
+      ><a name="539"
+      > </a
+      ><a name="540" class="Symbol"
+      >:</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="548"
+      > </a
+      ><a name="549" class="Symbol"
+      >&#8594;</a
+      ><a name="550"
+      > </a
+      ><a name="551" class="Symbol"
+      >(</a
+      ><a name="552" href="parallelSimple.html#552" class="Bound"
+      >A</a
+      ><a name="553"
+      >  </a
+      ><a name="555" href="parallelSimple.html#555" class="Bound"
+      >B</a
+      ><a name="556"
+      > </a
+      ><a name="557" class="Symbol"
+      >:</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="564"
+      > </a
+      ><a name="565" class="Symbol"
+      >&#8594;</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="571" class="Symbol"
+      >)</a
+      ><a name="572"
+      >
+                                 </a
+      ><a name="606" class="Symbol"
+      >&#8594;</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="614"
+      >  </a
+      ><a name="616" class="Symbol"
+      >&#8594;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="624"
+      >
+</a
+      ><a name="625" href="parallelSimple.html#625" class="Bound"
+      >s</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="parallelSimple.html#526" class="Function Operator"
+      >[</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="parallelSimple.html#629" class="Bound"
+      >A</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="parallelSimple.html#526" class="Function Operator"
+      >]||Str[</a
+      ><a name="638"
+      > </a
+      ><a name="639" href="parallelSimple.html#639" class="Bound"
+      >B</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="parallelSimple.html#526" class="Function Operator"
+      >]</a
+      ><a name="642"
+      > </a
+      ><a name="643" href="parallelSimple.html#643" class="Bound"
+      >t</a
+      ><a name="644"
+      > </a
+      ><a name="645" class="Symbol"
+      >=</a
+      ><a name="646"
+      > </a
+      ><a name="647" href="parallelSimple.html#625" class="Bound"
+      >s</a
+      ><a name="648"
+      > </a
+      ><a name="649" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="String"
+      >&quot;[&quot;</a
+      ><a name="656"
+      >     </a
+      ><a name="661" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="showLabelP.html#572" class="Function"
+      >labelBoolFunToString</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="parallelSimple.html#629" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="691"
+      > 
+                            </a
+      ><a name="721" class="String"
+      >&quot;]||[&quot;</a
+      ><a name="727"
+      >  </a
+      ><a name="729" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="showLabelP.html#572" class="Function"
+      >labelBoolFunToString</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="parallelSimple.html#629" class="Bound"
+      >A</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="759"
+      > 
+                            </a
+      ><a name="789" class="String"
+      >&quot;]&quot;</a
+      ><a name="792"
+      >     </a
+      ><a name="797" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="800"
+      > </a
+      ><a name="801" href="parallelSimple.html#643" class="Bound"
+      >t</a
+      ><a name="802"
+      > 
+                    
+
+</a
+      ><a name="826" class="Keyword"
+      >mutual</a
+      ><a name="832"
+      >
+   </a
+      ><a name="836" href="parallelSimple.html#836" class="Function Operator"
+      >_[_]||&#8734;[_]_</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >:</a
+      ><a name="849"
+      > </a
+      ><a name="850" class="Symbol"
+      >{</a
+      ><a name="851" href="parallelSimple.html#851" class="Bound"
+      >i</a
+      ><a name="852"
+      > </a
+      ><a name="853" class="Symbol"
+      >:</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="859" class="Symbol"
+      >}</a
+      ><a name="860"
+      > </a
+      ><a name="861" class="Symbol"
+      >&#8594;</a
+      ><a name="862"
+      > </a
+      ><a name="863" class="Symbol"
+      >{</a
+      ><a name="864" href="parallelSimple.html#864" class="Bound"
+      >c&#8320;</a
+      ><a name="866"
+      > </a
+      ><a name="867" href="parallelSimple.html#867" class="Bound"
+      >c&#8321;</a
+      ><a name="869"
+      > </a
+      ><a name="870" class="Symbol"
+      >:</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="878" class="Symbol"
+      >}</a
+      ><a name="879"
+      >
+                   </a
+      ><a name="899" class="Symbol"
+      >&#8594;</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="parallelSimple.html#851" class="Bound"
+      >i</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="parallelSimple.html#864" class="Bound"
+      >c&#8320;</a
+      ><a name="914"
+      > 
+                   </a
+      ><a name="935" class="Symbol"
+      >&#8594;</a
+      ><a name="936"
+      > </a
+      ><a name="937" class="Symbol"
+      >(</a
+      ><a name="938" href="parallelSimple.html#938" class="Bound"
+      >A</a
+      ><a name="939"
+      >  </a
+      ><a name="941" href="parallelSimple.html#941" class="Bound"
+      >B</a
+      ><a name="942"
+      > </a
+      ><a name="943" class="Symbol"
+      >:</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="950"
+      > </a
+      ><a name="951" class="Symbol"
+      >&#8594;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="957" class="Symbol"
+      >)</a
+      ><a name="958"
+      >
+                   </a
+      ><a name="978" class="Symbol"
+      >&#8594;</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="parallelSimple.html#851" class="Bound"
+      >i</a
+      ><a name="990"
+      > </a
+      ><a name="991" href="parallelSimple.html#867" class="Bound"
+      >c&#8321;</a
+      ><a name="993"
+      >  
+                   </a
+      ><a name="1015" class="Symbol"
+      >&#8594;</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="parallelSimple.html#851" class="Bound"
+      >i</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" class="Symbol"
+      >(</a
+      ><a name="1029" href="parallelSimple.html#864" class="Bound"
+      >c&#8320;</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="parallelSimple.html#867" class="Bound"
+      >c&#8321;</a
+      ><a name="1037" class="Symbol"
+      >)</a
+      ><a name="1038"
+      >
+   </a
+      ><a name="1042" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" class="Symbol"
+      >(</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" href="parallelSimple.html#1051" class="Bound"
+      >P</a
+      ><a name="1052"
+      > </a
+      ><a name="1053" href="parallelSimple.html#836" class="Function Operator"
+      >[</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" href="parallelSimple.html#1055" class="Bound"
+      >A</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" href="parallelSimple.html#836" class="Function Operator"
+      >]||&#8734;[</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" href="parallelSimple.html#1063" class="Bound"
+      >B</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="parallelSimple.html#836" class="Function Operator"
+      >]</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="parallelSimple.html#1067" class="Bound"
+      >Q</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" class="Symbol"
+      >)</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" class="Symbol"
+      >=</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" href="parallelSimple.html#1051" class="Bound"
+      >P</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="parallelSimple.html#1055" class="Bound"
+      >A</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1090"
+      >    </a
+      ><a name="1094" href="parallelSimple.html#1063" class="Bound"
+      >B</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="parallelSimple.html#1067" class="Bound"
+      >Q</a
+      ><a name="1106"
+      >
+   </a
+      ><a name="1110" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1114"
+      >   </a
+      ><a name="1117" class="Symbol"
+      >(</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="parallelSimple.html#1119" class="Bound"
+      >P</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" href="parallelSimple.html#836" class="Function Operator"
+      >[</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="parallelSimple.html#1123" class="Bound"
+      >A</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" href="parallelSimple.html#836" class="Function Operator"
+      >]||&#8734;[</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="parallelSimple.html#1131" class="Bound"
+      >B</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" href="parallelSimple.html#836" class="Function Operator"
+      >]</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="parallelSimple.html#1135" class="Bound"
+      >Q</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >)</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" class="Symbol"
+      >=</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1145"
+      >   </a
+      ><a name="1148" href="parallelSimple.html#1119" class="Bound"
+      >P</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="parallelSimple.html#526" class="Function Operator"
+      >[</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" href="parallelSimple.html#1123" class="Bound"
+      >A</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="parallelSimple.html#526" class="Function Operator"
+      >]||Str[</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" href="parallelSimple.html#1131" class="Bound"
+      >B</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" href="parallelSimple.html#526" class="Function Operator"
+      >]</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="parallelSimple.html#1135" class="Bound"
+      >Q</a
+      ><a name="1172"
+      >
+
+   </a
+      ><a name="1177" href="parallelSimple.html#1177" class="Function Operator"
+      >_[_]||[_]_</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" class="Symbol"
+      >:</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" class="Symbol"
+      >{</a
+      ><a name="1191" href="parallelSimple.html#1191" class="Bound"
+      >i</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" class="Symbol"
+      >:</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1199" class="Symbol"
+      >}</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" class="Symbol"
+      >&#8594;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Symbol"
+      >{</a
+      ><a name="1204" href="parallelSimple.html#1204" class="Bound"
+      >c&#8320;</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="parallelSimple.html#1207" class="Bound"
+      >c&#8321;</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" class="Symbol"
+      >:</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1218" class="Symbol"
+      >}</a
+      ><a name="1219"
+      >
+                   </a
+      ><a name="1239" class="Symbol"
+      >&#8594;</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="parallelSimple.html#1191" class="Bound"
+      >i</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" href="parallelSimple.html#1204" class="Bound"
+      >c&#8320;</a
+      ><a name="1253"
+      > 
+                   </a
+      ><a name="1274" class="Symbol"
+      >&#8594;</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" class="Symbol"
+      >(</a
+      ><a name="1277" href="parallelSimple.html#1277" class="Bound"
+      >A</a
+      ><a name="1278"
+      >  </a
+      ><a name="1280" href="parallelSimple.html#1280" class="Bound"
+      >B</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" class="Symbol"
+      >:</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" class="Symbol"
+      >&#8594;</a
+      ><a name="1291"
+      > </a
+      ><a name="1292" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1296" class="Symbol"
+      >)</a
+      ><a name="1297"
+      >
+                   </a
+      ><a name="1317" class="Symbol"
+      >&#8594;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1326"
+      > </a
+      ><a name="1327" href="parallelSimple.html#1191" class="Bound"
+      >i</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" href="parallelSimple.html#1207" class="Bound"
+      >c&#8321;</a
+      ><a name="1331"
+      >  
+                   </a
+      ><a name="1353" class="Symbol"
+      >&#8594;</a
+      ><a name="1354"
+      > </a
+      ><a name="1355" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="parallelSimple.html#1191" class="Bound"
+      >i</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" class="Symbol"
+      >(</a
+      ><a name="1366" href="parallelSimple.html#1204" class="Bound"
+      >c&#8320;</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" href="parallelSimple.html#1207" class="Bound"
+      >c&#8321;</a
+      ><a name="1374" class="Symbol"
+      >)</a
+      ><a name="1375"
+      >
+   </a
+      ><a name="1379" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" href="parallelSimple.html#1384" class="Bound"
+      >P</a
+      ><a name="1385"
+      >      </a
+      ><a name="1391" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="parallelSimple.html#1393" class="Bound"
+      >A</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" href="parallelSimple.html#1400" class="Bound"
+      >B</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1408"
+      > </a
+      ><a name="1409" href="parallelSimple.html#1409" class="Bound"
+      >Q</a
+      ><a name="1410"
+      >      </a
+      ><a name="1416" class="Symbol"
+      >=</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" class="Symbol"
+      >(</a
+      ><a name="1424" href="parallelSimple.html#1384" class="Bound"
+      >P</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="1427"
+      > </a
+      ><a name="1428" href="parallelSimple.html#1393" class="Bound"
+      >A</a
+      ><a name="1429"
+      > </a
+      ><a name="1430" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" href="parallelSimple.html#1400" class="Bound"
+      >B</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" href="parallelSimple.html#1409" class="Bound"
+      >Q</a
+      ><a name="1441" class="Symbol"
+      >)</a
+      ><a name="1442"
+      >
+   </a
+      ><a name="1446" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" href="parallelSimple.html#1456" class="Bound"
+      >a</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="parallelSimple.html#1460" class="Bound"
+      >A</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1466"
+      > </a
+      ><a name="1467" href="parallelSimple.html#1467" class="Bound"
+      >B</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="parallelSimple.html#1471" class="Bound"
+      >Q</a
+      ><a name="1472"
+      >           </a
+      ><a name="1483" class="Symbol"
+      >=</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" class="Symbol"
+      >(&#955;</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" href="parallelSimple.html#1493" class="Bound"
+      >b</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" class="Symbol"
+      >&#8594;</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" class="Symbol"
+      >(</a
+      ><a name="1498" href="parallelSimple.html#1456" class="Bound"
+      >a</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="parallelSimple.html#1493" class="Bound"
+      >b</a
+      ><a name="1504" class="Symbol"
+      >))</a
+      ><a name="1506"
+      > 
+                                           </a
+      ><a name="1551" class="Symbol"
+      >(</a
+      ><a name="1552" href="parallelSimple.html#1471" class="Bound"
+      >Q</a
+      ><a name="1553"
+      > </a
+      ><a name="1554" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="1555"
+      > </a
+      ><a name="1556" class="Symbol"
+      >(</a
+      ><a name="1557" href="parallelSimple.html#1467" class="Bound"
+      >B</a
+      ><a name="1558"
+      > </a
+      ><a name="1559" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" href="parallelSimple.html#1460" class="Bound"
+      >A</a
+      ><a name="1562" class="Symbol"
+      >))</a
+      ><a name="1564"
+      >
+   </a
+      ><a name="1568" href="parallelSimple.html#1568" class="Bound"
+      >P</a
+      ><a name="1569"
+      >           </a
+      ><a name="1580" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" href="parallelSimple.html#1582" class="Bound"
+      >A</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" href="parallelSimple.html#1589" class="Bound"
+      >B</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="parallelSimple.html#1603" class="Bound"
+      >b</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" class="Symbol"
+      >=</a
+      ><a name="1606"
+      > </a
+      ><a name="1607" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" class="Symbol"
+      >(&#955;</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="parallelSimple.html#1615" class="Bound"
+      >a</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" class="Symbol"
+      >&#8594;</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" class="Symbol"
+      >(</a
+      ><a name="1620" href="parallelSimple.html#1615" class="Bound"
+      >a</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" href="parallelSimple.html#1603" class="Bound"
+      >b</a
+      ><a name="1626" class="Symbol"
+      >))</a
+      ><a name="1628"
+      >
+                                           </a
+      ><a name="1672" class="Symbol"
+      >(</a
+      ><a name="1673" href="parallelSimple.html#1568" class="Bound"
+      >P</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" class="Symbol"
+      >(</a
+      ><a name="1678" href="parallelSimple.html#1582" class="Bound"
+      >A</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" href="parallelSimple.html#1589" class="Bound"
+      >B</a
+      ><a name="1683" class="Symbol"
+      >))</a
+      ><a name="1685"
+      >
+                       
+
+   </a
+      ><a name="1714" href="parallelSimple.html#1714" class="Function Operator"
+      >_[_]||&#8734;+[_]_</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" class="Symbol"
+      >:</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" class="Symbol"
+      >{</a
+      ><a name="1730" href="parallelSimple.html#1730" class="Bound"
+      >i</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" class="Symbol"
+      >:</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1738" class="Symbol"
+      >}</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" class="Symbol"
+      >&#8594;</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" class="Symbol"
+      >{</a
+      ><a name="1743" href="parallelSimple.html#1743" class="Bound"
+      >c&#8320;</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" href="parallelSimple.html#1746" class="Bound"
+      >c&#8321;</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" class="Symbol"
+      >:</a
+      ><a name="1750"
+      > </a
+      ><a name="1751" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1757" class="Symbol"
+      >}</a
+      ><a name="1758"
+      >
+                   </a
+      ><a name="1778" class="Symbol"
+      >&#8594;</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" href="parallelSimple.html#1730" class="Bound"
+      >i</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" href="parallelSimple.html#1743" class="Bound"
+      >c&#8320;</a
+      ><a name="1793"
+      > 
+                   </a
+      ><a name="1814" class="Symbol"
+      >&#8594;</a
+      ><a name="1815"
+      > </a
+      ><a name="1816" class="Symbol"
+      >(</a
+      ><a name="1817" href="parallelSimple.html#1817" class="Bound"
+      >A</a
+      ><a name="1818"
+      >  </a
+      ><a name="1820" href="parallelSimple.html#1820" class="Bound"
+      >B</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" class="Symbol"
+      >:</a
+      ><a name="1823"
+      > </a
+      ><a name="1824" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" class="Symbol"
+      >&#8594;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1836" class="Symbol"
+      >)</a
+      ><a name="1837"
+      >
+                   </a
+      ><a name="1857" class="Symbol"
+      >&#8594;</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" href="parallelSimple.html#1730" class="Bound"
+      >i</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" href="parallelSimple.html#1746" class="Bound"
+      >c&#8321;</a
+      ><a name="1872"
+      >  
+                   </a
+      ><a name="1894" class="Symbol"
+      >&#8594;</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" href="parallelSimple.html#1730" class="Bound"
+      >i</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" class="Symbol"
+      >(</a
+      ><a name="1908" href="parallelSimple.html#1743" class="Bound"
+      >c&#8320;</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1913"
+      > </a
+      ><a name="1914" href="parallelSimple.html#1746" class="Bound"
+      >c&#8321;</a
+      ><a name="1916" class="Symbol"
+      >)</a
+      ><a name="1917"
+      >
+   </a
+      ><a name="1921" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" class="Symbol"
+      >(</a
+      ><a name="1929" href="parallelSimple.html#1929" class="Bound"
+      >P</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="parallelSimple.html#1714" class="Function Operator"
+      >[</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" href="parallelSimple.html#1933" class="Bound"
+      >A</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="parallelSimple.html#1714" class="Function Operator"
+      >]||&#8734;+[</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="parallelSimple.html#1942" class="Bound"
+      >B</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" href="parallelSimple.html#1714" class="Function Operator"
+      >]</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="parallelSimple.html#1946" class="Bound"
+      >Q</a
+      ><a name="1947" class="Symbol"
+      >)</a
+      ><a name="1948"
+      >  </a
+      ><a name="1950" class="Symbol"
+      >=</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" class="Symbol"
+      >(</a
+      ><a name="1958" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="1964"
+      > </a
+      ><a name="1965" href="parallelSimple.html#1929" class="Bound"
+      >P</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="parallelSimple.html#2403" class="Function Operator"
+      >[</a
+      ><a name="1968"
+      > </a
+      ><a name="1969" href="parallelSimple.html#1933" class="Bound"
+      >A</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" href="parallelSimple.html#2403" class="Function Operator"
+      >]||p+[</a
+      ><a name="1977"
+      > </a
+      ><a name="1978" href="parallelSimple.html#1942" class="Bound"
+      >B</a
+      ><a name="1979"
+      > </a
+      ><a name="1980" href="parallelSimple.html#2403" class="Function Operator"
+      >]</a
+      ><a name="1981"
+      > </a
+      ><a name="1982" href="parallelSimple.html#1946" class="Bound"
+      >Q</a
+      ><a name="1983" class="Symbol"
+      >)</a
+      ><a name="1984"
+      >   
+   </a
+      ><a name="1991" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="1995"
+      >   </a
+      ><a name="1998" class="Symbol"
+      >(</a
+      ><a name="1999" href="parallelSimple.html#1999" class="Bound"
+      >P</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" href="parallelSimple.html#1714" class="Function Operator"
+      >[</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" href="parallelSimple.html#2003" class="Bound"
+      >A</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" href="parallelSimple.html#1714" class="Function Operator"
+      >]||&#8734;+[</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" href="parallelSimple.html#2012" class="Bound"
+      >B</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="parallelSimple.html#1714" class="Function Operator"
+      >]</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="parallelSimple.html#2016" class="Bound"
+      >Q</a
+      ><a name="2017" class="Symbol"
+      >)</a
+      ><a name="2018"
+      >  </a
+      ><a name="2020" class="Symbol"
+      >=</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="2026"
+      >   </a
+      ><a name="2029" href="parallelSimple.html#1999" class="Bound"
+      >P</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" href="parallelSimple.html#526" class="Function Operator"
+      >[</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="parallelSimple.html#2003" class="Bound"
+      >A</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="parallelSimple.html#526" class="Function Operator"
+      >]||Str[</a
+      ><a name="2042"
+      > </a
+      ><a name="2043" href="parallelSimple.html#2012" class="Bound"
+      >B</a
+      ><a name="2044"
+      > </a
+      ><a name="2045" href="parallelSimple.html#526" class="Function Operator"
+      >]</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" href="parallelSimple.html#2016" class="Bound"
+      >Q</a
+      ><a name="2053"
+      >
+
+
+   </a
+      ><a name="2059" href="parallelSimple.html#2059" class="Function Operator"
+      >_[_]||+&#8734;[_]_</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" class="Symbol"
+      >:</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" class="Symbol"
+      >{</a
+      ><a name="2075" href="parallelSimple.html#2075" class="Bound"
+      >i</a
+      ><a name="2076"
+      > </a
+      ><a name="2077" class="Symbol"
+      >:</a
+      ><a name="2078"
+      > </a
+      ><a name="2079" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="2083" class="Symbol"
+      >}</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" class="Symbol"
+      >&#8594;</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" class="Symbol"
+      >{</a
+      ><a name="2088" href="parallelSimple.html#2088" class="Bound"
+      >c&#8320;</a
+      ><a name="2090"
+      > </a
+      ><a name="2091" href="parallelSimple.html#2091" class="Bound"
+      >c&#8321;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" class="Symbol"
+      >:</a
+      ><a name="2095"
+      > </a
+      ><a name="2096" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2102" class="Symbol"
+      >}</a
+      ><a name="2103"
+      >
+                   </a
+      ><a name="2123" class="Symbol"
+      >&#8594;</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" href="parallelSimple.html#2075" class="Bound"
+      >i</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" href="parallelSimple.html#2088" class="Bound"
+      >c&#8320;</a
+      ><a name="2138"
+      > 
+                   </a
+      ><a name="2159" class="Symbol"
+      >&#8594;</a
+      ><a name="2160"
+      > </a
+      ><a name="2161" class="Symbol"
+      >(</a
+      ><a name="2162" href="parallelSimple.html#2162" class="Bound"
+      >A</a
+      ><a name="2163"
+      >  </a
+      ><a name="2165" href="parallelSimple.html#2165" class="Bound"
+      >B</a
+      ><a name="2166"
+      > </a
+      ><a name="2167" class="Symbol"
+      >:</a
+      ><a name="2168"
+      > </a
+      ><a name="2169" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="2174"
+      > </a
+      ><a name="2175" class="Symbol"
+      >&#8594;</a
+      ><a name="2176"
+      > </a
+      ><a name="2177" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="2181" class="Symbol"
+      >)</a
+      ><a name="2182"
+      >
+                   </a
+      ><a name="2202" class="Symbol"
+      >&#8594;</a
+      ><a name="2203"
+      > </a
+      ><a name="2204" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" href="parallelSimple.html#2075" class="Bound"
+      >i</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" href="parallelSimple.html#2091" class="Bound"
+      >c&#8321;</a
+      ><a name="2217"
+      >  
+                   </a
+      ><a name="2239" class="Symbol"
+      >&#8594;</a
+      ><a name="2240"
+      > </a
+      ><a name="2241" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="parallelSimple.html#2075" class="Bound"
+      >i</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" class="Symbol"
+      >(</a
+      ><a name="2253" href="parallelSimple.html#2088" class="Bound"
+      >c&#8320;</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" href="parallelSimple.html#2091" class="Bound"
+      >c&#8321;</a
+      ><a name="2261" class="Symbol"
+      >)</a
+      ><a name="2262"
+      >
+   </a
+      ><a name="2266" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" class="Symbol"
+      >(</a
+      ><a name="2274" href="parallelSimple.html#2274" class="Bound"
+      >P</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" href="parallelSimple.html#2059" class="Function Operator"
+      >[</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" href="parallelSimple.html#2278" class="Bound"
+      >A</a
+      ><a name="2279"
+      > </a
+      ><a name="2280" href="parallelSimple.html#2059" class="Function Operator"
+      >]||+&#8734;[</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" href="parallelSimple.html#2287" class="Bound"
+      >B</a
+      ><a name="2288"
+      > </a
+      ><a name="2289" href="parallelSimple.html#2059" class="Function Operator"
+      >]</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" href="parallelSimple.html#2291" class="Bound"
+      >Q</a
+      ><a name="2292" class="Symbol"
+      >)</a
+      ><a name="2293"
+      >  </a
+      ><a name="2295" class="Symbol"
+      >=</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" class="Symbol"
+      >(</a
+      ><a name="2303" href="parallelSimple.html#2274" class="Bound"
+      >P</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="parallelSimple.html#2748" class="Function Operator"
+      >[</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" href="parallelSimple.html#2278" class="Bound"
+      >A</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="parallelSimple.html#2748" class="Function Operator"
+      >]||+p[</a
+      ><a name="2315"
+      >  </a
+      ><a name="2317" href="parallelSimple.html#2287" class="Bound"
+      >B</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" href="parallelSimple.html#2748" class="Function Operator"
+      >]</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="2327"
+      > </a
+      ><a name="2328" href="parallelSimple.html#2291" class="Bound"
+      >Q</a
+      ><a name="2329" class="Symbol"
+      >)</a
+      ><a name="2330"
+      >  
+   </a
+      ><a name="2336" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="2340"
+      >   </a
+      ><a name="2343" class="Symbol"
+      >(</a
+      ><a name="2344" href="parallelSimple.html#2344" class="Bound"
+      >P</a
+      ><a name="2345"
+      > </a
+      ><a name="2346" href="parallelSimple.html#2059" class="Function Operator"
+      >[</a
+      ><a name="2347"
+      > </a
+      ><a name="2348" href="parallelSimple.html#2348" class="Bound"
+      >A</a
+      ><a name="2349"
+      > </a
+      ><a name="2350" href="parallelSimple.html#2059" class="Function Operator"
+      >]||+&#8734;[</a
+      ><a name="2356"
+      > </a
+      ><a name="2357" href="parallelSimple.html#2357" class="Bound"
+      >B</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" href="parallelSimple.html#2059" class="Function Operator"
+      >]</a
+      ><a name="2360"
+      > </a
+      ><a name="2361" href="parallelSimple.html#2361" class="Bound"
+      >Q</a
+      ><a name="2362" class="Symbol"
+      >)</a
+      ><a name="2363"
+      >  </a
+      ><a name="2365" class="Symbol"
+      >=</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="2371"
+      >  </a
+      ><a name="2373" href="parallelSimple.html#2344" class="Bound"
+      >P</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" href="parallelSimple.html#526" class="Function Operator"
+      >[</a
+      ><a name="2376"
+      > </a
+      ><a name="2377" href="parallelSimple.html#2348" class="Bound"
+      >A</a
+      ><a name="2378"
+      > </a
+      ><a name="2379" href="parallelSimple.html#526" class="Function Operator"
+      >]||Str[</a
+      ><a name="2386"
+      > </a
+      ><a name="2387" href="parallelSimple.html#2357" class="Bound"
+      >B</a
+      ><a name="2388"
+      > </a
+      ><a name="2389" href="parallelSimple.html#526" class="Function Operator"
+      >]</a
+      ><a name="2390"
+      > </a
+      ><a name="2391" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="parallelSimple.html#2361" class="Bound"
+      >Q</a
+      ><a name="2397"
+      >
+
+
+   </a
+      ><a name="2403" href="parallelSimple.html#2403" class="Function Operator"
+      >_[_]||p+[_]_</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" class="Symbol"
+      >:</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" class="Symbol"
+      >{</a
+      ><a name="2419" href="parallelSimple.html#2419" class="Bound"
+      >i</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" class="Symbol"
+      >:</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="2427" class="Symbol"
+      >}</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" class="Symbol"
+      >&#8594;</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" class="Symbol"
+      >{</a
+      ><a name="2432" href="parallelSimple.html#2432" class="Bound"
+      >c&#8320;</a
+      ><a name="2434"
+      > </a
+      ><a name="2435" href="parallelSimple.html#2435" class="Bound"
+      >c&#8321;</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" class="Symbol"
+      >:</a
+      ><a name="2439"
+      > </a
+      ><a name="2440" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2446" class="Symbol"
+      >}</a
+      ><a name="2447"
+      >
+                   </a
+      ><a name="2467" class="Symbol"
+      >&#8594;</a
+      ><a name="2468"
+      > </a
+      ><a name="2469" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" href="parallelSimple.html#2419" class="Bound"
+      >i</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" href="parallelSimple.html#2432" class="Bound"
+      >c&#8320;</a
+      ><a name="2481"
+      > 
+                   </a
+      ><a name="2502" class="Symbol"
+      >&#8594;</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" class="Symbol"
+      >(</a
+      ><a name="2505" href="parallelSimple.html#2505" class="Bound"
+      >A</a
+      ><a name="2506"
+      >  </a
+      ><a name="2508" href="parallelSimple.html#2508" class="Bound"
+      >B</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" class="Symbol"
+      >:</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" class="Symbol"
+      >&#8594;</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="2524" class="Symbol"
+      >)</a
+      ><a name="2525"
+      >
+                   </a
+      ><a name="2545" class="Symbol"
+      >&#8594;</a
+      ><a name="2546"
+      > </a
+      ><a name="2547" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="2555"
+      > </a
+      ><a name="2556" href="parallelSimple.html#2419" class="Bound"
+      >i</a
+      ><a name="2557"
+      > </a
+      ><a name="2558" href="parallelSimple.html#2435" class="Bound"
+      >c&#8321;</a
+      ><a name="2560"
+      >  
+                   </a
+      ><a name="2582" class="Symbol"
+      >&#8594;</a
+      ><a name="2583"
+      > </a
+      ><a name="2584" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="parallelSimple.html#2419" class="Bound"
+      >i</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" class="Symbol"
+      >(</a
+      ><a name="2596" href="parallelSimple.html#2432" class="Bound"
+      >c&#8320;</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="2601"
+      > </a
+      ><a name="2602" href="parallelSimple.html#2435" class="Bound"
+      >c&#8321;</a
+      ><a name="2604" class="Symbol"
+      >)</a
+      ><a name="2605"
+      >
+   </a
+      ><a name="2609" class="Symbol"
+      >(</a
+      ><a name="2610" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2619"
+      > </a
+      ><a name="2620" href="parallelSimple.html#2620" class="Bound"
+      >a</a
+      ><a name="2621" class="Symbol"
+      >)</a
+      ><a name="2622"
+      > </a
+      ><a name="2623" href="parallelSimple.html#2403" class="Function Operator"
+      >[</a
+      ><a name="2624"
+      > </a
+      ><a name="2625" href="parallelSimple.html#2625" class="Bound"
+      >A</a
+      ><a name="2626"
+      > </a
+      ><a name="2627" href="parallelSimple.html#2403" class="Function Operator"
+      >]||p+[</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" href="parallelSimple.html#2634" class="Bound"
+      >B</a
+      ><a name="2635"
+      > </a
+      ><a name="2636" href="parallelSimple.html#2403" class="Function Operator"
+      >]</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" href="parallelSimple.html#2638" class="Bound"
+      >Q</a
+      ><a name="2639"
+      >    </a
+      ><a name="2643" class="Symbol"
+      >=</a
+      ><a name="2644"
+      > </a
+      ><a name="2645" href="renamingResult.html#887" class="Function"
+      >fmap+</a
+      ><a name="2650"
+      > </a
+      ><a name="2651" class="Symbol"
+      >(&#955;</a
+      ><a name="2653"
+      > </a
+      ><a name="2654" href="parallelSimple.html#2654" class="Bound"
+      >b</a
+      ><a name="2655"
+      > </a
+      ><a name="2656" class="Symbol"
+      >&#8594;</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" class="Symbol"
+      >(</a
+      ><a name="2659" href="parallelSimple.html#2620" class="Bound"
+      >a</a
+      ><a name="2660"
+      > </a
+      ><a name="2661" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2663"
+      > </a
+      ><a name="2664" href="parallelSimple.html#2654" class="Bound"
+      >b</a
+      ><a name="2665" class="Symbol"
+      >))(</a
+      ><a name="2668" href="parallelSimple.html#2638" class="Bound"
+      >Q</a
+      ><a name="2669"
+      > </a
+      ><a name="2670" href="restrict.html#959" class="Function Operator"
+      >&#8638;+</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" class="Symbol"
+      >(</a
+      ><a name="2674" href="parallelSimple.html#2634" class="Bound"
+      >B</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="2677"
+      > </a
+      ><a name="2678" href="parallelSimple.html#2625" class="Bound"
+      >A</a
+      ><a name="2679" class="Symbol"
+      >)</a
+      ><a name="2680"
+      > </a
+      ><a name="2681" class="Symbol"
+      >)</a
+      ><a name="2682"
+      >
+   </a
+      ><a name="2686" class="Symbol"
+      >(</a
+      ><a name="2687" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" href="parallelSimple.html#2692" class="Bound"
+      >P</a
+      ><a name="2693" class="Symbol"
+      >)</a
+      ><a name="2694"
+      >      </a
+      ><a name="2700" href="parallelSimple.html#2403" class="Function Operator"
+      >[</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" href="parallelSimple.html#2702" class="Bound"
+      >A</a
+      ><a name="2703"
+      > </a
+      ><a name="2704" href="parallelSimple.html#2403" class="Function Operator"
+      >]||p+[</a
+      ><a name="2710"
+      > </a
+      ><a name="2711" href="parallelSimple.html#2711" class="Bound"
+      >B</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" href="parallelSimple.html#2403" class="Function Operator"
+      >]</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="parallelSimple.html#2715" class="Bound"
+      >Q</a
+      ><a name="2716"
+      >    </a
+      ><a name="2720" class="Symbol"
+      >=</a
+      ><a name="2721"
+      > </a
+      ><a name="2722" href="parallelSimple.html#2692" class="Bound"
+      >P</a
+      ><a name="2723"
+      > </a
+      ><a name="2724" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" href="parallelSimple.html#2702" class="Bound"
+      >A</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="parallelSimple.html#2711" class="Bound"
+      >B</a
+      ><a name="2735"
+      > </a
+      ><a name="2736" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" href="parallelSimple.html#2715" class="Bound"
+      >Q</a
+      ><a name="2739"
+      >
+  
+
+
+   </a
+      ><a name="2748" href="parallelSimple.html#2748" class="Function Operator"
+      >_[_]||+p[_]_</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" class="Symbol"
+      >:</a
+      ><a name="2762"
+      > </a
+      ><a name="2763" class="Symbol"
+      >{</a
+      ><a name="2764" href="parallelSimple.html#2764" class="Bound"
+      >i</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" class="Symbol"
+      >:</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="2772" class="Symbol"
+      >}</a
+      ><a name="2773"
+      > </a
+      ><a name="2774" class="Symbol"
+      >&#8594;</a
+      ><a name="2775"
+      > </a
+      ><a name="2776" class="Symbol"
+      >{</a
+      ><a name="2777" href="parallelSimple.html#2777" class="Bound"
+      >c&#8320;</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" href="parallelSimple.html#2780" class="Bound"
+      >c&#8321;</a
+      ><a name="2782"
+      > </a
+      ><a name="2783" class="Symbol"
+      >:</a
+      ><a name="2784"
+      > </a
+      ><a name="2785" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2791" class="Symbol"
+      >}</a
+      ><a name="2792"
+      >
+                   </a
+      ><a name="2812" class="Symbol"
+      >&#8594;</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="2822"
+      > </a
+      ><a name="2823" href="parallelSimple.html#2764" class="Bound"
+      >i</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="parallelSimple.html#2777" class="Bound"
+      >c&#8320;</a
+      ><a name="2827"
+      > 
+                   </a
+      ><a name="2848" class="Symbol"
+      >&#8594;</a
+      ><a name="2849"
+      > </a
+      ><a name="2850" class="Symbol"
+      >(</a
+      ><a name="2851" href="parallelSimple.html#2851" class="Bound"
+      >A</a
+      ><a name="2852"
+      >  </a
+      ><a name="2854" href="parallelSimple.html#2854" class="Bound"
+      >B</a
+      ><a name="2855"
+      > </a
+      ><a name="2856" class="Symbol"
+      >:</a
+      ><a name="2857"
+      > </a
+      ><a name="2858" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="2863"
+      > </a
+      ><a name="2864" class="Symbol"
+      >&#8594;</a
+      ><a name="2865"
+      > </a
+      ><a name="2866" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="2870" class="Symbol"
+      >)</a
+      ><a name="2871"
+      >
+                   </a
+      ><a name="2891" class="Symbol"
+      >&#8594;</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" href="parallelSimple.html#2764" class="Bound"
+      >i</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="parallelSimple.html#2780" class="Bound"
+      >c&#8321;</a
+      ><a name="2905"
+      >  
+                   </a
+      ><a name="2927" class="Symbol"
+      >&#8594;</a
+      ><a name="2928"
+      > </a
+      ><a name="2929" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="2937"
+      > </a
+      ><a name="2938" href="parallelSimple.html#2764" class="Bound"
+      >i</a
+      ><a name="2939"
+      > </a
+      ><a name="2940" class="Symbol"
+      >(</a
+      ><a name="2941" href="parallelSimple.html#2777" class="Bound"
+      >c&#8320;</a
+      ><a name="2943"
+      > </a
+      ><a name="2944" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="2946"
+      > </a
+      ><a name="2947" href="parallelSimple.html#2780" class="Bound"
+      >c&#8321;</a
+      ><a name="2949" class="Symbol"
+      >)</a
+      ><a name="2950"
+      >
+   </a
+      ><a name="2954" href="parallelSimple.html#2954" class="Bound"
+      >P</a
+      ><a name="2955"
+      >  </a
+      ><a name="2957" href="parallelSimple.html#2748" class="Function Operator"
+      >[</a
+      ><a name="2958"
+      > </a
+      ><a name="2959" href="parallelSimple.html#2959" class="Bound"
+      >A</a
+      ><a name="2960"
+      > </a
+      ><a name="2961" href="parallelSimple.html#2748" class="Function Operator"
+      >]||+p[</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" href="parallelSimple.html#2968" class="Bound"
+      >B</a
+      ><a name="2969"
+      > </a
+      ><a name="2970" href="parallelSimple.html#2748" class="Function Operator"
+      >]</a
+      ><a name="2971"
+      > </a
+      ><a name="2972" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" href="parallelSimple.html#2982" class="Bound"
+      >b</a
+      ><a name="2983"
+      > </a
+      ><a name="2984" class="Symbol"
+      >=</a
+      ><a name="2985"
+      > </a
+      ><a name="2986" href="renamingResult.html#887" class="Function"
+      >fmap+</a
+      ><a name="2991"
+      > </a
+      ><a name="2992" class="Symbol"
+      >(&#955;</a
+      ><a name="2994"
+      > </a
+      ><a name="2995" href="parallelSimple.html#2995" class="Bound"
+      >a</a
+      ><a name="2996"
+      > </a
+      ><a name="2997" class="Symbol"
+      >&#8594;</a
+      ><a name="2998"
+      > </a
+      ><a name="2999" class="Symbol"
+      >(</a
+      ><a name="3000" href="parallelSimple.html#2995" class="Bound"
+      >a</a
+      ><a name="3001"
+      > </a
+      ><a name="3002" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="parallelSimple.html#2982" class="Bound"
+      >b</a
+      ><a name="3006" class="Symbol"
+      >))(</a
+      ><a name="3009" href="parallelSimple.html#2954" class="Bound"
+      >P</a
+      ><a name="3010"
+      > </a
+      ><a name="3011" href="restrict.html#959" class="Function Operator"
+      >&#8638;+</a
+      ><a name="3013"
+      > </a
+      ><a name="3014" class="Symbol"
+      >(</a
+      ><a name="3015" href="parallelSimple.html#2959" class="Bound"
+      >A</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="3018"
+      > </a
+      ><a name="3019" href="parallelSimple.html#2968" class="Bound"
+      >B</a
+      ><a name="3020" class="Symbol"
+      >))</a
+      ><a name="3022"
+      >
+   </a
+      ><a name="3026" href="parallelSimple.html#3026" class="Bound"
+      >P</a
+      ><a name="3027"
+      >  </a
+      ><a name="3029" href="parallelSimple.html#2748" class="Function Operator"
+      >[</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" href="parallelSimple.html#3031" class="Bound"
+      >A</a
+      ><a name="3032"
+      > </a
+      ><a name="3033" href="parallelSimple.html#2748" class="Function Operator"
+      >]||+p[</a
+      ><a name="3039"
+      > </a
+      ><a name="3040" href="parallelSimple.html#3040" class="Bound"
+      >B</a
+      ><a name="3041"
+      > </a
+      ><a name="3042" href="parallelSimple.html#2748" class="Function Operator"
+      >]</a
+      ><a name="3043"
+      > </a
+      ><a name="3044" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="3048"
+      > </a
+      ><a name="3049" href="parallelSimple.html#3049" class="Bound"
+      >Q</a
+      ><a name="3050"
+      >      </a
+      ><a name="3056" class="Symbol"
+      >=</a
+      ><a name="3057"
+      > </a
+      ><a name="3058" href="parallelSimple.html#3026" class="Bound"
+      >P</a
+      ><a name="3059"
+      > </a
+      ><a name="3060" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3061"
+      > </a
+      ><a name="3062" href="parallelSimple.html#3031" class="Bound"
+      >A</a
+      ><a name="3063"
+      > </a
+      ><a name="3064" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3069"
+      > </a
+      ><a name="3070" href="parallelSimple.html#3040" class="Bound"
+      >B</a
+      ><a name="3071"
+      > </a
+      ><a name="3072" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3073"
+      > </a
+      ><a name="3074" href="parallelSimple.html#3049" class="Bound"
+      >Q</a
+      ><a name="3075"
+      >
+
+
+   </a
+      ><a name="3081" href="parallelSimple.html#3081" class="Function Operator"
+      >_[_]||+[_]_</a
+      ><a name="3092"
+      > </a
+      ><a name="3093" class="Symbol"
+      >:</a
+      ><a name="3094"
+      > </a
+      ><a name="3095" class="Symbol"
+      >{</a
+      ><a name="3096" href="parallelSimple.html#3096" class="Bound"
+      >i</a
+      ><a name="3097"
+      > </a
+      ><a name="3098" class="Symbol"
+      >:</a
+      ><a name="3099"
+      > </a
+      ><a name="3100" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="3104" class="Symbol"
+      >}</a
+      ><a name="3105"
+      > </a
+      ><a name="3106" class="Symbol"
+      >&#8594;</a
+      ><a name="3107"
+      > </a
+      ><a name="3108" class="Symbol"
+      >{</a
+      ><a name="3109" href="parallelSimple.html#3109" class="Bound"
+      >c&#8320;</a
+      ><a name="3111"
+      > </a
+      ><a name="3112" href="parallelSimple.html#3112" class="Bound"
+      >c&#8321;</a
+      ><a name="3114"
+      > </a
+      ><a name="3115" class="Symbol"
+      >:</a
+      ><a name="3116"
+      > </a
+      ><a name="3117" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="3123" class="Symbol"
+      >}</a
+      ><a name="3124"
+      >
+                  </a
+      ><a name="3143" class="Symbol"
+      >&#8594;</a
+      ><a name="3144"
+      > </a
+      ><a name="3145" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" href="parallelSimple.html#3096" class="Bound"
+      >i</a
+      ><a name="3155"
+      > </a
+      ><a name="3156" href="parallelSimple.html#3109" class="Bound"
+      >c&#8320;</a
+      ><a name="3158"
+      > 
+                  </a
+      ><a name="3178" class="Symbol"
+      >&#8594;</a
+      ><a name="3179"
+      > </a
+      ><a name="3180" class="Symbol"
+      >(</a
+      ><a name="3181" href="parallelSimple.html#3181" class="Bound"
+      >A</a
+      ><a name="3182"
+      >  </a
+      ><a name="3184" href="parallelSimple.html#3184" class="Bound"
+      >B</a
+      ><a name="3185"
+      > </a
+      ><a name="3186" class="Symbol"
+      >:</a
+      ><a name="3187"
+      > </a
+      ><a name="3188" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="3193"
+      > </a
+      ><a name="3194" class="Symbol"
+      >&#8594;</a
+      ><a name="3195"
+      > </a
+      ><a name="3196" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="3200" class="Symbol"
+      >)</a
+      ><a name="3201"
+      >
+                  </a
+      ><a name="3220" class="Symbol"
+      >&#8594;</a
+      ><a name="3221"
+      > </a
+      ><a name="3222" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="3230"
+      > </a
+      ><a name="3231" href="parallelSimple.html#3096" class="Bound"
+      >i</a
+      ><a name="3232"
+      > </a
+      ><a name="3233" href="parallelSimple.html#3112" class="Bound"
+      >c&#8321;</a
+      ><a name="3235"
+      >  
+                  </a
+      ><a name="3256" class="Symbol"
+      >&#8594;</a
+      ><a name="3257"
+      > </a
+      ><a name="3258" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="3266"
+      > </a
+      ><a name="3267" href="parallelSimple.html#3096" class="Bound"
+      >i</a
+      ><a name="3268"
+      > </a
+      ><a name="3269" class="Symbol"
+      >(</a
+      ><a name="3270" href="parallelSimple.html#3109" class="Bound"
+      >c&#8320;</a
+      ><a name="3272"
+      > </a
+      ><a name="3273" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="3275"
+      > </a
+      ><a name="3276" href="parallelSimple.html#3112" class="Bound"
+      >c&#8321;</a
+      ><a name="3278" class="Symbol"
+      >)</a
+      ><a name="3279"
+      >
+   </a
+      ><a name="3283" href="process.html#547" class="Field"
+      >E</a
+      ><a name="3284"
+      >    </a
+      ><a name="3288" class="Symbol"
+      >(</a
+      ><a name="3289" href="parallelSimple.html#3289" class="Bound"
+      >P</a
+      ><a name="3290"
+      > </a
+      ><a name="3291" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3292"
+      > </a
+      ><a name="3293" href="parallelSimple.html#3293" class="Bound"
+      >A</a
+      ><a name="3294"
+      > </a
+      ><a name="3295" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3300"
+      > </a
+      ><a name="3301" href="parallelSimple.html#3301" class="Bound"
+      >B</a
+      ><a name="3302"
+      > </a
+      ><a name="3303" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3304"
+      > </a
+      ><a name="3305" href="parallelSimple.html#3305" class="Bound"
+      >Q</a
+      ><a name="3306" class="Symbol"
+      >)</a
+      ><a name="3307"
+      >   </a
+      ><a name="3310" class="Symbol"
+      >=</a
+      ><a name="3311"
+      > </a
+      ><a name="3312" href="choiceSetU.html#819" class="InductiveConstructor"
+      >subset'</a
+      ><a name="3319"
+      > </a
+      ><a name="3320" class="Symbol"
+      >(</a
+      ><a name="3321" href="process.html#547" class="Field"
+      >E</a
+      ><a name="3322"
+      > </a
+      ><a name="3323" href="parallelSimple.html#3289" class="Bound"
+      >P</a
+      ><a name="3324" class="Symbol"
+      >)</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" class="Symbol"
+      >((</a
+      ><a name="3328" href="dataAuxFunction.html#600" class="Function"
+      >&#172;b</a
+      ><a name="3330"
+      > </a
+      ><a name="3331" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="3332"
+      > </a
+      ><a name="3333" href="parallelSimple.html#3293" class="Bound"
+      >A</a
+      ><a name="3334" class="Symbol"
+      >)</a
+      ><a name="3335"
+      > </a
+      ><a name="3336" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="3337"
+      > </a
+      ><a name="3338" class="Symbol"
+      >(</a
+      ><a name="3339" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3342"
+      > </a
+      ><a name="3343" href="parallelSimple.html#3289" class="Bound"
+      >P</a
+      ><a name="3344" class="Symbol"
+      >))</a
+      ><a name="3346"
+      > </a
+      ><a name="3347" href="choiceSetU.html#694" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="3349"
+      > 
+                                </a
+      ><a name="3383" href="choiceSetU.html#819" class="InductiveConstructor"
+      >subset'</a
+      ><a name="3390"
+      > </a
+      ><a name="3391" class="Symbol"
+      >(</a
+      ><a name="3392" href="process.html#547" class="Field"
+      >E</a
+      ><a name="3393"
+      > </a
+      ><a name="3394" href="parallelSimple.html#3305" class="Bound"
+      >Q</a
+      ><a name="3395" class="Symbol"
+      >)</a
+      ><a name="3396"
+      > </a
+      ><a name="3397" class="Symbol"
+      >((</a
+      ><a name="3399" href="dataAuxFunction.html#600" class="Function"
+      >&#172;b</a
+      ><a name="3401"
+      > </a
+      ><a name="3402" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="3403"
+      > </a
+      ><a name="3404" href="parallelSimple.html#3301" class="Bound"
+      >B</a
+      ><a name="3405" class="Symbol"
+      >)</a
+      ><a name="3406"
+      > </a
+      ><a name="3407" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="3408"
+      > </a
+      ><a name="3409" class="Symbol"
+      >(</a
+      ><a name="3410" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3413"
+      > </a
+      ><a name="3414" href="parallelSimple.html#3305" class="Bound"
+      >Q</a
+      ><a name="3415" class="Symbol"
+      >))</a
+      ><a name="3417"
+      > </a
+      ><a name="3418" href="choiceSetU.html#694" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="3420"
+      > 
+                                </a
+      ><a name="3454" href="choiceSetU.html#819" class="InductiveConstructor"
+      >subset'</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" class="Symbol"
+      >(</a
+      ><a name="3463" href="process.html#547" class="Field"
+      >E</a
+      ><a name="3464"
+      > </a
+      ><a name="3465" href="parallelSimple.html#3289" class="Bound"
+      >P</a
+      ><a name="3466"
+      > </a
+      ><a name="3467" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="3469"
+      > </a
+      ><a name="3470" href="process.html#547" class="Field"
+      >E</a
+      ><a name="3471"
+      > </a
+      ><a name="3472" href="parallelSimple.html#3305" class="Bound"
+      >Q</a
+      ><a name="3473" class="Symbol"
+      >)(&#955;</a
+      ><a name="3476"
+      > </a
+      ><a name="3477" class="Symbol"
+      >{(</a
+      ><a name="3479" href="parallelSimple.html#3479" class="Bound"
+      >e&#8321;</a
+      ><a name="3481"
+      > </a
+      ><a name="3482" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" href="parallelSimple.html#3485" class="Bound"
+      >e&#8322;</a
+      ><a name="3487" class="Symbol"
+      >)</a
+      ><a name="3488"
+      > 
+                                </a
+      ><a name="3522" class="Symbol"
+      >&#8594;</a
+      ><a name="3523"
+      > </a
+      ><a name="3524" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3527"
+      > </a
+      ><a name="3528" href="parallelSimple.html#3289" class="Bound"
+      >P</a
+      ><a name="3529"
+      > </a
+      ><a name="3530" href="parallelSimple.html#3479" class="Bound"
+      >e&#8321;</a
+      ><a name="3532"
+      > </a
+      ><a name="3533" href="labelEq.html#132" class="Function Operator"
+      >==l</a
+      ><a name="3536"
+      > </a
+      ><a name="3537" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3540"
+      > </a
+      ><a name="3541" href="parallelSimple.html#3305" class="Bound"
+      >Q</a
+      ><a name="3542"
+      > </a
+      ><a name="3543" href="parallelSimple.html#3485" class="Bound"
+      >e&#8322;</a
+      ><a name="3545"
+      > </a
+      ><a name="3546" href="Data.Bool.Base.html#939" class="Function Operator"
+      >&#8743;</a
+      ><a name="3547"
+      > </a
+      ><a name="3548" href="parallelSimple.html#3293" class="Bound"
+      >A</a
+      ><a name="3549"
+      > </a
+      ><a name="3550" class="Symbol"
+      >(</a
+      ><a name="3551" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3554"
+      > </a
+      ><a name="3555" href="parallelSimple.html#3289" class="Bound"
+      >P</a
+      ><a name="3556"
+      > </a
+      ><a name="3557" href="parallelSimple.html#3479" class="Bound"
+      >e&#8321;</a
+      ><a name="3559" class="Symbol"
+      >)</a
+      ><a name="3560"
+      > </a
+      ><a name="3561" href="Data.Bool.Base.html#939" class="Function Operator"
+      >&#8743;</a
+      ><a name="3562"
+      > </a
+      ><a name="3563" href="parallelSimple.html#3301" class="Bound"
+      >B</a
+      ><a name="3564"
+      > </a
+      ><a name="3565" class="Symbol"
+      >(</a
+      ><a name="3566" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3569"
+      > </a
+      ><a name="3570" href="parallelSimple.html#3305" class="Bound"
+      >Q</a
+      ><a name="3571"
+      > </a
+      ><a name="3572" href="parallelSimple.html#3485" class="Bound"
+      >e&#8322;</a
+      ><a name="3574" class="Symbol"
+      >)})</a
+      ><a name="3577"
+      >
+   </a
+      ><a name="3581" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3584"
+      >  </a
+      ><a name="3586" class="Symbol"
+      >(</a
+      ><a name="3587" href="parallelSimple.html#3587" class="Bound"
+      >P</a
+      ><a name="3588"
+      > </a
+      ><a name="3589" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3590"
+      > </a
+      ><a name="3591" href="parallelSimple.html#3591" class="Bound"
+      >A</a
+      ><a name="3592"
+      > </a
+      ><a name="3593" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3598"
+      > </a
+      ><a name="3599" href="parallelSimple.html#3599" class="Bound"
+      >B</a
+      ><a name="3600"
+      > </a
+      ><a name="3601" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3602"
+      > </a
+      ><a name="3603" href="parallelSimple.html#3603" class="Bound"
+      >Q</a
+      ><a name="3604" class="Symbol"
+      >)</a
+      ><a name="3605"
+      > </a
+      ><a name="3606" class="Symbol"
+      >(</a
+      ><a name="3607" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="3611"
+      > </a
+      ><a name="3612" class="Symbol"
+      >(</a
+      ><a name="3613" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="3617"
+      > </a
+      ><a name="3618" class="Symbol"
+      >(</a
+      ><a name="3619" href="auxData.html#332" class="InductiveConstructor"
+      >sub</a
+      ><a name="3622"
+      > </a
+      ><a name="3623" href="parallelSimple.html#3623" class="Bound"
+      >c</a
+      ><a name="3624"
+      > </a
+      ><a name="3625" href="parallelSimple.html#3625" class="Bound"
+      >p</a
+      ><a name="3626" class="Symbol"
+      >)))</a
+      ><a name="3629"
+      >   </a
+      ><a name="3632" class="Symbol"
+      >=</a
+      ><a name="3633"
+      > </a
+      ><a name="3634" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3637"
+      > </a
+      ><a name="3638" href="parallelSimple.html#3587" class="Bound"
+      >P</a
+      ><a name="3639"
+      > </a
+      ><a name="3640" href="parallelSimple.html#3623" class="Bound"
+      >c</a
+      ><a name="3641"
+      >
+   </a
+      ><a name="3645" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3648"
+      >  </a
+      ><a name="3650" class="Symbol"
+      >(</a
+      ><a name="3651" href="parallelSimple.html#3651" class="Bound"
+      >P</a
+      ><a name="3652"
+      > </a
+      ><a name="3653" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3654"
+      > </a
+      ><a name="3655" href="parallelSimple.html#3655" class="Bound"
+      >A</a
+      ><a name="3656"
+      > </a
+      ><a name="3657" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3662"
+      > </a
+      ><a name="3663" href="parallelSimple.html#3663" class="Bound"
+      >B</a
+      ><a name="3664"
+      > </a
+      ><a name="3665" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3666"
+      > </a
+      ><a name="3667" href="parallelSimple.html#3667" class="Bound"
+      >Q</a
+      ><a name="3668" class="Symbol"
+      >)</a
+      ><a name="3669"
+      > </a
+      ><a name="3670" class="Symbol"
+      >(</a
+      ><a name="3671" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="3675"
+      > </a
+      ><a name="3676" class="Symbol"
+      >(</a
+      ><a name="3677" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="3681"
+      > </a
+      ><a name="3682" class="Symbol"
+      >(</a
+      ><a name="3683" href="auxData.html#332" class="InductiveConstructor"
+      >sub</a
+      ><a name="3686"
+      > </a
+      ><a name="3687" href="parallelSimple.html#3687" class="Bound"
+      >c</a
+      ><a name="3688"
+      > </a
+      ><a name="3689" href="parallelSimple.html#3689" class="Bound"
+      >p</a
+      ><a name="3690" class="Symbol"
+      >)))</a
+      ><a name="3693"
+      >   </a
+      ><a name="3696" class="Symbol"
+      >=</a
+      ><a name="3697"
+      > </a
+      ><a name="3698" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3701"
+      > </a
+      ><a name="3702" href="parallelSimple.html#3667" class="Bound"
+      >Q</a
+      ><a name="3703"
+      > </a
+      ><a name="3704" href="parallelSimple.html#3687" class="Bound"
+      >c</a
+      ><a name="3705"
+      >
+   </a
+      ><a name="3709" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3712"
+      >  </a
+      ><a name="3714" class="Symbol"
+      >(</a
+      ><a name="3715" href="parallelSimple.html#3715" class="Bound"
+      >P</a
+      ><a name="3716"
+      > </a
+      ><a name="3717" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3718"
+      > </a
+      ><a name="3719" href="parallelSimple.html#3719" class="Bound"
+      >A</a
+      ><a name="3720"
+      > </a
+      ><a name="3721" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3726"
+      > </a
+      ><a name="3727" href="parallelSimple.html#3727" class="Bound"
+      >B</a
+      ><a name="3728"
+      > </a
+      ><a name="3729" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3730"
+      > </a
+      ><a name="3731" href="parallelSimple.html#3731" class="Bound"
+      >Q</a
+      ><a name="3732" class="Symbol"
+      >)</a
+      ><a name="3733"
+      > </a
+      ><a name="3734" class="Symbol"
+      >(</a
+      ><a name="3735" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="3739"
+      > </a
+      ><a name="3740" class="Symbol"
+      >(</a
+      ><a name="3741" href="auxData.html#332" class="InductiveConstructor"
+      >sub</a
+      ><a name="3744"
+      > </a
+      ><a name="3745" class="Symbol"
+      >(</a
+      ><a name="3746" href="parallelSimple.html#3746" class="Bound"
+      >c&#8320;</a
+      ><a name="3748"
+      > </a
+      ><a name="3749" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="3751"
+      > </a
+      ><a name="3752" href="parallelSimple.html#3752" class="Bound"
+      >c&#8321;</a
+      ><a name="3754" class="Symbol"
+      >)</a
+      ><a name="3755"
+      > </a
+      ><a name="3756" href="parallelSimple.html#3756" class="Bound"
+      >p</a
+      ><a name="3757" class="Symbol"
+      >))</a
+      ><a name="3759"
+      > </a
+      ><a name="3760" class="Symbol"
+      >=</a
+      ><a name="3761"
+      > </a
+      ><a name="3762" href="process.html#569" class="Field"
+      >Lab</a
+      ><a name="3765"
+      > </a
+      ><a name="3766" href="parallelSimple.html#3715" class="Bound"
+      >P</a
+      ><a name="3767"
+      > </a
+      ><a name="3768" href="parallelSimple.html#3746" class="Bound"
+      >c&#8320;</a
+      ><a name="3770"
+      > 
+   </a
+      ><a name="3775" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="3777"
+      >   </a
+      ><a name="3780" class="Symbol"
+      >(</a
+      ><a name="3781" href="parallelSimple.html#3781" class="Bound"
+      >P</a
+      ><a name="3782"
+      > </a
+      ><a name="3783" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3784"
+      > </a
+      ><a name="3785" href="parallelSimple.html#3785" class="Bound"
+      >A</a
+      ><a name="3786"
+      > </a
+      ><a name="3787" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3792"
+      > </a
+      ><a name="3793" href="parallelSimple.html#3793" class="Bound"
+      >B</a
+      ><a name="3794"
+      > </a
+      ><a name="3795" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3796"
+      > </a
+      ><a name="3797" href="parallelSimple.html#3797" class="Bound"
+      >Q</a
+      ><a name="3798" class="Symbol"
+      >)</a
+      ><a name="3799"
+      > </a
+      ><a name="3800" class="Symbol"
+      >(</a
+      ><a name="3801" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="3805"
+      > </a
+      ><a name="3806" class="Symbol"
+      >(</a
+      ><a name="3807" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="3811"
+      > </a
+      ><a name="3812" class="Symbol"
+      >(</a
+      ><a name="3813" href="auxData.html#332" class="InductiveConstructor"
+      >sub</a
+      ><a name="3816"
+      > </a
+      ><a name="3817" href="parallelSimple.html#3817" class="Bound"
+      >c</a
+      ><a name="3818"
+      > </a
+      ><a name="3819" href="parallelSimple.html#3819" class="Bound"
+      >p</a
+      ><a name="3820" class="Symbol"
+      >)))</a
+      ><a name="3823"
+      >   </a
+      ><a name="3826" class="Symbol"
+      >=</a
+      ><a name="3827"
+      > </a
+      ><a name="3828" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="3830"
+      > </a
+      ><a name="3831" href="parallelSimple.html#3781" class="Bound"
+      >P</a
+      ><a name="3832"
+      > </a
+      ><a name="3833" href="parallelSimple.html#3817" class="Bound"
+      >c</a
+      ><a name="3834"
+      > </a
+      ><a name="3835" href="parallelSimple.html#1714" class="Function Operator"
+      >[</a
+      ><a name="3836"
+      > </a
+      ><a name="3837" href="parallelSimple.html#3785" class="Bound"
+      >A</a
+      ><a name="3838"
+      > </a
+      ><a name="3839" href="parallelSimple.html#1714" class="Function Operator"
+      >]||&#8734;+[</a
+      ><a name="3845"
+      > </a
+      ><a name="3846" href="parallelSimple.html#3793" class="Bound"
+      >B</a
+      ><a name="3847"
+      > </a
+      ><a name="3848" href="parallelSimple.html#1714" class="Function Operator"
+      >]</a
+      ><a name="3849"
+      > </a
+      ><a name="3850" href="parallelSimple.html#3797" class="Bound"
+      >Q</a
+      ><a name="3851"
+      > 
+   </a
+      ><a name="3856" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="3858"
+      >   </a
+      ><a name="3861" class="Symbol"
+      >(</a
+      ><a name="3862" href="parallelSimple.html#3862" class="Bound"
+      >P</a
+      ><a name="3863"
+      > </a
+      ><a name="3864" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3865"
+      > </a
+      ><a name="3866" href="parallelSimple.html#3866" class="Bound"
+      >A</a
+      ><a name="3867"
+      > </a
+      ><a name="3868" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3873"
+      > </a
+      ><a name="3874" href="parallelSimple.html#3874" class="Bound"
+      >B</a
+      ><a name="3875"
+      > </a
+      ><a name="3876" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3877"
+      > </a
+      ><a name="3878" href="parallelSimple.html#3878" class="Bound"
+      >Q</a
+      ><a name="3879" class="Symbol"
+      >)</a
+      ><a name="3880"
+      > </a
+      ><a name="3881" class="Symbol"
+      >(</a
+      ><a name="3882" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="3886"
+      > </a
+      ><a name="3887" class="Symbol"
+      >(</a
+      ><a name="3888" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="3892"
+      > </a
+      ><a name="3893" class="Symbol"
+      >(</a
+      ><a name="3894" href="auxData.html#332" class="InductiveConstructor"
+      >sub</a
+      ><a name="3897"
+      > </a
+      ><a name="3898" href="parallelSimple.html#3898" class="Bound"
+      >c</a
+      ><a name="3899"
+      > </a
+      ><a name="3900" href="parallelSimple.html#3900" class="Bound"
+      >p</a
+      ><a name="3901" class="Symbol"
+      >)))</a
+      ><a name="3904"
+      >   </a
+      ><a name="3907" class="Symbol"
+      >=</a
+      ><a name="3908"
+      > </a
+      ><a name="3909" href="parallelSimple.html#3862" class="Bound"
+      >P</a
+      ><a name="3910"
+      > </a
+      ><a name="3911" href="parallelSimple.html#2059" class="Function Operator"
+      >[</a
+      ><a name="3912"
+      > </a
+      ><a name="3913" href="parallelSimple.html#3866" class="Bound"
+      >A</a
+      ><a name="3914"
+      > </a
+      ><a name="3915" href="parallelSimple.html#2059" class="Function Operator"
+      >]||+&#8734;[</a
+      ><a name="3921"
+      > </a
+      ><a name="3922" href="parallelSimple.html#3874" class="Bound"
+      >B</a
+      ><a name="3923"
+      > </a
+      ><a name="3924" href="parallelSimple.html#2059" class="Function Operator"
+      >]</a
+      ><a name="3925"
+      > </a
+      ><a name="3926" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="3928"
+      > </a
+      ><a name="3929" href="parallelSimple.html#3878" class="Bound"
+      >Q</a
+      ><a name="3930"
+      > </a
+      ><a name="3931" href="parallelSimple.html#3898" class="Bound"
+      >c</a
+      ><a name="3932"
+      > 
+   </a
+      ><a name="3937" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="3939"
+      >   </a
+      ><a name="3942" class="Symbol"
+      >(</a
+      ><a name="3943" href="parallelSimple.html#3943" class="Bound"
+      >P</a
+      ><a name="3944"
+      > </a
+      ><a name="3945" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="3946"
+      > </a
+      ><a name="3947" href="parallelSimple.html#3947" class="Bound"
+      >A</a
+      ><a name="3948"
+      > </a
+      ><a name="3949" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="3954"
+      > </a
+      ><a name="3955" href="parallelSimple.html#3955" class="Bound"
+      >B</a
+      ><a name="3956"
+      > </a
+      ><a name="3957" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="3958"
+      > </a
+      ><a name="3959" href="parallelSimple.html#3959" class="Bound"
+      >Q</a
+      ><a name="3960" class="Symbol"
+      >)</a
+      ><a name="3961"
+      > </a
+      ><a name="3962" class="Symbol"
+      >(</a
+      ><a name="3963" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="3967"
+      > </a
+      ><a name="3968" class="Symbol"
+      >(</a
+      ><a name="3969" href="auxData.html#332" class="InductiveConstructor"
+      >sub</a
+      ><a name="3972"
+      > </a
+      ><a name="3973" class="Symbol"
+      >(</a
+      ><a name="3974" href="parallelSimple.html#3974" class="Bound"
+      >c&#8320;</a
+      ><a name="3976"
+      > </a
+      ><a name="3977" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="3979"
+      > </a
+      ><a name="3980" href="parallelSimple.html#3980" class="Bound"
+      >c&#8321;</a
+      ><a name="3982" class="Symbol"
+      >)</a
+      ><a name="3983"
+      > </a
+      ><a name="3984" href="parallelSimple.html#3984" class="Bound"
+      >p</a
+      ><a name="3985" class="Symbol"
+      >))</a
+      ><a name="3987"
+      > </a
+      ><a name="3988" class="Symbol"
+      >=</a
+      ><a name="3989"
+      > </a
+      ><a name="3990" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="3992"
+      > </a
+      ><a name="3993" href="parallelSimple.html#3943" class="Bound"
+      >P</a
+      ><a name="3994"
+      > </a
+      ><a name="3995" href="parallelSimple.html#3974" class="Bound"
+      >c&#8320;</a
+      ><a name="3997"
+      > </a
+      ><a name="3998" href="parallelSimple.html#836" class="Function Operator"
+      >[</a
+      ><a name="3999"
+      > </a
+      ><a name="4000" href="parallelSimple.html#3947" class="Bound"
+      >A</a
+      ><a name="4001"
+      > </a
+      ><a name="4002" href="parallelSimple.html#836" class="Function Operator"
+      >]||&#8734;[</a
+      ><a name="4007"
+      > </a
+      ><a name="4008" href="parallelSimple.html#3955" class="Bound"
+      >B</a
+      ><a name="4009"
+      > </a
+      ><a name="4010" href="parallelSimple.html#836" class="Function Operator"
+      >]</a
+      ><a name="4011"
+      > </a
+      ><a name="4012" href="process.html#607" class="Field"
+      >PE</a
+      ><a name="4014"
+      > </a
+      ><a name="4015" href="parallelSimple.html#3959" class="Bound"
+      >Q</a
+      ><a name="4016"
+      > </a
+      ><a name="4017" href="parallelSimple.html#3980" class="Bound"
+      >c&#8321;</a
+      ><a name="4019"
+      >  
+   </a
+      ><a name="4025" href="process.html#654" class="Field"
+      >I</a
+      ><a name="4026"
+      >    </a
+      ><a name="4030" class="Symbol"
+      >(</a
+      ><a name="4031" href="parallelSimple.html#4031" class="Bound"
+      >P</a
+      ><a name="4032"
+      > </a
+      ><a name="4033" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="4034"
+      > </a
+      ><a name="4035" href="parallelSimple.html#4035" class="Bound"
+      >A</a
+      ><a name="4036"
+      > </a
+      ><a name="4037" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="4042"
+      > </a
+      ><a name="4043" href="parallelSimple.html#4043" class="Bound"
+      >B</a
+      ><a name="4044"
+      > </a
+      ><a name="4045" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="4046"
+      > </a
+      ><a name="4047" href="parallelSimple.html#4047" class="Bound"
+      >Q</a
+      ><a name="4048" class="Symbol"
+      >)</a
+      ><a name="4049"
+      >                           </a
+      ><a name="4076" class="Symbol"
+      >=</a
+      ><a name="4077"
+      > </a
+      ><a name="4078" href="process.html#654" class="Field"
+      >I</a
+      ><a name="4079"
+      > </a
+      ><a name="4080" href="parallelSimple.html#4031" class="Bound"
+      >P</a
+      ><a name="4081"
+      > </a
+      ><a name="4082" href="choiceSetU.html#694" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="4084"
+      > </a
+      ><a name="4085" href="process.html#654" class="Field"
+      >I</a
+      ><a name="4086"
+      > </a
+      ><a name="4087" href="parallelSimple.html#4047" class="Bound"
+      >Q</a
+      ><a name="4088"
+      > 
+   </a
+      ><a name="4093" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="4095"
+      >   </a
+      ><a name="4098" class="Symbol"
+      >(</a
+      ><a name="4099" href="parallelSimple.html#4099" class="Bound"
+      >P</a
+      ><a name="4100"
+      > </a
+      ><a name="4101" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="4102"
+      > </a
+      ><a name="4103" href="parallelSimple.html#4103" class="Bound"
+      >A</a
+      ><a name="4104"
+      > </a
+      ><a name="4105" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="4110"
+      > </a
+      ><a name="4111" href="parallelSimple.html#4111" class="Bound"
+      >B</a
+      ><a name="4112"
+      > </a
+      ><a name="4113" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="4114"
+      > </a
+      ><a name="4115" href="parallelSimple.html#4115" class="Bound"
+      >Q</a
+      ><a name="4116" class="Symbol"
+      >)</a
+      ><a name="4117"
+      > </a
+      ><a name="4118" class="Symbol"
+      >(</a
+      ><a name="4119" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="4123"
+      > </a
+      ><a name="4124" href="parallelSimple.html#4124" class="Bound"
+      >c</a
+      ><a name="4125" class="Symbol"
+      >)</a
+      ><a name="4126"
+      >                  </a
+      ><a name="4144" class="Symbol"
+      >=</a
+      ><a name="4145"
+      > </a
+      ><a name="4146" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="4148"
+      > </a
+      ><a name="4149" href="parallelSimple.html#4099" class="Bound"
+      >P</a
+      ><a name="4150"
+      > </a
+      ><a name="4151" href="parallelSimple.html#4124" class="Bound"
+      >c</a
+      ><a name="4152"
+      > </a
+      ><a name="4153" href="parallelSimple.html#1714" class="Function Operator"
+      >[</a
+      ><a name="4154"
+      > </a
+      ><a name="4155" href="parallelSimple.html#4103" class="Bound"
+      >A</a
+      ><a name="4156"
+      > </a
+      ><a name="4157" href="parallelSimple.html#1714" class="Function Operator"
+      >]||&#8734;+[</a
+      ><a name="4163"
+      > </a
+      ><a name="4164" href="parallelSimple.html#4111" class="Bound"
+      >B</a
+      ><a name="4165"
+      > </a
+      ><a name="4166" href="parallelSimple.html#1714" class="Function Operator"
+      >]</a
+      ><a name="4167"
+      > </a
+      ><a name="4168" href="parallelSimple.html#4115" class="Bound"
+      >Q</a
+      ><a name="4169"
+      > 
+   </a
+      ><a name="4174" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="4176"
+      >   </a
+      ><a name="4179" class="Symbol"
+      >(</a
+      ><a name="4180" href="parallelSimple.html#4180" class="Bound"
+      >P</a
+      ><a name="4181"
+      > </a
+      ><a name="4182" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="4183"
+      > </a
+      ><a name="4184" href="parallelSimple.html#4184" class="Bound"
+      >A</a
+      ><a name="4185"
+      > </a
+      ><a name="4186" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="4191"
+      > </a
+      ><a name="4192" href="parallelSimple.html#4192" class="Bound"
+      >B</a
+      ><a name="4193"
+      > </a
+      ><a name="4194" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="4195"
+      > </a
+      ><a name="4196" href="parallelSimple.html#4196" class="Bound"
+      >Q</a
+      ><a name="4197" class="Symbol"
+      >)</a
+      ><a name="4198"
+      > </a
+      ><a name="4199" class="Symbol"
+      >(</a
+      ><a name="4200" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="4204"
+      > </a
+      ><a name="4205" href="parallelSimple.html#4205" class="Bound"
+      >c</a
+      ><a name="4206" class="Symbol"
+      >)</a
+      ><a name="4207"
+      >                  </a
+      ><a name="4225" class="Symbol"
+      >=</a
+      ><a name="4226"
+      > </a
+      ><a name="4227" href="parallelSimple.html#4180" class="Bound"
+      >P</a
+      ><a name="4228"
+      >  </a
+      ><a name="4230" href="parallelSimple.html#2059" class="Function Operator"
+      >[</a
+      ><a name="4231"
+      > </a
+      ><a name="4232" href="parallelSimple.html#4184" class="Bound"
+      >A</a
+      ><a name="4233"
+      > </a
+      ><a name="4234" href="parallelSimple.html#2059" class="Function Operator"
+      >]||+&#8734;[</a
+      ><a name="4240"
+      > </a
+      ><a name="4241" href="parallelSimple.html#4192" class="Bound"
+      >B</a
+      ><a name="4242"
+      > </a
+      ><a name="4243" href="parallelSimple.html#2059" class="Function Operator"
+      >]</a
+      ><a name="4244"
+      > </a
+      ><a name="4245" href="process.html#676" class="Field"
+      >PI</a
+      ><a name="4247"
+      > </a
+      ><a name="4248" href="parallelSimple.html#4196" class="Bound"
+      >Q</a
+      ><a name="4249"
+      > </a
+      ><a name="4250" href="parallelSimple.html#4205" class="Bound"
+      >c</a
+      ><a name="4251"
+      >
+   </a
+      ><a name="4255" href="process.html#723" class="Field"
+      >T</a
+      ><a name="4256"
+      >    </a
+      ><a name="4260" class="Symbol"
+      >(</a
+      ><a name="4261" href="parallelSimple.html#4261" class="Bound"
+      >P</a
+      ><a name="4262"
+      > </a
+      ><a name="4263" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="4264"
+      > </a
+      ><a name="4265" href="parallelSimple.html#4265" class="Bound"
+      >A</a
+      ><a name="4266"
+      > </a
+      ><a name="4267" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="4272"
+      > </a
+      ><a name="4273" href="parallelSimple.html#4273" class="Bound"
+      >B</a
+      ><a name="4274"
+      > </a
+      ><a name="4275" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="4276"
+      > </a
+      ><a name="4277" href="parallelSimple.html#4277" class="Bound"
+      >Q</a
+      ><a name="4278" class="Symbol"
+      >)</a
+      ><a name="4279"
+      >                           </a
+      ><a name="4306" class="Symbol"
+      >=</a
+      ><a name="4307"
+      > </a
+      ><a name="4308" href="process.html#723" class="Field"
+      >T</a
+      ><a name="4309"
+      > </a
+      ><a name="4310" href="parallelSimple.html#4261" class="Bound"
+      >P</a
+      ><a name="4311"
+      > </a
+      ><a name="4312" href="choiceSetU.html#737" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="4314"
+      > </a
+      ><a name="4315" href="process.html#723" class="Field"
+      >T</a
+      ><a name="4316"
+      > </a
+      ><a name="4317" href="parallelSimple.html#4277" class="Bound"
+      >Q</a
+      ><a name="4318"
+      >  
+   </a
+      ><a name="4324" href="process.html#745" class="Field"
+      >PT</a
+      ><a name="4326"
+      >   </a
+      ><a name="4329" class="Symbol"
+      >(</a
+      ><a name="4330" href="parallelSimple.html#4330" class="Bound"
+      >P</a
+      ><a name="4331"
+      > </a
+      ><a name="4332" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="4333"
+      > </a
+      ><a name="4334" href="parallelSimple.html#4334" class="Bound"
+      >A</a
+      ><a name="4335"
+      > </a
+      ><a name="4336" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="4341"
+      > </a
+      ><a name="4342" href="parallelSimple.html#4342" class="Bound"
+      >B</a
+      ><a name="4343"
+      > </a
+      ><a name="4344" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="4345"
+      > </a
+      ><a name="4346" href="parallelSimple.html#4346" class="Bound"
+      >Q</a
+      ><a name="4347" class="Symbol"
+      >)</a
+      ><a name="4348"
+      > </a
+      ><a name="4349" class="Symbol"
+      >(</a
+      ><a name="4350" href="parallelSimple.html#4350" class="Bound"
+      >c&#8320;</a
+      ><a name="4352"
+      > </a
+      ><a name="4353" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="4355"
+      > </a
+      ><a name="4356" href="parallelSimple.html#4356" class="Bound"
+      >c&#8321;</a
+      ><a name="4358" class="Symbol"
+      >)</a
+      ><a name="4359"
+      >                </a
+      ><a name="4375" class="Symbol"
+      >=</a
+      ><a name="4376"
+      > </a
+      ><a name="4377" href="process.html#745" class="Field"
+      >PT</a
+      ><a name="4379"
+      > </a
+      ><a name="4380" href="parallelSimple.html#4330" class="Bound"
+      >P</a
+      ><a name="4381"
+      > </a
+      ><a name="4382" href="parallelSimple.html#4350" class="Bound"
+      >c&#8320;</a
+      ><a name="4384"
+      > </a
+      ><a name="4385" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="4387"
+      > </a
+      ><a name="4388" href="process.html#745" class="Field"
+      >PT</a
+      ><a name="4390"
+      > </a
+      ><a name="4391" href="parallelSimple.html#4346" class="Bound"
+      >Q</a
+      ><a name="4392"
+      > </a
+      ><a name="4393" href="parallelSimple.html#4356" class="Bound"
+      >c&#8321;</a
+      ><a name="4395"
+      > 
+   </a
+      ><a name="4400" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="4404"
+      > </a
+      ><a name="4405" class="Symbol"
+      >(</a
+      ><a name="4406" href="parallelSimple.html#4406" class="Bound"
+      >P</a
+      ><a name="4407"
+      > </a
+      ><a name="4408" href="parallelSimple.html#3081" class="Function Operator"
+      >[</a
+      ><a name="4409"
+      > </a
+      ><a name="4410" href="parallelSimple.html#4410" class="Bound"
+      >A</a
+      ><a name="4411"
+      > </a
+      ><a name="4412" href="parallelSimple.html#3081" class="Function Operator"
+      >]||+[</a
+      ><a name="4417"
+      > </a
+      ><a name="4418" href="parallelSimple.html#4418" class="Bound"
+      >B</a
+      ><a name="4419"
+      > </a
+      ><a name="4420" href="parallelSimple.html#3081" class="Function Operator"
+      >]</a
+      ><a name="4421"
+      > </a
+      ><a name="4422" href="parallelSimple.html#4422" class="Bound"
+      >Q</a
+      ><a name="4423" class="Symbol"
+      >)</a
+      ><a name="4424"
+      >                           </a
+      ><a name="4451" class="Symbol"
+      >=</a
+      ><a name="4452"
+      > </a
+      ><a name="4453" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="4457"
+      > </a
+      ><a name="4458" href="parallelSimple.html#4406" class="Bound"
+      >P</a
+      ><a name="4459"
+      > </a
+      ><a name="4460" href="parallelSimple.html#526" class="Function Operator"
+      >[</a
+      ><a name="4461"
+      > </a
+      ><a name="4462" href="parallelSimple.html#4410" class="Bound"
+      >A</a
+      ><a name="4463"
+      > </a
+      ><a name="4464" href="parallelSimple.html#526" class="Function Operator"
+      >]||Str[</a
+      ><a name="4471"
+      > </a
+      ><a name="4472" href="parallelSimple.html#4418" class="Bound"
+      >B</a
+      ><a name="4473"
+      > </a
+      ><a name="4474" href="parallelSimple.html#526" class="Function Operator"
+      >]</a
+      ><a name="4475"
+      > 
+                                                        </a
+      ><a name="4533" href="process.html#789" class="Field"
+      >Str+</a
+      ><a name="4537"
+      > </a
+      ><a name="4538" href="parallelSimple.html#4422" class="Bound"
+      >Q</a
+      ><a name="4539"
+      >
+
+
+</a
+      ></pre
+    ></body
+  ></html
+>

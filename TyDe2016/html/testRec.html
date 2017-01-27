@@ -1,0 +1,1499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >testRec</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="testRec.html#1" class="Module"
+      >testRec</a
+      ><a name="15"
+      > </a
+      ><a name="16" class="Keyword"
+      >where</a
+      ><a name="21"
+      >
+
+</a
+      ><a name="23" class="Keyword"
+      >open</a
+      ><a name="27"
+      > </a
+      ><a name="28" class="Keyword"
+      >import</a
+      ><a name="34"
+      > </a
+      ><a name="35" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="43"
+      >
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="64"
+      >
+</a
+      ><a name="65" class="Keyword"
+      >open</a
+      ><a name="69"
+      > </a
+      ><a name="70" class="Keyword"
+      >import</a
+      ><a name="76"
+      > </a
+      ><a name="77" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="85"
+      >
+</a
+      ><a name="86" class="Keyword"
+      >open</a
+      ><a name="90"
+      > </a
+      ><a name="91" class="Keyword"
+      >import</a
+      ><a name="97"
+      > </a
+      ><a name="98" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="109"
+      >
+</a
+      ><a name="110" class="Keyword"
+      >open</a
+      ><a name="114"
+      > </a
+      ><a name="115" class="Keyword"
+      >import</a
+      ><a name="121"
+      > </a
+      ><a name="122" href="ooAgda.SizedIO.Console.html#1" class="Module"
+      >ooAgda.SizedIO.Console</a
+      ><a name="144"
+      > </a
+      ><a name="145" class="Keyword"
+      >hiding</a
+      ><a name="151"
+      > </a
+      ><a name="152" class="Symbol"
+      >(</a
+      ><a name="153" href="ooAgda.SizedIO.Console.html#903" class="Function"
+      >main</a
+      ><a name="157" class="Symbol"
+      >)</a
+      ><a name="158"
+      >
+</a
+      ><a name="159" class="Keyword"
+      >open</a
+      ><a name="163"
+      > </a
+      ><a name="164" class="Keyword"
+      >import</a
+      ><a name="170"
+      > </a
+      ><a name="171" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="186"
+      >
+</a
+      ><a name="187" class="Keyword"
+      >open</a
+      ><a name="191"
+      > </a
+      ><a name="192" class="Keyword"
+      >import</a
+      ><a name="198"
+      > </a
+      ><a name="199" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="203"
+      >
+</a
+      ><a name="204" class="Keyword"
+      >open</a
+      ><a name="208"
+      > </a
+      ><a name="209" class="Keyword"
+      >import</a
+      ><a name="215"
+      > </a
+      ><a name="216" href="rec.html#1" class="Module"
+      >rec</a
+      ><a name="219"
+      >
+</a
+      ><a name="220" class="Keyword"
+      >open</a
+      ><a name="224"
+      > </a
+      ><a name="225" class="Keyword"
+      >import</a
+      ><a name="231"
+      > </a
+      ><a name="232" href="process.html#1" class="Module"
+      >process</a
+      ><a name="239"
+      >
+</a
+      ><a name="240" class="Keyword"
+      >open</a
+      ><a name="244"
+      > </a
+      ><a name="245" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="253"
+      >
+</a
+      ><a name="254" class="Keyword"
+      >open</a
+      ><a name="258"
+      > </a
+      ><a name="259" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="267"
+      >
+</a
+      ><a name="268" class="Keyword"
+      >open</a
+      ><a name="272"
+      > </a
+      ><a name="273" class="Keyword"
+      >import</a
+      ><a name="279"
+      > </a
+      ><a name="280" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="290"
+      > 
+</a
+      ><a name="292" class="Keyword"
+      >open</a
+      ><a name="296"
+      > </a
+      ><a name="297" class="Keyword"
+      >import</a
+      ><a name="303"
+      > </a
+      ><a name="304" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="310"
+      >
+</a
+      ><a name="311" class="Keyword"
+      >open</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="Keyword"
+      >import</a
+      ><a name="322"
+      > </a
+      ><a name="323" href="label.html#1" class="Module"
+      >label</a
+      ><a name="328"
+      >
+</a
+      ><a name="329" class="Keyword"
+      >open</a
+      ><a name="333"
+      > </a
+      ><a name="334" class="Keyword"
+      >import</a
+      ><a name="340"
+      > </a
+      ><a name="341" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="357"
+      >
+</a
+      ><a name="358" class="Keyword"
+      >open</a
+      ><a name="362"
+      > </a
+      ><a name="363" class="Keyword"
+      >import</a
+      ><a name="369"
+      > </a
+      ><a name="370" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="380"
+      >
+</a
+      ><a name="381" class="Keyword"
+      >open</a
+      ><a name="385"
+      > </a
+      ><a name="386" class="Keyword"
+      >import</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="405"
+      >
+</a
+      ><a name="406" class="Keyword"
+      >open</a
+      ><a name="410"
+      > </a
+      ><a name="411" class="Keyword"
+      >import</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="simulator.html#1" class="Module"
+      >simulator</a
+      ><a name="427"
+      >
+
+
+</a
+      ><a name="430" class="Comment"
+      >-- &#8868;'</a
+      ><a name="435"
+      >
+
+</a
+      ><a name="437" href="testRec.html#437" class="Function"
+      >c&#8320;</a
+      ><a name="439"
+      > </a
+      ><a name="440" class="Symbol"
+      >:</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="448"
+      >
+</a
+      ><a name="449" href="testRec.html#437" class="Function"
+      >c&#8320;</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >=</a
+      ><a name="453"
+      > </a
+      ><a name="454" href="choiceSetU.html#1366" class="Function"
+      >&#8868;'</a
+      ><a name="456"
+      >
+
+</a
+      ><a name="458" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="460"
+      > </a
+      ><a name="461" class="Symbol"
+      >:</a
+      ><a name="462"
+      > </a
+      ><a name="463" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="469"
+      >
+</a
+      ><a name="470" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="472"
+      > </a
+      ><a name="473" class="Symbol"
+      >=</a
+      ><a name="474"
+      > </a
+      ><a name="475" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="477"
+      >
+
+
+</a
+      ><a name="480" href="testRec.html#480" class="Function"
+      >P</a
+      ><a name="481"
+      > </a
+      ><a name="482" class="Symbol"
+      >:</a
+      ><a name="483"
+      > </a
+      ><a name="484" class="Symbol"
+      >&#8704;</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >{</a
+      ><a name="487" href="testRec.html#487" class="Bound"
+      >i</a
+      ><a name="488" class="Symbol"
+      >}</a
+      ><a name="489"
+      > </a
+      ><a name="490" class="Symbol"
+      >&#8594;</a
+      ><a name="491"
+      >  </a
+      ><a name="493" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="testRec.html#437" class="Function"
+      >c&#8320;</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Symbol"
+      >&#8594;</a
+      ><a name="507"
+      > </a
+      ><a name="508" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="516"
+      > </a
+      ><a name="517" class="Symbol"
+      >(</a
+      ><a name="518" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="testRec.html#487" class="Bound"
+      >i</a
+      ><a name="521" class="Symbol"
+      >)</a
+      ><a name="522"
+      > </a
+      ><a name="523" class="Symbol"
+      >(</a
+      ><a name="524" href="testRec.html#437" class="Function"
+      >c&#8320;</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="532" class="Symbol"
+      >)</a
+      ><a name="533"
+      >  
+</a
+      ><a name="536" href="testRec.html#480" class="Function"
+      >P</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="Symbol"
+      >{</a
+      ><a name="539" href="testRec.html#539" class="Bound"
+      >i</a
+      ><a name="540" class="Symbol"
+      >}</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="testRec.html#542" class="Bound"
+      >x</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >=</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="preFix.html#889" class="Function Operator"
+      >&#10230;++</a
+      ><a name="554"
+      > </a
+      ><a name="555" class="Symbol"
+      >(</a
+      ><a name="556" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="560"
+      > </a
+      ><a name="561" href="preFix.html#367" class="Function Operator"
+      >&#10230;+</a
+      ><a name="563"
+      > </a
+      ><a name="564" class="Symbol"
+      >(</a
+      ><a name="565" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="preFix.html#1197" class="Function Operator"
+      >&#10230;p&#8734;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="primitiveProcess.html#1127" class="Function"
+      >TERMINATE</a
+      ><a name="583"
+      > </a
+      ><a name="584" class="Symbol"
+      >(</a
+      ><a name="585" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="594" class="Symbol"
+      >)</a
+      ><a name="595"
+      > </a
+      ><a name="596" class="Symbol"
+      >))</a
+      ><a name="598"
+      >
+
+</a
+      ><a name="600" href="testRec.html#600" class="Function"
+      >TERMINATEToStr</a
+      ><a name="614"
+      > </a
+      ><a name="615" class="Symbol"
+      >:</a
+      ><a name="616"
+      > </a
+      ><a name="617" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="623"
+      >
+</a
+      ><a name="624" href="testRec.html#600" class="Function"
+      >TERMINATEToStr</a
+      ><a name="638"
+      > </a
+      ><a name="639" class="Symbol"
+      >=</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >(</a
+      ><a name="647" href="primitiveProcess.html#1226" class="Function"
+      >TERMINATE&#8734;</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="Symbol"
+      >{</a
+      ><a name="659" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="660" class="Symbol"
+      >}</a
+      ><a name="661"
+      > </a
+      ><a name="662" class="Symbol"
+      >{(</a
+      ><a name="664" href="testRec.html#437" class="Function"
+      >c&#8320;</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="669"
+      > </a
+      ><a name="670" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="672" class="Symbol"
+      >)}</a
+      ><a name="674"
+      >  </a
+      ><a name="676" class="Symbol"
+      >(</a
+      ><a name="677" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="686" class="Symbol"
+      >))</a
+      ><a name="688"
+      >
+
+
+</a
+      ><a name="691" href="testRec.html#691" class="Function"
+      >p+ToStr</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >:</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="707"
+      >
+</a
+      ><a name="708" href="testRec.html#691" class="Function"
+      >p+ToStr</a
+      ><a name="715"
+      > </a
+      ><a name="716" class="Symbol"
+      >=</a
+      ><a name="717"
+      > </a
+      ><a name="718" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="722"
+      >  </a
+      ><a name="724" class="Symbol"
+      >(</a
+      ><a name="725" href="testRec.html#480" class="Function"
+      >P</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="731" class="Symbol"
+      >)</a
+      ><a name="732"
+      >
+
+</a
+      ><a name="734" href="testRec.html#734" class="Function"
+      >Q&#8734;</a
+      ><a name="736"
+      >  </a
+      ><a name="738" class="Symbol"
+      >:</a
+      ><a name="739"
+      > </a
+      ><a name="740" class="Symbol"
+      >&#8704;</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Symbol"
+      >{</a
+      ><a name="743" href="testRec.html#743" class="Bound"
+      >i</a
+      ><a name="744" class="Symbol"
+      >}</a
+      ><a name="745"
+      > </a
+      ><a name="746" class="Symbol"
+      >&#8594;</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="testRec.html#743" class="Bound"
+      >i</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="761"
+      > 
+</a
+      ><a name="763" href="testRec.html#734" class="Function"
+      >Q&#8734;</a
+      ><a name="765"
+      > </a
+      ><a name="766" class="Symbol"
+      >{</a
+      ><a name="767" href="testRec.html#767" class="Bound"
+      >i</a
+      ><a name="768" class="Symbol"
+      >}</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >=</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="rec.html#1072" class="Function"
+      >recAutoStr</a
+      ><a name="782"
+      > </a
+      ><a name="783" class="Symbol"
+      >{</a
+      ><a name="784" href="testRec.html#767" class="Bound"
+      >i</a
+      ><a name="785" class="Symbol"
+      >}</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="testRec.html#480" class="Function"
+      >P</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="793"
+      >
+
+</a
+      ><a name="795" href="testRec.html#795" class="Function"
+      >Q</a
+      ><a name="796"
+      >  </a
+      ><a name="798" class="Symbol"
+      >:</a
+      ><a name="799"
+      > </a
+      ><a name="800" class="Symbol"
+      >&#8704;</a
+      ><a name="801"
+      > </a
+      ><a name="802" class="Symbol"
+      >{</a
+      ><a name="803" href="testRec.html#803" class="Bound"
+      >i</a
+      ><a name="804" class="Symbol"
+      >}</a
+      ><a name="805"
+      > </a
+      ><a name="806" class="Symbol"
+      >&#8594;</a
+      ><a name="807"
+      > </a
+      ><a name="808" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="815"
+      > </a
+      ><a name="816" href="testRec.html#803" class="Bound"
+      >i</a
+      ><a name="817"
+      > </a
+      ><a name="818" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="820"
+      > 
+</a
+      ><a name="822" href="testRec.html#795" class="Function"
+      >Q</a
+      ><a name="823"
+      > </a
+      ><a name="824" class="Symbol"
+      >{</a
+      ><a name="825" href="testRec.html#825" class="Bound"
+      >i</a
+      ><a name="826" class="Symbol"
+      >}</a
+      ><a name="827"
+      > </a
+      ><a name="828" class="Symbol"
+      >=</a
+      ><a name="829"
+      > </a
+      ><a name="830" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="836"
+      > </a
+      ><a name="837" class="Symbol"
+      >(</a
+      ><a name="838" href="testRec.html#734" class="Function"
+      >Q&#8734;</a
+      ><a name="840"
+      > </a
+      ><a name="841" class="Symbol"
+      >{</a
+      ><a name="842" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="testRec.html#825" class="Bound"
+      >i</a
+      ><a name="845" class="Symbol"
+      >})</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >{</a
+      ><a name="849" href="testRec.html#825" class="Bound"
+      >i</a
+      ><a name="850" class="Symbol"
+      >}</a
+      ><a name="851"
+      >
+
+</a
+      ><a name="853" href="testRec.html#853" class="Function"
+      >q&#8734;ToStr</a
+      ><a name="860"
+      > </a
+      ><a name="861" class="Symbol"
+      >:</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="869"
+      >
+</a
+      ><a name="870" href="testRec.html#853" class="Function"
+      >q&#8734;ToStr</a
+      ><a name="877"
+      > </a
+      ><a name="878" class="Symbol"
+      >=</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="884"
+      >   </a
+      ><a name="887" href="testRec.html#734" class="Function"
+      >Q&#8734;</a
+      ><a name="889"
+      > 
+
+
+
+</a
+      ><a name="894" href="testRec.html#894" class="Function"
+      >qToStr</a
+      ><a name="900"
+      > </a
+      ><a name="901" class="Symbol"
+      >:</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="909"
+      >
+</a
+      ><a name="910" href="testRec.html#894" class="Function"
+      >qToStr</a
+      ><a name="916"
+      > </a
+      ><a name="917" class="Symbol"
+      >=</a
+      ><a name="918"
+      > </a
+      ><a name="919" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="922"
+      >  </a
+      ><a name="924" href="testRec.html#795" class="Function"
+      >Q</a
+      ><a name="925"
+      >
+
+</a
+      ><a name="927" href="testRec.html#927" class="Function"
+      >qToLabels</a
+      ><a name="936"
+      > </a
+      ><a name="937" class="Symbol"
+      >:</a
+      ><a name="938"
+      > </a
+      ><a name="939" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="945"
+      >
+</a
+      ><a name="946" href="testRec.html#927" class="Function"
+      >qToLabels</a
+      ><a name="955"
+      > </a
+      ><a name="956" class="Symbol"
+      >=</a
+      ><a name="957"
+      > </a
+      ><a name="958" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="testRec.html#795" class="Function"
+      >Q</a
+      ><a name="971"
+      >
+
+
+</a
+      ><a name="974" href="testRec.html#974" class="Function"
+      >Q'&#8734;</a
+      ><a name="977"
+      >  </a
+      ><a name="979" class="Symbol"
+      >:</a
+      ><a name="980"
+      > </a
+      ><a name="981" class="Symbol"
+      >&#8704;</a
+      ><a name="982"
+      > </a
+      ><a name="983" class="Symbol"
+      >{</a
+      ><a name="984" href="testRec.html#984" class="Bound"
+      >i</a
+      ><a name="985" class="Symbol"
+      >}</a
+      ><a name="986"
+      > </a
+      ><a name="987" class="Symbol"
+      >&#8594;</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="testRec.html#984" class="Bound"
+      >i</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="1002"
+      > 
+</a
+      ><a name="1004" href="testRec.html#974" class="Function"
+      >Q'&#8734;</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" class="Symbol"
+      >{</a
+      ><a name="1009" href="testRec.html#1009" class="Bound"
+      >i</a
+      ><a name="1010" class="Symbol"
+      >}</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" class="Symbol"
+      >=</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="rec.html#323" class="Function"
+      >rec</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" class="Symbol"
+      >{</a
+      ><a name="1019" href="testRec.html#1009" class="Bound"
+      >i</a
+      ><a name="1020" class="Symbol"
+      >}</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" class="String"
+      >&quot;c \t&#8594;\t P&quot;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="testRec.html#480" class="Function"
+      >P</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1040"
+      >
+
+</a
+      ><a name="1042" href="testRec.html#1042" class="Function"
+      >Q'</a
+      ><a name="1044"
+      >  </a
+      ><a name="1046" class="Symbol"
+      >:</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" class="Symbol"
+      >&#8704;</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" class="Symbol"
+      >{</a
+      ><a name="1051" href="testRec.html#1051" class="Bound"
+      >i</a
+      ><a name="1052" class="Symbol"
+      >}</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" class="Symbol"
+      >&#8594;</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" href="testRec.html#1051" class="Bound"
+      >i</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="1068"
+      > 
+</a
+      ><a name="1070" href="testRec.html#1042" class="Function"
+      >Q'</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" class="Symbol"
+      >{</a
+      ><a name="1074" href="testRec.html#1074" class="Bound"
+      >i</a
+      ><a name="1075" class="Symbol"
+      >}</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" class="Symbol"
+      >=</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" class="Symbol"
+      >(</a
+      ><a name="1087" href="testRec.html#974" class="Function"
+      >Q'&#8734;</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" class="Symbol"
+      >{</a
+      ><a name="1092" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="testRec.html#1074" class="Bound"
+      >i</a
+      ><a name="1095" class="Symbol"
+      >})</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" class="Symbol"
+      >{</a
+      ><a name="1099" href="testRec.html#1074" class="Bound"
+      >i</a
+      ><a name="1100" class="Symbol"
+      >}</a
+      ><a name="1101"
+      >
+
+</a
+      ><a name="1103" href="testRec.html#1103" class="Function"
+      >q'&#8734;ToStr</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" class="Symbol"
+      >:</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1120"
+      >
+</a
+      ><a name="1121" href="testRec.html#1103" class="Function"
+      >q'&#8734;ToStr</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" class="Symbol"
+      >=</a
+      ><a name="1131"
+      > </a
+      ><a name="1132" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1136"
+      >   </a
+      ><a name="1139" href="testRec.html#974" class="Function"
+      >Q'&#8734;</a
+      ><a name="1142"
+      > 
+
+
+
+</a
+      ><a name="1147" href="testRec.html#1147" class="Function"
+      >q'ToStr</a
+      ><a name="1154"
+      > </a
+      ><a name="1155" class="Symbol"
+      >:</a
+      ><a name="1156"
+      > </a
+      ><a name="1157" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1163"
+      >
+</a
+      ><a name="1164" href="testRec.html#1147" class="Function"
+      >q'ToStr</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" class="Symbol"
+      >=</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="1177"
+      >  </a
+      ><a name="1179" href="testRec.html#1042" class="Function"
+      >Q'</a
+      ><a name="1181"
+      >
+
+</a
+      ><a name="1183" href="testRec.html#1183" class="Function"
+      >q'ToLabels</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" class="Symbol"
+      >:</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1202"
+      >
+</a
+      ><a name="1203" href="testRec.html#1183" class="Function"
+      >q'ToLabels</a
+      ><a name="1213"
+      > </a
+      ><a name="1214" class="Symbol"
+      >=</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" href="testRec.html#1042" class="Function"
+      >Q'</a
+      ><a name="1230"
+      >
+
+</a
+      ><a name="1232" href="testRec.html#1232" class="Function"
+      >Q''</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" class="Symbol"
+      >:</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1245"
+      >  </a
+      ><a name="1247" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="1251"
+      >
+</a
+      ><a name="1252" href="testRec.html#1232" class="Function"
+      >Q''</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" class="Symbol"
+      >=</a
+      ><a name="1257"
+      > </a
+      ><a name="1258" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1264"
+      > </a
+      ><a name="1265" class="Symbol"
+      >(</a
+      ><a name="1266" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" class="Symbol"
+      >(</a
+      ><a name="1296" href="testRec.html#1042" class="Function"
+      >Q'</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" class="Symbol"
+      >{</a
+      ><a name="1300" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1301" class="Symbol"
+      >})</a
+      ><a name="1303"
+      >  </a
+      ><a name="1305" class="Symbol"
+      >(</a
+      ><a name="1306" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1315" class="Symbol"
+      >))</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" class="Symbol"
+      >{</a
+      ><a name="1319" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1320" class="Symbol"
+      >}</a
+      ><a name="1321"
+      >
+
+
+</a
+      ><a name="1324" href="testRec.html#1324" class="Function"
+      >q''ToStr</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" class="Symbol"
+      >:</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1341"
+      >
+</a
+      ><a name="1342" href="testRec.html#1324" class="Function"
+      >q''ToStr</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >=</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="1356"
+      >   </a
+      ><a name="1359" href="testRec.html#1232" class="Function"
+      >Q''</a
+      ><a name="1362"
+      > 
+
+
+</a
+      ><a name="1366" href="testRec.html#1366" class="Function"
+      >q''ToLabels</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" class="Symbol"
+      >:</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1386"
+      >
+</a
+      ><a name="1387" href="testRec.html#1366" class="Function"
+      >q''ToLabels</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" class="Symbol"
+      >=</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" href="testRec.html#1232" class="Function"
+      >Q''</a
+      ><a name="1416"
+      >
+
+
+</a
+      ><a name="1419" href="testRec.html#1419" class="Function"
+      >Q&#8734;'''</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" class="Symbol"
+      >:</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="1440"
+      >
+</a
+      ><a name="1441" href="testRec.html#1419" class="Function"
+      >Q&#8734;'''</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" class="Symbol"
+      >=</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="testRec.html#1232" class="Function"
+      >Q''</a
+      ><a name="1481"
+      >   </a
+      ><a name="1484" class="Symbol"
+      >(</a
+      ><a name="1485" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1494" class="Symbol"
+      >)</a
+      ><a name="1495"
+      > 
+
+</a
+      ><a name="1498" href="testRec.html#1498" class="Function"
+      >Q'''</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" class="Symbol"
+      >:</a
+      ><a name="1504"
+      > </a
+      ><a name="1505" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1512"
+      >  </a
+      ><a name="1514" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="testRec.html#458" class="Function"
+      >c&#8321;</a
+      ><a name="1518"
+      >
+</a
+      ><a name="1519" href="testRec.html#1498" class="Function"
+      >Q'''</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" class="Symbol"
+      >=</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" class="Symbol"
+      >(</a
+      ><a name="1534" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="testRec.html#1232" class="Function"
+      >Q''</a
+      ><a name="1566"
+      >   </a
+      ><a name="1569" class="Symbol"
+      >(</a
+      ><a name="1570" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1579" class="Symbol"
+      >))</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" class="Symbol"
+      >{</a
+      ><a name="1583" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1584" class="Symbol"
+      >}</a
+      ><a name="1585"
+      > 
+
+</a
+      ><a name="1588" href="testRec.html#1588" class="Function"
+      >q&#8734;'''ToStr</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" class="Symbol"
+      >:</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1607"
+      >
+</a
+      ><a name="1608" href="testRec.html#1588" class="Function"
+      >q&#8734;'''ToStr</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" class="Symbol"
+      >=</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="testRec.html#1419" class="Function"
+      >Q&#8734;'''</a
+      ><a name="1631"
+      > 
+
+
+</a
+      ><a name="1635" href="testRec.html#1635" class="Function"
+      >q'''ToStr</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" class="Symbol"
+      >:</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1653"
+      >
+</a
+      ><a name="1654" href="testRec.html#1635" class="Function"
+      >q'''ToStr</a
+      ><a name="1663"
+      > </a
+      ><a name="1664" class="Symbol"
+      >=</a
+      ><a name="1665"
+      > </a
+      ><a name="1666" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="1669"
+      >   </a
+      ><a name="1672" href="testRec.html#1498" class="Function"
+      >Q'''</a
+      ><a name="1676"
+      > 
+
+
+</a
+      ><a name="1680" href="testRec.html#1680" class="Function"
+      >q'''ToLabels</a
+      ><a name="1692"
+      > </a
+      ><a name="1693" class="Symbol"
+      >:</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1701"
+      >
+</a
+      ><a name="1702" href="testRec.html#1680" class="Function"
+      >q'''ToLabels</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" class="Symbol"
+      >=</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" href="testRec.html#1498" class="Function"
+      >Q'''</a
+      ><a name="1733"
+      >
+
+
+</a
+      ><a name="1736" href="testRec.html#1736" class="Function"
+      >main</a
+      ><a name="1740"
+      >  </a
+      ><a name="1742" class="Symbol"
+      >:</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" href="ooAgda.NativeIO.html#119" class="Postulate"
+      >NativeIO</a
+      ><a name="1752"
+      > </a
+      ><a name="1753" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="1757"
+      > 
+</a
+      ><a name="1759" href="testRec.html#1736" class="Function"
+      >main</a
+      ><a name="1763"
+      >  </a
+      ><a name="1765" class="Symbol"
+      >=</a
+      ><a name="1766"
+      >  </a
+      ><a name="1768" href="ooAgda.SizedIO.Console.html#785" class="Function"
+      >translateIOConsole</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" class="Symbol"
+      >(</a
+      ><a name="1788" href="simulator.html#2435" class="Function"
+      >myProgrami</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" class="Symbol"
+      >(</a
+      ><a name="1800" href="testRec.html#1042" class="Function"
+      >Q'</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" class="Symbol"
+      >{</a
+      ><a name="1804" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1805" class="Symbol"
+      >})</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" class="Symbol"
+      >)</a
+      ><a name="1809"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

@@ -1,0 +1,1035 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >rec</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="rec.html#1" class="Module"
+      >rec</a
+      ><a name="11"
+      > </a
+      ><a name="12" class="Keyword"
+      >where</a
+      ><a name="17"
+      >
+
+</a
+      ><a name="19" class="Keyword"
+      >open</a
+      ><a name="23"
+      > </a
+      ><a name="24" class="Keyword"
+      >import</a
+      ><a name="30"
+      > </a
+      ><a name="31" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="42"
+      > </a
+      ><a name="43" class="Keyword"
+      >renaming</a
+      ><a name="51"
+      > </a
+      ><a name="52" class="Symbol"
+      >(</a
+      ><a name="53" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="57"
+      > </a
+      ><a name="58" class="Symbol"
+      >to</a
+      ><a name="60"
+      > </a
+      ><a name="61" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="66" class="Symbol"
+      >)</a
+      ><a name="67"
+      >
+</a
+      ><a name="68" class="Keyword"
+      >open</a
+      ><a name="72"
+      > </a
+      ><a name="73" class="Keyword"
+      >import</a
+      ><a name="79"
+      > </a
+      ><a name="80" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="88"
+      >
+</a
+      ><a name="89" class="Keyword"
+      >open</a
+      ><a name="93"
+      > </a
+      ><a name="94" class="Keyword"
+      >import</a
+      ><a name="100"
+      > </a
+      ><a name="101" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="105"
+      >
+</a
+      ><a name="106" class="Keyword"
+      >open</a
+      ><a name="110"
+      > </a
+      ><a name="111" class="Keyword"
+      >import</a
+      ><a name="117"
+      > </a
+      ><a name="118" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="128"
+      > 
+</a
+      ><a name="130" class="Keyword"
+      >open</a
+      ><a name="134"
+      > </a
+      ><a name="135" class="Keyword"
+      >import</a
+      ><a name="141"
+      > </a
+      ><a name="142" href="process.html#1" class="Module"
+      >process</a
+      ><a name="149"
+      >
+</a
+      ><a name="150" class="Keyword"
+      >open</a
+      ><a name="154"
+      > </a
+      ><a name="155" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="163"
+      >
+</a
+      ><a name="164" class="Keyword"
+      >open</a
+      ><a name="168"
+      > </a
+      ><a name="169" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="177"
+      >
+</a
+      ><a name="178" class="Keyword"
+      >open</a
+      ><a name="182"
+      > </a
+      ><a name="183" class="Keyword"
+      >import</a
+      ><a name="189"
+      > </a
+      ><a name="190" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="205"
+      >
+</a
+      ><a name="206" class="Keyword"
+      >open</a
+      ><a name="210"
+      > </a
+      ><a name="211" class="Keyword"
+      >import</a
+      ><a name="217"
+      > </a
+      ><a name="218" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="225"
+      >
+</a
+      ><a name="226" class="Keyword"
+      >open</a
+      ><a name="230"
+      > </a
+      ><a name="231" class="Keyword"
+      >import</a
+      ><a name="237"
+      > </a
+      ><a name="238" href="sequentialComposition.html#1" class="Module"
+      >sequentialComposition</a
+      ><a name="259"
+      >
+</a
+      ><a name="260" class="Keyword"
+      >open</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Keyword"
+      >import</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="284"
+      >
+</a
+      ><a name="285" class="Keyword"
+      >open</a
+      ><a name="289"
+      > </a
+      ><a name="290" class="Keyword"
+      >import</a
+      ><a name="296"
+      > </a
+      ><a name="297" href="renamingProcess.html#1" class="Module"
+      >renamingProcess</a
+      ><a name="312"
+      >
+
+</a
+      ><a name="314" class="Keyword"
+      >mutual</a
+      ><a name="320"
+      >
+  </a
+      ><a name="323" href="rec.html#323" class="Function"
+      >rec</a
+      ><a name="326"
+      > </a
+      ><a name="327" class="Symbol"
+      >:</a
+      ><a name="328"
+      > </a
+      ><a name="329" class="Symbol"
+      >{</a
+      ><a name="330" href="rec.html#330" class="Bound"
+      >i</a
+      ><a name="331"
+      > </a
+      ><a name="332" class="Symbol"
+      >:</a
+      ><a name="333"
+      > </a
+      ><a name="334" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="338" class="Symbol"
+      >}</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="Symbol"
+      >&#8594;</a
+      ><a name="341"
+      > </a
+      ><a name="342" class="Symbol"
+      >{</a
+      ><a name="343" href="rec.html#343" class="Bound"
+      >c&#8320;</a
+      ><a name="345"
+      > </a
+      ><a name="346" href="rec.html#346" class="Bound"
+      >c&#8321;</a
+      ><a name="348"
+      > </a
+      ><a name="349" class="Symbol"
+      >:</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="357" class="Symbol"
+      >}</a
+      ><a name="358"
+      >
+         </a
+      ><a name="368" class="Symbol"
+      >&#8594;</a
+      ><a name="369"
+      >  </a
+      ><a name="371" class="Symbol"
+      >(</a
+      ><a name="372" href="rec.html#372" class="Bound"
+      >name</a
+      ><a name="376"
+      > </a
+      ><a name="377" class="Symbol"
+      >:</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="385" class="Symbol"
+      >)</a
+      ><a name="386"
+      >
+         </a
+      ><a name="396" class="Symbol"
+      >&#8594;</a
+      ><a name="397"
+      >  </a
+      ><a name="399" class="Symbol"
+      >(</a
+      ><a name="400" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="409"
+      >  </a
+      ><a name="411" href="rec.html#343" class="Bound"
+      >c&#8320;</a
+      ><a name="413"
+      > </a
+      ><a name="414" class="Symbol"
+      >&#8594;</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="424"
+      > </a
+      ><a name="425" class="Symbol"
+      >(</a
+      ><a name="426" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="rec.html#330" class="Bound"
+      >i</a
+      ><a name="429" class="Symbol"
+      >)</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >(</a
+      ><a name="432" href="rec.html#343" class="Bound"
+      >c&#8320;</a
+      ><a name="434"
+      > </a
+      ><a name="435" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="437"
+      > </a
+      ><a name="438" href="rec.html#346" class="Bound"
+      >c&#8321;</a
+      ><a name="440" class="Symbol"
+      >))</a
+      ><a name="442"
+      >
+         </a
+      ><a name="452" class="Symbol"
+      >&#8594;</a
+      ><a name="453"
+      >  </a
+      ><a name="455" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="464"
+      >   </a
+      ><a name="467" href="rec.html#343" class="Bound"
+      >c&#8320;</a
+      ><a name="469"
+      > 
+         </a
+      ><a name="480" class="Symbol"
+      >&#8594;</a
+      ><a name="481"
+      >  </a
+      ><a name="483" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="491"
+      >    </a
+      ><a name="495" href="rec.html#330" class="Bound"
+      >i</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="rec.html#346" class="Bound"
+      >c&#8321;</a
+      ><a name="499"
+      > 
+  </a
+      ><a name="503" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="509"
+      > </a
+      ><a name="510" class="Symbol"
+      >(</a
+      ><a name="511" href="rec.html#323" class="Function"
+      >rec</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="rec.html#515" class="Bound"
+      >name</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="rec.html#520" class="Bound"
+      >f</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="rec.html#522" class="Bound"
+      >a</a
+      ><a name="523" class="Symbol"
+      >)</a
+      ><a name="524"
+      >  </a
+      ><a name="526" class="Symbol"
+      >=</a
+      ><a name="527"
+      >   </a
+      ><a name="530" href="renamingProcess.html#332" class="Function"
+      >renameP</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="rec.html#515" class="Bound"
+      >name</a
+      ><a name="542"
+      > 
+                             </a
+      ><a name="573" class="Symbol"
+      >(</a
+      ><a name="574" href="rec.html#520" class="Bound"
+      >f</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="rec.html#522" class="Bound"
+      >a</a
+      ><a name="577"
+      > </a
+      ><a name="578" href="sequentialComposition.html#1390" class="Function Operator"
+      >&#10219;=+p</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="rec.html#635" class="Function"
+      >recaux</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="rec.html#515" class="Bound"
+      >name</a
+      ><a name="594"
+      > </a
+      ><a name="595" href="rec.html#520" class="Bound"
+      >f</a
+      ><a name="596" class="Symbol"
+      >)</a
+      ><a name="597"
+      >
+  </a
+      ><a name="600" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="604"
+      >   </a
+      ><a name="607" class="Symbol"
+      >(</a
+      ><a name="608" href="rec.html#323" class="Function"
+      >rec</a
+      ><a name="611"
+      > </a
+      ><a name="612" href="rec.html#612" class="Bound"
+      >name</a
+      ><a name="616"
+      > </a
+      ><a name="617" href="rec.html#617" class="Bound"
+      >f</a
+      ><a name="618"
+      > </a
+      ><a name="619" href="rec.html#619" class="Bound"
+      >a</a
+      ><a name="620" class="Symbol"
+      >)</a
+      ><a name="621"
+      >  </a
+      ><a name="623" class="Symbol"
+      >=</a
+      ><a name="624"
+      >   </a
+      ><a name="627" href="rec.html#612" class="Bound"
+      >name</a
+      ><a name="631"
+      >
+
+  </a
+      ><a name="635" href="rec.html#635" class="Function"
+      >recaux</a
+      ><a name="641"
+      >  </a
+      ><a name="643" class="Symbol"
+      >:</a
+      ><a name="644"
+      > </a
+      ><a name="645" class="Symbol"
+      >{</a
+      ><a name="646" href="rec.html#646" class="Bound"
+      >i</a
+      ><a name="647"
+      > </a
+      ><a name="648" class="Symbol"
+      >:</a
+      ><a name="649"
+      > </a
+      ><a name="650" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="654" class="Symbol"
+      >}</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >&#8594;</a
+      ><a name="657"
+      >  </a
+      ><a name="659" class="Symbol"
+      >{</a
+      ><a name="660" href="rec.html#660" class="Bound"
+      >c&#8320;</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="rec.html#663" class="Bound"
+      >c&#8321;</a
+      ><a name="665"
+      > </a
+      ><a name="666" class="Symbol"
+      >:</a
+      ><a name="667"
+      > </a
+      ><a name="668" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="674" class="Symbol"
+      >}</a
+      ><a name="675"
+      >
+         </a
+      ><a name="685" class="Symbol"
+      >&#8594;</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >(</a
+      ><a name="688" href="rec.html#688" class="Bound"
+      >name</a
+      ><a name="692"
+      > </a
+      ><a name="693" class="Symbol"
+      >:</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="701" class="Symbol"
+      >)</a
+      ><a name="702"
+      >
+         </a
+      ><a name="712" class="Symbol"
+      >&#8594;</a
+      ><a name="713"
+      > </a
+      ><a name="714" class="Symbol"
+      >(</a
+      ><a name="715" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="rec.html#660" class="Bound"
+      >c&#8320;</a
+      ><a name="727"
+      > </a
+      ><a name="728" class="Symbol"
+      >&#8594;</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="738"
+      > </a
+      ><a name="739" class="Symbol"
+      >(</a
+      ><a name="740" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="741"
+      > </a
+      ><a name="742" href="rec.html#646" class="Bound"
+      >i</a
+      ><a name="743" class="Symbol"
+      >)</a
+      ><a name="744"
+      > </a
+      ><a name="745" class="Symbol"
+      >(</a
+      ><a name="746" href="rec.html#660" class="Bound"
+      >c&#8320;</a
+      ><a name="748"
+      > </a
+      ><a name="749" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="rec.html#663" class="Bound"
+      >c&#8321;</a
+      ><a name="754" class="Symbol"
+      >))</a
+      ><a name="756"
+      >
+         </a
+      ><a name="766" class="Symbol"
+      >&#8594;</a
+      ><a name="767"
+      > </a
+      ><a name="768" class="Symbol"
+      >(</a
+      ><a name="769" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="778"
+      > </a
+      ><a name="779" href="rec.html#660" class="Bound"
+      >c&#8320;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="rec.html#663" class="Bound"
+      >c&#8321;</a
+      ><a name="796" class="Symbol"
+      >)</a
+      ><a name="797"
+      >
+         </a
+      ><a name="807" class="Symbol"
+      >&#8594;</a
+      ><a name="808"
+      > </a
+      ><a name="809" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="817"
+      > </a
+      ><a name="818" href="rec.html#646" class="Bound"
+      >i</a
+      ><a name="819"
+      > </a
+      ><a name="820" href="rec.html#663" class="Bound"
+      >c&#8321;</a
+      ><a name="822"
+      >
+  </a
+      ><a name="825" href="rec.html#635" class="Function"
+      >recaux</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="rec.html#832" class="Bound"
+      >name</a
+      ><a name="836"
+      > </a
+      ><a name="837" href="rec.html#837" class="Bound"
+      >f</a
+      ><a name="838"
+      > </a
+      ><a name="839" class="Symbol"
+      >(</a
+      ><a name="840" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="rec.html#845" class="Bound"
+      >x</a
+      ><a name="846" class="Symbol"
+      >)</a
+      ><a name="847"
+      >  </a
+      ><a name="849" class="Symbol"
+      >=</a
+      ><a name="850"
+      >  </a
+      ><a name="852" href="rec.html#323" class="Function"
+      >rec</a
+      ><a name="855"
+      >    </a
+      ><a name="859" href="rec.html#832" class="Bound"
+      >name</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="rec.html#837" class="Bound"
+      >f</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="rec.html#845" class="Bound"
+      >x</a
+      ><a name="867"
+      > 
+  </a
+      ><a name="871" href="rec.html#635" class="Function"
+      >recaux</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="rec.html#878" class="Bound"
+      >name</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="rec.html#883" class="Bound"
+      >f</a
+      ><a name="884"
+      > </a
+      ><a name="885" class="Symbol"
+      >(</a
+      ><a name="886" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="rec.html#891" class="Bound"
+      >x</a
+      ><a name="892" class="Symbol"
+      >)</a
+      ><a name="893"
+      >  </a
+      ><a name="895" class="Symbol"
+      >=</a
+      ><a name="896"
+      >  </a
+      ><a name="898" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="903"
+      >  </a
+      ><a name="905" class="Symbol"
+      >(</a
+      ><a name="906" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="rec.html#891" class="Bound"
+      >x</a
+      ><a name="917"
+      > </a
+      ><a name="918" class="Symbol"
+      >)</a
+      ><a name="919"
+      >
+
+
+
+</a
+      ><a name="923" href="rec.html#923" class="Function"
+      >recStr</a
+      ><a name="929"
+      > </a
+      ><a name="930" class="Symbol"
+      >:</a
+      ><a name="931"
+      > </a
+      ><a name="932" class="Symbol"
+      >{</a
+      ><a name="933" href="rec.html#933" class="Bound"
+      >c&#8320;</a
+      ><a name="935"
+      > </a
+      ><a name="936" class="Symbol"
+      >:</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="944" class="Symbol"
+      >}</a
+      ><a name="945"
+      > </a
+      ><a name="946" class="Symbol"
+      >&#8594;</a
+      ><a name="947"
+      > </a
+      ><a name="948" class="Symbol"
+      >(</a
+      ><a name="949" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="958"
+      > </a
+      ><a name="959" href="rec.html#933" class="Bound"
+      >c&#8320;</a
+      ><a name="961"
+      > </a
+      ><a name="962" class="Symbol"
+      >&#8594;</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="970" class="Symbol"
+      >)</a
+      ><a name="971"
+      > </a
+      ><a name="972" class="Symbol"
+      >&#8594;</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="rec.html#933" class="Bound"
+      >c&#8320;</a
+      ><a name="986"
+      > </a
+      ><a name="987" class="Symbol"
+      >&#8594;</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="995"
+      >
+</a
+      ><a name="996" href="rec.html#923" class="Function"
+      >recStr</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" href="rec.html#1003" class="Bound"
+      >f</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" href="rec.html#1005" class="Bound"
+      >a</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" class="Symbol"
+      >=</a
+      ><a name="1008"
+      > </a
+      ><a name="1009" class="String"
+      >&quot;rec(&quot;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="showFunction.html#3427" class="Function"
+      >choice2Str2Str</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="rec.html#1003" class="Bound"
+      >f</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" class="String"
+      >&quot;,&quot;</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" href="rec.html#1005" class="Bound"
+      >a</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" class="String"
+      >&quot;)&quot;</a
+      ><a name="1069"
+      >
+
+
+</a
+      ><a name="1072" href="rec.html#1072" class="Function"
+      >recAutoStr</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" class="Symbol"
+      >:</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" class="Symbol"
+      >{</a
+      ><a name="1086" href="rec.html#1086" class="Bound"
+      >i</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" class="Symbol"
+      >:</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1094" class="Symbol"
+      >}</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" class="Symbol"
+      >&#8594;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" class="Symbol"
+      >{</a
+      ><a name="1099" href="rec.html#1099" class="Bound"
+      >c&#8320;</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="rec.html#1102" class="Bound"
+      >c&#8321;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" class="Symbol"
+      >:</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1113" class="Symbol"
+      >}</a
+      ><a name="1114"
+      >
+       </a
+      ><a name="1122" class="Symbol"
+      >&#8594;</a
+      ><a name="1123"
+      > </a
+      ><a name="1124" class="Symbol"
+      >(</a
+      ><a name="1125" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="rec.html#1099" class="Bound"
+      >c&#8320;</a
+      ><a name="1137"
+      > </a
+      ><a name="1138" class="Symbol"
+      >&#8594;</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1148"
+      > </a
+      ><a name="1149" class="Symbol"
+      >(</a
+      ><a name="1150" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" href="rec.html#1086" class="Bound"
+      >i</a
+      ><a name="1153" class="Symbol"
+      >)</a
+      ><a name="1154"
+      > </a
+      ><a name="1155" class="Symbol"
+      >(</a
+      ><a name="1156" href="rec.html#1099" class="Bound"
+      >c&#8320;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" href="rec.html#1102" class="Bound"
+      >c&#8321;</a
+      ><a name="1164" class="Symbol"
+      >))</a
+      ><a name="1166"
+      >
+       </a
+      ><a name="1174" class="Symbol"
+      >&#8594;</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1185"
+      > </a
+      ><a name="1186" href="rec.html#1099" class="Bound"
+      >c&#8320;</a
+      ><a name="1188"
+      > 
+       </a
+      ><a name="1197" class="Symbol"
+      >&#8594;</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" href="rec.html#1086" class="Bound"
+      >i</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="rec.html#1102" class="Bound"
+      >c&#8321;</a
+      ><a name="1212"
+      > 
+</a
+      ><a name="1214" href="rec.html#1072" class="Function"
+      >recAutoStr</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" href="rec.html#1225" class="Bound"
+      >f</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="rec.html#1227" class="Bound"
+      >a</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" class="Symbol"
+      >=</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="rec.html#323" class="Function"
+      >rec</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" class="Symbol"
+      >(</a
+      ><a name="1236" href="rec.html#923" class="Function"
+      >recStr</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" class="Symbol"
+      >(</a
+      ><a name="1244" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="dataAuxFunction.html#950" class="Function Operator"
+      >&#8728;</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" href="rec.html#1225" class="Bound"
+      >f</a
+      ><a name="1252" class="Symbol"
+      >)</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" href="rec.html#1227" class="Bound"
+      >a</a
+      ><a name="1255" class="Symbol"
+      >)</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" href="rec.html#1225" class="Bound"
+      >f</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="rec.html#1227" class="Bound"
+      >a</a
+      ><a name="1260"
+      > 
+</a
+      ></pre
+    ></body
+  ></html
+>

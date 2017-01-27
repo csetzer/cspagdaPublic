@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >IOInterleav</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="IOInterleav.html#1" class="Module"
+      >IOInterleav</a
+      ><a name="19"
+      > </a
+      ><a name="20" class="Keyword"
+      >where</a
+      ><a name="25"
+      > 
+
+</a
+      ><a name="28" class="Keyword"
+      >open</a
+      ><a name="32"
+      > </a
+      ><a name="33" class="Keyword"
+      >import</a
+      ><a name="39"
+      > </a
+      ><a name="40" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="44"
+      > 
+</a
+      ><a name="46" class="Keyword"
+      >open</a
+      ><a name="50"
+      > </a
+      ><a name="51" class="Keyword"
+      >import</a
+      ><a name="57"
+      > </a
+      ><a name="58" href="process.html#1" class="Module"
+      >process</a
+      ><a name="65"
+      > 
+</a
+      ><a name="67" class="Keyword"
+      >open</a
+      ><a name="71"
+      > </a
+      ><a name="72" class="Keyword"
+      >import</a
+      ><a name="78"
+      > </a
+      ><a name="79" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="89"
+      >
+</a
+      ><a name="90" class="Keyword"
+      >open</a
+      ><a name="94"
+      > </a
+      ><a name="95" class="Keyword"
+      >import</a
+      ><a name="101"
+      > </a
+      ><a name="102" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="108"
+      >   
+</a
+      ><a name="112" class="Keyword"
+      >open</a
+      ><a name="116"
+      > </a
+      ><a name="117" class="Keyword"
+      >import</a
+      ><a name="123"
+      > </a
+      ><a name="124" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="140"
+      >
+</a
+      ><a name="141" class="Keyword"
+      >open</a
+      ><a name="145"
+      > </a
+      ><a name="146" class="Keyword"
+      >import</a
+      ><a name="152"
+      > </a
+      ><a name="153" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="160"
+      >
+</a
+      ><a name="161" class="Keyword"
+      >open</a
+      ><a name="165"
+      > </a
+      ><a name="166" class="Keyword"
+      >import</a
+      ><a name="172"
+      > </a
+      ><a name="173" href="label.html#1" class="Module"
+      >label</a
+      ><a name="178"
+      >
+</a
+      ><a name="179" class="Keyword"
+      >open</a
+      ><a name="183"
+      > </a
+      ><a name="184" class="Keyword"
+      >import</a
+      ><a name="190"
+      > </a
+      ><a name="191" href="simulator.html#1" class="Module"
+      >simulator</a
+      ><a name="200"
+      >
+</a
+      ><a name="201" class="Keyword"
+      >open</a
+      ><a name="205"
+      > </a
+      ><a name="206" class="Keyword"
+      >import</a
+      ><a name="212"
+      > </a
+      ><a name="213" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="221"
+      > </a
+      ><a name="222" class="Keyword"
+      >renaming</a
+      ><a name="230"
+      > </a
+      ><a name="231" class="Symbol"
+      >(</a
+      ><a name="232" href="Data.Fin.html#3834" class="Function Operator"
+      >_+_</a
+      ><a name="235"
+      > </a
+      ><a name="236" class="Symbol"
+      >to</a
+      ><a name="238"
+      > </a
+      ><a name="239" href="Data.Fin.html#3834" class="Function Operator"
+      >_+,_</a
+      ><a name="243" class="Symbol"
+      >;</a
+      ><a name="244" href="Data.Fin.html#4657" class="Function Operator"
+      >_&lt;_</a
+      ><a name="247"
+      > </a
+      ><a name="248" class="Symbol"
+      >to</a
+      ><a name="250"
+      > </a
+      ><a name="251" href="Data.Fin.html#4657" class="Function Operator"
+      >_&lt;F_</a
+      ><a name="255" class="Symbol"
+      >)</a
+      ><a name="256"
+      >
+</a
+      ><a name="257" class="Keyword"
+      >open</a
+      ><a name="261"
+      > </a
+      ><a name="262" class="Keyword"
+      >import</a
+      ><a name="268"
+      > </a
+      ><a name="269" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="278"
+      >
+</a
+      ><a name="279" class="Keyword"
+      >open</a
+      ><a name="283"
+      > </a
+      ><a name="284" class="Keyword"
+      >import</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="ooAgda.SizedIO.Console.html#1" class="Module"
+      >ooAgda.SizedIO.Console</a
+      ><a name="313"
+      > </a
+      ><a name="314" class="Keyword"
+      >hiding</a
+      ><a name="320"
+      > </a
+      ><a name="321" class="Symbol"
+      >(</a
+      ><a name="322" href="ooAgda.SizedIO.Console.html#903" class="Function"
+      >main</a
+      ><a name="326" class="Symbol"
+      >)</a
+      ><a name="327"
+      >
+</a
+      ><a name="328" class="Keyword"
+      >open</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Keyword"
+      >import</a
+      ><a name="339"
+      > </a
+      ><a name="340" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="355"
+      >
+</a
+      ><a name="356" class="Keyword"
+      >open</a
+      ><a name="360"
+      > </a
+      ><a name="361" class="Keyword"
+      >import</a
+      ><a name="367"
+      > </a
+      ><a name="368" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="382"
+      >
+</a
+      ><a name="383" class="Keyword"
+      >open</a
+      ><a name="387"
+      > </a
+      ><a name="388" class="Keyword"
+      >import</a
+      ><a name="394"
+      > </a
+      ><a name="395" href="interleave.html#1" class="Module"
+      >interleave</a
+      ><a name="405"
+      >
+
+
+</a
+      ><a name="408" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="415"
+      > </a
+      ><a name="416" class="Symbol"
+      >:</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="424"
+      >
+</a
+      ><a name="425" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="432"
+      > </a
+      ><a name="433" class="Symbol"
+      >=</a
+      ><a name="434"
+      > </a
+      ><a name="435" href="choiceSetU.html#753" class="InductiveConstructor"
+      >namedElements</a
+      ><a name="448"
+      > </a
+      ><a name="449" class="Symbol"
+      >(</a
+      ><a name="450" class="String"
+      >&quot;STOP&quot;</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="461" class="Symbol"
+      >)</a
+      ><a name="462"
+      >
+
+</a
+      ><a name="464" href="IOInterleav.html#464" class="Function"
+      >transition&#8321;</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >:</a
+      ><a name="477"
+      > </a
+      ><a name="478" class="Symbol"
+      >&#8704;</a
+      ><a name="479"
+      > </a
+      ><a name="480" href="IOInterleav.html#480" class="Bound"
+      >i</a
+      ><a name="481"
+      > </a
+      ><a name="482" class="Symbol"
+      >&#8594;</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="IOInterleav.html#480" class="Bound"
+      >i</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="501"
+      >
+</a
+      ><a name="502" href="IOInterleav.html#464" class="Function"
+      >transition&#8321;</a
+      ><a name="513"
+      >  </a
+      ><a name="515" href="IOInterleav.html#515" class="Bound"
+      >i</a
+      ><a name="516"
+      > </a
+      ><a name="517" class="Symbol"
+      >=</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="531"
+      > </a
+      ><a name="532" class="Symbol"
+      >{</a
+      ><a name="533" href="IOInterleav.html#515" class="Bound"
+      >i</a
+      ><a name="534" class="Symbol"
+      >}</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >(</a
+      ><a name="537" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="549"
+      > </a
+      ><a name="550" class="Symbol"
+      >{</a
+      ><a name="551" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="552"
+      > </a
+      ><a name="553" href="IOInterleav.html#515" class="Bound"
+      >i</a
+      ><a name="554" class="Symbol"
+      >}</a
+      ><a name="555"
+      > </a
+      ><a name="556" class="Symbol"
+      >(</a
+      ><a name="557" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="569"
+      > </a
+      ><a name="570" class="Symbol"
+      >{</a
+      ><a name="571" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="572"
+      > </a
+      ><a name="573" class="Symbol"
+      >(</a
+      ><a name="574" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="IOInterleav.html#515" class="Bound"
+      >i</a
+      ><a name="577" class="Symbol"
+      >)}</a
+      ><a name="579"
+      > </a
+      ><a name="580" class="Symbol"
+      >(</a
+      ><a name="581" href="primitiveProcess.html#367" class="Function"
+      >STOP</a
+      ><a name="585"
+      > </a
+      ><a name="586" class="Symbol"
+      >{</a
+      ><a name="587" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="588" class="Symbol"
+      >}</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="597" class="Symbol"
+      >)))</a
+      ><a name="600"
+      >
+
+</a
+      ><a name="602" href="IOInterleav.html#602" class="Function"
+      >transition&#8322;</a
+      ><a name="613"
+      > </a
+      ><a name="614" class="Symbol"
+      >:</a
+      ><a name="615"
+      > </a
+      ><a name="616" class="Symbol"
+      >&#8704;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="IOInterleav.html#618" class="Bound"
+      >i</a
+      ><a name="619"
+      > </a
+      ><a name="620" class="Symbol"
+      >&#8594;</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="IOInterleav.html#618" class="Bound"
+      >i</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="639"
+      >
+</a
+      ><a name="640" href="IOInterleav.html#602" class="Function"
+      >transition&#8322;</a
+      ><a name="651"
+      >  </a
+      ><a name="653" href="IOInterleav.html#653" class="Bound"
+      >i</a
+      ><a name="654"
+      > </a
+      ><a name="655" class="Symbol"
+      >=</a
+      ><a name="656"
+      > </a
+      ><a name="657" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="669"
+      > </a
+      ><a name="670" class="Symbol"
+      >{</a
+      ><a name="671" href="IOInterleav.html#653" class="Bound"
+      >i</a
+      ><a name="672" class="Symbol"
+      >}</a
+      ><a name="673"
+      > </a
+      ><a name="674" class="Symbol"
+      >(</a
+      ><a name="675" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="679"
+      > </a
+      ><a name="680" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="687"
+      > </a
+      ><a name="688" class="Symbol"
+      >{</a
+      ><a name="689" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="IOInterleav.html#653" class="Bound"
+      >i</a
+      ><a name="692" class="Symbol"
+      >}</a
+      ><a name="693"
+      > </a
+      ><a name="694" class="Symbol"
+      >(</a
+      ><a name="695" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="707"
+      > </a
+      ><a name="708" class="Symbol"
+      >{</a
+      ><a name="709" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="Symbol"
+      >(</a
+      ><a name="712" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="713"
+      > </a
+      ><a name="714" href="IOInterleav.html#653" class="Bound"
+      >i</a
+      ><a name="715" class="Symbol"
+      >)}</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >(</a
+      ><a name="719" href="primitiveProcess.html#367" class="Function"
+      >STOP</a
+      ><a name="723"
+      > </a
+      ><a name="724" class="Symbol"
+      >{</a
+      ><a name="725" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="726" class="Symbol"
+      >}</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="735" class="Symbol"
+      >)))</a
+      ><a name="738"
+      >
+
+</a
+      ><a name="740" href="IOInterleav.html#740" class="Function"
+      >transition&#8324;</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Symbol"
+      >:</a
+      ><a name="753"
+      >  </a
+      ><a name="755" class="Symbol"
+      >&#8704;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="IOInterleav.html#757" class="Bound"
+      >i</a
+      ><a name="758"
+      > </a
+      ><a name="759" class="Symbol"
+      >&#8594;</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="IOInterleav.html#757" class="Bound"
+      >i</a
+      ><a name="770"
+      > </a
+      ><a name="771" class="Symbol"
+      >(</a
+      ><a name="772" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="782"
+      > </a
+      ><a name="783" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="790" class="Symbol"
+      >)</a
+      ><a name="791"
+      >
+</a
+      ><a name="792" href="IOInterleav.html#740" class="Function"
+      >transition&#8324;</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="IOInterleav.html#804" class="Bound"
+      >i</a
+      ><a name="805"
+      >  </a
+      ><a name="807" class="Symbol"
+      >=</a
+      ><a name="808"
+      > </a
+      ><a name="809" href="IOInterleav.html#464" class="Function"
+      >transition&#8321;</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="IOInterleav.html#804" class="Bound"
+      >i</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="interleave.html#668" class="Function Operator"
+      >|||</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="IOInterleav.html#602" class="Function"
+      >transition&#8322;</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="IOInterleav.html#804" class="Bound"
+      >i</a
+      ><a name="840"
+      >
+
+
+
+</a
+      ><a name="844" href="IOInterleav.html#844" class="Function"
+      >main</a
+      ><a name="848"
+      >  </a
+      ><a name="850" class="Symbol"
+      >:</a
+      ><a name="851"
+      > </a
+      ><a name="852" href="ooAgda.NativeIO.html#119" class="Postulate"
+      >NativeIO</a
+      ><a name="860"
+      > </a
+      ><a name="861" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="865"
+      > 
+</a
+      ><a name="867" href="IOInterleav.html#844" class="Function"
+      >main</a
+      ><a name="871"
+      >  </a
+      ><a name="873" class="Symbol"
+      >=</a
+      ><a name="874"
+      >  </a
+      ><a name="876" href="ooAgda.SizedIO.Console.html#785" class="Function"
+      >translateIOConsole</a
+      ><a name="894"
+      > </a
+      ><a name="895" class="Symbol"
+      >(</a
+      ><a name="896" href="simulator.html#473" class="Function"
+      >myProgram</a
+      ><a name="905"
+      > </a
+      ><a name="906" class="Symbol"
+      >(</a
+      ><a name="907" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="914"
+      > </a
+      ><a name="915" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="IOInterleav.html#408" class="Function"
+      >setSTOP</a
+      ><a name="925" class="Symbol"
+      >)</a
+      ><a name="926"
+      > </a
+      ><a name="927" class="Symbol"
+      >((</a
+      ><a name="929" href="IOInterleav.html#740" class="Function"
+      >transition&#8324;</a
+      ><a name="940"
+      > </a
+      ><a name="941" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="942" class="Symbol"
+      >)))</a
+      ><a name="945"
+      >
+
+</a
+      ></pre
+    ></body
+  ></html
+>

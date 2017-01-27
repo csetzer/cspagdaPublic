@@ -1,0 +1,1707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >renamingResultOriginal</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="renamingResultOriginal.html#1" class="Module"
+      >renamingResultOriginal</a
+      ><a name="30"
+      > </a
+      ><a name="31" class="Keyword"
+      >where</a
+      ><a name="36"
+      >
+
+</a
+      ><a name="38" class="Keyword"
+      >open</a
+      ><a name="42"
+      > </a
+      ><a name="43" class="Keyword"
+      >import</a
+      ><a name="49"
+      > </a
+      ><a name="50" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="61"
+      > </a
+      ><a name="62" class="Keyword"
+      >renaming</a
+      ><a name="70"
+      > </a
+      ><a name="71" class="Symbol"
+      >(</a
+      ><a name="72" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="76"
+      > </a
+      ><a name="77" class="Symbol"
+      >to</a
+      ><a name="79"
+      > </a
+      ><a name="80" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="85" class="Symbol"
+      >)</a
+      ><a name="86"
+      >
+</a
+      ><a name="87" class="Keyword"
+      >open</a
+      ><a name="91"
+      > </a
+      ><a name="92" class="Keyword"
+      >import</a
+      ><a name="98"
+      > </a
+      ><a name="99" href="process.html#1" class="Module"
+      >process</a
+      ><a name="106"
+      >
+</a
+      ><a name="107" class="Keyword"
+      >open</a
+      ><a name="111"
+      > </a
+      ><a name="112" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="120"
+      >
+</a
+      ><a name="121" class="Keyword"
+      >open</a
+      ><a name="125"
+      > </a
+      ><a name="126" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="134"
+      >
+</a
+      ><a name="135" class="Keyword"
+      >open</a
+      ><a name="139"
+      > </a
+      ><a name="140" class="Keyword"
+      >import</a
+      ><a name="146"
+      > </a
+      ><a name="147" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="151"
+      >
+</a
+      ><a name="152" class="Keyword"
+      >open</a
+      ><a name="156"
+      > </a
+      ><a name="157" class="Keyword"
+      >import</a
+      ><a name="163"
+      > </a
+      ><a name="164" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="174"
+      >
+</a
+      ><a name="175" class="Keyword"
+      >open</a
+      ><a name="179"
+      > </a
+      ><a name="180" class="Keyword"
+      >import</a
+      ><a name="186"
+      > </a
+      ><a name="187" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="199"
+      >
+
+</a
+      ><a name="201" class="Keyword"
+      >mutual</a
+      ><a name="207"
+      >
+
+  </a
+      ><a name="211" href="renamingResultOriginal.html#211" class="Function"
+      >fmapStr</a
+      ><a name="218"
+      > </a
+      ><a name="219" class="Symbol"
+      >:</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="Symbol"
+      >{</a
+      ><a name="222" href="renamingResultOriginal.html#222" class="Bound"
+      >c&#8320;</a
+      ><a name="224"
+      > </a
+      ><a name="225" href="renamingResultOriginal.html#225" class="Bound"
+      >c&#8321;</a
+      ><a name="227"
+      > </a
+      ><a name="228" class="Symbol"
+      >:</a
+      ><a name="229"
+      > </a
+      ><a name="230" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="236" class="Symbol"
+      >}</a
+      ><a name="237"
+      > </a
+      ><a name="238" class="Symbol"
+      >&#8594;</a
+      ><a name="239"
+      > </a
+      ><a name="240" class="Symbol"
+      >(</a
+      ><a name="241" href="renamingResultOriginal.html#241" class="Bound"
+      >f</a
+      ><a name="242"
+      > </a
+      ><a name="243" class="Symbol"
+      >:</a
+      ><a name="244"
+      > </a
+      ><a name="245" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="254"
+      > </a
+      ><a name="255" href="renamingResultOriginal.html#222" class="Bound"
+      >c&#8320;</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Symbol"
+      >&#8594;</a
+      ><a name="259"
+      > </a
+      ><a name="260" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="269"
+      > </a
+      ><a name="270" href="renamingResultOriginal.html#225" class="Bound"
+      >c&#8321;</a
+      ><a name="272" class="Symbol"
+      >)</a
+      ><a name="273"
+      > 
+            </a
+      ><a name="287" class="Symbol"
+      >&#8594;</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Symbol"
+      >&#8594;</a
+      ><a name="297"
+      > </a
+      ><a name="298" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="304"
+      >
+  </a
+      ><a name="307" href="renamingResultOriginal.html#211" class="Function"
+      >fmapStr</a
+      ><a name="314"
+      > </a
+      ><a name="315" href="renamingResultOriginal.html#315" class="Bound"
+      >f</a
+      ><a name="316"
+      > </a
+      ><a name="317" href="renamingResultOriginal.html#317" class="Bound"
+      >str</a
+      ><a name="320"
+      > </a
+      ><a name="321" class="Symbol"
+      >=</a
+      ><a name="322"
+      > </a
+      ><a name="323" class="String"
+      >&quot;fmap(&quot;</a
+      ><a name="330"
+      > </a
+      ><a name="331" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="334"
+      >  </a
+      ><a name="336" href="showFunction.html#3233" class="Function"
+      >choiceFunctionToStringi</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="renamingResultOriginal.html#315" class="Bound"
+      >f</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="365"
+      > </a
+      ><a name="366" class="String"
+      >&quot;,&quot;</a
+      ><a name="369"
+      > </a
+      ><a name="370" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="renamingResultOriginal.html#317" class="Bound"
+      >str</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="381"
+      > </a
+      ><a name="382" class="String"
+      >&quot;)&quot;</a
+      ><a name="385"
+      >
+
+
+  </a
+      ><a name="390" href="renamingResultOriginal.html#390" class="Function"
+      >fmap&#8734;</a
+      ><a name="395"
+      > </a
+      ><a name="396" class="Symbol"
+      >:</a
+      ><a name="397"
+      > </a
+      ><a name="398" class="Symbol"
+      >{</a
+      ><a name="399" href="renamingResultOriginal.html#399" class="Bound"
+      >c&#8320;</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="renamingResultOriginal.html#402" class="Bound"
+      >c&#8321;</a
+      ><a name="404"
+      > </a
+      ><a name="405" class="Symbol"
+      >:</a
+      ><a name="406"
+      > </a
+      ><a name="407" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="413" class="Symbol"
+      >}</a
+      ><a name="414"
+      > </a
+      ><a name="415" class="Symbol"
+      >&#8594;</a
+      ><a name="416"
+      > </a
+      ><a name="417" class="Symbol"
+      >(</a
+      ><a name="418" href="renamingResultOriginal.html#418" class="Bound"
+      >f</a
+      ><a name="419"
+      > </a
+      ><a name="420" class="Symbol"
+      >:</a
+      ><a name="421"
+      > </a
+      ><a name="422" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="431"
+      > </a
+      ><a name="432" href="renamingResultOriginal.html#399" class="Bound"
+      >c&#8320;</a
+      ><a name="434"
+      > </a
+      ><a name="435" class="Symbol"
+      >&#8594;</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="renamingResultOriginal.html#402" class="Bound"
+      >c&#8321;</a
+      ><a name="449" class="Symbol"
+      >)</a
+      ><a name="450"
+      > </a
+      ><a name="451" class="Symbol"
+      >&#8594;</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >(</a
+      ><a name="454" href="renamingResultOriginal.html#454" class="Bound"
+      >i</a
+      ><a name="455"
+      > </a
+      ><a name="456" class="Symbol"
+      >:</a
+      ><a name="457"
+      > </a
+      ><a name="458" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="462" class="Symbol"
+      >)</a
+      ><a name="463"
+      > 
+          </a
+      ><a name="475" class="Symbol"
+      >&#8594;</a
+      ><a name="476"
+      > </a
+      ><a name="477" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="485"
+      > </a
+      ><a name="486" href="renamingResultOriginal.html#454" class="Bound"
+      >i</a
+      ><a name="487"
+      > </a
+      ><a name="488" href="renamingResultOriginal.html#399" class="Bound"
+      >c&#8320;</a
+      ><a name="490"
+      > </a
+      ><a name="491" class="Symbol"
+      >&#8594;</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="renamingResultOriginal.html#454" class="Bound"
+      >i</a
+      ><a name="503"
+      > </a
+      ><a name="504" href="renamingResultOriginal.html#402" class="Bound"
+      >c&#8321;</a
+      ><a name="506"
+      >  
+  </a
+      ><a name="511" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="517"
+      > </a
+      ><a name="518" class="Symbol"
+      >(</a
+      ><a name="519" href="renamingResultOriginal.html#390" class="Function"
+      >fmap&#8734;</a
+      ><a name="524"
+      >  </a
+      ><a name="526" href="renamingResultOriginal.html#526" class="Bound"
+      >f</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="renamingResultOriginal.html#528" class="Bound"
+      >i</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="renamingResultOriginal.html#530" class="Bound"
+      >P</a
+      ><a name="531" class="Symbol"
+      >)</a
+      ><a name="532"
+      > </a
+      ><a name="533" class="Symbol"
+      >{</a
+      ><a name="534" href="renamingResultOriginal.html#534" class="Bound"
+      >j</a
+      ><a name="535" class="Symbol"
+      >}</a
+      ><a name="536"
+      > </a
+      ><a name="537" class="Symbol"
+      >=</a
+      ><a name="538"
+      > </a
+      ><a name="539" href="renamingResultOriginal.html#616" class="Function"
+      >fmap</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="renamingResultOriginal.html#526" class="Bound"
+      >f</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="renamingResultOriginal.html#534" class="Bound"
+      >j</a
+      ><a name="547"
+      > </a
+      ><a name="548" class="Symbol"
+      >(</a
+      ><a name="549" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="555"
+      > </a
+      ><a name="556" href="renamingResultOriginal.html#530" class="Bound"
+      >P</a
+      ><a name="557"
+      > </a
+      ><a name="558" class="Symbol"
+      >{</a
+      ><a name="559" href="renamingResultOriginal.html#534" class="Bound"
+      >j</a
+      ><a name="560" class="Symbol"
+      >})</a
+      ><a name="562"
+      >
+  </a
+      ><a name="565" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="569"
+      >   </a
+      ><a name="572" class="Symbol"
+      >(</a
+      ><a name="573" href="renamingResultOriginal.html#390" class="Function"
+      >fmap&#8734;</a
+      ><a name="578"
+      >  </a
+      ><a name="580" href="renamingResultOriginal.html#580" class="Bound"
+      >f</a
+      ><a name="581"
+      > </a
+      ><a name="582" href="renamingResultOriginal.html#582" class="Bound"
+      >i</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="renamingResultOriginal.html#584" class="Bound"
+      >P</a
+      ><a name="585" class="Symbol"
+      >)</a
+      ><a name="586"
+      >     </a
+      ><a name="591" class="Symbol"
+      >=</a
+      ><a name="592"
+      > </a
+      ><a name="593" href="renamingResultOriginal.html#211" class="Function"
+      >fmapStr</a
+      ><a name="600"
+      > </a
+      ><a name="601" href="renamingResultOriginal.html#580" class="Bound"
+      >f</a
+      ><a name="602"
+      > </a
+      ><a name="603" class="Symbol"
+      >(</a
+      ><a name="604" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="608"
+      >  </a
+      ><a name="610" href="renamingResultOriginal.html#584" class="Bound"
+      >P</a
+      ><a name="611" class="Symbol"
+      >)</a
+      ><a name="612"
+      >
+
+  </a
+      ><a name="616" href="renamingResultOriginal.html#616" class="Function"
+      >fmap</a
+      ><a name="620"
+      >  </a
+      ><a name="622" class="Symbol"
+      >:</a
+      ><a name="623"
+      > </a
+      ><a name="624" class="Symbol"
+      >{</a
+      ><a name="625" href="renamingResultOriginal.html#625" class="Bound"
+      >c&#8320;</a
+      ><a name="627"
+      > </a
+      ><a name="628" href="renamingResultOriginal.html#628" class="Bound"
+      >c&#8321;</a
+      ><a name="630"
+      > </a
+      ><a name="631" class="Symbol"
+      >:</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="639" class="Symbol"
+      >}</a
+      ><a name="640"
+      > </a
+      ><a name="641" class="Symbol"
+      >&#8594;</a
+      ><a name="642"
+      > </a
+      ><a name="643" class="Symbol"
+      >(</a
+      ><a name="644" href="renamingResultOriginal.html#644" class="Bound"
+      >f</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >:</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="renamingResultOriginal.html#625" class="Bound"
+      >c&#8320;</a
+      ><a name="660"
+      > </a
+      ><a name="661" class="Symbol"
+      >&#8594;</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="renamingResultOriginal.html#628" class="Bound"
+      >c&#8321;</a
+      ><a name="675" class="Symbol"
+      >)</a
+      ><a name="676"
+      > </a
+      ><a name="677" class="Symbol"
+      >&#8594;</a
+      ><a name="678"
+      > </a
+      ><a name="679" class="Symbol"
+      >(</a
+      ><a name="680" href="renamingResultOriginal.html#680" class="Bound"
+      >i</a
+      ><a name="681"
+      > </a
+      ><a name="682" class="Symbol"
+      >:</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="688" class="Symbol"
+      >)</a
+      ><a name="689"
+      > 
+          </a
+      ><a name="701" class="Symbol"
+      >&#8594;</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="710"
+      > </a
+      ><a name="711" href="renamingResultOriginal.html#680" class="Bound"
+      >i</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="renamingResultOriginal.html#625" class="Bound"
+      >c&#8320;</a
+      ><a name="715"
+      >  
+          </a
+      ><a name="728" class="Symbol"
+      >&#8594;</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="renamingResultOriginal.html#680" class="Bound"
+      >i</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="renamingResultOriginal.html#628" class="Bound"
+      >c&#8321;</a
+      ><a name="742"
+      >  
+  </a
+      ><a name="747" href="renamingResultOriginal.html#616" class="Function"
+      >fmap</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="renamingResultOriginal.html#752" class="Bound"
+      >f</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="renamingResultOriginal.html#754" class="Bound"
+      >i</a
+      ><a name="755"
+      > </a
+      ><a name="756" class="Symbol"
+      >(</a
+      ><a name="757" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="renamingResultOriginal.html#767" class="Bound"
+      >a</a
+      ><a name="768" class="Symbol"
+      >)</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >=</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="781"
+      > </a
+      ><a name="782" class="Symbol"
+      >(</a
+      ><a name="783" href="renamingResultOriginal.html#752" class="Bound"
+      >f</a
+      ><a name="784"
+      > </a
+      ><a name="785" href="renamingResultOriginal.html#767" class="Bound"
+      >a</a
+      ><a name="786" class="Symbol"
+      >)</a
+      ><a name="787"
+      >
+  </a
+      ><a name="790" href="renamingResultOriginal.html#616" class="Function"
+      >fmap</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="renamingResultOriginal.html#795" class="Bound"
+      >f</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="renamingResultOriginal.html#797" class="Bound"
+      >i</a
+      ><a name="798"
+      > </a
+      ><a name="799" class="Symbol"
+      >(</a
+      ><a name="800" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="renamingResultOriginal.html#805" class="Bound"
+      >P</a
+      ><a name="806" class="Symbol"
+      >)</a
+      ><a name="807"
+      >      </a
+      ><a name="813" class="Symbol"
+      >=</a
+      ><a name="814"
+      > </a
+      ><a name="815" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="819"
+      > </a
+      ><a name="820" class="Symbol"
+      >(</a
+      ><a name="821" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="renamingResultOriginal.html#795" class="Bound"
+      >f</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="renamingResultOriginal.html#797" class="Bound"
+      >i</a
+      ><a name="830"
+      > </a
+      ><a name="831" href="renamingResultOriginal.html#805" class="Bound"
+      >P</a
+      ><a name="832" class="Symbol"
+      >)</a
+      ><a name="833"
+      >
+
+  </a
+      ><a name="837" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="842"
+      > </a
+      ><a name="843" class="Symbol"
+      >:</a
+      ><a name="844"
+      > </a
+      ><a name="845" class="Symbol"
+      >{</a
+      ><a name="846" href="renamingResultOriginal.html#846" class="Bound"
+      >c&#8320;</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="renamingResultOriginal.html#849" class="Bound"
+      >c&#8321;</a
+      ><a name="851"
+      > </a
+      ><a name="852" class="Symbol"
+      >:</a
+      ><a name="853"
+      > </a
+      ><a name="854" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="860" class="Symbol"
+      >}</a
+      ><a name="861"
+      > </a
+      ><a name="862" class="Symbol"
+      >&#8594;</a
+      ><a name="863"
+      > </a
+      ><a name="864" class="Symbol"
+      >(</a
+      ><a name="865" href="renamingResultOriginal.html#865" class="Bound"
+      >f</a
+      ><a name="866"
+      > </a
+      ><a name="867" class="Symbol"
+      >:</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="renamingResultOriginal.html#846" class="Bound"
+      >c&#8320;</a
+      ><a name="881"
+      > </a
+      ><a name="882" class="Symbol"
+      >&#8594;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="renamingResultOriginal.html#849" class="Bound"
+      >c&#8321;</a
+      ><a name="896" class="Symbol"
+      >)</a
+      ><a name="897"
+      > </a
+      ><a name="898" class="Symbol"
+      >&#8594;</a
+      ><a name="899"
+      > </a
+      ><a name="900" class="Symbol"
+      >(</a
+      ><a name="901" href="renamingResultOriginal.html#901" class="Bound"
+      >i</a
+      ><a name="902"
+      > </a
+      ><a name="903" class="Symbol"
+      >:</a
+      ><a name="904"
+      > </a
+      ><a name="905" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="909" class="Symbol"
+      >)</a
+      ><a name="910"
+      > 
+          </a
+      ><a name="922" class="Symbol"
+      >&#8594;</a
+      ><a name="923"
+      > </a
+      ><a name="924" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="932"
+      > </a
+      ><a name="933" href="renamingResultOriginal.html#901" class="Bound"
+      >i</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="renamingResultOriginal.html#846" class="Bound"
+      >c&#8320;</a
+      ><a name="937"
+      > 
+          </a
+      ><a name="949" class="Symbol"
+      >&#8594;</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="renamingResultOriginal.html#901" class="Bound"
+      >i</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="renamingResultOriginal.html#849" class="Bound"
+      >c&#8321;</a
+      ><a name="964"
+      > 
+  </a
+      ><a name="968" href="process.html#570" class="Field"
+      >E</a
+      ><a name="969"
+      >    </a
+      ><a name="973" class="Symbol"
+      >(</a
+      ><a name="974" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="979"
+      >  </a
+      ><a name="981" href="renamingResultOriginal.html#981" class="Bound"
+      >f</a
+      ><a name="982"
+      > </a
+      ><a name="983" href="renamingResultOriginal.html#983" class="Bound"
+      >i</a
+      ><a name="984"
+      > </a
+      ><a name="985" href="renamingResultOriginal.html#985" class="Bound"
+      >P</a
+      ><a name="986" class="Symbol"
+      >)</a
+      ><a name="987"
+      >   </a
+      ><a name="990" class="Symbol"
+      >=</a
+      ><a name="991"
+      > </a
+      ><a name="992" href="process.html#570" class="Field"
+      >E</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="renamingResultOriginal.html#985" class="Bound"
+      >P</a
+      ><a name="995"
+      >
+  </a
+      ><a name="998" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1001"
+      >  </a
+      ><a name="1003" class="Symbol"
+      >(</a
+      ><a name="1004" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1009"
+      >  </a
+      ><a name="1011" href="renamingResultOriginal.html#1011" class="Bound"
+      >f</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" href="renamingResultOriginal.html#1013" class="Bound"
+      >i</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" href="renamingResultOriginal.html#1015" class="Bound"
+      >P</a
+      ><a name="1016" class="Symbol"
+      >)</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="renamingResultOriginal.html#1018" class="Bound"
+      >c</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" class="Symbol"
+      >=</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="renamingResultOriginal.html#1015" class="Bound"
+      >P</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="renamingResultOriginal.html#1018" class="Bound"
+      >c</a
+      ><a name="1029"
+      >
+  </a
+      ><a name="1032" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="1034"
+      >   </a
+      ><a name="1037" class="Symbol"
+      >(</a
+      ><a name="1038" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1043"
+      >  </a
+      ><a name="1045" href="renamingResultOriginal.html#1045" class="Bound"
+      >f</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="renamingResultOriginal.html#1047" class="Bound"
+      >i</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" href="renamingResultOriginal.html#1049" class="Bound"
+      >P</a
+      ><a name="1050" class="Symbol"
+      >)</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="renamingResultOriginal.html#1052" class="Bound"
+      >c</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" class="Symbol"
+      >=</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="renamingResultOriginal.html#390" class="Function"
+      >fmap&#8734;</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" href="renamingResultOriginal.html#1045" class="Bound"
+      >f</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" href="renamingResultOriginal.html#1047" class="Bound"
+      >i</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" class="Symbol"
+      >(</a
+      ><a name="1067" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="renamingResultOriginal.html#1049" class="Bound"
+      >P</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="renamingResultOriginal.html#1052" class="Bound"
+      >c</a
+      ><a name="1073" class="Symbol"
+      >)</a
+      ><a name="1074"
+      >
+  </a
+      ><a name="1077" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1078"
+      >    </a
+      ><a name="1082" class="Symbol"
+      >(</a
+      ><a name="1083" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1088"
+      >  </a
+      ><a name="1090" href="renamingResultOriginal.html#1090" class="Bound"
+      >f</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="renamingResultOriginal.html#1092" class="Bound"
+      >i</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="renamingResultOriginal.html#1094" class="Bound"
+      >P</a
+      ><a name="1095" class="Symbol"
+      >)</a
+      ><a name="1096"
+      >   </a
+      ><a name="1099" class="Symbol"
+      >=</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="renamingResultOriginal.html#1094" class="Bound"
+      >P</a
+      ><a name="1104"
+      >
+  </a
+      ><a name="1107" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="1109"
+      >   </a
+      ><a name="1112" class="Symbol"
+      >(</a
+      ><a name="1113" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1118"
+      >  </a
+      ><a name="1120" href="renamingResultOriginal.html#1120" class="Bound"
+      >f</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" href="renamingResultOriginal.html#1122" class="Bound"
+      >i</a
+      ><a name="1123"
+      > </a
+      ><a name="1124" href="renamingResultOriginal.html#1124" class="Bound"
+      >P</a
+      ><a name="1125" class="Symbol"
+      >)</a
+      ><a name="1126"
+      > </a
+      ><a name="1127" href="renamingResultOriginal.html#1127" class="Bound"
+      >c</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" class="Symbol"
+      >=</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="renamingResultOriginal.html#390" class="Function"
+      >fmap&#8734;</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" href="renamingResultOriginal.html#1120" class="Bound"
+      >f</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="renamingResultOriginal.html#1122" class="Bound"
+      >i</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" class="Symbol"
+      >(</a
+      ><a name="1142" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="renamingResultOriginal.html#1124" class="Bound"
+      >P</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" href="renamingResultOriginal.html#1127" class="Bound"
+      >c</a
+      ><a name="1148" class="Symbol"
+      >)</a
+      ><a name="1149"
+      >
+  </a
+      ><a name="1152" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1153"
+      >    </a
+      ><a name="1157" class="Symbol"
+      >(</a
+      ><a name="1158" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1163"
+      >  </a
+      ><a name="1165" href="renamingResultOriginal.html#1165" class="Bound"
+      >f</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="renamingResultOriginal.html#1167" class="Bound"
+      >i</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="renamingResultOriginal.html#1169" class="Bound"
+      >P</a
+      ><a name="1170" class="Symbol"
+      >)</a
+      ><a name="1171"
+      >   </a
+      ><a name="1174" class="Symbol"
+      >=</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" href="renamingResultOriginal.html#1169" class="Bound"
+      >P</a
+      ><a name="1179"
+      >
+  </a
+      ><a name="1182" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1184"
+      >   </a
+      ><a name="1187" class="Symbol"
+      >(</a
+      ><a name="1188" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1193"
+      >  </a
+      ><a name="1195" href="renamingResultOriginal.html#1195" class="Bound"
+      >f</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="renamingResultOriginal.html#1197" class="Bound"
+      >i</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" href="renamingResultOriginal.html#1199" class="Bound"
+      >P</a
+      ><a name="1200" class="Symbol"
+      >)</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="renamingResultOriginal.html#1202" class="Bound"
+      >c</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" class="Symbol"
+      >=</a
+      ><a name="1205"
+      > </a
+      ><a name="1206" href="renamingResultOriginal.html#1195" class="Bound"
+      >f</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" class="Symbol"
+      >(</a
+      ><a name="1209" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="renamingResultOriginal.html#1199" class="Bound"
+      >P</a
+      ><a name="1213"
+      > </a
+      ><a name="1214" href="renamingResultOriginal.html#1202" class="Bound"
+      >c</a
+      ><a name="1215" class="Symbol"
+      >)</a
+      ><a name="1216"
+      >
+  </a
+      ><a name="1219" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" class="Symbol"
+      >(</a
+      ><a name="1225" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1230"
+      >  </a
+      ><a name="1232" href="renamingResultOriginal.html#1232" class="Bound"
+      >f</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="renamingResultOriginal.html#1234" class="Bound"
+      >i</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="renamingResultOriginal.html#1236" class="Bound"
+      >P</a
+      ><a name="1237" class="Symbol"
+      >)</a
+      ><a name="1238"
+      >   </a
+      ><a name="1241" class="Symbol"
+      >=</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="renamingResultOriginal.html#211" class="Function"
+      >fmapStr</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" href="renamingResultOriginal.html#1232" class="Bound"
+      >f</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Symbol"
+      >(</a
+      ><a name="1254" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="renamingResultOriginal.html#1236" class="Bound"
+      >P</a
+      ><a name="1260" class="Symbol"
+      >)</a
+      ><a name="1261"
+      >
+
+
+  </a
+      ><a name="1266" href="renamingResultOriginal.html#1266" class="Function"
+      >fmapi</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" class="Symbol"
+      >:</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" class="Symbol"
+      >{</a
+      ><a name="1275" href="renamingResultOriginal.html#1275" class="Bound"
+      >c&#8320;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="renamingResultOriginal.html#1278" class="Bound"
+      >c&#8321;</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" class="Symbol"
+      >:</a
+      ><a name="1282"
+      > </a
+      ><a name="1283" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1289" class="Symbol"
+      >}</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" class="Symbol"
+      >&#8594;</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >(</a
+      ><a name="1294" href="renamingResultOriginal.html#1294" class="Bound"
+      >f</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" class="Symbol"
+      >:</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="renamingResultOriginal.html#1275" class="Bound"
+      >c&#8320;</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" class="Symbol"
+      >&#8594;</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="renamingResultOriginal.html#1278" class="Bound"
+      >c&#8321;</a
+      ><a name="1325" class="Symbol"
+      >)</a
+      ><a name="1326"
+      > </a
+      ><a name="1327" class="Symbol"
+      >&#8594;</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" class="Symbol"
+      >{</a
+      ><a name="1330" href="renamingResultOriginal.html#1330" class="Bound"
+      >i</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" class="Symbol"
+      >:</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1338" class="Symbol"
+      >}</a
+      ><a name="1339"
+      > 
+          </a
+      ><a name="1351" class="Symbol"
+      >&#8594;</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1360"
+      > </a
+      ><a name="1361" href="renamingResultOriginal.html#1330" class="Bound"
+      >i</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="renamingResultOriginal.html#1275" class="Bound"
+      >c&#8320;</a
+      ><a name="1365"
+      > 
+          </a
+      ><a name="1377" class="Symbol"
+      >&#8594;</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="renamingResultOriginal.html#1330" class="Bound"
+      >i</a
+      ><a name="1388"
+      > </a
+      ><a name="1389" href="renamingResultOriginal.html#1278" class="Bound"
+      >c&#8321;</a
+      ><a name="1391"
+      >  
+  </a
+      ><a name="1396" href="renamingResultOriginal.html#1266" class="Function"
+      >fmapi</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" href="renamingResultOriginal.html#1402" class="Bound"
+      >f</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" class="Symbol"
+      >{</a
+      ><a name="1405" href="renamingResultOriginal.html#1405" class="Bound"
+      >i</a
+      ><a name="1406" class="Symbol"
+      >}</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="renamingResultOriginal.html#1408" class="Bound"
+      >P</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" class="Symbol"
+      >=</a
+      ><a name="1411"
+      > </a
+      ><a name="1412" href="renamingResultOriginal.html#616" class="Function"
+      >fmap</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="renamingResultOriginal.html#1402" class="Bound"
+      >f</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="renamingResultOriginal.html#1405" class="Bound"
+      >i</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" href="renamingResultOriginal.html#1408" class="Bound"
+      >P</a
+      ><a name="1422"
+      >
+
+  </a
+      ><a name="1426" href="renamingResultOriginal.html#1426" class="Function"
+      >fmap+i</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" class="Symbol"
+      >:</a
+      ><a name="1434"
+      > </a
+      ><a name="1435" class="Symbol"
+      >{</a
+      ><a name="1436" href="renamingResultOriginal.html#1436" class="Bound"
+      >c&#8320;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" href="renamingResultOriginal.html#1439" class="Bound"
+      >c&#8321;</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" class="Symbol"
+      >:</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1450" class="Symbol"
+      >}</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" class="Symbol"
+      >&#8594;</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" class="Symbol"
+      >(</a
+      ><a name="1455" href="renamingResultOriginal.html#1455" class="Bound"
+      >f</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" class="Symbol"
+      >:</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="renamingResultOriginal.html#1436" class="Bound"
+      >c&#8320;</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >&#8594;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="renamingResultOriginal.html#1439" class="Bound"
+      >c&#8321;</a
+      ><a name="1486" class="Symbol"
+      >)</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" class="Symbol"
+      >&#8594;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" class="Symbol"
+      >{</a
+      ><a name="1491" href="renamingResultOriginal.html#1491" class="Bound"
+      >i</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" class="Symbol"
+      >:</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1499" class="Symbol"
+      >}</a
+      ><a name="1500"
+      >           </a
+      ><a name="1511" class="Symbol"
+      >&#8594;</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" href="renamingResultOriginal.html#1491" class="Bound"
+      >i</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="renamingResultOriginal.html#1436" class="Bound"
+      >c&#8320;</a
+      ><a name="1526"
+      > 
+           </a
+      ><a name="1539" class="Symbol"
+      >&#8594;</a
+      ><a name="1540"
+      > </a
+      ><a name="1541" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" href="renamingResultOriginal.html#1491" class="Bound"
+      >i</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" href="renamingResultOriginal.html#1439" class="Bound"
+      >c&#8321;</a
+      ><a name="1554"
+      > 
+  </a
+      ><a name="1558" href="renamingResultOriginal.html#1426" class="Function"
+      >fmap+i</a
+      ><a name="1564"
+      > </a
+      ><a name="1565" href="renamingResultOriginal.html#1565" class="Bound"
+      >f</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" class="Symbol"
+      >{</a
+      ><a name="1568" href="renamingResultOriginal.html#1568" class="Bound"
+      >i</a
+      ><a name="1569" class="Symbol"
+      >}</a
+      ><a name="1570"
+      > </a
+      ><a name="1571" href="renamingResultOriginal.html#1571" class="Bound"
+      >P</a
+      ><a name="1572"
+      > </a
+      ><a name="1573" class="Symbol"
+      >=</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" href="renamingResultOriginal.html#837" class="Function"
+      >fmap+</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" href="renamingResultOriginal.html#1565" class="Bound"
+      >f</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" href="renamingResultOriginal.html#1568" class="Bound"
+      >i</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" href="renamingResultOriginal.html#1571" class="Bound"
+      >P</a
+      ><a name="1586"
+      >
+
+  </a
+      ><a name="1590" href="renamingResultOriginal.html#1590" class="Function"
+      >fmap&#8734;i</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" class="Symbol"
+      >:</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" class="Symbol"
+      >{</a
+      ><a name="1600" href="renamingResultOriginal.html#1600" class="Bound"
+      >c&#8320;</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="renamingResultOriginal.html#1603" class="Bound"
+      >c&#8321;</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" class="Symbol"
+      >:</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1614" class="Symbol"
+      >}</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" class="Symbol"
+      >&#8594;</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" class="Symbol"
+      >(</a
+      ><a name="1619" href="renamingResultOriginal.html#1619" class="Bound"
+      >f</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" class="Symbol"
+      >:</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" href="renamingResultOriginal.html#1600" class="Bound"
+      >c&#8320;</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" class="Symbol"
+      >&#8594;</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" href="renamingResultOriginal.html#1603" class="Bound"
+      >c&#8321;</a
+      ><a name="1650" class="Symbol"
+      >)</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" class="Symbol"
+      >&#8594;</a
+      ><a name="1653"
+      > </a
+      ><a name="1654" class="Symbol"
+      >{</a
+      ><a name="1655" href="renamingResultOriginal.html#1655" class="Bound"
+      >i</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" class="Symbol"
+      >:</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1663" class="Symbol"
+      >}</a
+      ><a name="1664"
+      >
+           </a
+      ><a name="1676" class="Symbol"
+      >&#8594;</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" href="renamingResultOriginal.html#1655" class="Bound"
+      >i</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="renamingResultOriginal.html#1600" class="Bound"
+      >c&#8320;</a
+      ><a name="1691"
+      > 
+           </a
+      ><a name="1704" class="Symbol"
+      >&#8594;</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" href="renamingResultOriginal.html#1655" class="Bound"
+      >i</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" href="renamingResultOriginal.html#1603" class="Bound"
+      >c&#8321;</a
+      ><a name="1719"
+      >  
+  </a
+      ><a name="1724" href="renamingResultOriginal.html#1590" class="Function"
+      >fmap&#8734;i</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="renamingResultOriginal.html#1731" class="Bound"
+      >f</a
+      ><a name="1732"
+      > </a
+      ><a name="1733" class="Symbol"
+      >{</a
+      ><a name="1734" href="renamingResultOriginal.html#1734" class="Bound"
+      >i</a
+      ><a name="1735" class="Symbol"
+      >}</a
+      ><a name="1736"
+      >  </a
+      ><a name="1738" class="Symbol"
+      >=</a
+      ><a name="1739"
+      >  </a
+      ><a name="1741" href="renamingResultOriginal.html#390" class="Function"
+      >fmap&#8734;</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="renamingResultOriginal.html#1731" class="Bound"
+      >f</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="renamingResultOriginal.html#1734" class="Bound"
+      >i</a
+      ><a name="1750"
+      > 
+</a
+      ></pre
+    ></body
+  ></html
+>

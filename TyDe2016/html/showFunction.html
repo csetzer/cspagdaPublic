@@ -1,0 +1,2704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >showFunction</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="20"
+      > </a
+      ><a name="21" class="Keyword"
+      >where</a
+      ><a name="26"
+      >
+
+</a
+      ><a name="28" class="Keyword"
+      >open</a
+      ><a name="32"
+      > </a
+      ><a name="33" class="Keyword"
+      >import</a
+      ><a name="39"
+      > </a
+      ><a name="40" href="process.html#1" class="Module"
+      >process</a
+      ><a name="47"
+      >
+</a
+      ><a name="48" class="Keyword"
+      >open</a
+      ><a name="52"
+      > </a
+      ><a name="53" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="61"
+      >
+</a
+      ><a name="62" class="Keyword"
+      >open</a
+      ><a name="66"
+      > </a
+      ><a name="67" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="75"
+      >
+</a
+      ><a name="76" class="Keyword"
+      >open</a
+      ><a name="80"
+      > </a
+      ><a name="81" class="Keyword"
+      >import</a
+      ><a name="87"
+      > </a
+      ><a name="88" href="label.html#1" class="Module"
+      >label</a
+      ><a name="93"
+      >
+</a
+      ><a name="94" class="Keyword"
+      >open</a
+      ><a name="98"
+      > </a
+      ><a name="99" class="Keyword"
+      >import</a
+      ><a name="105"
+      > </a
+      ><a name="106" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="113"
+      >
+</a
+      ><a name="114" class="Keyword"
+      >open</a
+      ><a name="118"
+      > </a
+      ><a name="119" class="Keyword"
+      >import</a
+      ><a name="125"
+      > </a
+      ><a name="126" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="136"
+      >
+</a
+      ><a name="137" class="Keyword"
+      >open</a
+      ><a name="141"
+      > </a
+      ><a name="142" class="Keyword"
+      >import</a
+      ><a name="148"
+      > </a
+      ><a name="149" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="153"
+      >
+</a
+      ><a name="154" class="Keyword"
+      >open</a
+      ><a name="158"
+      > </a
+      ><a name="159" class="Keyword"
+      >import</a
+      ><a name="165"
+      > </a
+      ><a name="166" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="175"
+      >
+</a
+      ><a name="176" class="Keyword"
+      >open</a
+      ><a name="180"
+      > </a
+      ><a name="181" class="Keyword"
+      >import</a
+      ><a name="187"
+      > </a
+      ><a name="188" href="Data.List.Base.html#1" class="Module"
+      >Data.List.Base</a
+      ><a name="202"
+      > </a
+      ><a name="203" class="Keyword"
+      >renaming</a
+      ><a name="211"
+      > </a
+      ><a name="212" class="Symbol"
+      >(</a
+      ><a name="213" href="Data.List.Base.html#1207" class="Function"
+      >map</a
+      ><a name="216"
+      > </a
+      ><a name="217" class="Symbol"
+      >to</a
+      ><a name="219"
+      > </a
+      ><a name="220" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="224" class="Symbol"
+      >)</a
+      ><a name="225"
+      >
+</a
+      ><a name="226" class="Keyword"
+      >open</a
+      ><a name="230"
+      > </a
+      ><a name="231" class="Keyword"
+      >import</a
+      ><a name="237"
+      > </a
+      ><a name="238" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Keyword"
+      >renaming</a
+      ><a name="258"
+      > </a
+      ><a name="259" class="Symbol"
+      >(</a
+      ><a name="260" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Symbol"
+      >to</a
+      ><a name="267"
+      > </a
+      ><a name="268" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="273" class="Symbol"
+      >)</a
+      ><a name="274"
+      >
+</a
+      ><a name="275" class="Keyword"
+      >open</a
+      ><a name="279"
+      > </a
+      ><a name="280" class="Keyword"
+      >import</a
+      ><a name="286"
+      > </a
+      ><a name="287" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="297"
+      >
+</a
+      ><a name="298" class="Keyword"
+      >open</a
+      ><a name="302"
+      > </a
+      ><a name="303" class="Keyword"
+      >import</a
+      ><a name="309"
+      > </a
+      ><a name="310" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="327"
+      >
+</a
+      ><a name="328" class="Keyword"
+      >open</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Keyword"
+      >import</a
+      ><a name="339"
+      > </a
+      ><a name="340" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="349"
+      > </a
+      ><a name="350" class="Keyword"
+      >renaming</a
+      ><a name="358"
+      > </a
+      ><a name="359" class="Symbol"
+      >(</a
+      ><a name="360" href="Data.Bool.Base.html#791" class="Function"
+      >T</a
+      ><a name="361"
+      > </a
+      ><a name="362" class="Symbol"
+      >to</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="Data.Bool.Base.html#791" class="Function"
+      >True</a
+      ><a name="369" class="Symbol"
+      >)</a
+      ><a name="370"
+      >
+</a
+      ><a name="371" class="Keyword"
+      >open</a
+      ><a name="375"
+      > </a
+      ><a name="376" class="Keyword"
+      >import</a
+      ><a name="382"
+      > </a
+      ><a name="383" href="Data.Maybe.html#1" class="Module"
+      >Data.Maybe</a
+      ><a name="393"
+      >
+</a
+      ><a name="394" class="Keyword"
+      >open</a
+      ><a name="398"
+      > </a
+      ><a name="399" class="Keyword"
+      >import</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="414"
+      >
+
+</a
+      ><a name="416" href="showFunction.html#416" class="Function"
+      >showMaybeLabel</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >:</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="Data.Maybe.Base.html#335" class="Datatype"
+      >Maybe</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >&#8594;</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="453"
+      >
+</a
+      ><a name="454" href="showFunction.html#416" class="Function"
+      >showMaybeLabel</a
+      ><a name="468"
+      > </a
+      ><a name="469" class="Symbol"
+      >(</a
+      ><a name="470" href="Data.Maybe.Base.html#373" class="InductiveConstructor"
+      >just</a
+      ><a name="474"
+      > </a
+      ><a name="475" href="showFunction.html#475" class="Bound"
+      >l</a
+      ><a name="476" class="Symbol"
+      >)</a
+      ><a name="477"
+      > </a
+      ><a name="478" class="Symbol"
+      >=</a
+      ><a name="479"
+      > </a
+      ><a name="480" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="489"
+      > </a
+      ><a name="490" href="showFunction.html#475" class="Bound"
+      >l</a
+      ><a name="491"
+      >
+</a
+      ><a name="492" href="showFunction.html#416" class="Function"
+      >showMaybeLabel</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="Data.Maybe.Base.html#403" class="InductiveConstructor"
+      >nothing</a
+      ><a name="514"
+      >  </a
+      ><a name="516" class="Symbol"
+      >=</a
+      ><a name="517"
+      > </a
+      ><a name="518" class="String"
+      >&quot;&#964;&quot;</a
+      ><a name="521"
+      >
+
+
+</a
+      ><a name="524" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >:</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="Symbol"
+      >{</a
+      ><a name="539"
+      > </a
+      ><a name="540" href="showFunction.html#540" class="Bound"
+      >i</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Symbol"
+      >:</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="548" class="Symbol"
+      >}</a
+      ><a name="549"
+      > </a
+      ><a name="550" class="Symbol"
+      >&#8594;</a
+      ><a name="551"
+      > </a
+      ><a name="552" class="Symbol"
+      >{</a
+      ><a name="553" href="showFunction.html#553" class="Bound"
+      >c</a
+      ><a name="554"
+      > </a
+      ><a name="555" class="Symbol"
+      >:</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="563" class="Symbol"
+      >}</a
+      ><a name="564"
+      >  </a
+      ><a name="566" class="Symbol"
+      >&#8594;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="showFunction.html#540" class="Bound"
+      >i</a
+      ><a name="577"
+      > </a
+      ><a name="578" href="showFunction.html#553" class="Bound"
+      >c</a
+      ><a name="579"
+      >  </a
+      ><a name="581" class="Symbol"
+      >&#8594;</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="589"
+      >
+</a
+      ><a name="590" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="601"
+      > </a
+      ><a name="602" class="Symbol"
+      >(</a
+      ><a name="603" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="612"
+      > </a
+      ><a name="613" href="showFunction.html#613" class="Bound"
+      >x</a
+      ><a name="614" class="Symbol"
+      >)</a
+      ><a name="615"
+      > </a
+      ><a name="616" class="Symbol"
+      >=</a
+      ><a name="617"
+      > </a
+      ><a name="618" class="String"
+      >&quot;&quot;</a
+      ><a name="620"
+      >
+</a
+      ><a name="621" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="632"
+      > </a
+      ><a name="633" class="Symbol"
+      >(</a
+      ><a name="634" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="638"
+      > </a
+      ><a name="639" href="showFunction.html#639" class="Bound"
+      >P</a
+      ><a name="640" class="Symbol"
+      >)</a
+      ><a name="641"
+      > </a
+      ><a name="642" class="Symbol"
+      >=</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="667"
+      > 
+                     </a
+      ><a name="690" class="String"
+      >&quot; &quot;</a
+      ><a name="693"
+      >
+                     </a
+      ><a name="715" class="Symbol"
+      >((</a
+      ><a name="717" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="721"
+      > </a
+      ><a name="722" class="Symbol"
+      >(&#955;</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="showFunction.html#725" class="Bound"
+      >c</a
+      ><a name="726"
+      > </a
+      ><a name="727" class="Symbol"
+      >&#8594;</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="choiceAuxFunction.html#302" class="Function"
+      >extChoiceElToName</a
+      ><a name="746"
+      > </a
+      ><a name="747" class="Symbol"
+      >(</a
+      ><a name="748" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="showFunction.html#725" class="Bound"
+      >c</a
+      ><a name="760" class="Symbol"
+      >)</a
+      ><a name="761"
+      >
+                                    </a
+      ><a name="798" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="801"
+      > </a
+      ><a name="802" class="String"
+      >&quot;:&quot;</a
+      ><a name="805"
+      > 
+                                    </a
+      ><a name="843" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="856"
+      > </a
+      ><a name="857" class="Symbol"
+      >(</a
+      ><a name="858" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="861"
+      > </a
+      ><a name="862" href="showFunction.html#639" class="Bound"
+      >P</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="showFunction.html#725" class="Bound"
+      >c</a
+      ><a name="865" class="Symbol"
+      >))</a
+      ><a name="867"
+      >
+                          </a
+      ><a name="894" class="Symbol"
+      >(</a
+      ><a name="895" href="choiceSetU.html#2564" class="Function"
+      >choice2Enum</a
+      ><a name="906"
+      > </a
+      ><a name="907" class="Symbol"
+      >(</a
+      ><a name="908" href="process.html#570" class="Field"
+      >E</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="showFunction.html#639" class="Bound"
+      >P</a
+      ><a name="911" class="Symbol"
+      >)))</a
+      ><a name="914"
+      >
+                      </a
+      ><a name="937" href="Data.List.Base.html#895" class="Function Operator"
+      >++</a
+      ><a name="939"
+      >
+                      </a
+      ><a name="962" class="Symbol"
+      >(</a
+      ><a name="963" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="967"
+      > </a
+      ><a name="968" class="Symbol"
+      >(&#955;</a
+      ><a name="970"
+      > </a
+      ><a name="971" href="showFunction.html#971" class="Bound"
+      >c</a
+      ><a name="972"
+      > </a
+      ><a name="973" class="Symbol"
+      >&#8594;</a
+      ><a name="974"
+      > </a
+      ><a name="975" href="choiceAuxFunction.html#302" class="Function"
+      >extChoiceElToName</a
+      ><a name="992"
+      > </a
+      ><a name="993" class="Symbol"
+      >(</a
+      ><a name="994" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" href="showFunction.html#971" class="Bound"
+      >c</a
+      ><a name="1006" class="Symbol"
+      >)</a
+      ><a name="1007"
+      >
+                                    </a
+      ><a name="1044" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" class="String"
+      >&quot;:&quot;</a
+      ><a name="1051"
+      > 
+                                    </a
+      ><a name="1089" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" class="String"
+      >&quot;&#964;&quot;</a
+      ><a name="1096" class="Symbol"
+      >)</a
+      ><a name="1097"
+      >
+                          </a
+      ><a name="1124" class="Symbol"
+      >(</a
+      ><a name="1125" href="choiceSetU.html#2564" class="Function"
+      >choice2Enum</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >(</a
+      ><a name="1138" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="showFunction.html#639" class="Bound"
+      >P</a
+      ><a name="1141" class="Symbol"
+      >))))</a
+      ><a name="1145"
+      >
+
+                       
+
+
+</a
+      ><a name="1173" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" class="Symbol"
+      >:</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" class="Symbol"
+      >{</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" href="showFunction.html#1187" class="Bound"
+      >i</a
+      ><a name="1188"
+      > </a
+      ><a name="1189" class="Symbol"
+      >:</a
+      ><a name="1190"
+      > </a
+      ><a name="1191" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1195" class="Symbol"
+      >}</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" class="Symbol"
+      >&#8594;</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" class="Symbol"
+      >{</a
+      ><a name="1200" href="showFunction.html#1200" class="Bound"
+      >c</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" class="Symbol"
+      >:</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1210" class="Symbol"
+      >}</a
+      ><a name="1211"
+      >  </a
+      ><a name="1213" class="Symbol"
+      >&#8594;</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="showFunction.html#1187" class="Bound"
+      >i</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" href="showFunction.html#1200" class="Bound"
+      >c</a
+      ><a name="1226"
+      >  </a
+      ><a name="1228" class="Symbol"
+      >&#8594;</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1236"
+      >
+</a
+      ><a name="1237" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="1246"
+      > </a
+      ><a name="1247" class="Symbol"
+      >(</a
+      ><a name="1248" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" href="showFunction.html#1253" class="Bound"
+      >P</a
+      ><a name="1254" class="Symbol"
+      >)</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" class="Symbol"
+      >=</a
+      ><a name="1257"
+      > </a
+      ><a name="1258" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="1281"
+      > 
+                     </a
+      ><a name="1304" class="String"
+      >&quot; &quot;</a
+      ><a name="1307"
+      >
+                     </a
+      ><a name="1329" class="Symbol"
+      >(</a
+      ><a name="1330" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" class="Symbol"
+      >(&#955;</a
+      ><a name="1337"
+      > </a
+      ><a name="1338" href="showFunction.html#1338" class="Bound"
+      >t</a
+      ><a name="1339"
+      > </a
+      ><a name="1340" class="Symbol"
+      >&#8594;</a
+      ><a name="1341"
+      > </a
+      ><a name="1342" class="Symbol"
+      >(</a
+      ><a name="1343" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" href="showFunction.html#1338" class="Bound"
+      >t</a
+      ><a name="1355"
+      > 
+                                    </a
+      ><a name="1393" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" class="String"
+      >&quot;:&quot;</a
+      ><a name="1400"
+      > 
+                                    </a
+      ><a name="1438" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" class="Symbol"
+      >(</a
+      ><a name="1454" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="showFunction.html#1253" class="Bound"
+      >P</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="showFunction.html#1338" class="Bound"
+      >t</a
+      ><a name="1460" class="Symbol"
+      >)))</a
+      ><a name="1463"
+      > 
+                          </a
+      ><a name="1491" class="Symbol"
+      >(</a
+      ><a name="1492" href="choiceSetU.html#2564" class="Function"
+      >choice2Enum</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" class="Symbol"
+      >(</a
+      ><a name="1505" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1506"
+      > </a
+      ><a name="1507" href="showFunction.html#1253" class="Bound"
+      >P</a
+      ><a name="1508" class="Symbol"
+      >)))</a
+      ><a name="1511"
+      >
+</a
+      ><a name="1512" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" class="Symbol"
+      >(</a
+      ><a name="1523" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" href="showFunction.html#1533" class="Bound"
+      >a</a
+      ><a name="1534" class="Symbol"
+      >)</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" class="Symbol"
+      >=</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" class="String"
+      >&quot;&quot;</a
+      ><a name="1540"
+      >
+
+</a
+      ><a name="1542" href="showFunction.html#1542" class="Function"
+      >processChoiceIsEmpty</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" class="Symbol"
+      >:</a
+      ><a name="1564"
+      > </a
+      ><a name="1565" class="Symbol"
+      >{</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" href="showFunction.html#1567" class="Bound"
+      >i</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" class="Symbol"
+      >:</a
+      ><a name="1570"
+      > </a
+      ><a name="1571" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1575" class="Symbol"
+      >}</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" class="Symbol"
+      >&#8594;</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" class="Symbol"
+      >{</a
+      ><a name="1580" href="showFunction.html#1580" class="Bound"
+      >c</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" class="Symbol"
+      >:</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1590" class="Symbol"
+      >}</a
+      ><a name="1591"
+      >  </a
+      ><a name="1593" class="Symbol"
+      >&#8594;</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="showFunction.html#1567" class="Bound"
+      >i</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" href="showFunction.html#1580" class="Bound"
+      >c</a
+      ><a name="1606"
+      >  </a
+      ><a name="1608" class="Symbol"
+      >&#8594;</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1614"
+      >
+</a
+      ><a name="1615" href="showFunction.html#1542" class="Function"
+      >processChoiceIsEmpty</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" class="Symbol"
+      >(</a
+      ><a name="1637" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="showFunction.html#1642" class="Bound"
+      >P</a
+      ><a name="1643" class="Symbol"
+      >)</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" class="Symbol"
+      >=</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="choiceSetU.html#3208" class="Function"
+      >choiceIsEmpty</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" class="Symbol"
+      >(</a
+      ><a name="1662" href="process.html#570" class="Field"
+      >E</a
+      ><a name="1663"
+      > </a
+      ><a name="1664" href="showFunction.html#1642" class="Bound"
+      >P</a
+      ><a name="1665" class="Symbol"
+      >)</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" href="Data.Bool.Base.html#939" class="Function Operator"
+      >&#8743;</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="choiceSetU.html#3208" class="Function"
+      >choiceIsEmpty</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" class="Symbol"
+      >(</a
+      ><a name="1684" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="showFunction.html#1642" class="Bound"
+      >P</a
+      ><a name="1687" class="Symbol"
+      >)</a
+      ><a name="1688"
+      >
+</a
+      ><a name="1689" href="showFunction.html#1542" class="Function"
+      >processChoiceIsEmpty</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" class="Symbol"
+      >(</a
+      ><a name="1711" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="showFunction.html#1721" class="Bound"
+      >x</a
+      ><a name="1722" class="Symbol"
+      >)</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >=</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="Agda.Builtin.Bool.html#92" class="InductiveConstructor"
+      >true</a
+      ><a name="1730"
+      >
+
+
+</a
+      ><a name="1733" href="showFunction.html#1733" class="Function"
+      >processHasSuccessfullyTerminated</a
+      ><a name="1765"
+      > </a
+      ><a name="1766" class="Symbol"
+      >:</a
+      ><a name="1767"
+      > </a
+      ><a name="1768" class="Symbol"
+      >{</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" href="showFunction.html#1770" class="Bound"
+      >i</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" class="Symbol"
+      >:</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1778" class="Symbol"
+      >}</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" class="Symbol"
+      >&#8594;</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" class="Symbol"
+      >{</a
+      ><a name="1783" href="showFunction.html#1783" class="Bound"
+      >c</a
+      ><a name="1784"
+      > </a
+      ><a name="1785" class="Symbol"
+      >:</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1793" class="Symbol"
+      >}</a
+      ><a name="1794"
+      >  </a
+      ><a name="1796" class="Symbol"
+      >&#8594;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1805"
+      > </a
+      ><a name="1806" href="showFunction.html#1770" class="Bound"
+      >i</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" href="showFunction.html#1783" class="Bound"
+      >c</a
+      ><a name="1809"
+      >  </a
+      ><a name="1811" class="Symbol"
+      >&#8594;</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1817"
+      >
+</a
+      ><a name="1818" href="showFunction.html#1733" class="Function"
+      >processHasSuccessfullyTerminated</a
+      ><a name="1850"
+      > </a
+      ><a name="1851" class="Symbol"
+      >(</a
+      ><a name="1852" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="showFunction.html#1857" class="Bound"
+      >P</a
+      ><a name="1858" class="Symbol"
+      >)</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >=</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="Agda.Builtin.Bool.html#86" class="InductiveConstructor"
+      >false</a
+      ><a name="1867"
+      >
+</a
+      ><a name="1868" href="showFunction.html#1733" class="Function"
+      >processHasSuccessfullyTerminated</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" class="Symbol"
+      >(</a
+      ><a name="1902" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" href="showFunction.html#1912" class="Bound"
+      >x</a
+      ><a name="1913" class="Symbol"
+      >)</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" class="Symbol"
+      >=</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" href="Agda.Builtin.Bool.html#92" class="InductiveConstructor"
+      >true</a
+      ><a name="1921"
+      >
+
+
+</a
+      ><a name="1924" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" class="Symbol"
+      >:</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" class="Symbol"
+      >&#8704;</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" class="Symbol"
+      >{</a
+      ><a name="1940" href="showFunction.html#1940" class="Bound"
+      >i</a
+      ><a name="1941" class="Symbol"
+      >}</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" class="Symbol"
+      >&#8594;</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" class="Symbol"
+      >{</a
+      ><a name="1946" href="showFunction.html#1946" class="Bound"
+      >c</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" class="Symbol"
+      >:</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1956" class="Symbol"
+      >}</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" class="Symbol"
+      >&#8594;</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" href="showFunction.html#1940" class="Bound"
+      >i</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" href="showFunction.html#1946" class="Bound"
+      >c</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" class="Symbol"
+      >&#8594;</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1980"
+      >
+</a
+      ><a name="1981" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="1991"
+      > </a
+      ><a name="1992" class="Symbol"
+      >(</a
+      ><a name="1993" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" href="showFunction.html#1998" class="Bound"
+      >P</a
+      ><a name="1999" class="Symbol"
+      >)</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" class="Symbol"
+      >=</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" href="process.html#570" class="Field"
+      >E</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" href="showFunction.html#1998" class="Bound"
+      >P</a
+      ><a name="2006"
+      >
+</a
+      ><a name="2007" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" class="Symbol"
+      >(</a
+      ><a name="2019" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="showFunction.html#2029" class="Bound"
+      >x</a
+      ><a name="2030" class="Symbol"
+      >)</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" class="Symbol"
+      >=</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" class="Number"
+      >0</a
+      ><a name="2039"
+      >
+
+
+</a
+      ><a name="2042" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" class="Symbol"
+      >:</a
+      ><a name="2054"
+      > </a
+      ><a name="2055" class="Symbol"
+      >&#8704;</a
+      ><a name="2056"
+      > </a
+      ><a name="2057" class="Symbol"
+      >{</a
+      ><a name="2058" href="showFunction.html#2058" class="Bound"
+      >i</a
+      ><a name="2059" class="Symbol"
+      >}</a
+      ><a name="2060"
+      > </a
+      ><a name="2061" class="Symbol"
+      >&#8594;</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" class="Symbol"
+      >{</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" href="showFunction.html#2065" class="Bound"
+      >c</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" class="Symbol"
+      >:</a
+      ><a name="2068"
+      > </a
+      ><a name="2069" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" class="Symbol"
+      >}</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" class="Symbol"
+      >&#8594;</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="2087"
+      > </a
+      ><a name="2088" href="showFunction.html#2058" class="Bound"
+      >i</a
+      ><a name="2089"
+      > </a
+      ><a name="2090" href="showFunction.html#2065" class="Bound"
+      >c</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" class="Symbol"
+      >&#8594;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="2100"
+      >
+</a
+      ><a name="2101" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" class="Symbol"
+      >(</a
+      ><a name="2113" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" href="showFunction.html#2118" class="Bound"
+      >P</a
+      ><a name="2119" class="Symbol"
+      >)</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" class="Symbol"
+      >=</a
+      ><a name="2122"
+      > </a
+      ><a name="2123" href="process.html#677" class="Field"
+      >I</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="showFunction.html#2118" class="Bound"
+      >P</a
+      ><a name="2126"
+      >
+</a
+      ><a name="2127" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" class="Symbol"
+      >(</a
+      ><a name="2139" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" href="showFunction.html#2149" class="Bound"
+      >x</a
+      ><a name="2150" class="Symbol"
+      >)</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" class="Symbol"
+      >=</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" class="Number"
+      >0</a
+      ><a name="2159"
+      >
+
+</a
+      ><a name="2161" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="2189"
+      > </a
+      ><a name="2190" class="Symbol"
+      >:</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" class="Symbol"
+      >&#8704;</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" class="Symbol"
+      >{</a
+      ><a name="2195" href="showFunction.html#2195" class="Bound"
+      >i</a
+      ><a name="2196" class="Symbol"
+      >}</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" class="Symbol"
+      >&#8594;</a
+      ><a name="2199"
+      > </a
+      ><a name="2200" class="Symbol"
+      >{</a
+      ><a name="2201" href="showFunction.html#2201" class="Bound"
+      >c</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" class="Symbol"
+      >:</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="2211" class="Symbol"
+      >}</a
+      ><a name="2212"
+      > 
+                                     </a
+      ><a name="2251" class="Symbol"
+      >&#8594;</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" class="Symbol"
+      >(</a
+      ><a name="2254" href="showFunction.html#2254" class="Bound"
+      >P</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" class="Symbol"
+      >:</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="2265"
+      > </a
+      ><a name="2266" href="showFunction.html#2195" class="Bound"
+      >i</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" href="showFunction.html#2201" class="Bound"
+      >c</a
+      ><a name="2269" class="Symbol"
+      >)</a
+      ><a name="2270"
+      > 
+                                     </a
+      ><a name="2309" class="Symbol"
+      >&#8594;</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" class="Symbol"
+      >(</a
+      ><a name="2322" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" href="showFunction.html#2254" class="Bound"
+      >P</a
+      ><a name="2334" class="Symbol"
+      >)</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="2347"
+      > </a
+      ><a name="2348" class="Symbol"
+      >(</a
+      ><a name="2349" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" href="showFunction.html#2254" class="Bound"
+      >P</a
+      ><a name="2361" class="Symbol"
+      >)</a
+      ><a name="2362"
+      >
+                                     </a
+      ><a name="2400" class="Symbol"
+      >&#8594;</a
+      ><a name="2401"
+      > </a
+      ><a name="2402" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" href="showFunction.html#2195" class="Bound"
+      >i</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="showFunction.html#2201" class="Bound"
+      >c</a
+      ><a name="2414"
+      > 
+</a
+      ><a name="2416" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="2444"
+      > </a
+      ><a name="2445" class="Symbol"
+      >(</a
+      ><a name="2446" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="2450"
+      > </a
+      ><a name="2451" href="showFunction.html#2451" class="Bound"
+      >P</a
+      ><a name="2452" class="Symbol"
+      >)</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" class="Symbol"
+      >(</a
+      ><a name="2455" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" href="showFunction.html#2460" class="Bound"
+      >c'</a
+      ><a name="2462" class="Symbol"
+      >)</a
+      ><a name="2463"
+      > </a
+      ><a name="2464" class="Symbol"
+      >=</a
+      ><a name="2465"
+      > </a
+      ><a name="2466" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="2468"
+      > </a
+      ><a name="2469" href="showFunction.html#2451" class="Bound"
+      >P</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" href="showFunction.html#2460" class="Bound"
+      >c'</a
+      ><a name="2473"
+      >
+</a
+      ><a name="2474" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="2502"
+      > </a
+      ><a name="2503" class="Symbol"
+      >(</a
+      ><a name="2504" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="2508"
+      > </a
+      ><a name="2509" href="showFunction.html#2509" class="Bound"
+      >P</a
+      ><a name="2510" class="Symbol"
+      >)</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" class="Symbol"
+      >(</a
+      ><a name="2513" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="showFunction.html#2518" class="Bound"
+      >c'</a
+      ><a name="2520" class="Symbol"
+      >)</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" class="Symbol"
+      >=</a
+      ><a name="2523"
+      > </a
+      ><a name="2524" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="2526"
+      > </a
+      ><a name="2527" href="showFunction.html#2509" class="Bound"
+      >P</a
+      ><a name="2528"
+      > </a
+      ><a name="2529" href="showFunction.html#2518" class="Bound"
+      >c'</a
+      ><a name="2531"
+      >
+</a
+      ><a name="2532" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" class="Symbol"
+      >(</a
+      ><a name="2562" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" href="showFunction.html#2572" class="Bound"
+      >x</a
+      ><a name="2573" class="Symbol"
+      >)</a
+      ><a name="2574"
+      > </a
+      ><a name="2575" class="Symbol"
+      >(</a
+      ><a name="2576" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="2580"
+      > </a
+      ><a name="2581" class="Symbol"
+      >())</a
+      ><a name="2584"
+      >
+</a
+      ><a name="2585" href="showFunction.html#2161" class="Function"
+      >processToExternalSubprocess0</a
+      ><a name="2613"
+      > </a
+      ><a name="2614" class="Symbol"
+      >(</a
+      ><a name="2615" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2624"
+      > </a
+      ><a name="2625" href="showFunction.html#2625" class="Bound"
+      >x</a
+      ><a name="2626" class="Symbol"
+      >)</a
+      ><a name="2627"
+      > </a
+      ><a name="2628" class="Symbol"
+      >(</a
+      ><a name="2629" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" class="Symbol"
+      >())</a
+      ><a name="2637"
+      >
+
+
+
+</a
+      ><a name="2641" href="showFunction.html#2641" class="Function"
+      >choiceFunctionToString</a
+      ><a name="2663"
+      > </a
+      ><a name="2664" class="Symbol"
+      >:</a
+      ><a name="2665"
+      > </a
+      ><a name="2666" class="Symbol"
+      >{</a
+      ><a name="2667" href="showFunction.html#2667" class="Bound"
+      >c&#8320;</a
+      ><a name="2669"
+      > </a
+      ><a name="2670" class="Symbol"
+      >:</a
+      ><a name="2671"
+      > </a
+      ><a name="2672" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="2678" class="Symbol"
+      >}</a
+      ><a name="2679"
+      > </a
+      ><a name="2680" class="Symbol"
+      >&#8594;</a
+      ><a name="2681"
+      > </a
+      ><a name="2682" class="Symbol"
+      >(</a
+      ><a name="2683" href="showFunction.html#2683" class="Bound"
+      >c</a
+      ><a name="2684"
+      > </a
+      ><a name="2685" class="Symbol"
+      >:</a
+      ><a name="2686"
+      > </a
+      ><a name="2687" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="2693" class="Symbol"
+      >)</a
+      ><a name="2694"
+      > 
+                         </a
+      ><a name="2721" class="Symbol"
+      >&#8594;</a
+      ><a name="2722"
+      > </a
+      ><a name="2723" class="Symbol"
+      >(</a
+      ><a name="2724" href="showFunction.html#2724" class="Bound"
+      >g</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" class="Symbol"
+      >:</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" href="showFunction.html#2683" class="Bound"
+      >c</a
+      ><a name="2739"
+      > </a
+      ><a name="2740" class="Symbol"
+      >&#8594;</a
+      ><a name="2741"
+      > </a
+      ><a name="2742" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="2751"
+      > </a
+      ><a name="2752" href="showFunction.html#2667" class="Bound"
+      >c&#8320;</a
+      ><a name="2754" class="Symbol"
+      >)</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" class="Symbol"
+      >&#8594;</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="2764"
+      >
+</a
+      ><a name="2765" href="showFunction.html#2641" class="Function"
+      >choiceFunctionToString</a
+      ><a name="2787"
+      > </a
+      ><a name="2788" class="Symbol"
+      >{</a
+      ><a name="2789" href="showFunction.html#2789" class="Bound"
+      >c&#8320;</a
+      ><a name="2791" class="Symbol"
+      >}</a
+      ><a name="2792"
+      > </a
+      ><a name="2793" href="showFunction.html#2793" class="Bound"
+      >c</a
+      ><a name="2794"
+      > </a
+      ><a name="2795" href="showFunction.html#2795" class="Bound"
+      >g</a
+      ><a name="2796"
+      > </a
+      ><a name="2797" class="Symbol"
+      >=</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="2822"
+      > 
+                                 </a
+      ><a name="2857" class="String"
+      >&quot; &quot;</a
+      ><a name="2860"
+      > 
+                                 </a
+      ><a name="2895" class="Symbol"
+      >(</a
+      ><a name="2896" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="2900"
+      >  </a
+      ><a name="2902" class="Symbol"
+      >(&#955;</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="showFunction.html#2905" class="Bound"
+      >x</a
+      ><a name="2906"
+      > </a
+      ><a name="2907" class="Symbol"
+      >&#8594;</a
+      ><a name="2908"
+      >  </a
+      ><a name="2910" class="String"
+      >&quot;(&#955; &quot;</a
+      ><a name="2915"
+      > 
+                                                 </a
+      ><a name="2966" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="2969"
+      > </a
+      ><a name="2970" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="2980"
+      > </a
+      ><a name="2981" href="showFunction.html#2905" class="Bound"
+      >x</a
+      ><a name="2982"
+      > 
+                                                 </a
+      ><a name="3033" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" class="String"
+      >&quot; &#8594; &quot;</a
+      ><a name="3042"
+      > 
+                                                 </a
+      ><a name="3093" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3096"
+      > </a
+      ><a name="3097" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="3107"
+      > </a
+      ><a name="3108" class="Symbol"
+      >(</a
+      ><a name="3109" href="showFunction.html#2795" class="Bound"
+      >g</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="showFunction.html#2905" class="Bound"
+      >x</a
+      ><a name="3112" class="Symbol"
+      >)</a
+      ><a name="3113"
+      > 
+                                                 </a
+      ><a name="3164" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3167"
+      > </a
+      ><a name="3168" class="String"
+      >&quot;)&quot;</a
+      ><a name="3171" class="Symbol"
+      >)</a
+      ><a name="3172"
+      >  
+                                        </a
+      ><a name="3215" class="Symbol"
+      >(</a
+      ><a name="3216" href="choiceSetU.html#2564" class="Function"
+      >choice2Enum</a
+      ><a name="3227"
+      > </a
+      ><a name="3228" href="showFunction.html#2793" class="Bound"
+      >c</a
+      ><a name="3229" class="Symbol"
+      >))</a
+      ><a name="3231"
+      >
+
+</a
+      ><a name="3233" href="showFunction.html#3233" class="Function"
+      >choiceFunctionToStringi</a
+      ><a name="3256"
+      > </a
+      ><a name="3257" class="Symbol"
+      >:</a
+      ><a name="3258"
+      > </a
+      ><a name="3259" class="Symbol"
+      >{</a
+      ><a name="3260" href="showFunction.html#3260" class="Bound"
+      >c&#8320;</a
+      ><a name="3262"
+      > </a
+      ><a name="3263" class="Symbol"
+      >:</a
+      ><a name="3264"
+      > </a
+      ><a name="3265" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="3271" class="Symbol"
+      >}</a
+      ><a name="3272"
+      > </a
+      ><a name="3273" class="Symbol"
+      >&#8594;</a
+      ><a name="3274"
+      > </a
+      ><a name="3275" class="Symbol"
+      >{</a
+      ><a name="3276" href="showFunction.html#3276" class="Bound"
+      >c</a
+      ><a name="3277"
+      > </a
+      ><a name="3278" class="Symbol"
+      >:</a
+      ><a name="3279"
+      > </a
+      ><a name="3280" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="3286" class="Symbol"
+      >}</a
+      ><a name="3287"
+      >
+                         </a
+      ><a name="3313" class="Symbol"
+      >&#8594;</a
+      ><a name="3314"
+      > </a
+      ><a name="3315" class="Symbol"
+      >(</a
+      ><a name="3316" href="showFunction.html#3316" class="Bound"
+      >g</a
+      ><a name="3317"
+      > </a
+      ><a name="3318" class="Symbol"
+      >:</a
+      ><a name="3319"
+      > </a
+      ><a name="3320" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="3329"
+      > </a
+      ><a name="3330" href="showFunction.html#3276" class="Bound"
+      >c</a
+      ><a name="3331"
+      > </a
+      ><a name="3332" class="Symbol"
+      >&#8594;</a
+      ><a name="3333"
+      > </a
+      ><a name="3334" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="3343"
+      > </a
+      ><a name="3344" href="showFunction.html#3260" class="Bound"
+      >c&#8320;</a
+      ><a name="3346" class="Symbol"
+      >)</a
+      ><a name="3347"
+      > </a
+      ><a name="3348" class="Symbol"
+      >&#8594;</a
+      ><a name="3349"
+      > </a
+      ><a name="3350" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="3356"
+      >
+</a
+      ><a name="3357" href="showFunction.html#3233" class="Function"
+      >choiceFunctionToStringi</a
+      ><a name="3380"
+      > </a
+      ><a name="3381" class="Symbol"
+      >{</a
+      ><a name="3382" href="showFunction.html#3382" class="Bound"
+      >c&#8320;</a
+      ><a name="3384" class="Symbol"
+      >}</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" class="Symbol"
+      >{</a
+      ><a name="3387" href="showFunction.html#3387" class="Bound"
+      >c</a
+      ><a name="3388" class="Symbol"
+      >}</a
+      ><a name="3389"
+      > </a
+      ><a name="3390" href="showFunction.html#3390" class="Bound"
+      >g</a
+      ><a name="3391"
+      > </a
+      ><a name="3392" class="Symbol"
+      >=</a
+      ><a name="3393"
+      > </a
+      ><a name="3394" href="showFunction.html#2641" class="Function"
+      >choiceFunctionToString</a
+      ><a name="3416"
+      > </a
+      ><a name="3417" class="Symbol"
+      >{</a
+      ><a name="3418" href="showFunction.html#3382" class="Bound"
+      >c&#8320;</a
+      ><a name="3420" class="Symbol"
+      >}</a
+      ><a name="3421"
+      > </a
+      ><a name="3422" href="showFunction.html#3387" class="Bound"
+      >c</a
+      ><a name="3423"
+      > </a
+      ><a name="3424" href="showFunction.html#3390" class="Bound"
+      >g</a
+      ><a name="3425"
+      >
+
+</a
+      ><a name="3427" href="showFunction.html#3427" class="Function"
+      >choice2Str2Str</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" class="Symbol"
+      >:</a
+      ><a name="3443"
+      > </a
+      ><a name="3444" class="Symbol"
+      >{</a
+      ><a name="3445" href="showFunction.html#3445" class="Bound"
+      >c</a
+      ><a name="3446"
+      > </a
+      ><a name="3447" class="Symbol"
+      >:</a
+      ><a name="3448"
+      > </a
+      ><a name="3449" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="3455" class="Symbol"
+      >}</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" class="Symbol"
+      >&#8594;</a
+      ><a name="3458"
+      > </a
+      ><a name="3459" class="Symbol"
+      >(</a
+      ><a name="3460" href="showFunction.html#3460" class="Bound"
+      >f</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" class="Symbol"
+      >:</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="3473"
+      > </a
+      ><a name="3474" href="showFunction.html#3445" class="Bound"
+      >c</a
+      ><a name="3475"
+      > </a
+      ><a name="3476" class="Symbol"
+      >&#8594;</a
+      ><a name="3477"
+      > </a
+      ><a name="3478" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="3484" class="Symbol"
+      >)</a
+      ><a name="3485"
+      >  </a
+      ><a name="3487" class="Symbol"
+      >&#8594;</a
+      ><a name="3488"
+      > </a
+      ><a name="3489" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="3495"
+      >
+</a
+      ><a name="3496" href="showFunction.html#3427" class="Function"
+      >choice2Str2Str</a
+      ><a name="3510"
+      > </a
+      ><a name="3511" class="Symbol"
+      >{</a
+      ><a name="3512" href="showFunction.html#3512" class="Bound"
+      >c</a
+      ><a name="3513" class="Symbol"
+      >}</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" href="showFunction.html#3515" class="Bound"
+      >f</a
+      ><a name="3516"
+      > </a
+      ><a name="3517" class="Symbol"
+      >=</a
+      ><a name="3518"
+      > </a
+      ><a name="3519" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="3542"
+      > </a
+      ><a name="3543" class="String"
+      >&quot; &quot;</a
+      ><a name="3546"
+      > </a
+      ><a name="3547" class="Symbol"
+      >(</a
+      ><a name="3548" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="3552"
+      > </a
+      ><a name="3553" class="Symbol"
+      >((&#955;</a
+      ><a name="3556"
+      > </a
+      ><a name="3557" href="showFunction.html#3557" class="Bound"
+      >x</a
+      ><a name="3558"
+      > </a
+      ><a name="3559" class="Symbol"
+      >&#8594;</a
+      ><a name="3560"
+      > </a
+      ><a name="3561" class="String"
+      >&quot;(&#955; &quot;</a
+      ><a name="3566"
+      >  
+                                                                  </a
+      ><a name="3635" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3638"
+      > </a
+      ><a name="3639" class="Symbol"
+      >(</a
+      ><a name="3640" href="choiceSetU.html#1505" class="Function"
+      >choice2Str</a
+      ><a name="3650"
+      > </a
+      ><a name="3651" href="showFunction.html#3557" class="Bound"
+      >x</a
+      ><a name="3652" class="Symbol"
+      >)</a
+      ><a name="3653"
+      > 
+                                                                  </a
+      ><a name="3721" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3724"
+      > </a
+      ><a name="3725" class="String"
+      >&quot; &#8594; &quot;</a
+      ><a name="3730"
+      > 
+                                                                  </a
+      ><a name="3798" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3801"
+      > </a
+      ><a name="3802" href="showFunction.html#3515" class="Bound"
+      >f</a
+      ><a name="3803"
+      > </a
+      ><a name="3804" href="showFunction.html#3557" class="Bound"
+      >x</a
+      ><a name="3805"
+      > 
+                                                                  </a
+      ><a name="3873" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="3876"
+      > </a
+      ><a name="3877" class="String"
+      >&quot;)&quot;</a
+      ><a name="3880" class="Symbol"
+      >))</a
+      ><a name="3882"
+      > 
+                               </a
+      ><a name="3915" class="Symbol"
+      >(</a
+      ><a name="3916" href="choiceSetU.html#2564" class="Function"
+      >choice2Enum</a
+      ><a name="3927"
+      > </a
+      ><a name="3928" href="showFunction.html#3512" class="Bound"
+      >c</a
+      ><a name="3929" class="Symbol"
+      >))</a
+      ><a name="3931"
+      >
+
+
+
+</a
+      ><a name="3935" href="showFunction.html#3935" class="Function"
+      >processToSubprocess0</a
+      ><a name="3955"
+      > </a
+      ><a name="3956" class="Symbol"
+      >:</a
+      ><a name="3957"
+      > </a
+      ><a name="3958" class="Symbol"
+      >&#8704;</a
+      ><a name="3959"
+      > </a
+      ><a name="3960" class="Symbol"
+      >{</a
+      ><a name="3961" href="showFunction.html#3961" class="Bound"
+      >i</a
+      ><a name="3962" class="Symbol"
+      >}</a
+      ><a name="3963"
+      > </a
+      ><a name="3964" class="Symbol"
+      >&#8594;</a
+      ><a name="3965"
+      > </a
+      ><a name="3966" class="Symbol"
+      >{</a
+      ><a name="3967" href="showFunction.html#3967" class="Bound"
+      >c</a
+      ><a name="3968"
+      > </a
+      ><a name="3969" class="Symbol"
+      >:</a
+      ><a name="3970"
+      > </a
+      ><a name="3971" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="3977" class="Symbol"
+      >}</a
+      ><a name="3978"
+      > 
+                      </a
+      ><a name="4002" class="Symbol"
+      >&#8594;</a
+      ><a name="4003"
+      > </a
+      ><a name="4004" class="Symbol"
+      >(</a
+      ><a name="4005" href="showFunction.html#4005" class="Bound"
+      >P</a
+      ><a name="4006"
+      > </a
+      ><a name="4007" class="Symbol"
+      >:</a
+      ><a name="4008"
+      > </a
+      ><a name="4009" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="4016"
+      > </a
+      ><a name="4017" href="showFunction.html#3961" class="Bound"
+      >i</a
+      ><a name="4018"
+      > </a
+      ><a name="4019" href="showFunction.html#3967" class="Bound"
+      >c</a
+      ><a name="4020" class="Symbol"
+      >)</a
+      ><a name="4021"
+      > 
+                      </a
+      ><a name="4045" class="Symbol"
+      >&#8594;</a
+      ><a name="4046"
+      > </a
+      ><a name="4047" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="4056"
+      > </a
+      ><a name="4057" class="Symbol"
+      >(</a
+      ><a name="4058" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="4068"
+      > </a
+      ><a name="4069" href="showFunction.html#4005" class="Bound"
+      >P</a
+      ><a name="4070" class="Symbol"
+      >)</a
+      ><a name="4071"
+      > </a
+      ><a name="4072" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="4073"
+      > </a
+      ><a name="4074" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="4083"
+      > </a
+      ><a name="4084" class="Symbol"
+      >(</a
+      ><a name="4085" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="4095"
+      > </a
+      ><a name="4096" href="showFunction.html#4005" class="Bound"
+      >P</a
+      ><a name="4097" class="Symbol"
+      >)</a
+      ><a name="4098"
+      >
+                      </a
+      ><a name="4121" class="Symbol"
+      >&#8594;</a
+      ><a name="4122"
+      > </a
+      ><a name="4123" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="4131"
+      > </a
+      ><a name="4132" href="showFunction.html#3961" class="Bound"
+      >i</a
+      ><a name="4133"
+      > </a
+      ><a name="4134" href="showFunction.html#3967" class="Bound"
+      >c</a
+      ><a name="4135"
+      > 
+</a
+      ><a name="4137" href="showFunction.html#3935" class="Function"
+      >processToSubprocess0</a
+      ><a name="4157"
+      > </a
+      ><a name="4158" class="Symbol"
+      >(</a
+      ><a name="4159" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="4163"
+      > </a
+      ><a name="4164" href="showFunction.html#4164" class="Bound"
+      >P</a
+      ><a name="4165" class="Symbol"
+      >)</a
+      ><a name="4166"
+      > </a
+      ><a name="4167" class="Symbol"
+      >(</a
+      ><a name="4168" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="4172"
+      > </a
+      ><a name="4173" href="showFunction.html#4173" class="Bound"
+      >c'</a
+      ><a name="4175" class="Symbol"
+      >)</a
+      ><a name="4176"
+      > </a
+      ><a name="4177" class="Symbol"
+      >=</a
+      ><a name="4178"
+      > </a
+      ><a name="4179" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="4181"
+      > </a
+      ><a name="4182" href="showFunction.html#4164" class="Bound"
+      >P</a
+      ><a name="4183"
+      > </a
+      ><a name="4184" href="showFunction.html#4173" class="Bound"
+      >c'</a
+      ><a name="4186"
+      >
+</a
+      ><a name="4187" href="showFunction.html#3935" class="Function"
+      >processToSubprocess0</a
+      ><a name="4207"
+      > </a
+      ><a name="4208" class="Symbol"
+      >(</a
+      ><a name="4209" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="4213"
+      > </a
+      ><a name="4214" href="showFunction.html#4214" class="Bound"
+      >P</a
+      ><a name="4215" class="Symbol"
+      >)</a
+      ><a name="4216"
+      > </a
+      ><a name="4217" class="Symbol"
+      >(</a
+      ><a name="4218" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="4222"
+      > </a
+      ><a name="4223" href="showFunction.html#4223" class="Bound"
+      >c'</a
+      ><a name="4225" class="Symbol"
+      >)</a
+      ><a name="4226"
+      > </a
+      ><a name="4227" class="Symbol"
+      >=</a
+      ><a name="4228"
+      > </a
+      ><a name="4229" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="4231"
+      > </a
+      ><a name="4232" href="showFunction.html#4214" class="Bound"
+      >P</a
+      ><a name="4233"
+      > </a
+      ><a name="4234" href="showFunction.html#4223" class="Bound"
+      >c'</a
+      ><a name="4236"
+      >
+</a
+      ><a name="4237" href="showFunction.html#3935" class="Function"
+      >processToSubprocess0</a
+      ><a name="4257"
+      > </a
+      ><a name="4258" class="Symbol"
+      >(</a
+      ><a name="4259" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="4268"
+      > </a
+      ><a name="4269" href="showFunction.html#4269" class="Bound"
+      >x</a
+      ><a name="4270" class="Symbol"
+      >)</a
+      ><a name="4271"
+      > </a
+      ><a name="4272" class="Symbol"
+      >(</a
+      ><a name="4273" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="4277"
+      > </a
+      ><a name="4278" class="Symbol"
+      >())</a
+      ><a name="4281"
+      >
+</a
+      ><a name="4282" href="showFunction.html#3935" class="Function"
+      >processToSubprocess0</a
+      ><a name="4302"
+      > </a
+      ><a name="4303" class="Symbol"
+      >(</a
+      ><a name="4304" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="4313"
+      > </a
+      ><a name="4314" href="showFunction.html#4314" class="Bound"
+      >x</a
+      ><a name="4315" class="Symbol"
+      >)</a
+      ><a name="4316"
+      > </a
+      ><a name="4317" class="Symbol"
+      >(</a
+      ><a name="4318" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="4322"
+      > </a
+      ><a name="4323" class="Symbol"
+      >())</a
+      ><a name="4326"
+      >
+
+
+
+</a
+      ><a name="4330" href="showFunction.html#4330" class="Function"
+      >processToSubprocess</a
+      ><a name="4349"
+      > </a
+      ><a name="4350" class="Symbol"
+      >:</a
+      ><a name="4351"
+      > </a
+      ><a name="4352" class="Symbol"
+      >&#8704;</a
+      ><a name="4353"
+      > </a
+      ><a name="4354" class="Symbol"
+      >{</a
+      ><a name="4355" href="showFunction.html#4355" class="Bound"
+      >i</a
+      ><a name="4356" class="Symbol"
+      >}</a
+      ><a name="4357"
+      > </a
+      ><a name="4358" class="Symbol"
+      >&#8594;</a
+      ><a name="4359"
+      > </a
+      ><a name="4360" class="Symbol"
+      >{</a
+      ><a name="4361" href="showFunction.html#4361" class="Bound"
+      >j</a
+      ><a name="4362"
+      > </a
+      ><a name="4363" class="Symbol"
+      >:</a
+      ><a name="4364"
+      > </a
+      ><a name="4365" href="Agda.Builtin.Size.html#146" class="Postulate Operator"
+      >Size&lt;</a
+      ><a name="4370"
+      > </a
+      ><a name="4371" href="showFunction.html#4355" class="Bound"
+      >i</a
+      ><a name="4372" class="Symbol"
+      >}</a
+      ><a name="4373"
+      > </a
+      ><a name="4374" class="Symbol"
+      >&#8594;</a
+      ><a name="4375"
+      > </a
+      ><a name="4376" class="Symbol"
+      >{</a
+      ><a name="4377" href="showFunction.html#4377" class="Bound"
+      >c</a
+      ><a name="4378"
+      > </a
+      ><a name="4379" class="Symbol"
+      >:</a
+      ><a name="4380"
+      > </a
+      ><a name="4381" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="4387" class="Symbol"
+      >}</a
+      ><a name="4388"
+      > 
+                      </a
+      ><a name="4412" class="Symbol"
+      >&#8594;</a
+      ><a name="4413"
+      > </a
+      ><a name="4414" class="Symbol"
+      >(</a
+      ><a name="4415" href="showFunction.html#4415" class="Bound"
+      >P</a
+      ><a name="4416"
+      > </a
+      ><a name="4417" class="Symbol"
+      >:</a
+      ><a name="4418"
+      > </a
+      ><a name="4419" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="4426"
+      > </a
+      ><a name="4427" href="showFunction.html#4355" class="Bound"
+      >i</a
+      ><a name="4428"
+      > </a
+      ><a name="4429" href="showFunction.html#4377" class="Bound"
+      >c</a
+      ><a name="4430" class="Symbol"
+      >)</a
+      ><a name="4431"
+      > 
+                      </a
+      ><a name="4455" class="Symbol"
+      >&#8594;</a
+      ><a name="4456"
+      > </a
+      ><a name="4457" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="4466"
+      > </a
+      ><a name="4467" class="Symbol"
+      >(</a
+      ><a name="4468" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="4478"
+      > </a
+      ><a name="4479" href="showFunction.html#4415" class="Bound"
+      >P</a
+      ><a name="4480" class="Symbol"
+      >)</a
+      ><a name="4481"
+      > </a
+      ><a name="4482" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="4483"
+      > </a
+      ><a name="4484" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="4493"
+      > </a
+      ><a name="4494" class="Symbol"
+      >(</a
+      ><a name="4495" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="4505"
+      > </a
+      ><a name="4506" href="showFunction.html#4415" class="Bound"
+      >P</a
+      ><a name="4507" class="Symbol"
+      >)</a
+      ><a name="4508"
+      >
+                      </a
+      ><a name="4531" class="Symbol"
+      >&#8594;</a
+      ><a name="4532"
+      > </a
+      ><a name="4533" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="4540"
+      > </a
+      ><a name="4541" href="showFunction.html#4361" class="Bound"
+      >j</a
+      ><a name="4542"
+      > </a
+      ><a name="4543" href="showFunction.html#4377" class="Bound"
+      >c</a
+      ><a name="4544"
+      >
+</a
+      ><a name="4545" href="showFunction.html#4330" class="Function"
+      >processToSubprocess</a
+      ><a name="4564"
+      >  </a
+      ><a name="4566" class="Symbol"
+      >{</a
+      ><a name="4567" href="showFunction.html#4567" class="Bound"
+      >i</a
+      ><a name="4568" class="Symbol"
+      >}</a
+      ><a name="4569"
+      > </a
+      ><a name="4570" class="Symbol"
+      >{</a
+      ><a name="4571" href="showFunction.html#4571" class="Bound"
+      >j</a
+      ><a name="4572" class="Symbol"
+      >}</a
+      ><a name="4573"
+      > </a
+      ><a name="4574" class="Symbol"
+      >{</a
+      ><a name="4575" href="showFunction.html#4575" class="Bound"
+      >c</a
+      ><a name="4576" class="Symbol"
+      >}</a
+      ><a name="4577"
+      > </a
+      ><a name="4578" href="showFunction.html#4578" class="Bound"
+      >P</a
+      ><a name="4579"
+      > </a
+      ><a name="4580" href="showFunction.html#4580" class="Bound"
+      >c'</a
+      ><a name="4582"
+      > </a
+      ><a name="4583" class="Symbol"
+      >=</a
+      ><a name="4584"
+      > </a
+      ><a name="4585" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="4591"
+      > </a
+      ><a name="4592" class="Symbol"
+      >(</a
+      ><a name="4593" href="showFunction.html#3935" class="Function"
+      >processToSubprocess0</a
+      ><a name="4613"
+      >  </a
+      ><a name="4615" class="Symbol"
+      >{</a
+      ><a name="4616" href="showFunction.html#4567" class="Bound"
+      >i</a
+      ><a name="4617" class="Symbol"
+      >}</a
+      ><a name="4618"
+      > </a
+      ><a name="4619" class="Symbol"
+      >{</a
+      ><a name="4620" href="showFunction.html#4575" class="Bound"
+      >c</a
+      ><a name="4621" class="Symbol"
+      >}</a
+      ><a name="4622"
+      > </a
+      ><a name="4623" href="showFunction.html#4578" class="Bound"
+      >P</a
+      ><a name="4624"
+      > </a
+      ><a name="4625" href="showFunction.html#4580" class="Bound"
+      >c'</a
+      ><a name="4627" class="Symbol"
+      >)</a
+      ><a name="4628"
+      > 
+
+</a
+      ></pre
+    ></body
+  ></html
+>

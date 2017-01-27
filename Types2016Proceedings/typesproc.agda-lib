@@ -1,0 +1,3 @@
+name: typesproc
+depend: std-lib
+include: . 

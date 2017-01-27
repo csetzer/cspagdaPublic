@@ -1,0 +1,2666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >proofTerPar</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="proofTerPar.html#1" class="Module"
+      >proofTerPar</a
+      ><a name="19"
+      > </a
+      ><a name="20" class="Keyword"
+      >where</a
+      ><a name="25"
+      > 
+
+
+</a
+      ><a name="29" class="Keyword"
+      >open</a
+      ><a name="33"
+      > </a
+      ><a name="34" class="Keyword"
+      >import</a
+      ><a name="40"
+      > </a
+      ><a name="41" href="process.html#1" class="Module"
+      >process</a
+      ><a name="48"
+      > 
+</a
+      ><a name="50" class="Keyword"
+      >open</a
+      ><a name="54"
+      > </a
+      ><a name="55" class="Keyword"
+      >import</a
+      ><a name="61"
+      > </a
+      ><a name="62" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="66"
+      >
+</a
+      ><a name="67" class="Keyword"
+      >open</a
+      ><a name="71"
+      > </a
+      ><a name="72" class="Keyword"
+      >import</a
+      ><a name="78"
+      > </a
+      ><a name="79" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="89"
+      >
+</a
+      ><a name="90" class="Keyword"
+      >open</a
+      ><a name="94"
+      > </a
+      ><a name="95" class="Keyword"
+      >import</a
+      ><a name="101"
+      > </a
+      ><a name="102" href="renamingResult.html#1" class="Module"
+      >renamingResult</a
+      ><a name="116"
+      >
+</a
+      ><a name="117" class="Keyword"
+      >open</a
+      ><a name="121"
+      > </a
+      ><a name="122" class="Keyword"
+      >import</a
+      ><a name="128"
+      > </a
+      ><a name="129" href="TraceWithoutSize.html#1" class="Module"
+      >TraceWithoutSize</a
+      ><a name="145"
+      >
+</a
+      ><a name="146" class="Keyword"
+      >open</a
+      ><a name="150"
+      > </a
+      ><a name="151" class="Keyword"
+      >import</a
+      ><a name="157"
+      > </a
+      ><a name="158" href="RefWithoutSize.html#1" class="Module"
+      >RefWithoutSize</a
+      ><a name="172"
+      >
+</a
+      ><a name="173" class="Keyword"
+      >open</a
+      ><a name="177"
+      > </a
+      ><a name="178" class="Keyword"
+      >import</a
+      ><a name="184"
+      > </a
+      ><a name="185" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="192"
+      >
+</a
+      ><a name="193" class="Keyword"
+      >open</a
+      ><a name="197"
+      > </a
+      ><a name="198" class="Keyword"
+      >import</a
+      ><a name="204"
+      > </a
+      ><a name="205" href="label.html#1" class="Module"
+      >label</a
+      ><a name="210"
+      >
+</a
+      ><a name="211" class="Keyword"
+      >open</a
+      ><a name="215"
+      > </a
+      ><a name="216" class="Keyword"
+      >import</a
+      ><a name="222"
+      > </a
+      ><a name="223" href="parallelSimple.html#1" class="Module"
+      >parallelSimple</a
+      ><a name="237"
+      >
+</a
+      ><a name="238" class="Keyword"
+      >open</a
+      ><a name="242"
+      > </a
+      ><a name="243" class="Keyword"
+      >import</a
+      ><a name="249"
+      > </a
+      ><a name="250" href="restrict.html#1" class="Module"
+      >restrict</a
+      ><a name="258"
+      >
+</a
+      ><a name="259" class="Keyword"
+      >open</a
+      ><a name="263"
+      > </a
+      ><a name="264" class="Keyword"
+      >import</a
+      ><a name="270"
+      > </a
+      ><a name="271" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="280"
+      >
+</a
+      ><a name="281" class="Keyword"
+      >open</a
+      ><a name="285"
+      > </a
+      ><a name="286" class="Keyword"
+      >import</a
+      ><a name="292"
+      > </a
+      ><a name="293" href="traceEquivalence.html#1" class="Module"
+      >traceEquivalence</a
+      ><a name="309"
+      >
+</a
+      ><a name="310" class="Keyword"
+      >open</a
+      ><a name="314"
+      > </a
+      ><a name="315" class="Keyword"
+      >import</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="Data.Product.html#1" class="Module"
+      >Data.Product</a
+      ><a name="334"
+      >
+
+
+</a
+      ><a name="337" href="proofTerPar.html#337" class="Function"
+      >unit[-||-]</a
+      ><a name="347"
+      > </a
+      ><a name="348" class="Symbol"
+      >:</a
+      ><a name="349"
+      > </a
+      ><a name="350" class="Symbol"
+      >{</a
+      ><a name="351" href="proofTerPar.html#351" class="Bound"
+      >c&#8320;</a
+      ><a name="353"
+      > </a
+      ><a name="354" class="Symbol"
+      >:</a
+      ><a name="355"
+      > </a
+      ><a name="356" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="362" class="Symbol"
+      >}</a
+      ><a name="363"
+      > </a
+      ><a name="364" class="Symbol"
+      >(</a
+      ><a name="365" href="proofTerPar.html#365" class="Bound"
+      >a</a
+      ><a name="366"
+      > </a
+      ><a name="367" class="Symbol"
+      >:</a
+      ><a name="368"
+      > </a
+      ><a name="369" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="proofTerPar.html#351" class="Bound"
+      >c&#8320;</a
+      ><a name="381" class="Symbol"
+      >)(</a
+      ><a name="383" href="proofTerPar.html#383" class="Bound"
+      >P</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >:</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="394"
+      > </a
+      ><a name="395" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="396"
+      > </a
+      ><a name="397" href="proofTerPar.html#351" class="Bound"
+      >c&#8320;</a
+      ><a name="399" class="Symbol"
+      >)</a
+      ><a name="400"
+      > </a
+      ><a name="401" class="Symbol"
+      >(</a
+      ><a name="402" href="proofTerPar.html#402" class="Bound"
+      >A</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="proofTerPar.html#404" class="Bound"
+      >B</a
+      ><a name="405"
+      > </a
+      ><a name="406" class="Symbol"
+      >:</a
+      ><a name="407"
+      > </a
+      ><a name="408" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="413"
+      > </a
+      ><a name="414" class="Symbol"
+      >&#8594;</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="420" class="Symbol"
+      >)</a
+      ><a name="421"
+      > 
+        </a
+      ><a name="431" class="Symbol"
+      >&#8594;</a
+      ><a name="432"
+      > </a
+      ><a name="433" class="Symbol"
+      >(</a
+      ><a name="434" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="443"
+      > </a
+      ><a name="444" href="proofTerPar.html#365" class="Bound"
+      >a</a
+      ><a name="445"
+      > </a
+      ><a name="446" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="447"
+      > </a
+      ><a name="448" href="proofTerPar.html#402" class="Bound"
+      >A</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="proofTerPar.html#404" class="Bound"
+      >B</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="proofTerPar.html#383" class="Bound"
+      >P</a
+      ><a name="460" class="Symbol"
+      >)</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="RefWithoutSize.html#209" class="Function Operator"
+      >&#8849;</a
+      ><a name="463"
+      > </a
+      ><a name="464" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="468"
+      > </a
+      ><a name="469" class="Symbol"
+      >(</a
+      ><a name="470"
+      > </a
+      ><a name="471" class="Symbol"
+      >(&#955;</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="proofTerPar.html#474" class="Bound"
+      >b</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >&#8594;</a
+      ><a name="477"
+      > </a
+      ><a name="478" class="Symbol"
+      >(</a
+      ><a name="479" href="proofTerPar.html#365" class="Bound"
+      >a</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="proofTerPar.html#474" class="Bound"
+      >b</a
+      ><a name="485" class="Symbol"
+      >)))</a
+      ><a name="488"
+      > </a
+      ><a name="489" class="Symbol"
+      >(</a
+      ><a name="490" href="proofTerPar.html#383" class="Bound"
+      >P</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="493"
+      > </a
+      ><a name="494" class="Symbol"
+      >(</a
+      ><a name="495" href="proofTerPar.html#404" class="Bound"
+      >B</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="498"
+      > </a
+      ><a name="499" href="proofTerPar.html#402" class="Bound"
+      >A</a
+      ><a name="500" class="Symbol"
+      >))</a
+      ><a name="502"
+      >
+</a
+      ><a name="503" href="proofTerPar.html#337" class="Function"
+      >unit[-||-]</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="Symbol"
+      >{</a
+      ><a name="515" href="proofTerPar.html#515" class="Bound"
+      >c&#8320;</a
+      ><a name="517" class="Symbol"
+      >}</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="proofTerPar.html#519" class="Bound"
+      >a</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="proofTerPar.html#521" class="Bound"
+      >P</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="proofTerPar.html#523" class="Bound"
+      >A</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="proofTerPar.html#525" class="Bound"
+      >B</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="proofTerPar.html#527" class="Bound"
+      >l</a
+      ><a name="528"
+      > </a
+      ><a name="529" href="proofTerPar.html#529" class="Bound"
+      >m</a
+      ><a name="530"
+      > </a
+      ><a name="531" href="proofTerPar.html#531" class="Bound"
+      >q</a
+      ><a name="532"
+      > </a
+      ><a name="533" class="Symbol"
+      >=</a
+      ><a name="534"
+      >  </a
+      ><a name="536" href="proofTerPar.html#531" class="Bound"
+      >q</a
+      ><a name="537"
+      >
+
+
+
+</a
+      ><a name="541" href="proofTerPar.html#541" class="Function"
+      >unit[-||-]r</a
+      ><a name="552"
+      > </a
+      ><a name="553" class="Symbol"
+      >:</a
+      ><a name="554"
+      > </a
+      ><a name="555" class="Symbol"
+      >{</a
+      ><a name="556" href="proofTerPar.html#556" class="Bound"
+      >c&#8320;</a
+      ><a name="558"
+      > </a
+      ><a name="559" class="Symbol"
+      >:</a
+      ><a name="560"
+      > </a
+      ><a name="561" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="567" class="Symbol"
+      >}</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Symbol"
+      >(</a
+      ><a name="570" href="proofTerPar.html#570" class="Bound"
+      >a</a
+      ><a name="571"
+      > </a
+      ><a name="572" class="Symbol"
+      >:</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="proofTerPar.html#556" class="Bound"
+      >c&#8320;</a
+      ><a name="586" class="Symbol"
+      >)(</a
+      ><a name="588" href="proofTerPar.html#588" class="Bound"
+      >P</a
+      ><a name="589"
+      > </a
+      ><a name="590" class="Symbol"
+      >:</a
+      ><a name="591"
+      > </a
+      ><a name="592" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="proofTerPar.html#556" class="Bound"
+      >c&#8320;</a
+      ><a name="604" class="Symbol"
+      >)</a
+      ><a name="605"
+      > </a
+      ><a name="606" class="Symbol"
+      >(</a
+      ><a name="607" href="proofTerPar.html#607" class="Bound"
+      >A</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="proofTerPar.html#609" class="Bound"
+      >B</a
+      ><a name="610"
+      > </a
+      ><a name="611" class="Symbol"
+      >:</a
+      ><a name="612"
+      > </a
+      ><a name="613" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="618"
+      > </a
+      ><a name="619" class="Symbol"
+      >&#8594;</a
+      ><a name="620"
+      > </a
+      ><a name="621" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="625" class="Symbol"
+      >)</a
+      ><a name="626"
+      > 
+        </a
+      ><a name="636" class="Symbol"
+      >&#8594;</a
+      ><a name="637"
+      >  </a
+      ><a name="639" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >(</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >(&#955;</a
+      ><a name="648"
+      > </a
+      ><a name="649" href="proofTerPar.html#649" class="Bound"
+      >b</a
+      ><a name="650"
+      > </a
+      ><a name="651" class="Symbol"
+      >&#8594;</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >(</a
+      ><a name="654" href="proofTerPar.html#570" class="Bound"
+      >a</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="658"
+      > </a
+      ><a name="659" href="proofTerPar.html#649" class="Bound"
+      >b</a
+      ><a name="660" class="Symbol"
+      >)))</a
+      ><a name="663"
+      > </a
+      ><a name="664" class="Symbol"
+      >(</a
+      ><a name="665" href="proofTerPar.html#588" class="Bound"
+      >P</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="668"
+      > </a
+      ><a name="669" class="Symbol"
+      >(</a
+      ><a name="670" href="proofTerPar.html#609" class="Bound"
+      >B</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="673"
+      > </a
+      ><a name="674" href="proofTerPar.html#607" class="Bound"
+      >A</a
+      ><a name="675" class="Symbol"
+      >))</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="RefWithoutSize.html#209" class="Function Operator"
+      >&#8849;</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >(</a
+      ><a name="681" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="proofTerPar.html#570" class="Bound"
+      >a</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="proofTerPar.html#607" class="Bound"
+      >A</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="proofTerPar.html#609" class="Bound"
+      >B</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="705"
+      > </a
+      ><a name="706" href="proofTerPar.html#588" class="Bound"
+      >P</a
+      ><a name="707" class="Symbol"
+      >)</a
+      ><a name="708"
+      >
+</a
+      ><a name="709" href="proofTerPar.html#541" class="Function"
+      >unit[-||-]r</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >{</a
+      ><a name="722" href="proofTerPar.html#722" class="Bound"
+      >c&#8320;</a
+      ><a name="724" class="Symbol"
+      >}</a
+      ><a name="725"
+      > </a
+      ><a name="726" href="proofTerPar.html#726" class="Bound"
+      >a</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="proofTerPar.html#728" class="Bound"
+      >P</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="proofTerPar.html#730" class="Bound"
+      >A</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="proofTerPar.html#732" class="Bound"
+      >B</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="proofTerPar.html#734" class="Bound"
+      >l</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="proofTerPar.html#736" class="Bound"
+      >m</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="proofTerPar.html#738" class="Bound"
+      >q</a
+      ><a name="739"
+      > </a
+      ><a name="740" class="Symbol"
+      >=</a
+      ><a name="741"
+      >  </a
+      ><a name="743" href="proofTerPar.html#738" class="Bound"
+      >q</a
+      ><a name="744"
+      >
+
+
+</a
+      ><a name="747" href="proofTerPar.html#747" class="Function"
+      >&#8801;U+</a
+      ><a name="750"
+      > </a
+      ><a name="751" class="Symbol"
+      >:</a
+      ><a name="752"
+      > </a
+      ><a name="753" class="Symbol"
+      >{</a
+      ><a name="754" href="proofTerPar.html#754" class="Bound"
+      >c&#8320;</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Symbol"
+      >:</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="765" class="Symbol"
+      >}</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >(</a
+      ><a name="768" href="proofTerPar.html#768" class="Bound"
+      >a</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >:</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="proofTerPar.html#754" class="Bound"
+      >c&#8320;</a
+      ><a name="784" class="Symbol"
+      >)(</a
+      ><a name="786" href="proofTerPar.html#786" class="Bound"
+      >P</a
+      ><a name="787"
+      > </a
+      ><a name="788" class="Symbol"
+      >:</a
+      ><a name="789"
+      > </a
+      ><a name="790" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="proofTerPar.html#754" class="Bound"
+      >c&#8320;</a
+      ><a name="802" class="Symbol"
+      >)</a
+      ><a name="803"
+      > </a
+      ><a name="804" class="Symbol"
+      >(</a
+      ><a name="805" href="proofTerPar.html#805" class="Bound"
+      >A</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="proofTerPar.html#807" class="Bound"
+      >B</a
+      ><a name="808"
+      > </a
+      ><a name="809" class="Symbol"
+      >:</a
+      ><a name="810"
+      > </a
+      ><a name="811" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="816"
+      > </a
+      ><a name="817" class="Symbol"
+      >&#8594;</a
+      ><a name="818"
+      > </a
+      ><a name="819" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="823" class="Symbol"
+      >)</a
+      ><a name="824"
+      > 
+        </a
+      ><a name="834" class="Symbol"
+      >&#8594;</a
+      ><a name="835"
+      >  </a
+      ><a name="837" class="Symbol"
+      >(</a
+      ><a name="838" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="proofTerPar.html#768" class="Bound"
+      >a</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="851"
+      > </a
+      ><a name="852" href="proofTerPar.html#805" class="Bound"
+      >A</a
+      ><a name="853"
+      > </a
+      ><a name="854" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="proofTerPar.html#807" class="Bound"
+      >B</a
+      ><a name="860"
+      > </a
+      ><a name="861" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="proofTerPar.html#786" class="Bound"
+      >P</a
+      ><a name="864" class="Symbol"
+      >)</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="traceEquivalence.html#238" class="Function Operator"
+      >&#8801;</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="872"
+      > </a
+      ><a name="873" class="Symbol"
+      >(</a
+      ><a name="874"
+      > </a
+      ><a name="875" class="Symbol"
+      >(&#955;</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="proofTerPar.html#878" class="Bound"
+      >b</a
+      ><a name="879"
+      > </a
+      ><a name="880" class="Symbol"
+      >&#8594;</a
+      ><a name="881"
+      > </a
+      ><a name="882" class="Symbol"
+      >(</a
+      ><a name="883" href="proofTerPar.html#768" class="Bound"
+      >a</a
+      ><a name="884"
+      > </a
+      ><a name="885" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="proofTerPar.html#878" class="Bound"
+      >b</a
+      ><a name="889" class="Symbol"
+      >)))</a
+      ><a name="892"
+      > </a
+      ><a name="893" class="Symbol"
+      >(</a
+      ><a name="894" href="proofTerPar.html#786" class="Bound"
+      >P</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="897"
+      > </a
+      ><a name="898" class="Symbol"
+      >(</a
+      ><a name="899" href="proofTerPar.html#807" class="Bound"
+      >B</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="proofTerPar.html#805" class="Bound"
+      >A</a
+      ><a name="904" class="Symbol"
+      >))</a
+      ><a name="906"
+      >
+</a
+      ><a name="907" href="proofTerPar.html#747" class="Function"
+      >&#8801;U+</a
+      ><a name="910"
+      >  </a
+      ><a name="912" href="proofTerPar.html#912" class="Bound"
+      >a</a
+      ><a name="913"
+      > </a
+      ><a name="914" href="proofTerPar.html#914" class="Bound"
+      >P</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="proofTerPar.html#916" class="Bound"
+      >A</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="proofTerPar.html#918" class="Bound"
+      >B</a
+      ><a name="919"
+      > </a
+      ><a name="920" class="Symbol"
+      >=</a
+      ><a name="921"
+      > </a
+      ><a name="922" class="Symbol"
+      >(</a
+      ><a name="923" href="proofTerPar.html#337" class="Function"
+      >unit[-||-]</a
+      ><a name="933"
+      > </a
+      ><a name="934" href="proofTerPar.html#912" class="Bound"
+      >a</a
+      ><a name="935"
+      > </a
+      ><a name="936" href="proofTerPar.html#914" class="Bound"
+      >P</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="proofTerPar.html#916" class="Bound"
+      >A</a
+      ><a name="939"
+      > </a
+      ><a name="940" href="proofTerPar.html#918" class="Bound"
+      >B</a
+      ><a name="941" class="Symbol"
+      >)</a
+      ><a name="942"
+      > </a
+      ><a name="943" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="944"
+      > </a
+      ><a name="945" class="Symbol"
+      >(</a
+      ><a name="946" href="proofTerPar.html#541" class="Function"
+      >unit[-||-]r</a
+      ><a name="957"
+      > </a
+      ><a name="958" href="proofTerPar.html#912" class="Bound"
+      >a</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="proofTerPar.html#914" class="Bound"
+      >P</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="proofTerPar.html#916" class="Bound"
+      >A</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="proofTerPar.html#918" class="Bound"
+      >B</a
+      ><a name="965" class="Symbol"
+      >)</a
+      ><a name="966"
+      >
+
+
+
+</a
+      ><a name="970" href="proofTerPar.html#970" class="Function"
+      >unit[-||-]&#7523;</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Symbol"
+      >:</a
+      ><a name="983"
+      > </a
+      ><a name="984" class="Symbol"
+      >{</a
+      ><a name="985" href="proofTerPar.html#985" class="Bound"
+      >c&#8320;</a
+      ><a name="987"
+      > </a
+      ><a name="988" class="Symbol"
+      >:</a
+      ><a name="989"
+      > </a
+      ><a name="990" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="996" class="Symbol"
+      >}</a
+      ><a name="997"
+      > </a
+      ><a name="998" class="Symbol"
+      >(</a
+      ><a name="999" href="proofTerPar.html#999" class="Bound"
+      >b</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" class="Symbol"
+      >:</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" href="proofTerPar.html#985" class="Bound"
+      >c&#8320;</a
+      ><a name="1015" class="Symbol"
+      >)(</a
+      ><a name="1017" href="proofTerPar.html#1017" class="Bound"
+      >P</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" class="Symbol"
+      >:</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="proofTerPar.html#985" class="Bound"
+      >c&#8320;</a
+      ><a name="1033" class="Symbol"
+      >)</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" class="Symbol"
+      >(</a
+      ><a name="1036" href="proofTerPar.html#1036" class="Bound"
+      >A</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="proofTerPar.html#1038" class="Bound"
+      >B</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" class="Symbol"
+      >:</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" class="Symbol"
+      >&#8594;</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1054" class="Symbol"
+      >)</a
+      ><a name="1055"
+      > 
+        </a
+      ><a name="1065" class="Symbol"
+      >&#8594;</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" class="Symbol"
+      >(</a
+      ><a name="1068" href="proofTerPar.html#1017" class="Bound"
+      >P</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="proofTerPar.html#1038" class="Bound"
+      >B</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="proofTerPar.html#1036" class="Bound"
+      >A</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" href="proofTerPar.html#999" class="Bound"
+      >b</a
+      ><a name="1094" class="Symbol"
+      >)</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="RefWithoutSize.html#209" class="Function Operator"
+      >&#8849;</a
+      ><a name="1097"
+      >  </a
+      ><a name="1099" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" class="Symbol"
+      >(&#955;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="proofTerPar.html#1107" class="Bound"
+      >a</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" class="Symbol"
+      >&#8594;</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" class="Symbol"
+      >(</a
+      ><a name="1112" href="proofTerPar.html#1107" class="Bound"
+      >a</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" href="proofTerPar.html#999" class="Bound"
+      >b</a
+      ><a name="1118" class="Symbol"
+      >))(</a
+      ><a name="1121" href="proofTerPar.html#1017" class="Bound"
+      >P</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" class="Symbol"
+      >(</a
+      ><a name="1126" href="proofTerPar.html#1038" class="Bound"
+      >B</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" href="proofTerPar.html#1036" class="Bound"
+      >A</a
+      ><a name="1131" class="Symbol"
+      >))</a
+      ><a name="1133"
+      >
+
+</a
+      ><a name="1135" href="proofTerPar.html#970" class="Function"
+      >unit[-||-]&#7523;</a
+      ><a name="1146"
+      >  </a
+      ><a name="1148" class="Symbol"
+      >{</a
+      ><a name="1149" href="proofTerPar.html#1149" class="Bound"
+      >c&#8320;</a
+      ><a name="1151" class="Symbol"
+      >}</a
+      ><a name="1152"
+      > </a
+      ><a name="1153" href="proofTerPar.html#1153" class="Bound"
+      >a</a
+      ><a name="1154"
+      > </a
+      ><a name="1155" class="Symbol"
+      >(</a
+      ><a name="1156" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="proofTerPar.html#1166" class="Bound"
+      >x</a
+      ><a name="1167" class="Symbol"
+      >)</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="proofTerPar.html#1169" class="Bound"
+      >A</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="proofTerPar.html#1171" class="Bound"
+      >B</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" href="proofTerPar.html#1173" class="Bound"
+      >l</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" href="proofTerPar.html#1175" class="Bound"
+      >m</a
+      ><a name="1176"
+      > </a
+      ><a name="1177" href="proofTerPar.html#1177" class="Bound"
+      >q</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" class="Symbol"
+      >=</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="proofTerPar.html#1177" class="Bound"
+      >q</a
+      ><a name="1182"
+      >
+</a
+      ><a name="1183" href="proofTerPar.html#970" class="Function"
+      >unit[-||-]&#7523;</a
+      ><a name="1194"
+      >  </a
+      ><a name="1196" class="Symbol"
+      >{</a
+      ><a name="1197" href="proofTerPar.html#1197" class="Bound"
+      >c&#8320;</a
+      ><a name="1199" class="Symbol"
+      >}</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="proofTerPar.html#1201" class="Bound"
+      >a</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Symbol"
+      >(</a
+      ><a name="1204" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" href="proofTerPar.html#1209" class="Bound"
+      >x</a
+      ><a name="1210" class="Symbol"
+      >)</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="proofTerPar.html#1212" class="Bound"
+      >A</a
+      ><a name="1213"
+      > </a
+      ><a name="1214" href="proofTerPar.html#1214" class="Bound"
+      >B</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" href="proofTerPar.html#1216" class="Bound"
+      >l</a
+      ><a name="1217"
+      > </a
+      ><a name="1218" href="proofTerPar.html#1218" class="Bound"
+      >m</a
+      ><a name="1219"
+      > </a
+      ><a name="1220" class="Symbol"
+      >(</a
+      ><a name="1221" href="TraceWithoutSize.html#1208" class="InductiveConstructor"
+      >tnode</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="proofTerPar.html#1227" class="Bound"
+      >x&#8321;</a
+      ><a name="1229" class="Symbol"
+      >)</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" class="Symbol"
+      >=</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="TraceWithoutSize.html#1208" class="InductiveConstructor"
+      >tnode</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" href="proofTerPar.html#1227" class="Bound"
+      >x&#8321;</a
+      ><a name="1241"
+      >
+
+
+</a
+      ><a name="1244" href="proofTerPar.html#1244" class="Function"
+      >unit[-||-]&#7523;&#7523;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="Symbol"
+      >:</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" class="Symbol"
+      >{</a
+      ><a name="1260" href="proofTerPar.html#1260" class="Bound"
+      >c&#8320;</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" class="Symbol"
+      >:</a
+      ><a name="1264"
+      > </a
+      ><a name="1265" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1271" class="Symbol"
+      >}</a
+      ><a name="1272"
+      > </a
+      ><a name="1273" class="Symbol"
+      >(</a
+      ><a name="1274" href="proofTerPar.html#1274" class="Bound"
+      >b</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" class="Symbol"
+      >:</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" href="proofTerPar.html#1260" class="Bound"
+      >c&#8320;</a
+      ><a name="1290" class="Symbol"
+      >)(</a
+      ><a name="1292" href="proofTerPar.html#1292" class="Bound"
+      >P</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" class="Symbol"
+      >:</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" href="proofTerPar.html#1260" class="Bound"
+      >c&#8320;</a
+      ><a name="1308" class="Symbol"
+      >)</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" class="Symbol"
+      >(</a
+      ><a name="1311" href="proofTerPar.html#1311" class="Bound"
+      >A</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="proofTerPar.html#1313" class="Bound"
+      >B</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" class="Symbol"
+      >:</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" class="Symbol"
+      >&#8594;</a
+      ><a name="1324"
+      > </a
+      ><a name="1325" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1329" class="Symbol"
+      >)</a
+      ><a name="1330"
+      > 
+        </a
+      ><a name="1340" class="Symbol"
+      >&#8594;</a
+      ><a name="1341"
+      >   </a
+      ><a name="1344" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" class="Symbol"
+      >(&#955;</a
+      ><a name="1351"
+      > </a
+      ><a name="1352" href="proofTerPar.html#1352" class="Bound"
+      >a</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" class="Symbol"
+      >&#8594;</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" class="Symbol"
+      >(</a
+      ><a name="1357" href="proofTerPar.html#1352" class="Bound"
+      >a</a
+      ><a name="1358"
+      > </a
+      ><a name="1359" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" href="proofTerPar.html#1274" class="Bound"
+      >b</a
+      ><a name="1363" class="Symbol"
+      >))(</a
+      ><a name="1366" href="proofTerPar.html#1292" class="Bound"
+      >P</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" class="Symbol"
+      >(</a
+      ><a name="1371" href="proofTerPar.html#1313" class="Bound"
+      >B</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="proofTerPar.html#1311" class="Bound"
+      >A</a
+      ><a name="1376" class="Symbol"
+      >))</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" href="RefWithoutSize.html#209" class="Function Operator"
+      >&#8849;</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" class="Symbol"
+      >(</a
+      ><a name="1382" href="proofTerPar.html#1292" class="Bound"
+      >P</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="proofTerPar.html#1313" class="Bound"
+      >B</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="proofTerPar.html#1311" class="Bound"
+      >A</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1406"
+      > </a
+      ><a name="1407" href="proofTerPar.html#1274" class="Bound"
+      >b</a
+      ><a name="1408" class="Symbol"
+      >)</a
+      ><a name="1409"
+      >
+
+</a
+      ><a name="1411" href="proofTerPar.html#1244" class="Function"
+      >unit[-||-]&#7523;&#7523;</a
+      ><a name="1423"
+      > </a
+      ><a name="1424" class="Symbol"
+      >{</a
+      ><a name="1425" href="proofTerPar.html#1425" class="Bound"
+      >c&#8320;</a
+      ><a name="1427" class="Symbol"
+      >}</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="proofTerPar.html#1429" class="Bound"
+      >a</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" class="Symbol"
+      >(</a
+      ><a name="1432" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="proofTerPar.html#1442" class="Bound"
+      >x</a
+      ><a name="1443" class="Symbol"
+      >)</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" href="proofTerPar.html#1445" class="Bound"
+      >A</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" href="proofTerPar.html#1447" class="Bound"
+      >B</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" href="proofTerPar.html#1449" class="Bound"
+      >l</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" href="proofTerPar.html#1451" class="Bound"
+      >m</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" href="proofTerPar.html#1453" class="Bound"
+      >q</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" class="Symbol"
+      >=</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="proofTerPar.html#1453" class="Bound"
+      >q</a
+      ><a name="1458"
+      >
+</a
+      ><a name="1459" href="proofTerPar.html#1244" class="Function"
+      >unit[-||-]&#7523;&#7523;</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >{</a
+      ><a name="1473" href="proofTerPar.html#1473" class="Bound"
+      >c&#8320;</a
+      ><a name="1475" class="Symbol"
+      >}</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="proofTerPar.html#1477" class="Bound"
+      >a</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" class="Symbol"
+      >(</a
+      ><a name="1480" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" href="proofTerPar.html#1485" class="Bound"
+      >x</a
+      ><a name="1486" class="Symbol"
+      >)</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="proofTerPar.html#1488" class="Bound"
+      >A</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="proofTerPar.html#1490" class="Bound"
+      >B</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="proofTerPar.html#1492" class="Bound"
+      >l</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="proofTerPar.html#1494" class="Bound"
+      >m</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" class="Symbol"
+      >(</a
+      ><a name="1497" href="TraceWithoutSize.html#1208" class="InductiveConstructor"
+      >tnode</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="proofTerPar.html#1503" class="Bound"
+      >x&#8321;</a
+      ><a name="1505" class="Symbol"
+      >)</a
+      ><a name="1506"
+      > </a
+      ><a name="1507" class="Symbol"
+      >=</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" href="TraceWithoutSize.html#1208" class="InductiveConstructor"
+      >tnode</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="proofTerPar.html#1503" class="Bound"
+      >x&#8321;</a
+      ><a name="1517"
+      >
+
+
+
+</a
+      ><a name="1521" href="proofTerPar.html#1521" class="Function"
+      >&#8801;U&#7523;+</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" class="Symbol"
+      >:</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" class="Symbol"
+      >{</a
+      ><a name="1529" href="proofTerPar.html#1529" class="Bound"
+      >c&#8320;</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" class="Symbol"
+      >:</a
+      ><a name="1533"
+      > </a
+      ><a name="1534" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1540" class="Symbol"
+      >}</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" class="Symbol"
+      >(</a
+      ><a name="1543" href="proofTerPar.html#1543" class="Bound"
+      >b</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >:</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="proofTerPar.html#1529" class="Bound"
+      >c&#8320;</a
+      ><a name="1559" class="Symbol"
+      >)(</a
+      ><a name="1561" href="proofTerPar.html#1561" class="Bound"
+      >P</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" class="Symbol"
+      >:</a
+      ><a name="1564"
+      > </a
+      ><a name="1565" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="1572"
+      > </a
+      ><a name="1573" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" href="proofTerPar.html#1529" class="Bound"
+      >c&#8320;</a
+      ><a name="1577" class="Symbol"
+      >)</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" class="Symbol"
+      >(</a
+      ><a name="1580" href="proofTerPar.html#1580" class="Bound"
+      >A</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" href="proofTerPar.html#1582" class="Bound"
+      >B</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" class="Symbol"
+      >:</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" class="Symbol"
+      >&#8594;</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1598" class="Symbol"
+      >)</a
+      ><a name="1599"
+      > 
+        </a
+      ><a name="1609" class="Symbol"
+      >&#8594;</a
+      ><a name="1610"
+      >   </a
+      ><a name="1613" class="Symbol"
+      >(</a
+      ><a name="1614" href="proofTerPar.html#1561" class="Bound"
+      >P</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" href="proofTerPar.html#1582" class="Bound"
+      >B</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" href="proofTerPar.html#1580" class="Bound"
+      >A</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1628"
+      > </a
+      ><a name="1629" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="proofTerPar.html#1543" class="Bound"
+      >b</a
+      ><a name="1640" class="Symbol"
+      >)</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="traceEquivalence.html#238" class="Function Operator"
+      >&#8801;</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="1648"
+      > </a
+      ><a name="1649" class="Symbol"
+      >(&#955;</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" href="proofTerPar.html#1652" class="Bound"
+      >a</a
+      ><a name="1653"
+      > </a
+      ><a name="1654" class="Symbol"
+      >&#8594;</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" class="Symbol"
+      >(</a
+      ><a name="1657" href="proofTerPar.html#1652" class="Bound"
+      >a</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="proofTerPar.html#1543" class="Bound"
+      >b</a
+      ><a name="1663" class="Symbol"
+      >))(</a
+      ><a name="1666" href="proofTerPar.html#1561" class="Bound"
+      >P</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="restrict.html#792" class="Function Operator"
+      >&#8638;</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" class="Symbol"
+      >(</a
+      ><a name="1671" href="proofTerPar.html#1582" class="Bound"
+      >B</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="parallelSimple.html#418" class="Function Operator"
+      >&#8726;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" href="proofTerPar.html#1580" class="Bound"
+      >A</a
+      ><a name="1676" class="Symbol"
+      >))</a
+      ><a name="1678"
+      >
+</a
+      ><a name="1679" href="proofTerPar.html#1521" class="Function"
+      >&#8801;U&#7523;+</a
+      ><a name="1683"
+      > </a
+      ><a name="1684" href="proofTerPar.html#1684" class="Bound"
+      >b</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="proofTerPar.html#1686" class="Bound"
+      >P</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" href="proofTerPar.html#1688" class="Bound"
+      >A</a
+      ><a name="1689"
+      > </a
+      ><a name="1690" href="proofTerPar.html#1690" class="Bound"
+      >B</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Symbol"
+      >=</a
+      ><a name="1693"
+      > </a
+      ><a name="1694" class="Symbol"
+      >(</a
+      ><a name="1695" href="proofTerPar.html#970" class="Function"
+      >unit[-||-]&#7523;</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="proofTerPar.html#1684" class="Bound"
+      >b</a
+      ><a name="1708"
+      > </a
+      ><a name="1709" href="proofTerPar.html#1686" class="Bound"
+      >P</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" href="proofTerPar.html#1688" class="Bound"
+      >A</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" href="proofTerPar.html#1690" class="Bound"
+      >B</a
+      ><a name="1714" class="Symbol"
+      >)</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" class="Symbol"
+      >(</a
+      ><a name="1719" href="proofTerPar.html#1244" class="Function"
+      >unit[-||-]&#7523;&#7523;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="proofTerPar.html#1684" class="Bound"
+      >b</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="proofTerPar.html#1686" class="Bound"
+      >P</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="proofTerPar.html#1688" class="Bound"
+      >A</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="proofTerPar.html#1690" class="Bound"
+      >B</a
+      ><a name="1739" class="Symbol"
+      >)</a
+      ><a name="1740"
+      >
+
+
+
+
+</a
+      ><a name="1745" href="proofTerPar.html#1745" class="Function"
+      >ter[-||-]</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" class="Symbol"
+      >:</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" class="Symbol"
+      >{</a
+      ><a name="1758" href="proofTerPar.html#1758" class="Bound"
+      >c&#8320;</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" href="proofTerPar.html#1761" class="Bound"
+      >c&#8321;</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" class="Symbol"
+      >:</a
+      ><a name="1765"
+      > </a
+      ><a name="1766" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1772" class="Symbol"
+      >}</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" class="Symbol"
+      >(</a
+      ><a name="1775" href="proofTerPar.html#1775" class="Bound"
+      >a</a
+      ><a name="1776"
+      > </a
+      ><a name="1777" class="Symbol"
+      >:</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" href="proofTerPar.html#1758" class="Bound"
+      >c&#8320;</a
+      ><a name="1791" class="Symbol"
+      >)</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" class="Symbol"
+      >(</a
+      ><a name="1794" href="proofTerPar.html#1794" class="Bound"
+      >b</a
+      ><a name="1795"
+      > </a
+      ><a name="1796" class="Symbol"
+      >:</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" href="proofTerPar.html#1761" class="Bound"
+      >c&#8321;</a
+      ><a name="1810" class="Symbol"
+      >)</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" class="Symbol"
+      >(</a
+      ><a name="1813" href="proofTerPar.html#1813" class="Bound"
+      >A</a
+      ><a name="1814"
+      >  </a
+      ><a name="1816" href="proofTerPar.html#1816" class="Bound"
+      >B</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" class="Symbol"
+      >:</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" class="Symbol"
+      >&#8594;</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="1832" class="Symbol"
+      >)</a
+      ><a name="1833"
+      > 
+        </a
+      ><a name="1843" class="Symbol"
+      >&#8594;</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" class="Symbol"
+      >(</a
+      ><a name="1846" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="proofTerPar.html#1775" class="Bound"
+      >a</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" href="proofTerPar.html#1813" class="Bound"
+      >A</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="1866"
+      > </a
+      ><a name="1867" href="proofTerPar.html#1816" class="Bound"
+      >B</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1880"
+      > </a
+      ><a name="1881" href="proofTerPar.html#1794" class="Bound"
+      >b</a
+      ><a name="1882" class="Symbol"
+      >)</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="RefWithoutSize.html#209" class="Function Operator"
+      >&#8849;</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="1890"
+      > </a
+      ><a name="1891" class="Symbol"
+      >(&#955;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="proofTerPar.html#1894" class="Bound"
+      >x</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" class="Symbol"
+      >&#8594;</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="proofTerPar.html#1775" class="Bound"
+      >a</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" href="proofTerPar.html#1794" class="Bound"
+      >b</a
+      ><a name="1904" class="Symbol"
+      >)</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" class="Symbol"
+      >(</a
+      ><a name="1907" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" class="Symbol"
+      >((</a
+      ><a name="1919" href="proofTerPar.html#1775" class="Bound"
+      >a</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1923"
+      > </a
+      ><a name="1924" href="proofTerPar.html#1794" class="Bound"
+      >b</a
+      ><a name="1925" class="Symbol"
+      >)))</a
+      ><a name="1928"
+      >
+</a
+      ><a name="1929" href="proofTerPar.html#1745" class="Function"
+      >ter[-||-]</a
+      ><a name="1938"
+      >  </a
+      ><a name="1940" class="Symbol"
+      >{</a
+      ><a name="1941" href="proofTerPar.html#1941" class="Bound"
+      >c&#8320;</a
+      ><a name="1943" class="Symbol"
+      >}</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" href="proofTerPar.html#1945" class="Bound"
+      >a</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" href="proofTerPar.html#1947" class="Bound"
+      >P</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="proofTerPar.html#1949" class="Bound"
+      >A</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" href="proofTerPar.html#1951" class="Bound"
+      >B</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="proofTerPar.html#1953" class="Bound"
+      >l</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" href="proofTerPar.html#1955" class="Bound"
+      >m</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="proofTerPar.html#1957" class="Bound"
+      >q</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" class="Symbol"
+      >=</a
+      ><a name="1960"
+      >  </a
+      ><a name="1962" href="proofTerPar.html#1957" class="Bound"
+      >q</a
+      ><a name="1963"
+      >
+
+
+</a
+      ><a name="1966" href="proofTerPar.html#1966" class="Function"
+      >ter[-||-]&#7523;</a
+      ><a name="1976"
+      > </a
+      ><a name="1977" class="Symbol"
+      >:</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" class="Symbol"
+      >{</a
+      ><a name="1980" href="proofTerPar.html#1980" class="Bound"
+      >c&#8320;</a
+      ><a name="1982"
+      > </a
+      ><a name="1983" href="proofTerPar.html#1983" class="Bound"
+      >c&#8321;</a
+      ><a name="1985"
+      > </a
+      ><a name="1986" class="Symbol"
+      >:</a
+      ><a name="1987"
+      > </a
+      ><a name="1988" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="1994" class="Symbol"
+      >}</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" class="Symbol"
+      >(</a
+      ><a name="1997" href="proofTerPar.html#1997" class="Bound"
+      >a</a
+      ><a name="1998"
+      > </a
+      ><a name="1999" class="Symbol"
+      >:</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" href="proofTerPar.html#1980" class="Bound"
+      >c&#8320;</a
+      ><a name="2013" class="Symbol"
+      >)</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" class="Symbol"
+      >(</a
+      ><a name="2016" href="proofTerPar.html#2016" class="Bound"
+      >b</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" class="Symbol"
+      >:</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2029"
+      > </a
+      ><a name="2030" href="proofTerPar.html#1983" class="Bound"
+      >c&#8321;</a
+      ><a name="2032" class="Symbol"
+      >)</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" class="Symbol"
+      >(</a
+      ><a name="2035" href="proofTerPar.html#2035" class="Bound"
+      >A</a
+      ><a name="2036"
+      >  </a
+      ><a name="2038" href="proofTerPar.html#2038" class="Bound"
+      >B</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" class="Symbol"
+      >:</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" class="Symbol"
+      >&#8594;</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="2054" class="Symbol"
+      >)</a
+      ><a name="2055"
+      > 
+        </a
+      ><a name="2065" class="Symbol"
+      >&#8594;</a
+      ><a name="2066"
+      >  </a
+      ><a name="2068" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="2072"
+      > </a
+      ><a name="2073" class="Symbol"
+      >(&#955;</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" href="proofTerPar.html#2076" class="Bound"
+      >x</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" class="Symbol"
+      >&#8594;</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" href="proofTerPar.html#1997" class="Bound"
+      >a</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" href="proofTerPar.html#2016" class="Bound"
+      >b</a
+      ><a name="2086" class="Symbol"
+      >)</a
+      ><a name="2087"
+      > </a
+      ><a name="2088" class="Symbol"
+      >(</a
+      ><a name="2089" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" class="Symbol"
+      >((</a
+      ><a name="2101" href="proofTerPar.html#1997" class="Bound"
+      >a</a
+      ><a name="2102"
+      > </a
+      ><a name="2103" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="proofTerPar.html#2016" class="Bound"
+      >b</a
+      ><a name="2107" class="Symbol"
+      >)))</a
+      ><a name="2110"
+      > </a
+      ><a name="2111" href="RefWithoutSize.html#209" class="Function Operator"
+      >&#8849;</a
+      ><a name="2112"
+      >  </a
+      ><a name="2114" class="Symbol"
+      >(</a
+      ><a name="2115" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="proofTerPar.html#1997" class="Bound"
+      >a</a
+      ><a name="2126"
+      > </a
+      ><a name="2127" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="2128"
+      > </a
+      ><a name="2129" href="proofTerPar.html#2035" class="Bound"
+      >A</a
+      ><a name="2130"
+      > </a
+      ><a name="2131" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" href="proofTerPar.html#2038" class="Bound"
+      >B</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="2139"
+      > </a
+      ><a name="2140" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="proofTerPar.html#2016" class="Bound"
+      >b</a
+      ><a name="2151" class="Symbol"
+      >)</a
+      ><a name="2152"
+      >
+</a
+      ><a name="2153" href="proofTerPar.html#1966" class="Function"
+      >ter[-||-]&#7523;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="proofTerPar.html#2164" class="Bound"
+      >a</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="proofTerPar.html#2166" class="Bound"
+      >P</a
+      ><a name="2167"
+      > </a
+      ><a name="2168" href="proofTerPar.html#2168" class="Bound"
+      >A</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" href="proofTerPar.html#2170" class="Bound"
+      >B</a
+      ><a name="2171"
+      > </a
+      ><a name="2172" href="proofTerPar.html#2172" class="Bound"
+      >l</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="proofTerPar.html#2174" class="Bound"
+      >m</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="proofTerPar.html#2176" class="Bound"
+      >q</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" class="Symbol"
+      >=</a
+      ><a name="2179"
+      >  </a
+      ><a name="2181" href="proofTerPar.html#2176" class="Bound"
+      >q</a
+      ><a name="2182"
+      >
+
+
+</a
+      ><a name="2185" href="proofTerPar.html#2185" class="Function"
+      >&#8801;ter[-||-]</a
+      ><a name="2195"
+      > </a
+      ><a name="2196" class="Symbol"
+      >:</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" class="Symbol"
+      >{</a
+      ><a name="2199" href="proofTerPar.html#2199" class="Bound"
+      >c&#8320;</a
+      ><a name="2201"
+      > </a
+      ><a name="2202" href="proofTerPar.html#2202" class="Bound"
+      >c&#8321;</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" class="Symbol"
+      >:</a
+      ><a name="2206"
+      > </a
+      ><a name="2207" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="2213" class="Symbol"
+      >}</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" class="Symbol"
+      >(</a
+      ><a name="2216" href="proofTerPar.html#2216" class="Bound"
+      >a</a
+      ><a name="2217"
+      > </a
+      ><a name="2218" class="Symbol"
+      >:</a
+      ><a name="2219"
+      > </a
+      ><a name="2220" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" href="proofTerPar.html#2199" class="Bound"
+      >c&#8320;</a
+      ><a name="2232" class="Symbol"
+      >)</a
+      ><a name="2233"
+      > </a
+      ><a name="2234" class="Symbol"
+      >(</a
+      ><a name="2235" href="proofTerPar.html#2235" class="Bound"
+      >b</a
+      ><a name="2236"
+      > </a
+      ><a name="2237" class="Symbol"
+      >:</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="choiceSetU.html#955" class="Function"
+      >ChoiceSet</a
+      ><a name="2248"
+      > </a
+      ><a name="2249" href="proofTerPar.html#2202" class="Bound"
+      >c&#8321;</a
+      ><a name="2251" class="Symbol"
+      >)</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" class="Symbol"
+      >(</a
+      ><a name="2254" href="proofTerPar.html#2254" class="Bound"
+      >A</a
+      ><a name="2255"
+      >  </a
+      ><a name="2257" href="proofTerPar.html#2257" class="Bound"
+      >B</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" class="Symbol"
+      >:</a
+      ><a name="2260"
+      > </a
+      ><a name="2261" href="label.html#28" class="Datatype"
+      >Label</a
+      ><a name="2266"
+      > </a
+      ><a name="2267" class="Symbol"
+      >&#8594;</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="2273" class="Symbol"
+      >)</a
+      ><a name="2274"
+      > 
+        </a
+      ><a name="2284" class="Symbol"
+      >&#8594;</a
+      ><a name="2285"
+      >   </a
+      ><a name="2288" class="Symbol"
+      >(</a
+      ><a name="2289" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="proofTerPar.html#2216" class="Bound"
+      >a</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" href="parallelSimple.html#1177" class="Function Operator"
+      >[</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" href="proofTerPar.html#2254" class="Bound"
+      >A</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="parallelSimple.html#1177" class="Function Operator"
+      >]||[</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" href="proofTerPar.html#2257" class="Bound"
+      >B</a
+      ><a name="2311"
+      > </a
+      ><a name="2312" href="parallelSimple.html#1177" class="Function Operator"
+      >]</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="proofTerPar.html#2235" class="Bound"
+      >b</a
+      ><a name="2325" class="Symbol"
+      >)</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="traceEquivalence.html#238" class="Function Operator"
+      >&#8801;</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="renamingResult.html#674" class="Function"
+      >fmap</a
+      ><a name="2333"
+      > </a
+      ><a name="2334" class="Symbol"
+      >(&#955;</a
+      ><a name="2336"
+      > </a
+      ><a name="2337" href="proofTerPar.html#2337" class="Bound"
+      >x</a
+      ><a name="2338"
+      > </a
+      ><a name="2339" class="Symbol"
+      >&#8594;</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" href="proofTerPar.html#2216" class="Bound"
+      >a</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2345"
+      > </a
+      ><a name="2346" href="proofTerPar.html#2235" class="Bound"
+      >b</a
+      ><a name="2347" class="Symbol"
+      >)</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" class="Symbol"
+      >(</a
+      ><a name="2350" href="process.html#345" class="InductiveConstructor"
+      >terminate</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" class="Symbol"
+      >((</a
+      ><a name="2362" href="proofTerPar.html#2216" class="Bound"
+      >a</a
+      ><a name="2363"
+      > </a
+      ><a name="2364" href="auxData.html#176" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="proofTerPar.html#2235" class="Bound"
+      >b</a
+      ><a name="2368" class="Symbol"
+      >)))</a
+      ><a name="2371"
+      >
+</a
+      ><a name="2372" href="proofTerPar.html#2185" class="Function"
+      >&#8801;ter[-||-]</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" href="proofTerPar.html#2383" class="Bound"
+      >a</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" href="proofTerPar.html#2385" class="Bound"
+      >b</a
+      ><a name="2386"
+      > </a
+      ><a name="2387" href="proofTerPar.html#2387" class="Bound"
+      >A</a
+      ><a name="2388"
+      > </a
+      ><a name="2389" href="proofTerPar.html#2389" class="Bound"
+      >B</a
+      ><a name="2390"
+      > </a
+      ><a name="2391" class="Symbol"
+      >=</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" class="Symbol"
+      >(</a
+      ><a name="2394" href="proofTerPar.html#1745" class="Function"
+      >ter[-||-]</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="proofTerPar.html#2383" class="Bound"
+      >a</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" href="proofTerPar.html#2385" class="Bound"
+      >b</a
+      ><a name="2407"
+      > </a
+      ><a name="2408" href="proofTerPar.html#2387" class="Bound"
+      >A</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" href="proofTerPar.html#2389" class="Bound"
+      >B</a
+      ><a name="2411" class="Symbol"
+      >)</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" class="Symbol"
+      >(</a
+      ><a name="2416" href="proofTerPar.html#1966" class="Function"
+      >ter[-||-]&#7523;</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" href="proofTerPar.html#2383" class="Bound"
+      >a</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="proofTerPar.html#2385" class="Bound"
+      >b</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" href="proofTerPar.html#2387" class="Bound"
+      >A</a
+      ><a name="2432"
+      > </a
+      ><a name="2433" href="proofTerPar.html#2389" class="Bound"
+      >B</a
+      ><a name="2434" class="Symbol"
+      >)</a
+      ><a name="2435"
+      >
+
+</a
+      ></pre
+    ></body
+  ></html
+>

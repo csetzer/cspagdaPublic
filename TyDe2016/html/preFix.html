@@ -1,0 +1,1472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >preFix</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="14"
+      > </a
+      ><a name="15" class="Keyword"
+      >where</a
+      ><a name="20"
+      >
+
+</a
+      ><a name="22" class="Keyword"
+      >open</a
+      ><a name="26"
+      > </a
+      ><a name="27" class="Keyword"
+      >import</a
+      ><a name="33"
+      > </a
+      ><a name="34" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="38"
+      >
+</a
+      ><a name="39" class="Keyword"
+      >open</a
+      ><a name="43"
+      > </a
+      ><a name="44" class="Keyword"
+      >import</a
+      ><a name="50"
+      > </a
+      ><a name="51" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="62"
+      > </a
+      ><a name="63" class="Keyword"
+      >renaming</a
+      ><a name="71"
+      >  </a
+      ><a name="73" class="Symbol"
+      >(</a
+      ><a name="74" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="78"
+      > </a
+      ><a name="79" class="Symbol"
+      >to</a
+      ><a name="81"
+      > </a
+      ><a name="82" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="90" class="Symbol"
+      >;</a
+      ><a name="91"
+      > </a
+      ><a name="92" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="96"
+      > </a
+      ><a name="97" class="Symbol"
+      >to</a
+      ><a name="99"
+      > </a
+      ><a name="100" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="105" class="Symbol"
+      >)</a
+      ><a name="106"
+      >
+</a
+      ><a name="107" class="Keyword"
+      >open</a
+      ><a name="111"
+      > </a
+      ><a name="112" class="Keyword"
+      >import</a
+      ><a name="118"
+      > </a
+      ><a name="119" href="label.html#1" class="Module"
+      >label</a
+      ><a name="124"
+      >
+</a
+      ><a name="125" class="Keyword"
+      >open</a
+      ><a name="129"
+      > </a
+      ><a name="130" class="Keyword"
+      >import</a
+      ><a name="136"
+      > </a
+      ><a name="137" href="process.html#1" class="Module"
+      >process</a
+      ><a name="144"
+      >
+</a
+      ><a name="145" class="Keyword"
+      >open</a
+      ><a name="149"
+      > </a
+      ><a name="150" class="Keyword"
+      >import</a
+      ><a name="156"
+      > </a
+      ><a name="157" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="167"
+      >
+</a
+      ><a name="168" class="Keyword"
+      >open</a
+      ><a name="172"
+      > </a
+      ><a name="173" class="Keyword"
+      >import</a
+      ><a name="179"
+      > </a
+      ><a name="180" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="192"
+      >
+</a
+      ><a name="193" class="Keyword"
+      >open</a
+      ><a name="197"
+      > </a
+      ><a name="198" class="Keyword"
+      >import</a
+      ><a name="204"
+      > </a
+      ><a name="205" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="220"
+      >
+</a
+      ><a name="221" class="Keyword"
+      >open</a
+      ><a name="225"
+      > </a
+      ><a name="226" class="Keyword"
+      >import</a
+      ><a name="232"
+      > </a
+      ><a name="233" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="243"
+      >
+</a
+      ><a name="244" class="Keyword"
+      >open</a
+      ><a name="248"
+      > </a
+      ><a name="249" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="257"
+      >
+</a
+      ><a name="258" class="Keyword"
+      >open</a
+      ><a name="262"
+      > </a
+      ><a name="263" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="271"
+      >
+
+
+</a
+      ><a name="274" href="preFix.html#274" class="Function Operator"
+      >_&#10230;Str_</a
+      ><a name="280"
+      > </a
+      ><a name="281" class="Symbol"
+      >:</a
+      ><a name="282"
+      > </a
+      ><a name="283" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="288"
+      > </a
+      ><a name="289" class="Symbol"
+      >&#8594;</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="297"
+      > </a
+      ><a name="298" class="Symbol"
+      >&#8594;</a
+      ><a name="299"
+      > </a
+      ><a name="300" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="306"
+      >
+</a
+      ><a name="307" href="preFix.html#307" class="Bound"
+      >l</a
+      ><a name="308"
+      > </a
+      ><a name="309" href="preFix.html#274" class="Function Operator"
+      >&#10230;Str</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="preFix.html#314" class="Bound"
+      >s</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="Symbol"
+      >=</a
+      ><a name="317"
+      > </a
+      ><a name="318" class="String"
+      >&quot;(&quot;</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="335"
+      > </a
+      ><a name="336" href="preFix.html#307" class="Bound"
+      >l</a
+      ><a name="337"
+      > </a
+      ><a name="338" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="341"
+      > </a
+      ><a name="342" class="String"
+      >&quot; &#10230;   &quot;</a
+      ><a name="349"
+      > </a
+      ><a name="350" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="353"
+      > </a
+      ><a name="354" href="preFix.html#314" class="Bound"
+      >s</a
+      ><a name="355"
+      > </a
+      ><a name="356" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="359"
+      > </a
+      ><a name="360" class="String"
+      >&quot;)&quot;</a
+      ><a name="363"
+      >
+
+
+
+</a
+      ><a name="367" href="preFix.html#367" class="Function Operator"
+      >_&#10230;+_</a
+      ><a name="371"
+      > </a
+      ><a name="372" class="Symbol"
+      >:</a
+      ><a name="373"
+      > </a
+      ><a name="374" class="Symbol"
+      >{</a
+      ><a name="375" href="preFix.html#375" class="Bound"
+      >i</a
+      ><a name="376"
+      > </a
+      ><a name="377" class="Symbol"
+      >:</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="383" class="Symbol"
+      >}</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >&#8594;</a
+      ><a name="386"
+      > </a
+      ><a name="387" class="Symbol"
+      >{</a
+      ><a name="388" href="preFix.html#388" class="Bound"
+      >c</a
+      ><a name="389"
+      > </a
+      ><a name="390" class="Symbol"
+      >:</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="398" class="Symbol"
+      >}</a
+      ><a name="399"
+      > </a
+      ><a name="400" class="Symbol"
+      >&#8594;</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="407"
+      >
+        </a
+      ><a name="416" class="Symbol"
+      >&#8594;</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="426"
+      > </a
+      ><a name="427" href="preFix.html#375" class="Bound"
+      >i</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="preFix.html#388" class="Bound"
+      >c</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >&#8594;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="preFix.html#375" class="Bound"
+      >i</a
+      ><a name="443"
+      > </a
+      ><a name="444" href="preFix.html#388" class="Bound"
+      >c</a
+      ><a name="445"
+      >
+</a
+      ><a name="446" href="preFix.html#446" class="Bound"
+      >l</a
+      ><a name="447"
+      > </a
+      ><a name="448" href="preFix.html#367" class="Function Operator"
+      >&#10230;+</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="preFix.html#451" class="Bound"
+      >P</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >=</a
+      ><a name="454"
+      > 
+    </a
+      ><a name="460" href="process.html#529" class="CoinductiveConstructor"
+      >process+</a
+      ><a name="468"
+      > </a
+      ><a name="469" href="choiceSetU.html#1366" class="Function"
+      >&#8868;'</a
+      ><a name="471"
+      > </a
+      ><a name="472" class="Symbol"
+      >(&#955;</a
+      ><a name="474"
+      > </a
+      ><a name="475" href="preFix.html#475" class="Bound"
+      >_</a
+      ><a name="476"
+      > </a
+      ><a name="477" class="Symbol"
+      >&#8594;</a
+      ><a name="478"
+      >  </a
+      ><a name="480" href="preFix.html#446" class="Bound"
+      >l</a
+      ><a name="481" class="Symbol"
+      >)</a
+      ><a name="482"
+      > </a
+      ><a name="483" class="Symbol"
+      >(&#955;</a
+      ><a name="485"
+      > </a
+      ><a name="486" href="preFix.html#486" class="Bound"
+      >_</a
+      ><a name="487"
+      > </a
+      ><a name="488" class="Symbol"
+      >&#8594;</a
+      ><a name="489"
+      > </a
+      ><a name="490" href="preFix.html#451" class="Bound"
+      >P</a
+      ><a name="491" class="Symbol"
+      >)</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="dataAuxFunction.html#1137" class="Function"
+      >efq</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="dataAuxFunction.html#1137" class="Function"
+      >efq</a
+      ><a name="506"
+      >
+             </a
+      ><a name="520" class="Symbol"
+      >(</a
+      ><a name="521" href="preFix.html#446" class="Bound"
+      >l</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="preFix.html#274" class="Function Operator"
+      >&#10230;Str</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="532"
+      > </a
+      ><a name="533" href="preFix.html#451" class="Bound"
+      >P</a
+      ><a name="534"
+      > </a
+      ><a name="535" class="Symbol"
+      >)</a
+      ><a name="536"
+      >
+
+</a
+      ><a name="538" href="preFix.html#538" class="Function Operator"
+      >_&#10230;_</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Symbol"
+      >:</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >{</a
+      ><a name="545" href="preFix.html#545" class="Bound"
+      >i</a
+      ><a name="546"
+      > </a
+      ><a name="547" class="Symbol"
+      >:</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="553" class="Symbol"
+      >}</a
+      ><a name="554"
+      > </a
+      ><a name="555" class="Symbol"
+      >&#8594;</a
+      ><a name="556"
+      > </a
+      ><a name="557" class="Symbol"
+      >{</a
+      ><a name="558" href="preFix.html#558" class="Bound"
+      >c</a
+      ><a name="559"
+      > </a
+      ><a name="560" class="Symbol"
+      >:</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="568" class="Symbol"
+      >}</a
+      ><a name="569"
+      > </a
+      ><a name="570" class="Symbol"
+      >&#8594;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="577"
+      >
+       </a
+      ><a name="585" class="Symbol"
+      >&#8594;</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="595"
+      > </a
+      ><a name="596" href="preFix.html#545" class="Bound"
+      >i</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="preFix.html#558" class="Bound"
+      >c</a
+      ><a name="599"
+      > </a
+      ><a name="600" class="Symbol"
+      >&#8594;</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="609"
+      > </a
+      ><a name="610" href="preFix.html#545" class="Bound"
+      >i</a
+      ><a name="611"
+      > </a
+      ><a name="612" href="preFix.html#558" class="Bound"
+      >c</a
+      ><a name="613"
+      >
+</a
+      ><a name="614" href="preFix.html#614" class="Bound"
+      >l</a
+      ><a name="615"
+      > </a
+      ><a name="616" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="preFix.html#618" class="Bound"
+      >P</a
+      ><a name="619"
+      > </a
+      ><a name="620" class="Symbol"
+      >=</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="626"
+      > </a
+      ><a name="627" class="Symbol"
+      >(</a
+      ><a name="628" href="preFix.html#614" class="Bound"
+      >l</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="preFix.html#367" class="Function Operator"
+      >&#10230;+</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="preFix.html#618" class="Bound"
+      >P</a
+      ><a name="634"
+      > </a
+      ><a name="635" class="Symbol"
+      >)</a
+      ><a name="636"
+      >
+
+</a
+      ><a name="638" href="preFix.html#638" class="Function Operator"
+      >_&#10230;+'_</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >:</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >{</a
+      ><a name="647" href="preFix.html#647" class="Bound"
+      >i</a
+      ><a name="648"
+      > </a
+      ><a name="649" class="Symbol"
+      >:</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="655" class="Symbol"
+      >}</a
+      ><a name="656"
+      > </a
+      ><a name="657" class="Symbol"
+      >&#8594;</a
+      ><a name="658"
+      > </a
+      ><a name="659" class="Symbol"
+      >{</a
+      ><a name="660" href="preFix.html#660" class="Bound"
+      >c</a
+      ><a name="661"
+      > </a
+      ><a name="662" class="Symbol"
+      >:</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="670" class="Symbol"
+      >}</a
+      ><a name="671"
+      > </a
+      ><a name="672" class="Symbol"
+      >&#8594;</a
+      ><a name="673"
+      > </a
+      ><a name="674" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >&#8594;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="preFix.html#647" class="Bound"
+      >i</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="preFix.html#660" class="Bound"
+      >c</a
+      ><a name="694"
+      > </a
+      ><a name="695" class="Symbol"
+      >&#8594;</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="705"
+      > </a
+      ><a name="706" href="preFix.html#647" class="Bound"
+      >i</a
+      ><a name="707"
+      > </a
+      ><a name="708" href="preFix.html#660" class="Bound"
+      >c</a
+      ><a name="709"
+      >
+</a
+      ><a name="710" href="process.html#570" class="Field"
+      >E</a
+      ><a name="711"
+      >    </a
+      ><a name="715" class="Symbol"
+      >(</a
+      ><a name="716" href="preFix.html#716" class="Bound"
+      >l</a
+      ><a name="717"
+      > </a
+      ><a name="718" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="721"
+      > </a
+      ><a name="722" href="preFix.html#722" class="Bound"
+      >P</a
+      ><a name="723" class="Symbol"
+      >)</a
+      ><a name="724"
+      >   </a
+      ><a name="727" class="Symbol"
+      >=</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="choiceSetU.html#1366" class="Function"
+      >&#8868;'</a
+      ><a name="731"
+      >
+</a
+      ><a name="732" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="735"
+      >  </a
+      ><a name="737" class="Symbol"
+      >(</a
+      ><a name="738" href="preFix.html#738" class="Bound"
+      >l</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="preFix.html#744" class="Bound"
+      >P</a
+      ><a name="745" class="Symbol"
+      >)</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="preFix.html#747" class="Bound"
+      >c</a
+      ><a name="748"
+      > </a
+      ><a name="749" class="Symbol"
+      >=</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="preFix.html#738" class="Bound"
+      >l</a
+      ><a name="752"
+      >
+</a
+      ><a name="753" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="755"
+      >   </a
+      ><a name="758" class="Symbol"
+      >(</a
+      ><a name="759" href="preFix.html#759" class="Bound"
+      >l</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="preFix.html#765" class="Bound"
+      >P</a
+      ><a name="766" class="Symbol"
+      >)</a
+      ><a name="767"
+      > </a
+      ><a name="768" href="preFix.html#768" class="Bound"
+      >c</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >=</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="preFix.html#765" class="Bound"
+      >P</a
+      ><a name="773"
+      >
+</a
+      ><a name="774" href="process.html#677" class="Field"
+      >I</a
+      ><a name="775"
+      >    </a
+      ><a name="779" class="Symbol"
+      >(</a
+      ><a name="780" href="preFix.html#780" class="Bound"
+      >l</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="preFix.html#786" class="Bound"
+      >P</a
+      ><a name="787" class="Symbol"
+      >)</a
+      ><a name="788"
+      >   </a
+      ><a name="791" class="Symbol"
+      >=</a
+      ><a name="792"
+      > </a
+      ><a name="793" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="795"
+      >
+</a
+      ><a name="796" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="798"
+      >   </a
+      ><a name="801" class="Symbol"
+      >(</a
+      ><a name="802" href="preFix.html#802" class="Bound"
+      >l</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="807"
+      > </a
+      ><a name="808" href="preFix.html#808" class="Bound"
+      >P</a
+      ><a name="809" class="Symbol"
+      >)</a
+      ><a name="810"
+      > </a
+      ><a name="811" class="Symbol"
+      >()</a
+      ><a name="813"
+      >
+</a
+      ><a name="814" href="process.html#746" class="Field"
+      >T</a
+      ><a name="815"
+      >    </a
+      ><a name="819" class="Symbol"
+      >(</a
+      ><a name="820" href="preFix.html#820" class="Bound"
+      >l</a
+      ><a name="821"
+      > </a
+      ><a name="822" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="preFix.html#826" class="Bound"
+      >P</a
+      ><a name="827" class="Symbol"
+      >)</a
+      ><a name="828"
+      >   </a
+      ><a name="831" class="Symbol"
+      >=</a
+      ><a name="832"
+      > </a
+      ><a name="833" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="835"
+      >
+</a
+      ><a name="836" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="838"
+      >   </a
+      ><a name="841" class="Symbol"
+      >(</a
+      ><a name="842" href="preFix.html#842" class="Bound"
+      >l</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="preFix.html#848" class="Bound"
+      >P</a
+      ><a name="849" class="Symbol"
+      >)</a
+      ><a name="850"
+      > </a
+      ><a name="851" class="Symbol"
+      >()</a
+      ><a name="853"
+      >
+</a
+      ><a name="854" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="858"
+      > </a
+      ><a name="859" class="Symbol"
+      >(</a
+      ><a name="860" href="preFix.html#860" class="Bound"
+      >l</a
+      ><a name="861"
+      > </a
+      ><a name="862" href="preFix.html#638" class="Function Operator"
+      >&#10230;+'</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="preFix.html#866" class="Bound"
+      >P</a
+      ><a name="867" class="Symbol"
+      >)</a
+      ><a name="868"
+      >   </a
+      ><a name="871" class="Symbol"
+      >=</a
+      ><a name="872"
+      > </a
+      ><a name="873" href="preFix.html#860" class="Bound"
+      >l</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="preFix.html#274" class="Function Operator"
+      >&#10230;Str</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="884"
+      > </a
+      ><a name="885" href="preFix.html#866" class="Bound"
+      >P</a
+      ><a name="886"
+      > 
+
+</a
+      ><a name="889" href="preFix.html#889" class="Function Operator"
+      >_&#10230;++_</a
+      ><a name="894"
+      > </a
+      ><a name="895" class="Symbol"
+      >:</a
+      ><a name="896"
+      > </a
+      ><a name="897" class="Symbol"
+      >{</a
+      ><a name="898" href="preFix.html#898" class="Bound"
+      >i</a
+      ><a name="899"
+      > </a
+      ><a name="900" class="Symbol"
+      >:</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="906" class="Symbol"
+      >}</a
+      ><a name="907"
+      > </a
+      ><a name="908" class="Symbol"
+      >&#8594;</a
+      ><a name="909"
+      > </a
+      ><a name="910" class="Symbol"
+      >{</a
+      ><a name="911" href="preFix.html#911" class="Bound"
+      >c</a
+      ><a name="912"
+      > </a
+      ><a name="913" class="Symbol"
+      >:</a
+      ><a name="914"
+      > </a
+      ><a name="915" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="921" class="Symbol"
+      >}</a
+      ><a name="922"
+      > </a
+      ><a name="923" class="Symbol"
+      >&#8594;</a
+      ><a name="924"
+      > </a
+      ><a name="925" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="930"
+      > </a
+      ><a name="931" class="Symbol"
+      >&#8594;</a
+      ><a name="932"
+      > </a
+      ><a name="933" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="941"
+      > </a
+      ><a name="942" href="preFix.html#898" class="Bound"
+      >i</a
+      ><a name="943"
+      > </a
+      ><a name="944" href="preFix.html#911" class="Bound"
+      >c</a
+      ><a name="945"
+      > </a
+      ><a name="946" class="Symbol"
+      >&#8594;</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="preFix.html#898" class="Bound"
+      >i</a
+      ><a name="958"
+      > </a
+      ><a name="959" href="preFix.html#911" class="Bound"
+      >c</a
+      ><a name="960"
+      >
+</a
+      ><a name="961" href="preFix.html#961" class="Bound"
+      >l</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="preFix.html#889" class="Function Operator"
+      >&#10230;++</a
+      ><a name="966"
+      > </a
+      ><a name="967" href="preFix.html#967" class="Bound"
+      >P</a
+      ><a name="968"
+      > </a
+      ><a name="969" class="Symbol"
+      >=</a
+      ><a name="970"
+      > </a
+      ><a name="971" href="preFix.html#961" class="Bound"
+      >l</a
+      ><a name="972"
+      > </a
+      ><a name="973" href="preFix.html#367" class="Function Operator"
+      >&#10230;+</a
+      ><a name="975"
+      > </a
+      ><a name="976" class="Symbol"
+      >(</a
+      ><a name="977" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="982"
+      > </a
+      ><a name="983" class="Symbol"
+      >(</a
+      ><a name="984" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="preFix.html#967" class="Bound"
+      >P</a
+      ><a name="990" class="Symbol"
+      >)</a
+      ><a name="991"
+      > </a
+      ><a name="992" class="Symbol"
+      >)</a
+      ><a name="993"
+      >
+
+</a
+      ><a name="995" href="preFix.html#995" class="Function Operator"
+      >_&#10230;p+_</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" class="Symbol"
+      >:</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" class="Symbol"
+      >{</a
+      ><a name="1004" href="preFix.html#1004" class="Bound"
+      >i</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" class="Symbol"
+      >:</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1012" class="Symbol"
+      >}</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" class="Symbol"
+      >&#8594;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="Symbol"
+      >{</a
+      ><a name="1017" href="preFix.html#1017" class="Bound"
+      >c</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" class="Symbol"
+      >:</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1027" class="Symbol"
+      >}</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" class="Symbol"
+      >&#8594;</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" class="Symbol"
+      >&#8594;</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="preFix.html#1004" class="Bound"
+      >i</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" href="preFix.html#1017" class="Bound"
+      >c</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" class="Symbol"
+      >&#8594;</a
+      ><a name="1052"
+      > </a
+      ><a name="1053" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" href="preFix.html#1004" class="Bound"
+      >i</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" href="preFix.html#1017" class="Bound"
+      >c</a
+      ><a name="1065"
+      >
+</a
+      ><a name="1066" href="preFix.html#1066" class="Bound"
+      >l</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="preFix.html#995" class="Function Operator"
+      >&#10230;p+</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="preFix.html#1072" class="Bound"
+      >P</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" class="Symbol"
+      >=</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" href="preFix.html#1066" class="Bound"
+      >l</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" href="preFix.html#367" class="Function Operator"
+      >&#10230;+</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" class="Symbol"
+      >(</a
+      ><a name="1082" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" href="preFix.html#1072" class="Bound"
+      >P</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" class="Symbol"
+      >)</a
+      ><a name="1091"
+      >
+
+</a
+      ><a name="1093" href="preFix.html#1093" class="Function Operator"
+      >_&#10230;pp_</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" class="Symbol"
+      >:</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" class="Symbol"
+      >{</a
+      ><a name="1102" href="preFix.html#1102" class="Bound"
+      >i</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" class="Symbol"
+      >:</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1110" class="Symbol"
+      >}</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" class="Symbol"
+      >&#8594;</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >{</a
+      ><a name="1115" href="preFix.html#1115" class="Bound"
+      >c</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" class="Symbol"
+      >:</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1125" class="Symbol"
+      >}</a
+      ><a name="1126"
+      > </a
+      ><a name="1127" class="Symbol"
+      >&#8594;</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" class="Symbol"
+      >&#8594;</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="preFix.html#1102" class="Bound"
+      >i</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" href="preFix.html#1115" class="Bound"
+      >c</a
+      ><a name="1148"
+      > </a
+      ><a name="1149" class="Symbol"
+      >&#8594;</a
+      ><a name="1150"
+      > </a
+      ><a name="1151" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" href="preFix.html#1102" class="Bound"
+      >i</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="preFix.html#1115" class="Bound"
+      >c</a
+      ><a name="1162"
+      >
+</a
+      ><a name="1163" href="preFix.html#1163" class="Bound"
+      >l</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" href="preFix.html#1093" class="Function Operator"
+      >&#10230;pp</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="preFix.html#1169" class="Bound"
+      >P</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" class="Symbol"
+      >=</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" class="Symbol"
+      >(</a
+      ><a name="1179" href="preFix.html#1163" class="Bound"
+      >l</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="preFix.html#367" class="Function Operator"
+      >&#10230;+</a
+      ><a name="1183"
+      > </a
+      ><a name="1184" class="Symbol"
+      >(</a
+      ><a name="1185" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1190"
+      > </a
+      ><a name="1191" href="preFix.html#1169" class="Bound"
+      >P</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" class="Symbol"
+      >))</a
+      ><a name="1195"
+      >
+
+</a
+      ><a name="1197" href="preFix.html#1197" class="Function Operator"
+      >_&#10230;p&#8734;_</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Symbol"
+      >:</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" class="Symbol"
+      >{</a
+      ><a name="1206" href="preFix.html#1206" class="Bound"
+      >i</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" class="Symbol"
+      >:</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1214" class="Symbol"
+      >}</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" class="Symbol"
+      >&#8594;</a
+      ><a name="1217"
+      > </a
+      ><a name="1218" class="Symbol"
+      >{</a
+      ><a name="1219" href="preFix.html#1219" class="Bound"
+      >c</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" class="Symbol"
+      >:</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1229" class="Symbol"
+      >}</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" class="Symbol"
+      >&#8594;</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" class="Symbol"
+      >&#8594;</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="preFix.html#1206" class="Bound"
+      >i</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" href="preFix.html#1219" class="Bound"
+      >c</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Symbol"
+      >&#8594;</a
+      ><a name="1254"
+      > </a
+      ><a name="1255" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" href="preFix.html#1206" class="Bound"
+      >i</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" href="preFix.html#1219" class="Bound"
+      >c</a
+      ><a name="1267"
+      >
+</a
+      ><a name="1268" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1274"
+      > </a
+      ><a name="1275" class="Symbol"
+      >(</a
+      ><a name="1276" href="preFix.html#1276" class="Bound"
+      >l</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="preFix.html#1197" class="Function Operator"
+      >&#10230;p&#8734;</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" href="preFix.html#1282" class="Bound"
+      >P</a
+      ><a name="1283" class="Symbol"
+      >)</a
+      ><a name="1284"
+      >    </a
+      ><a name="1288" class="Symbol"
+      >=</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" href="preFix.html#1276" class="Bound"
+      >l</a
+      ><a name="1291"
+      > </a
+      ><a name="1292" href="preFix.html#1093" class="Function Operator"
+      >&#10230;pp</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" href="preFix.html#1282" class="Bound"
+      >P</a
+      ><a name="1297"
+      > 
+</a
+      ><a name="1299" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1303"
+      >   </a
+      ><a name="1306" class="Symbol"
+      >(</a
+      ><a name="1307" href="preFix.html#1307" class="Bound"
+      >l</a
+      ><a name="1308"
+      > </a
+      ><a name="1309" href="preFix.html#1197" class="Function Operator"
+      >&#10230;p&#8734;</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="preFix.html#1313" class="Bound"
+      >P</a
+      ><a name="1314" class="Symbol"
+      >)</a
+      ><a name="1315"
+      >    </a
+      ><a name="1319" class="Symbol"
+      >=</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="preFix.html#1307" class="Bound"
+      >l</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="preFix.html#274" class="Function Operator"
+      >&#10230;Str</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" href="preFix.html#1313" class="Bound"
+      >P</a
+      ><a name="1333"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

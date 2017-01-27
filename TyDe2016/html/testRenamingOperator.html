@@ -1,0 +1,708 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >testRenamingOperator</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="testRenamingOperator.html#1" class="Module"
+      >testRenamingOperator</a
+      ><a name="28"
+      > </a
+      ><a name="29" class="Keyword"
+      >where</a
+      ><a name="34"
+      >
+
+</a
+      ><a name="36" class="Keyword"
+      >open</a
+      ><a name="40"
+      > </a
+      ><a name="41" class="Keyword"
+      >import</a
+      ><a name="47"
+      > </a
+      ><a name="48" href="testExampleProcesses.html#1" class="Module"
+      >testExampleProcesses</a
+      ><a name="68"
+      >
+</a
+      ><a name="69" class="Keyword"
+      >open</a
+      ><a name="73"
+      > </a
+      ><a name="74" class="Keyword"
+      >import</a
+      ><a name="80"
+      > </a
+      ><a name="81" href="renamingOperator.html#1" class="Module"
+      >renamingOperator</a
+      ><a name="97"
+      >
+</a
+      ><a name="98" class="Keyword"
+      >open</a
+      ><a name="102"
+      > </a
+      ><a name="103" class="Keyword"
+      >import</a
+      ><a name="109"
+      > </a
+      ><a name="110" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="114"
+      > 
+</a
+      ><a name="116" class="Keyword"
+      >open</a
+      ><a name="120"
+      > </a
+      ><a name="121" class="Keyword"
+      >import</a
+      ><a name="127"
+      > </a
+      ><a name="128" href="label.html#1" class="Module"
+      >label</a
+      ><a name="133"
+      >
+</a
+      ><a name="134" class="Keyword"
+      >open</a
+      ><a name="138"
+      > </a
+      ><a name="139" class="Keyword"
+      >import</a
+      ><a name="145"
+      > </a
+      ><a name="146" href="process.html#1" class="Module"
+      >process</a
+      ><a name="153"
+      >
+</a
+      ><a name="154" class="Keyword"
+      >open</a
+      ><a name="158"
+      > </a
+      ><a name="159" class="Keyword"
+      >import</a
+      ><a name="165"
+      > </a
+      ><a name="166" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="176"
+      >
+</a
+      ><a name="177" class="Keyword"
+      >open</a
+      ><a name="181"
+      > </a
+      ><a name="182" class="Keyword"
+      >import</a
+      ><a name="188"
+      > </a
+      ><a name="189" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="200"
+      >
+</a
+      ><a name="201" class="Keyword"
+      >open</a
+      ><a name="205"
+      > </a
+      ><a name="206" class="Keyword"
+      >import</a
+      ><a name="212"
+      > </a
+      ><a name="213" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="225"
+      >
+</a
+      ><a name="226" class="Keyword"
+      >open</a
+      ><a name="230"
+      > </a
+      ><a name="231" class="Keyword"
+      >import</a
+      ><a name="237"
+      > </a
+      ><a name="238" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="248"
+      >
+</a
+      ><a name="249" class="Keyword"
+      >open</a
+      ><a name="253"
+      > </a
+      ><a name="254" class="Keyword"
+      >import</a
+      ><a name="260"
+      > </a
+      ><a name="261" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="269"
+      >
+</a
+      ><a name="270" class="Keyword"
+      >open</a
+      ><a name="274"
+      > </a
+      ><a name="275" class="Keyword"
+      >import</a
+      ><a name="281"
+      > </a
+      ><a name="282" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="289"
+      >
+</a
+      ><a name="290" class="Keyword"
+      >open</a
+      ><a name="294"
+      > </a
+      ><a name="295" class="Keyword"
+      >import</a
+      ><a name="301"
+      > </a
+      ><a name="302" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="316"
+      >
+
+</a
+      ><a name="318" href="testRenamingOperator.html#318" class="Function"
+      >f</a
+      ><a name="319"
+      > </a
+      ><a name="320" class="Symbol"
+      >:</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="327"
+      > </a
+      ><a name="328" class="Symbol"
+      >&#8594;</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="335"
+      >
+</a
+      ><a name="336" href="testRenamingOperator.html#318" class="Function"
+      >f</a
+      ><a name="337"
+      > </a
+      ><a name="338" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="342"
+      > </a
+      ><a name="343" class="Symbol"
+      >=</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="349"
+      >
+</a
+      ><a name="350" href="testRenamingOperator.html#318" class="Function"
+      >f</a
+      ><a name="351"
+      > </a
+      ><a name="352" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="356"
+      > </a
+      ><a name="357" class="Symbol"
+      >=</a
+      ><a name="358"
+      > </a
+      ><a name="359" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="363"
+      >
+</a
+      ><a name="364" href="testRenamingOperator.html#318" class="Function"
+      >f</a
+      ><a name="365"
+      > </a
+      ><a name="366" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="370"
+      > </a
+      ><a name="371" class="Symbol"
+      >=</a
+      ><a name="372"
+      > </a
+      ><a name="373" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="377"
+      >
+
+</a
+      ><a name="379" href="testRenamingOperator.html#379" class="Function"
+      >P</a
+      ><a name="380"
+      > </a
+      ><a name="381" class="Symbol"
+      >:</a
+      ><a name="382"
+      > </a
+      ><a name="383" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="390"
+      > </a
+      ><a name="391" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="testExampleProcesses.html#516" class="Function"
+      >setSTOP</a
+      ><a name="400"
+      >
+</a
+      ><a name="401" href="testRenamingOperator.html#379" class="Function"
+      >P</a
+      ><a name="402"
+      > </a
+      ><a name="403" class="Symbol"
+      >=</a
+      ><a name="404"
+      > </a
+      ><a name="405" href="testExampleProcesses.html#616" class="Function"
+      >transition&#8321;</a
+      ><a name="416"
+      > </a
+      ><a name="417" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="418"
+      > 
+
+</a
+      ><a name="421" href="testRenamingOperator.html#421" class="Function"
+      >pToStr</a
+      ><a name="427"
+      > </a
+      ><a name="428" class="Symbol"
+      >:</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="436"
+      >
+</a
+      ><a name="437" href="testRenamingOperator.html#421" class="Function"
+      >pToStr</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >=</a
+      ><a name="445"
+      > </a
+      ><a name="446" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="testRenamingOperator.html#379" class="Function"
+      >P</a
+      ><a name="451"
+      >
+
+</a
+      ><a name="453" href="testRenamingOperator.html#453" class="Function"
+      >pToLabels</a
+      ><a name="462"
+      > </a
+      ><a name="463" class="Symbol"
+      >:</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="471"
+      >
+</a
+      ><a name="472" href="testRenamingOperator.html#453" class="Function"
+      >pToLabels</a
+      ><a name="481"
+      > </a
+      ><a name="482" class="Symbol"
+      >=</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="testRenamingOperator.html#379" class="Function"
+      >P</a
+      ><a name="497"
+      >
+
+</a
+      ><a name="499" href="testRenamingOperator.html#499" class="Function"
+      >Q</a
+      ><a name="500"
+      > </a
+      ><a name="501" class="Symbol"
+      >:</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="testExampleProcesses.html#516" class="Function"
+      >setSTOP</a
+      ><a name="520"
+      >
+</a
+      ><a name="521" href="testRenamingOperator.html#499" class="Function"
+      >Q</a
+      ><a name="522"
+      > </a
+      ><a name="523" class="Symbol"
+      >=</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="renamingOperator.html#617" class="Function"
+      >Rename</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="testRenamingOperator.html#318" class="Function"
+      >f</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="testRenamingOperator.html#379" class="Function"
+      >P</a
+      ><a name="535"
+      >
+
+</a
+      ><a name="537" href="testRenamingOperator.html#537" class="Function"
+      >qToStr</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >:</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="552"
+      >
+</a
+      ><a name="553" href="testRenamingOperator.html#537" class="Function"
+      >qToStr</a
+      ><a name="559"
+      > </a
+      ><a name="560" class="Symbol"
+      >=</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="565"
+      >  </a
+      ><a name="567" href="testRenamingOperator.html#499" class="Function"
+      >Q</a
+      ><a name="568"
+      >
+
+</a
+      ><a name="570" href="testRenamingOperator.html#570" class="Function"
+      >qToLabels</a
+      ><a name="579"
+      > </a
+      ><a name="580" class="Symbol"
+      >:</a
+      ><a name="581"
+      > </a
+      ><a name="582" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="588"
+      >
+</a
+      ><a name="589" href="testRenamingOperator.html#570" class="Function"
+      >qToLabels</a
+      ><a name="598"
+      > </a
+      ><a name="599" class="Symbol"
+      >=</a
+      ><a name="600"
+      > </a
+      ><a name="601" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="612"
+      > </a
+      ><a name="613" href="testRenamingOperator.html#499" class="Function"
+      >Q</a
+      ><a name="614"
+      >
+
+
+</a
+      ><a name="617" href="testRenamingOperator.html#617" class="Function"
+      >P2Result</a
+      ><a name="625"
+      > </a
+      ><a name="626" class="Symbol"
+      >:</a
+      ><a name="627"
+      > </a
+      ><a name="628" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="634"
+      >
+</a
+      ><a name="635" href="testRenamingOperator.html#617" class="Function"
+      >P2Result</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >=</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="testExampleProcesses.html#516" class="Function"
+      >setSTOP</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="656"
+      > </a
+      ><a name="657" href="testExampleProcesses.html#516" class="Function"
+      >setSTOP</a
+      ><a name="664"
+      >
+
+</a
+      ><a name="666" href="testRenamingOperator.html#666" class="Function"
+      >P2</a
+      ><a name="668"
+      >  </a
+      ><a name="670" class="Symbol"
+      >:</a
+      ><a name="671"
+      >  </a
+      ><a name="673" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="680"
+      > </a
+      ><a name="681" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="testRenamingOperator.html#617" class="Function"
+      >P2Result</a
+      ><a name="691"
+      >
+</a
+      ><a name="692" href="testRenamingOperator.html#666" class="Function"
+      >P2</a
+      ><a name="694"
+      > </a
+      ><a name="695" class="Symbol"
+      >=</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="testExampleProcesses.html#1004" class="Function"
+      >transition&#8324;</a
+      ><a name="708"
+      > </a
+      ><a name="709" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="710"
+      > 
+
+</a
+      ><a name="713" href="testRenamingOperator.html#713" class="Function"
+      >p2ToStr</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >:</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="729"
+      >
+</a
+      ><a name="730" href="testRenamingOperator.html#713" class="Function"
+      >p2ToStr</a
+      ><a name="737"
+      > </a
+      ><a name="738" class="Symbol"
+      >=</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="743"
+      >  </a
+      ><a name="745" href="testRenamingOperator.html#666" class="Function"
+      >P2</a
+      ><a name="747"
+      >
+
+</a
+      ><a name="749" href="testRenamingOperator.html#749" class="Function"
+      >p2ToLabels</a
+      ><a name="759"
+      > </a
+      ><a name="760" class="Symbol"
+      >:</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="768"
+      >
+</a
+      ><a name="769" href="testRenamingOperator.html#749" class="Function"
+      >p2ToLabels</a
+      ><a name="779"
+      > </a
+      ><a name="780" class="Symbol"
+      >=</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="testRenamingOperator.html#666" class="Function"
+      >P2</a
+      ><a name="796"
+      >
+
+</a
+      ><a name="798" href="testRenamingOperator.html#798" class="Function"
+      >Q2</a
+      ><a name="800"
+      > </a
+      ><a name="801" class="Symbol"
+      >:</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="810"
+      > </a
+      ><a name="811" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="812"
+      > </a
+      ><a name="813" href="testRenamingOperator.html#617" class="Function"
+      >P2Result</a
+      ><a name="821"
+      >
+</a
+      ><a name="822" href="testRenamingOperator.html#798" class="Function"
+      >Q2</a
+      ><a name="824"
+      > </a
+      ><a name="825" class="Symbol"
+      >=</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="renamingOperator.html#617" class="Function"
+      >Rename</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="testRenamingOperator.html#318" class="Function"
+      >f</a
+      ><a name="835"
+      > </a
+      ><a name="836" href="testRenamingOperator.html#666" class="Function"
+      >P2</a
+      ><a name="838"
+      >
+
+</a
+      ><a name="840" href="testRenamingOperator.html#840" class="Function"
+      >q2ToStr</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >:</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="856"
+      >
+</a
+      ><a name="857" href="testRenamingOperator.html#840" class="Function"
+      >q2ToStr</a
+      ><a name="864"
+      > </a
+      ><a name="865" class="Symbol"
+      >=</a
+      ><a name="866"
+      > </a
+      ><a name="867" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="870"
+      >  </a
+      ><a name="872" href="testRenamingOperator.html#798" class="Function"
+      >Q2</a
+      ><a name="874"
+      >
+
+
+
+</a
+      ><a name="878" href="testRenamingOperator.html#878" class="Function"
+      >q2ToLabels</a
+      ><a name="888"
+      > </a
+      ><a name="889" class="Symbol"
+      >:</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="897"
+      >
+</a
+      ><a name="898" href="testRenamingOperator.html#878" class="Function"
+      >q2ToLabels</a
+      ><a name="908"
+      > </a
+      ><a name="909" class="Symbol"
+      >=</a
+      ><a name="910"
+      > </a
+      ><a name="911" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="922"
+      > </a
+      ><a name="923" href="testRenamingOperator.html#798" class="Function"
+      >Q2</a
+      ><a name="925"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

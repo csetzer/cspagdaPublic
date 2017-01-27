@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >div</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="div.html#1" class="Module"
+      >div</a
+      ><a name="11"
+      > </a
+      ><a name="12" class="Keyword"
+      >where</a
+      ><a name="17"
+      > 
+
+</a
+      ><a name="20" class="Keyword"
+      >open</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >import</a
+      ><a name="31"
+      > </a
+      ><a name="32" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="36"
+      >
+</a
+      ><a name="37" class="Keyword"
+      >open</a
+      ><a name="41"
+      > </a
+      ><a name="42" class="Keyword"
+      >import</a
+      ><a name="48"
+      > </a
+      ><a name="49" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="60"
+      > </a
+      ><a name="61" class="Keyword"
+      >renaming</a
+      ><a name="69"
+      >  </a
+      ><a name="71" class="Symbol"
+      >(</a
+      ><a name="72" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="76"
+      > </a
+      ><a name="77" class="Symbol"
+      >to</a
+      ><a name="79"
+      > </a
+      ><a name="80" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="88" class="Symbol"
+      >;</a
+      ><a name="89"
+      > </a
+      ><a name="90" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="94"
+      > </a
+      ><a name="95" class="Symbol"
+      >to</a
+      ><a name="97"
+      > </a
+      ><a name="98" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="103" class="Symbol"
+      >)</a
+      ><a name="104"
+      >
+</a
+      ><a name="105" class="Keyword"
+      >open</a
+      ><a name="109"
+      > </a
+      ><a name="110" class="Keyword"
+      >import</a
+      ><a name="116"
+      > </a
+      ><a name="117" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="126"
+      >
+</a
+      ><a name="127" class="Keyword"
+      >open</a
+      ><a name="131"
+      > </a
+      ><a name="132" class="Keyword"
+      >import</a
+      ><a name="138"
+      > </a
+      ><a name="139" href="process.html#1" class="Module"
+      >process</a
+      ><a name="146"
+      >
+</a
+      ><a name="147" class="Keyword"
+      >open</a
+      ><a name="151"
+      > </a
+      ><a name="152" class="Keyword"
+      >import</a
+      ><a name="158"
+      > </a
+      ><a name="159" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="166"
+      >
+</a
+      ><a name="167" class="Keyword"
+      >open</a
+      ><a name="171"
+      > </a
+      ><a name="172" class="Keyword"
+      >import</a
+      ><a name="178"
+      > </a
+      ><a name="179" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="194"
+      > 
+</a
+      ><a name="196" class="Keyword"
+      >open</a
+      ><a name="200"
+      > </a
+      ><a name="201" class="Keyword"
+      >import</a
+      ><a name="207"
+      > </a
+      ><a name="208" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="218"
+      >
+</a
+      ><a name="219" class="Keyword"
+      >open</a
+      ><a name="223"
+      > </a
+      ><a name="224" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="232"
+      >  
+</a
+      ><a name="235" class="Keyword"
+      >open</a
+      ><a name="239"
+      > </a
+      ><a name="240" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="248"
+      >
+
+</a
+      ><a name="250" class="Keyword"
+      >mutual</a
+      ><a name="256"
+      >
+  </a
+      ><a name="259" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="263"
+      >  </a
+      ><a name="265" class="Symbol"
+      >:</a
+      ><a name="266"
+      > </a
+      ><a name="267" class="Symbol"
+      >{</a
+      ><a name="268" href="div.html#268" class="Bound"
+      >i</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Symbol"
+      >:</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="276" class="Symbol"
+      >}</a
+      ><a name="277"
+      > </a
+      ><a name="278" class="Symbol"
+      >&#8594;</a
+      ><a name="279"
+      > </a
+      ><a name="280" class="Symbol"
+      >{</a
+      ><a name="281" href="div.html#281" class="Bound"
+      >c</a
+      ><a name="282"
+      > </a
+      ><a name="283" class="Symbol"
+      >:</a
+      ><a name="284"
+      > </a
+      ><a name="285" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="291" class="Symbol"
+      >}</a
+      ><a name="292"
+      > </a
+      ><a name="293" class="Symbol"
+      >&#8594;</a
+      ><a name="294"
+      > </a
+      ><a name="295" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="303"
+      > </a
+      ><a name="304" href="div.html#268" class="Bound"
+      >i</a
+      ><a name="305"
+      > </a
+      ><a name="306" href="div.html#281" class="Bound"
+      >c</a
+      ><a name="307"
+      >
+  </a
+      ><a name="310" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="316"
+      >  </a
+      ><a name="318" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="322"
+      >   </a
+      ><a name="325" class="Symbol"
+      >=</a
+      ><a name="326"
+      > </a
+      ><a name="327" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="331"
+      > </a
+      ><a name="332" class="Symbol"
+      >(</a
+      ><a name="333" href="process.html#529" class="CoinductiveConstructor"
+      >process+</a
+      ><a name="341"
+      > </a
+      ><a name="342" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="dataAuxFunction.html#1137" class="Function"
+      >efq</a
+      ><a name="348"
+      > </a
+      ><a name="349" href="dataAuxFunction.html#1137" class="Function"
+      >efq</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="choiceSetU.html#1366" class="Function"
+      >&#8868;'</a
+      ><a name="355"
+      >
+                        </a
+      ><a name="380" class="Symbol"
+      >(&#955;</a
+      ><a name="382"
+      > </a
+      ><a name="383" href="div.html#383" class="Bound"
+      >_</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >&#8594;</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="391" class="Symbol"
+      >)</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="choiceSetU.html#1342" class="Function"
+      >&#8709;'</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="dataAuxFunction.html#1137" class="Function"
+      >efq</a
+      ><a name="399"
+      > </a
+      ><a name="400" class="String"
+      >&quot;DIV&quot;</a
+      ><a name="405" class="Symbol"
+      >)</a
+      ><a name="406"
+      >
+  </a
+      ><a name="409" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="413"
+      >    </a
+      ><a name="417" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="421"
+      >   </a
+      ><a name="424" class="Symbol"
+      >=</a
+      ><a name="425"
+      >  </a
+      ><a name="427" class="String"
+      >&quot;DIV&quot;</a
+      ><a name="432"
+      >
+
+</a
+      ></pre
+    ></body
+  ></html
+>

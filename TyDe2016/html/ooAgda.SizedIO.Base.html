@@ -1,0 +1,3992 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >ooAgda.SizedIO.Base</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Symbol"
+      >{-#</a
+      ><a name="4"
+      > </a
+      ><a name="5" class="Keyword"
+      >OPTIONS</a
+      ><a name="12"
+      > --copatterns </a
+      ><a name="26" class="Symbol"
+      >#-}</a
+      ><a name="29"
+      >
+
+</a
+      ><a name="31" class="Keyword"
+      >module</a
+      ><a name="37"
+      > </a
+      ><a name="38" href="ooAgda.SizedIO.Base.html#1" class="Module"
+      >ooAgda.SizedIO.Base</a
+      ><a name="57"
+      > </a
+      ><a name="58" class="Keyword"
+      >where</a
+      ><a name="63"
+      >
+
+</a
+      ><a name="65" class="Keyword"
+      >open</a
+      ><a name="69"
+      > </a
+      ><a name="70" class="Keyword"
+      >import</a
+      ><a name="76"
+      > </a
+      ><a name="77" href="Data.Maybe.Base.html#1" class="Module"
+      >Data.Maybe.Base</a
+      ><a name="92"
+      >
+</a
+      ><a name="93" class="Keyword"
+      >open</a
+      ><a name="97"
+      > </a
+      ><a name="98" class="Keyword"
+      >import</a
+      ><a name="104"
+      > </a
+      ><a name="105" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="113"
+      > </a
+      ><a name="114" class="Keyword"
+      >renaming</a
+      ><a name="122"
+      > </a
+      ><a name="123" class="Symbol"
+      >(</a
+      ><a name="124" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="128"
+      > </a
+      ><a name="129" class="Symbol"
+      >to</a
+      ><a name="131"
+      > </a
+      ><a name="132" href="Data.Sum.html#489" class="InductiveConstructor"
+      >left</a
+      ><a name="136" class="Symbol"
+      >;</a
+      ><a name="137"
+      > </a
+      ><a name="138" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="142"
+      > </a
+      ><a name="143" class="Symbol"
+      >to</a
+      ><a name="145"
+      > </a
+      ><a name="146" href="Data.Sum.html#514" class="InductiveConstructor"
+      >right</a
+      ><a name="151" class="Symbol"
+      >;</a
+      ><a name="152"
+      > </a
+      ><a name="153" href="Data.Sum.html#950" class="Function Operator"
+      >[_,_]&#8242;</a
+      ><a name="159"
+      > </a
+      ><a name="160" class="Symbol"
+      >to</a
+      ><a name="162"
+      > </a
+      ><a name="163" href="Data.Sum.html#950" class="Function Operator"
+      >either</a
+      ><a name="169" class="Symbol"
+      >)</a
+      ><a name="170"
+      >
+
+</a
+      ><a name="172" class="Keyword"
+      >open</a
+      ><a name="176"
+      > </a
+      ><a name="177" class="Keyword"
+      >import</a
+      ><a name="183"
+      > </a
+      ><a name="184" href="Function.html#1" class="Module"
+      >Function</a
+      ><a name="192"
+      >
+</a
+      ><a name="193" class="Comment"
+      >--open import Level using (_&#8852;_) renaming (suc to lsuc)</a
+      ><a name="247"
+      >
+</a
+      ><a name="248" class="Keyword"
+      >open</a
+      ><a name="252"
+      > </a
+      ><a name="253" class="Keyword"
+      >import</a
+      ><a name="259"
+      > </a
+      ><a name="260" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="264"
+      >
+
+</a
+      ><a name="266" class="Keyword"
+      >open</a
+      ><a name="270"
+      > </a
+      ><a name="271" class="Keyword"
+      >import</a
+      ><a name="277"
+      > </a
+      ><a name="278" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="293"
+      >
+
+</a
+      ><a name="295" class="Keyword"
+      >record</a
+      ><a name="301"
+      > </a
+      ><a name="302" href="ooAgda.SizedIO.Base.html#302" class="Record"
+      >IOInterface</a
+      ><a name="313"
+      >  </a
+      ><a name="315" class="Symbol"
+      >:</a
+      ><a name="316"
+      > </a
+      ><a name="317" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="321"
+      > </a
+      ><a name="322" class="Keyword"
+      >where</a
+      ><a name="327"
+      >
+  </a
+      ><a name="330" class="Keyword"
+      >field</a
+      ><a name="335"
+      >
+    </a
+      ><a name="340" href="ooAgda.SizedIO.Base.html#340" class="Field"
+      >Command</a
+      ><a name="347"
+      >   </a
+      ><a name="350" class="Symbol"
+      >:</a
+      ><a name="351"
+      > </a
+      ><a name="352" class="PrimitiveType"
+      >Set</a
+      ><a name="355"
+      >
+    </a
+      ><a name="360" href="ooAgda.SizedIO.Base.html#360" class="Field"
+      >Response</a
+      ><a name="368"
+      >  </a
+      ><a name="370" class="Symbol"
+      >:</a
+      ><a name="371"
+      > </a
+      ><a name="372" class="Symbol"
+      >(</a
+      ><a name="373" href="ooAgda.SizedIO.Base.html#373" class="Bound"
+      >m</a
+      ><a name="374"
+      > </a
+      ><a name="375" class="Symbol"
+      >:</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="ooAgda.SizedIO.Base.html#340" class="Field"
+      >Command</a
+      ><a name="384" class="Symbol"
+      >)</a
+      ><a name="385"
+      > </a
+      ><a name="386" class="Symbol"
+      >&#8594;</a
+      ><a name="387"
+      > </a
+      ><a name="388" class="PrimitiveType"
+      >Set</a
+      ><a name="391"
+      >
+</a
+      ><a name="392" class="Keyword"
+      >open</a
+      ><a name="396"
+      > </a
+      ><a name="397" href="ooAgda.SizedIO.Base.html#302" class="Module"
+      >IOInterface</a
+      ><a name="408"
+      > </a
+      ><a name="409" class="Keyword"
+      >public</a
+      ><a name="415"
+      >
+
+</a
+      ><a name="417" class="Keyword"
+      >module</a
+      ><a name="423"
+      > </a
+      ><a name="424" href="ooAgda.SizedIO.Base.html#424" class="Module"
+      >_</a
+      ><a name="425"
+      > </a
+      ><a name="426" class="Symbol"
+      >(</a
+      ><a name="427" href="ooAgda.SizedIO.Base.html#427" class="Bound"
+      >I</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Symbol"
+      >:</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="ooAgda.SizedIO.Base.html#302" class="Record"
+      >IOInterface</a
+      ><a name="442"
+      > </a
+      ><a name="443" class="Symbol"
+      >)</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >(</a
+      ><a name="446" class="Keyword"
+      >let</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="ooAgda.SizedIO.Base.html#450" class="Bound"
+      >C</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >=</a
+      ><a name="453"
+      > </a
+      ><a name="454" href="ooAgda.SizedIO.Base.html#340" class="Field"
+      >Command</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="ooAgda.SizedIO.Base.html#427" class="Bound"
+      >I</a
+      ><a name="463" class="Symbol"
+      >)</a
+      ><a name="464"
+      > </a
+      ><a name="465" class="Symbol"
+      >(</a
+      ><a name="466" class="Keyword"
+      >let</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="ooAgda.SizedIO.Base.html#470" class="Bound"
+      >R</a
+      ><a name="471"
+      > </a
+      ><a name="472" class="Symbol"
+      >=</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="ooAgda.SizedIO.Base.html#360" class="Field"
+      >Response</a
+      ><a name="482"
+      > </a
+      ><a name="483" href="ooAgda.SizedIO.Base.html#427" class="Bound"
+      >I</a
+      ><a name="484" class="Symbol"
+      >)</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Keyword"
+      >where</a
+      ><a name="491"
+      >
+
+  </a
+      ><a name="495" class="Keyword"
+      >mutual</a
+      ><a name="501"
+      >
+    </a
+      ><a name="506" class="Keyword"
+      >record</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="515"
+      > </a
+      ><a name="516" class="Symbol"
+      >(</a
+      ><a name="517" href="ooAgda.SizedIO.Base.html#517" class="Bound"
+      >i</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >:</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="525" class="Symbol"
+      >)</a
+      ><a name="526"
+      >  </a
+      ><a name="528" class="Symbol"
+      >(</a
+      ><a name="529" href="ooAgda.SizedIO.Base.html#529" class="Bound"
+      >A</a
+      ><a name="530"
+      > </a
+      ><a name="531" class="Symbol"
+      >:</a
+      ><a name="532"
+      > </a
+      ><a name="533" class="PrimitiveType"
+      >Set</a
+      ><a name="536" class="Symbol"
+      >)</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="Symbol"
+      >:</a
+      ><a name="539"
+      > </a
+      ><a name="540" class="PrimitiveType"
+      >Set</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Keyword"
+      >where</a
+      ><a name="549"
+      >
+      </a
+      ><a name="556" class="Keyword"
+      >coinductive</a
+      ><a name="567"
+      >
+      </a
+      ><a name="574" class="Keyword"
+      >constructor</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delay</a
+      ><a name="591"
+      >
+      </a
+      ><a name="598" class="Keyword"
+      >field</a
+      ><a name="603"
+      >
+        </a
+      ><a name="612" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="617"
+      > </a
+      ><a name="618" class="Symbol"
+      >:</a
+      ><a name="619"
+      > </a
+      ><a name="620" class="Symbol"
+      >{</a
+      ><a name="621" href="ooAgda.SizedIO.Base.html#621" class="Bound"
+      >j</a
+      ><a name="622"
+      > </a
+      ><a name="623" class="Symbol"
+      >:</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="Agda.Builtin.Size.html#146" class="Postulate Operator"
+      >Size&lt;</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="ooAgda.SizedIO.Base.html#517" class="Bound"
+      >i</a
+      ><a name="632" class="Symbol"
+      >}</a
+      ><a name="633"
+      > </a
+      ><a name="634" class="Symbol"
+      >&#8594;</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="ooAgda.SizedIO.Base.html#621" class="Bound"
+      >j</a
+      ><a name="641"
+      > </a
+      ><a name="642" href="ooAgda.SizedIO.Base.html#529" class="Bound"
+      >A</a
+      ><a name="643"
+      >
+
+    </a
+      ><a name="649" class="Keyword"
+      >data</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="Symbol"
+      >(</a
+      ><a name="659" href="ooAgda.SizedIO.Base.html#659" class="Bound"
+      >i</a
+      ><a name="660"
+      > </a
+      ><a name="661" class="Symbol"
+      >:</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="667" class="Symbol"
+      >)</a
+      ><a name="668"
+      >  </a
+      ><a name="670" class="Symbol"
+      >(</a
+      ><a name="671" href="ooAgda.SizedIO.Base.html#671" class="Bound"
+      >A</a
+      ><a name="672"
+      > </a
+      ><a name="673" class="Symbol"
+      >:</a
+      ><a name="674"
+      > </a
+      ><a name="675" class="PrimitiveType"
+      >Set</a
+      ><a name="678" class="Symbol"
+      >)</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >:</a
+      ><a name="681"
+      > </a
+      ><a name="682" class="PrimitiveType"
+      >Set</a
+      ><a name="685"
+      > </a
+      ><a name="686" class="Keyword"
+      >where</a
+      ><a name="691"
+      >
+      </a
+      ><a name="698" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="701"
+      >     </a
+      ><a name="706" class="Symbol"
+      >:</a
+      ><a name="707"
+      > </a
+      ><a name="708" class="Symbol"
+      >(</a
+      ><a name="709" href="ooAgda.SizedIO.Base.html#709" class="Bound"
+      >c</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="Symbol"
+      >:</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="ooAgda.SizedIO.Base.html#450" class="Bound"
+      >C</a
+      ><a name="714" class="Symbol"
+      >)</a
+      ><a name="715"
+      > </a
+      ><a name="716" class="Symbol"
+      >(</a
+      ><a name="717" href="ooAgda.SizedIO.Base.html#717" class="Bound"
+      >f</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >:</a
+      ><a name="720"
+      > </a
+      ><a name="721" href="ooAgda.SizedIO.Base.html#470" class="Bound"
+      >R</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="ooAgda.SizedIO.Base.html#709" class="Bound"
+      >c</a
+      ><a name="724"
+      > </a
+      ><a name="725" class="Symbol"
+      >&#8594;</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="ooAgda.SizedIO.Base.html#659" class="Bound"
+      >i</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="ooAgda.SizedIO.Base.html#671" class="Bound"
+      >A</a
+      ><a name="733" class="Symbol"
+      >)</a
+      ><a name="734"
+      > </a
+      ><a name="735" class="Symbol"
+      >&#8594;</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="ooAgda.SizedIO.Base.html#659" class="Bound"
+      >i</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="ooAgda.SizedIO.Base.html#671" class="Bound"
+      >A</a
+      ><a name="744"
+      >
+      </a
+      ><a name="751" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="758"
+      > </a
+      ><a name="759" class="Symbol"
+      >:</a
+      ><a name="760"
+      > </a
+      ><a name="761" class="Symbol"
+      >(</a
+      ><a name="762" href="ooAgda.SizedIO.Base.html#762" class="Bound"
+      >a</a
+      ><a name="763"
+      > </a
+      ><a name="764" class="Symbol"
+      >:</a
+      ><a name="765"
+      > </a
+      ><a name="766" href="ooAgda.SizedIO.Base.html#671" class="Bound"
+      >A</a
+      ><a name="767" class="Symbol"
+      >)</a
+      ><a name="768"
+      > </a
+      ><a name="769" class="Symbol"
+      >&#8594;</a
+      ><a name="770"
+      > </a
+      ><a name="771" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="ooAgda.SizedIO.Base.html#659" class="Bound"
+      >i</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="ooAgda.SizedIO.Base.html#671" class="Bound"
+      >A</a
+      ><a name="778"
+      >
+
+  </a
+      ><a name="782" class="Keyword"
+      >data</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="790"
+      > </a
+      ><a name="791" class="Symbol"
+      >(</a
+      ><a name="792" href="ooAgda.SizedIO.Base.html#792" class="Bound"
+      >i</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >:</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="800" class="Symbol"
+      >)</a
+      ><a name="801"
+      >  </a
+      ><a name="803" class="Symbol"
+      >(</a
+      ><a name="804" href="ooAgda.SizedIO.Base.html#804" class="Bound"
+      >A</a
+      ><a name="805"
+      > </a
+      ><a name="806" class="Symbol"
+      >:</a
+      ><a name="807"
+      > </a
+      ><a name="808" class="PrimitiveType"
+      >Set</a
+      ><a name="811" class="Symbol"
+      >)</a
+      ><a name="812"
+      > </a
+      ><a name="813" class="Symbol"
+      >:</a
+      ><a name="814"
+      > </a
+      ><a name="815" class="PrimitiveType"
+      >Set</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="Keyword"
+      >where</a
+      ><a name="824"
+      >
+    </a
+      ><a name="829" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="832"
+      > </a
+      ><a name="833" class="Symbol"
+      >:</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >(</a
+      ><a name="836" href="ooAgda.SizedIO.Base.html#836" class="Bound"
+      >c</a
+      ><a name="837"
+      > </a
+      ><a name="838" class="Symbol"
+      >:</a
+      ><a name="839"
+      > </a
+      ><a name="840" href="ooAgda.SizedIO.Base.html#450" class="Bound"
+      >C</a
+      ><a name="841" class="Symbol"
+      >)</a
+      ><a name="842"
+      > </a
+      ><a name="843" class="Symbol"
+      >(</a
+      ><a name="844" href="ooAgda.SizedIO.Base.html#844" class="Bound"
+      >f</a
+      ><a name="845"
+      > </a
+      ><a name="846" class="Symbol"
+      >:</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="ooAgda.SizedIO.Base.html#470" class="Bound"
+      >R</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="ooAgda.SizedIO.Base.html#836" class="Bound"
+      >c</a
+      ><a name="851"
+      > </a
+      ><a name="852" class="Symbol"
+      >&#8594;</a
+      ><a name="853"
+      > </a
+      ><a name="854" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="856"
+      > </a
+      ><a name="857" href="ooAgda.SizedIO.Base.html#792" class="Bound"
+      >i</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="ooAgda.SizedIO.Base.html#804" class="Bound"
+      >A</a
+      ><a name="860" class="Symbol"
+      >)</a
+      ><a name="861"
+      > </a
+      ><a name="862" class="Symbol"
+      >&#8594;</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="ooAgda.SizedIO.Base.html#792" class="Bound"
+      >i</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="ooAgda.SizedIO.Base.html#804" class="Bound"
+      >A</a
+      ><a name="871"
+      >
+
+</a
+      ><a name="873" class="Keyword"
+      >open</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="ooAgda.SizedIO.Base.html#513" class="Module"
+      >IO</a
+      ><a name="880"
+      > </a
+      ><a name="881" class="Keyword"
+      >public</a
+      ><a name="887"
+      >
+
+</a
+      ><a name="889" class="Keyword"
+      >module</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="ooAgda.SizedIO.Base.html#896" class="Module"
+      >_</a
+      ><a name="897"
+      >  </a
+      ><a name="899" class="Symbol"
+      >{</a
+      ><a name="900" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="901"
+      > </a
+      ><a name="902" class="Symbol"
+      >:</a
+      ><a name="903"
+      > </a
+      ><a name="904" href="ooAgda.SizedIO.Base.html#302" class="Record"
+      >IOInterface</a
+      ><a name="915"
+      > </a
+      ><a name="916" class="Symbol"
+      >}</a
+      ><a name="917"
+      > </a
+      ><a name="918" class="Symbol"
+      >(</a
+      ><a name="919" class="Keyword"
+      >let</a
+      ><a name="922"
+      > </a
+      ><a name="923" href="ooAgda.SizedIO.Base.html#923" class="Bound"
+      >C</a
+      ><a name="924"
+      > </a
+      ><a name="925" class="Symbol"
+      >=</a
+      ><a name="926"
+      > </a
+      ><a name="927" href="ooAgda.SizedIO.Base.html#340" class="Field"
+      >Command</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="936" class="Symbol"
+      >)</a
+      ><a name="937"
+      > </a
+      ><a name="938" class="Symbol"
+      >(</a
+      ><a name="939" class="Keyword"
+      >let</a
+      ><a name="942"
+      > </a
+      ><a name="943" href="ooAgda.SizedIO.Base.html#943" class="Bound"
+      >R</a
+      ><a name="944"
+      > </a
+      ><a name="945" class="Symbol"
+      >=</a
+      ><a name="946"
+      > </a
+      ><a name="947" href="ooAgda.SizedIO.Base.html#360" class="Field"
+      >Response</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="957" class="Symbol"
+      >)</a
+      ><a name="958"
+      > </a
+      ><a name="959" class="Keyword"
+      >where</a
+      ><a name="964"
+      >
+
+  </a
+      ><a name="968" href="ooAgda.SizedIO.Base.html#968" class="Function"
+      >return</a
+      ><a name="974"
+      > </a
+      ><a name="975" class="Symbol"
+      >:</a
+      ><a name="976"
+      > </a
+      ><a name="977" class="Symbol"
+      >&#8704;{</a
+      ><a name="979" href="ooAgda.SizedIO.Base.html#979" class="Bound"
+      >i</a
+      ><a name="980" class="Symbol"
+      >}{</a
+      ><a name="982" href="ooAgda.SizedIO.Base.html#982" class="Bound"
+      >A</a
+      ><a name="983"
+      > </a
+      ><a name="984" class="Symbol"
+      >:</a
+      ><a name="985"
+      > </a
+      ><a name="986" class="PrimitiveType"
+      >Set</a
+      ><a name="989" class="Symbol"
+      >}</a
+      ><a name="990"
+      > </a
+      ><a name="991" class="Symbol"
+      >(</a
+      ><a name="992" href="ooAgda.SizedIO.Base.html#992" class="Bound"
+      >a</a
+      ><a name="993"
+      > </a
+      ><a name="994" class="Symbol"
+      >:</a
+      ><a name="995"
+      > </a
+      ><a name="996" href="ooAgda.SizedIO.Base.html#982" class="Bound"
+      >A</a
+      ><a name="997" class="Symbol"
+      >)</a
+      ><a name="998"
+      > </a
+      ><a name="999" class="Symbol"
+      >&#8594;</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="ooAgda.SizedIO.Base.html#979" class="Bound"
+      >i</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="ooAgda.SizedIO.Base.html#982" class="Bound"
+      >A</a
+      ><a name="1009"
+      >
+  </a
+      ><a name="1012" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" class="Symbol"
+      >(</a
+      ><a name="1019" href="ooAgda.SizedIO.Base.html#968" class="Function"
+      >return</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="ooAgda.SizedIO.Base.html#1026" class="Bound"
+      >a</a
+      ><a name="1027" class="Symbol"
+      >)</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" class="Symbol"
+      >=</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="ooAgda.SizedIO.Base.html#1026" class="Bound"
+      >a</a
+      ><a name="1040"
+      >
+
+  </a
+      ><a name="1044" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" class="Symbol"
+      >:</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" class="Symbol"
+      >&#8704;{</a
+      ><a name="1051" href="ooAgda.SizedIO.Base.html#1051" class="Bound"
+      >i</a
+      ><a name="1052" class="Symbol"
+      >}{</a
+      ><a name="1054" href="ooAgda.SizedIO.Base.html#1054" class="Bound"
+      >A</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" class="Symbol"
+      >:</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" class="PrimitiveType"
+      >Set</a
+      ><a name="1061" class="Symbol"
+      >}</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" class="Symbol"
+      >(</a
+      ><a name="1064" href="ooAgda.SizedIO.Base.html#1064" class="Bound"
+      >c</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" class="Symbol"
+      >:</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="ooAgda.SizedIO.Base.html#923" class="Bound"
+      >C</a
+      ><a name="1069" class="Symbol"
+      >)</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" class="Symbol"
+      >(</a
+      ><a name="1072" href="ooAgda.SizedIO.Base.html#1072" class="Bound"
+      >f</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" class="Symbol"
+      >:</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" href="ooAgda.SizedIO.Base.html#943" class="Bound"
+      >R</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" href="ooAgda.SizedIO.Base.html#1064" class="Bound"
+      >c</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" class="Symbol"
+      >&#8594;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="ooAgda.SizedIO.Base.html#1051" class="Bound"
+      >i</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="ooAgda.SizedIO.Base.html#1054" class="Bound"
+      >A</a
+      ><a name="1090" class="Symbol"
+      >)</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" class="Symbol"
+      >&#8594;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" href="ooAgda.SizedIO.Base.html#1051" class="Bound"
+      >i</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" href="ooAgda.SizedIO.Base.html#1054" class="Bound"
+      >A</a
+      ><a name="1102"
+      >
+  </a
+      ><a name="1105" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" class="Symbol"
+      >(</a
+      ><a name="1112" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="1114"
+      > </a
+      ><a name="1115" href="ooAgda.SizedIO.Base.html#1115" class="Bound"
+      >c</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" href="ooAgda.SizedIO.Base.html#1117" class="Bound"
+      >f</a
+      ><a name="1118" class="Symbol"
+      >)</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" class="Symbol"
+      >=</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="ooAgda.SizedIO.Base.html#1115" class="Bound"
+      >c</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="ooAgda.SizedIO.Base.html#1117" class="Bound"
+      >f</a
+      ><a name="1129"
+      >
+
+  </a
+      ><a name="1133" href="ooAgda.SizedIO.Base.html#1133" class="Function"
+      >do1</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >:</a
+      ><a name="1138"
+      >  </a
+      ><a name="1140" class="Symbol"
+      >&#8704;{</a
+      ><a name="1142" href="ooAgda.SizedIO.Base.html#1142" class="Bound"
+      >i</a
+      ><a name="1143" class="Symbol"
+      >}</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" class="Symbol"
+      >(</a
+      ><a name="1146" href="ooAgda.SizedIO.Base.html#1146" class="Bound"
+      >c</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" class="Symbol"
+      >:</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="ooAgda.SizedIO.Base.html#923" class="Bound"
+      >C</a
+      ><a name="1151" class="Symbol"
+      >)</a
+      ><a name="1152"
+      > </a
+      ><a name="1153" class="Symbol"
+      >&#8594;</a
+      ><a name="1154"
+      > </a
+      ><a name="1155" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" href="ooAgda.SizedIO.Base.html#1142" class="Bound"
+      >i</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" class="Symbol"
+      >(</a
+      ><a name="1163" href="ooAgda.SizedIO.Base.html#943" class="Bound"
+      >R</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" href="ooAgda.SizedIO.Base.html#1146" class="Bound"
+      >c</a
+      ><a name="1166" class="Symbol"
+      >)</a
+      ><a name="1167"
+      >
+  </a
+      ><a name="1170" href="ooAgda.SizedIO.Base.html#1133" class="Function"
+      >do1</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" href="ooAgda.SizedIO.Base.html#1174" class="Bound"
+      >c</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" class="Symbol"
+      >=</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="ooAgda.SizedIO.Base.html#1174" class="Bound"
+      >c</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="ooAgda.SizedIO.Base.html#968" class="Function"
+      >return</a
+      ><a name="1189"
+      >
+
+  </a
+      ><a name="1193" class="Keyword"
+      >infixl</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" class="Number"
+      >2</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >_&gt;&gt;=_</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" href="ooAgda.SizedIO.Base.html#1234" class="Function Operator"
+      >_&gt;&gt;='_</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" href="ooAgda.SizedIO.Base.html#1503" class="Function Operator"
+      >_&gt;&gt;_</a
+      ><a name="1219"
+      >
+
+  </a
+      ><a name="1223" class="Keyword"
+      >mutual</a
+      ><a name="1229"
+      >
+    </a
+      ><a name="1234" href="ooAgda.SizedIO.Base.html#1234" class="Function Operator"
+      >_&gt;&gt;='_</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" class="Symbol"
+      >:</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" class="Symbol"
+      >&#8704;{</a
+      ><a name="1245" href="ooAgda.SizedIO.Base.html#1245" class="Bound"
+      >i</a
+      ><a name="1246" class="Symbol"
+      >}{</a
+      ><a name="1248" href="ooAgda.SizedIO.Base.html#1248" class="Bound"
+      >A</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="ooAgda.SizedIO.Base.html#1250" class="Bound"
+      >B</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" class="Symbol"
+      >:</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" class="PrimitiveType"
+      >Set</a
+      ><a name="1257" class="Symbol"
+      >}(</a
+      ><a name="1259" href="ooAgda.SizedIO.Base.html#1259" class="Bound"
+      >m</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" class="Symbol"
+      >:</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1268"
+      > </a
+      ><a name="1269" href="ooAgda.SizedIO.Base.html#1245" class="Bound"
+      >i</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="ooAgda.SizedIO.Base.html#1248" class="Bound"
+      >A</a
+      ><a name="1272" class="Symbol"
+      >)</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" class="Symbol"
+      >(</a
+      ><a name="1275" href="ooAgda.SizedIO.Base.html#1275" class="Bound"
+      >k</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" class="Symbol"
+      >:</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" href="ooAgda.SizedIO.Base.html#1248" class="Bound"
+      >A</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" class="Symbol"
+      >&#8594;</a
+      ><a name="1282"
+      > </a
+      ><a name="1283" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" class="Symbol"
+      >(</a
+      ><a name="1289" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="ooAgda.SizedIO.Base.html#1245" class="Bound"
+      >i</a
+      ><a name="1292" class="Symbol"
+      >)</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" href="ooAgda.SizedIO.Base.html#1250" class="Bound"
+      >B</a
+      ><a name="1295" class="Symbol"
+      >)</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >&#8594;</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="ooAgda.SizedIO.Base.html#1245" class="Bound"
+      >i</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="ooAgda.SizedIO.Base.html#1250" class="Bound"
+      >B</a
+      ><a name="1308"
+      >
+    </a
+      ><a name="1313" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="ooAgda.SizedIO.Base.html#1317" class="Bound"
+      >c</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="ooAgda.SizedIO.Base.html#1319" class="Bound"
+      >f</a
+      ><a name="1320"
+      >    </a
+      ><a name="1324" href="ooAgda.SizedIO.Base.html#1234" class="Function Operator"
+      >&gt;&gt;='</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" href="ooAgda.SizedIO.Base.html#1329" class="Bound"
+      >k</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" class="Symbol"
+      >=</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="1336"
+      > </a
+      ><a name="1337" href="ooAgda.SizedIO.Base.html#1317" class="Bound"
+      >c</a
+      ><a name="1338"
+      > </a
+      ><a name="1339" class="Symbol"
+      >&#955;</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="ooAgda.SizedIO.Base.html#1341" class="Bound"
+      >x</a
+      ><a name="1342"
+      > </a
+      ><a name="1343" class="Symbol"
+      >&#8594;</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" href="ooAgda.SizedIO.Base.html#1319" class="Bound"
+      >f</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" href="ooAgda.SizedIO.Base.html#1341" class="Bound"
+      >x</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >&gt;&gt;=</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="ooAgda.SizedIO.Base.html#1329" class="Bound"
+      >k</a
+      ><a name="1354"
+      >
+    </a
+      ><a name="1359" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="ooAgda.SizedIO.Base.html#1367" class="Bound"
+      >a</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="ooAgda.SizedIO.Base.html#1234" class="Function Operator"
+      >&gt;&gt;='</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="ooAgda.SizedIO.Base.html#1374" class="Bound"
+      >k</a
+      ><a name="1375"
+      > </a
+      ><a name="1376" class="Symbol"
+      >=</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" class="Symbol"
+      >(</a
+      ><a name="1385" href="ooAgda.SizedIO.Base.html#1374" class="Bound"
+      >k</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="ooAgda.SizedIO.Base.html#1367" class="Bound"
+      >a</a
+      ><a name="1388" class="Symbol"
+      >)</a
+      ><a name="1389"
+      >
+
+    </a
+      ><a name="1395" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >_&gt;&gt;=_</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" class="Symbol"
+      >:</a
+      ><a name="1402"
+      > </a
+      ><a name="1403" class="Symbol"
+      >&#8704;{</a
+      ><a name="1405" href="ooAgda.SizedIO.Base.html#1405" class="Bound"
+      >i</a
+      ><a name="1406" class="Symbol"
+      >}{</a
+      ><a name="1408" href="ooAgda.SizedIO.Base.html#1408" class="Bound"
+      >A</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="ooAgda.SizedIO.Base.html#1410" class="Bound"
+      >B</a
+      ><a name="1411"
+      > </a
+      ><a name="1412" class="Symbol"
+      >:</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" class="PrimitiveType"
+      >Set</a
+      ><a name="1417" class="Symbol"
+      >}(</a
+      ><a name="1419" href="ooAgda.SizedIO.Base.html#1419" class="Bound"
+      >m</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" class="Symbol"
+      >:</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1427"
+      > </a
+      ><a name="1428" href="ooAgda.SizedIO.Base.html#1405" class="Bound"
+      >i</a
+      ><a name="1429"
+      > </a
+      ><a name="1430" href="ooAgda.SizedIO.Base.html#1408" class="Bound"
+      >A</a
+      ><a name="1431" class="Symbol"
+      >)</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" class="Symbol"
+      >(</a
+      ><a name="1434" href="ooAgda.SizedIO.Base.html#1434" class="Bound"
+      >k</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" class="Symbol"
+      >:</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" href="ooAgda.SizedIO.Base.html#1408" class="Bound"
+      >A</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" class="Symbol"
+      >&#8594;</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" href="ooAgda.SizedIO.Base.html#1405" class="Bound"
+      >i</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" href="ooAgda.SizedIO.Base.html#1410" class="Bound"
+      >B</a
+      ><a name="1450" class="Symbol"
+      >)</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" class="Symbol"
+      >&#8594;</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="ooAgda.SizedIO.Base.html#1405" class="Bound"
+      >i</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="ooAgda.SizedIO.Base.html#1410" class="Bound"
+      >B</a
+      ><a name="1462"
+      >
+    </a
+      ><a name="1467" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" class="Symbol"
+      >(</a
+      ><a name="1474" href="ooAgda.SizedIO.Base.html#1474" class="Bound"
+      >m</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >&gt;&gt;=</a
+      ><a name="1479"
+      > </a
+      ><a name="1480" href="ooAgda.SizedIO.Base.html#1480" class="Bound"
+      >k</a
+      ><a name="1481" class="Symbol"
+      >)</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" class="Symbol"
+      >=</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="1490"
+      > </a
+      ><a name="1491" href="ooAgda.SizedIO.Base.html#1474" class="Bound"
+      >m</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" href="ooAgda.SizedIO.Base.html#1234" class="Function Operator"
+      >&gt;&gt;='</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="ooAgda.SizedIO.Base.html#1480" class="Bound"
+      >k</a
+      ><a name="1499"
+      >
+
+  </a
+      ><a name="1503" href="ooAgda.SizedIO.Base.html#1503" class="Function Operator"
+      >_&gt;&gt;_</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" class="Symbol"
+      >:</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" class="Symbol"
+      >&#8704;{</a
+      ><a name="1512" href="ooAgda.SizedIO.Base.html#1512" class="Bound"
+      >i</a
+      ><a name="1513" class="Symbol"
+      >}{</a
+      ><a name="1515" href="ooAgda.SizedIO.Base.html#1515" class="Bound"
+      >B</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" class="Symbol"
+      >:</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" class="PrimitiveType"
+      >Set</a
+      ><a name="1522" class="Symbol"
+      >}</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" class="Symbol"
+      >(</a
+      ><a name="1525" href="ooAgda.SizedIO.Base.html#1525" class="Bound"
+      >m</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" class="Symbol"
+      >:</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1533"
+      > </a
+      ><a name="1534" href="ooAgda.SizedIO.Base.html#1512" class="Bound"
+      >i</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="1540" class="Symbol"
+      >)</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" class="Symbol"
+      >(</a
+      ><a name="1543" href="ooAgda.SizedIO.Base.html#1543" class="Bound"
+      >k</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >:</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" href="ooAgda.SizedIO.Base.html#1512" class="Bound"
+      >i</a
+      ><a name="1553"
+      > </a
+      ><a name="1554" href="ooAgda.SizedIO.Base.html#1515" class="Bound"
+      >B</a
+      ><a name="1555" class="Symbol"
+      >)</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" class="Symbol"
+      >&#8594;</a
+      ><a name="1558"
+      > </a
+      ><a name="1559" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1561"
+      > </a
+      ><a name="1562" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" href="ooAgda.SizedIO.Base.html#1512" class="Bound"
+      >i</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="ooAgda.SizedIO.Base.html#1515" class="Bound"
+      >B</a
+      ><a name="1567"
+      >
+  </a
+      ><a name="1570" href="ooAgda.SizedIO.Base.html#1570" class="Bound"
+      >m</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="ooAgda.SizedIO.Base.html#1503" class="Function Operator"
+      >&gt;&gt;</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" href="ooAgda.SizedIO.Base.html#1575" class="Bound"
+      >k</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" class="Symbol"
+      >=</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" href="ooAgda.SizedIO.Base.html#1570" class="Bound"
+      >m</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >&gt;&gt;=</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" class="Symbol"
+      >&#955;</a
+      ><a name="1586"
+      > </a
+      ><a name="1587" href="ooAgda.SizedIO.Base.html#1587" class="Bound"
+      >_</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" class="Symbol"
+      >&#8594;</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="ooAgda.SizedIO.Base.html#1575" class="Bound"
+      >k</a
+      ><a name="1592"
+      >
+
+  </a
+      ><a name="1596" class="Symbol"
+      >{-#</a
+      ><a name="1599"
+      > </a
+      ><a name="1600" class="Keyword"
+      >NON_TERMINATING</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" class="Symbol"
+      >#-}</a
+      ><a name="1619"
+      >
+  </a
+      ><a name="1622" href="ooAgda.SizedIO.Base.html#1622" class="Function"
+      >translateIO</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" class="Symbol"
+      >:</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" class="Symbol"
+      >&#8704;{</a
+      ><a name="1638" href="ooAgda.SizedIO.Base.html#1638" class="Bound"
+      >A</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" class="Symbol"
+      >:</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" class="PrimitiveType"
+      >Set</a
+      ><a name="1645" class="Symbol"
+      >}</a
+      ><a name="1646"
+      >
+    </a
+      ><a name="1651" class="Symbol"
+      >&#8594;</a
+      ><a name="1652"
+      >  </a
+      ><a name="1654" class="Symbol"
+      >(</a
+      ><a name="1655" href="ooAgda.SizedIO.Base.html#1655" class="Bound"
+      >translateLocal</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" class="Symbol"
+      >:</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" class="Symbol"
+      >(</a
+      ><a name="1673" href="ooAgda.SizedIO.Base.html#1673" class="Bound"
+      >c</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >:</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="ooAgda.SizedIO.Base.html#923" class="Bound"
+      >C</a
+      ><a name="1678" class="Symbol"
+      >)</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" class="Symbol"
+      >&#8594;</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" href="ooAgda.NativeIO.html#119" class="Postulate"
+      >NativeIO</a
+      ><a name="1690"
+      > </a
+      ><a name="1691" class="Symbol"
+      >(</a
+      ><a name="1692" href="ooAgda.SizedIO.Base.html#943" class="Bound"
+      >R</a
+      ><a name="1693"
+      > </a
+      ><a name="1694" href="ooAgda.SizedIO.Base.html#1673" class="Bound"
+      >c</a
+      ><a name="1695" class="Symbol"
+      >))</a
+      ><a name="1697"
+      >
+    </a
+      ><a name="1702" class="Symbol"
+      >&#8594;</a
+      ><a name="1703"
+      >  </a
+      ><a name="1705" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" href="ooAgda.SizedIO.Base.html#1638" class="Bound"
+      >A</a
+      ><a name="1713"
+      >
+    </a
+      ><a name="1718" class="Symbol"
+      >&#8594;</a
+      ><a name="1719"
+      >  </a
+      ><a name="1721" href="ooAgda.NativeIO.html#119" class="Postulate"
+      >NativeIO</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="ooAgda.SizedIO.Base.html#1638" class="Bound"
+      >A</a
+      ><a name="1731"
+      >
+  </a
+      ><a name="1734" href="ooAgda.SizedIO.Base.html#1622" class="Function"
+      >translateIO</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" href="ooAgda.SizedIO.Base.html#1746" class="Bound"
+      >translateLocal</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" href="ooAgda.SizedIO.Base.html#1761" class="Bound"
+      >m</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" class="Symbol"
+      >=</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="Function.html#2761" class="Function Operator"
+      >case</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" class="Symbol"
+      >(</a
+      ><a name="1771" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="1776"
+      > </a
+      ><a name="1777" href="ooAgda.SizedIO.Base.html#1761" class="Bound"
+      >m</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" class="Symbol"
+      >{_})</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="Function.html#2761" class="Function Operator"
+      >of</a
+      ><a name="1786"
+      >
+    </a
+      ><a name="1791" class="Symbol"
+      >&#955;{</a
+      ><a name="1793"
+      > </a
+      ><a name="1794" class="Symbol"
+      >(</a
+      ><a name="1795" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" href="ooAgda.SizedIO.Base.html#1799" class="Bound"
+      >c</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" href="ooAgda.SizedIO.Base.html#1801" class="Bound"
+      >f</a
+      ><a name="1802" class="Symbol"
+      >)</a
+      ><a name="1803"
+      >    </a
+      ><a name="1807" class="Symbol"
+      >&#8594;</a
+      ><a name="1808"
+      > </a
+      ><a name="1809" class="Symbol"
+      >(</a
+      ><a name="1810" href="ooAgda.SizedIO.Base.html#1746" class="Bound"
+      >translateLocal</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="ooAgda.SizedIO.Base.html#1799" class="Bound"
+      >c</a
+      ><a name="1826" class="Symbol"
+      >)</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" href="ooAgda.NativeIO.html#190" class="Postulate Operator"
+      >native&gt;&gt;=</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" class="Symbol"
+      >&#955;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="ooAgda.SizedIO.Base.html#1840" class="Bound"
+      >r</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" class="Symbol"
+      >&#8594;</a
+      ><a name="1843"
+      >
+         </a
+      ><a name="1853" href="ooAgda.SizedIO.Base.html#1622" class="Function"
+      >translateIO</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="ooAgda.SizedIO.Base.html#1746" class="Bound"
+      >translateLocal</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" class="Symbol"
+      >(</a
+      ><a name="1881" href="ooAgda.SizedIO.Base.html#1801" class="Bound"
+      >f</a
+      ><a name="1882"
+      > </a
+      ><a name="1883" href="ooAgda.SizedIO.Base.html#1840" class="Bound"
+      >r</a
+      ><a name="1884" class="Symbol"
+      >)</a
+      ><a name="1885"
+      >
+     </a
+      ><a name="1891" class="Symbol"
+      >;</a
+      ><a name="1892"
+      > </a
+      ><a name="1893" class="Symbol"
+      >(</a
+      ><a name="1894" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="ooAgda.SizedIO.Base.html#1902" class="Bound"
+      >a</a
+      ><a name="1903" class="Symbol"
+      >)</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" class="Symbol"
+      >&#8594;</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" href="ooAgda.NativeIO.html#146" class="Postulate"
+      >nativeReturn</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" href="ooAgda.SizedIO.Base.html#1902" class="Bound"
+      >a</a
+      ><a name="1921"
+      >
+     </a
+      ><a name="1927" class="Symbol"
+      >}</a
+      ><a name="1928"
+      >
+
+  </a
+      ><a name="1932" class="Comment"
+      >-- Recursion</a
+      ><a name="1944"
+      >
+
+  </a
+      ><a name="1948" class="Comment"
+      >-- trampoline provides a generic form of loop (generalizing while/repeat).</a
+      ><a name="2022"
+      >
+  </a
+      ><a name="2025" class="Comment"
+      >-- Starting at state s : S, step function f is iterated until it returns</a
+      ><a name="2097"
+      >
+  </a
+      ><a name="2100" class="Comment"
+      >-- a result in A.</a
+      ><a name="2117"
+      >
+
+  </a
+      ><a name="2121" href="ooAgda.SizedIO.Base.html#2121" class="Function"
+      >fromIO+'</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" class="Symbol"
+      >:</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" class="Symbol"
+      >&#8704;{</a
+      ><a name="2134" href="ooAgda.SizedIO.Base.html#2134" class="Bound"
+      >i</a
+      ><a name="2135" class="Symbol"
+      >}{</a
+      ><a name="2137" href="ooAgda.SizedIO.Base.html#2137" class="Bound"
+      >A</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" class="Symbol"
+      >:</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" class="PrimitiveType"
+      >Set</a
+      ><a name="2144" class="Symbol"
+      >}</a
+      ><a name="2145"
+      > </a
+      ><a name="2146" class="Symbol"
+      >&#8594;</a
+      ><a name="2147"
+      > </a
+      ><a name="2148" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="ooAgda.SizedIO.Base.html#2134" class="Bound"
+      >i</a
+      ><a name="2155"
+      > </a
+      ><a name="2156" href="ooAgda.SizedIO.Base.html#2137" class="Bound"
+      >A</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" class="Symbol"
+      >&#8594;</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="ooAgda.SizedIO.Base.html#2134" class="Bound"
+      >i</a
+      ><a name="2167"
+      > </a
+      ><a name="2168" href="ooAgda.SizedIO.Base.html#2137" class="Bound"
+      >A</a
+      ><a name="2169"
+      >
+  </a
+      ><a name="2172" href="ooAgda.SizedIO.Base.html#2121" class="Function"
+      >fromIO+'</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" class="Symbol"
+      >(</a
+      ><a name="2182" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="2185"
+      > </a
+      ><a name="2186" href="ooAgda.SizedIO.Base.html#2186" class="Bound"
+      >c</a
+      ><a name="2187"
+      > </a
+      ><a name="2188" href="ooAgda.SizedIO.Base.html#2188" class="Bound"
+      >f</a
+      ><a name="2189" class="Symbol"
+      >)</a
+      ><a name="2190"
+      > </a
+      ><a name="2191" class="Symbol"
+      >=</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="2196"
+      > </a
+      ><a name="2197" href="ooAgda.SizedIO.Base.html#2186" class="Bound"
+      >c</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" href="ooAgda.SizedIO.Base.html#2188" class="Bound"
+      >f</a
+      ><a name="2200"
+      >
+
+  </a
+      ><a name="2204" href="ooAgda.SizedIO.Base.html#2204" class="Function"
+      >fromIO+</a
+      ><a name="2211"
+      > </a
+      ><a name="2212" class="Symbol"
+      >:</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" class="Symbol"
+      >&#8704;{</a
+      ><a name="2216" href="ooAgda.SizedIO.Base.html#2216" class="Bound"
+      >i</a
+      ><a name="2217" class="Symbol"
+      >}{</a
+      ><a name="2219" href="ooAgda.SizedIO.Base.html#2219" class="Bound"
+      >A</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >:</a
+      ><a name="2222"
+      > </a
+      ><a name="2223" class="PrimitiveType"
+      >Set</a
+      ><a name="2226" class="Symbol"
+      >}</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="Symbol"
+      >&#8594;</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="2233"
+      > </a
+      ><a name="2234" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2235"
+      > </a
+      ><a name="2236" href="ooAgda.SizedIO.Base.html#2216" class="Bound"
+      >i</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" href="ooAgda.SizedIO.Base.html#2219" class="Bound"
+      >A</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" class="Symbol"
+      >&#8594;</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" href="ooAgda.SizedIO.Base.html#2216" class="Bound"
+      >i</a
+      ><a name="2248"
+      > </a
+      ><a name="2249" href="ooAgda.SizedIO.Base.html#2219" class="Bound"
+      >A</a
+      ><a name="2250"
+      >
+  </a
+      ><a name="2253" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" class="Symbol"
+      >(</a
+      ><a name="2260" href="ooAgda.SizedIO.Base.html#2204" class="Function"
+      >fromIO+</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" class="Symbol"
+      >(</a
+      ><a name="2269" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" href="ooAgda.SizedIO.Base.html#2273" class="Bound"
+      >c</a
+      ><a name="2274"
+      > </a
+      ><a name="2275" href="ooAgda.SizedIO.Base.html#2275" class="Bound"
+      >f</a
+      ><a name="2276" class="Symbol"
+      >))</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" class="Symbol"
+      >=</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" href="ooAgda.SizedIO.Base.html#2273" class="Bound"
+      >c</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" href="ooAgda.SizedIO.Base.html#2275" class="Bound"
+      >f</a
+      ><a name="2288"
+      >
+
+  </a
+      ><a name="2292" href="ooAgda.SizedIO.Base.html#2292" class="Function Operator"
+      >_&gt;&gt;=+'_</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" class="Symbol"
+      >:</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" class="Symbol"
+      >&#8704;{</a
+      ><a name="2304" href="ooAgda.SizedIO.Base.html#2304" class="Bound"
+      >i</a
+      ><a name="2305" class="Symbol"
+      >}{</a
+      ><a name="2307" href="ooAgda.SizedIO.Base.html#2307" class="Bound"
+      >A</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="ooAgda.SizedIO.Base.html#2309" class="Bound"
+      >B</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" class="Symbol"
+      >:</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" class="PrimitiveType"
+      >Set</a
+      ><a name="2316" class="Symbol"
+      >}(</a
+      ><a name="2318" href="ooAgda.SizedIO.Base.html#2318" class="Bound"
+      >m</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" class="Symbol"
+      >:</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="2325"
+      > </a
+      ><a name="2326" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2327"
+      > </a
+      ><a name="2328" href="ooAgda.SizedIO.Base.html#2304" class="Bound"
+      >i</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="ooAgda.SizedIO.Base.html#2307" class="Bound"
+      >A</a
+      ><a name="2331" class="Symbol"
+      >)</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" class="Symbol"
+      >(</a
+      ><a name="2334" href="ooAgda.SizedIO.Base.html#2334" class="Bound"
+      >k</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" class="Symbol"
+      >:</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="ooAgda.SizedIO.Base.html#2307" class="Bound"
+      >A</a
+      ><a name="2339"
+      > </a
+      ><a name="2340" class="Symbol"
+      >&#8594;</a
+      ><a name="2341"
+      > </a
+      ><a name="2342" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="ooAgda.SizedIO.Base.html#2304" class="Bound"
+      >i</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="ooAgda.SizedIO.Base.html#2309" class="Bound"
+      >B</a
+      ><a name="2350" class="Symbol"
+      >)</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" class="Symbol"
+      >&#8594;</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="2357"
+      > </a
+      ><a name="2358" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" href="ooAgda.SizedIO.Base.html#2304" class="Bound"
+      >i</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" href="ooAgda.SizedIO.Base.html#2309" class="Bound"
+      >B</a
+      ><a name="2363"
+      >
+  </a
+      ><a name="2366" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="2369"
+      > </a
+      ><a name="2370" href="ooAgda.SizedIO.Base.html#2370" class="Bound"
+      >c</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" href="ooAgda.SizedIO.Base.html#2372" class="Bound"
+      >f</a
+      ><a name="2373"
+      > </a
+      ><a name="2374" href="ooAgda.SizedIO.Base.html#2292" class="Function Operator"
+      >&gt;&gt;=+'</a
+      ><a name="2379"
+      > </a
+      ><a name="2380" href="ooAgda.SizedIO.Base.html#2380" class="Bound"
+      >k</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" class="Symbol"
+      >=</a
+      ><a name="2383"
+      > </a
+      ><a name="2384" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" href="ooAgda.SizedIO.Base.html#2370" class="Bound"
+      >c</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" class="Symbol"
+      >&#955;</a
+      ><a name="2391"
+      > </a
+      ><a name="2392" href="ooAgda.SizedIO.Base.html#2392" class="Bound"
+      >x</a
+      ><a name="2393"
+      > </a
+      ><a name="2394" class="Symbol"
+      >&#8594;</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="ooAgda.SizedIO.Base.html#2372" class="Bound"
+      >f</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" href="ooAgda.SizedIO.Base.html#2392" class="Bound"
+      >x</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >&gt;&gt;=</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="ooAgda.SizedIO.Base.html#2380" class="Bound"
+      >k</a
+      ><a name="2405"
+      >
+
+  </a
+      ><a name="2409" href="ooAgda.SizedIO.Base.html#2409" class="Function Operator"
+      >_&gt;&gt;=+_</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" class="Symbol"
+      >:</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" class="Symbol"
+      >&#8704;{</a
+      ><a name="2420" href="ooAgda.SizedIO.Base.html#2420" class="Bound"
+      >i</a
+      ><a name="2421" class="Symbol"
+      >}{</a
+      ><a name="2423" href="ooAgda.SizedIO.Base.html#2423" class="Bound"
+      >A</a
+      ><a name="2424"
+      > </a
+      ><a name="2425" href="ooAgda.SizedIO.Base.html#2425" class="Bound"
+      >B</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" class="Symbol"
+      >:</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" class="PrimitiveType"
+      >Set</a
+      ><a name="2432" class="Symbol"
+      >}(</a
+      ><a name="2434" href="ooAgda.SizedIO.Base.html#2434" class="Bound"
+      >m</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" class="Symbol"
+      >:</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="2441"
+      > </a
+      ><a name="2442" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2443"
+      > </a
+      ><a name="2444" href="ooAgda.SizedIO.Base.html#2420" class="Bound"
+      >i</a
+      ><a name="2445"
+      > </a
+      ><a name="2446" href="ooAgda.SizedIO.Base.html#2423" class="Bound"
+      >A</a
+      ><a name="2447" class="Symbol"
+      >)</a
+      ><a name="2448"
+      > </a
+      ><a name="2449" class="Symbol"
+      >(</a
+      ><a name="2450" href="ooAgda.SizedIO.Base.html#2450" class="Bound"
+      >k</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" class="Symbol"
+      >:</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="ooAgda.SizedIO.Base.html#2423" class="Bound"
+      >A</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" class="Symbol"
+      >&#8594;</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2460"
+      > </a
+      ><a name="2461" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2462"
+      > </a
+      ><a name="2463" href="ooAgda.SizedIO.Base.html#2420" class="Bound"
+      >i</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" href="ooAgda.SizedIO.Base.html#2425" class="Bound"
+      >B</a
+      ><a name="2466" class="Symbol"
+      >)</a
+      ><a name="2467"
+      > </a
+      ><a name="2468" class="Symbol"
+      >&#8594;</a
+      ><a name="2469"
+      > </a
+      ><a name="2470" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="ooAgda.SizedIO.Base.html#2420" class="Bound"
+      >i</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" href="ooAgda.SizedIO.Base.html#2425" class="Bound"
+      >B</a
+      ><a name="2478"
+      >
+  </a
+      ><a name="2481" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" class="Symbol"
+      >(</a
+      ><a name="2488" href="ooAgda.SizedIO.Base.html#2488" class="Bound"
+      >m</a
+      ><a name="2489"
+      > </a
+      ><a name="2490" href="ooAgda.SizedIO.Base.html#2409" class="Function Operator"
+      >&gt;&gt;=+</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="ooAgda.SizedIO.Base.html#2495" class="Bound"
+      >k</a
+      ><a name="2496" class="Symbol"
+      >)</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" class="Symbol"
+      >=</a
+      ><a name="2499"
+      > </a
+      ><a name="2500" href="ooAgda.SizedIO.Base.html#2488" class="Bound"
+      >m</a
+      ><a name="2501"
+      > </a
+      ><a name="2502" href="ooAgda.SizedIO.Base.html#2292" class="Function Operator"
+      >&gt;&gt;=+'</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="ooAgda.SizedIO.Base.html#2495" class="Bound"
+      >k</a
+      ><a name="2509"
+      >
+
+  </a
+      ><a name="2513" class="Keyword"
+      >mutual</a
+      ><a name="2519"
+      >
+
+    </a
+      ><a name="2525" href="ooAgda.SizedIO.Base.html#2525" class="Function Operator"
+      >_&gt;&gt;+_</a
+      ><a name="2530"
+      > </a
+      ><a name="2531" class="Symbol"
+      >:</a
+      ><a name="2532"
+      > </a
+      ><a name="2533" class="Symbol"
+      >&#8704;{</a
+      ><a name="2535" href="ooAgda.SizedIO.Base.html#2535" class="Bound"
+      >i</a
+      ><a name="2536" class="Symbol"
+      >}{</a
+      ><a name="2538" href="ooAgda.SizedIO.Base.html#2538" class="Bound"
+      >A</a
+      ><a name="2539"
+      > </a
+      ><a name="2540" href="ooAgda.SizedIO.Base.html#2540" class="Bound"
+      >B</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" class="Symbol"
+      >:</a
+      ><a name="2543"
+      > </a
+      ><a name="2544" class="PrimitiveType"
+      >Set</a
+      ><a name="2547" class="Symbol"
+      >}(</a
+      ><a name="2549" href="ooAgda.SizedIO.Base.html#2549" class="Bound"
+      >m</a
+      ><a name="2550"
+      > </a
+      ><a name="2551" class="Symbol"
+      >:</a
+      ><a name="2552"
+      > </a
+      ><a name="2553" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2555"
+      > </a
+      ><a name="2556" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2557"
+      > </a
+      ><a name="2558" href="ooAgda.SizedIO.Base.html#2535" class="Bound"
+      >i</a
+      ><a name="2559"
+      > </a
+      ><a name="2560" class="Symbol"
+      >(</a
+      ><a name="2561" href="ooAgda.SizedIO.Base.html#2538" class="Bound"
+      >A</a
+      ><a name="2562"
+      > </a
+      ><a name="2563" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="2564"
+      > </a
+      ><a name="2565" href="ooAgda.SizedIO.Base.html#2540" class="Bound"
+      >B</a
+      ><a name="2566" class="Symbol"
+      >))</a
+      ><a name="2568"
+      > </a
+      ><a name="2569" class="Symbol"
+      >(</a
+      ><a name="2570" href="ooAgda.SizedIO.Base.html#2570" class="Bound"
+      >k</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" class="Symbol"
+      >:</a
+      ><a name="2573"
+      > </a
+      ><a name="2574" href="ooAgda.SizedIO.Base.html#2538" class="Bound"
+      >A</a
+      ><a name="2575"
+      > </a
+      ><a name="2576" class="Symbol"
+      >&#8594;</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2580"
+      > </a
+      ><a name="2581" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2582"
+      > </a
+      ><a name="2583" href="ooAgda.SizedIO.Base.html#2535" class="Bound"
+      >i</a
+      ><a name="2584"
+      > </a
+      ><a name="2585" href="ooAgda.SizedIO.Base.html#2540" class="Bound"
+      >B</a
+      ><a name="2586" class="Symbol"
+      >)</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" class="Symbol"
+      >&#8594;</a
+      ><a name="2589"
+      > </a
+      ><a name="2590" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" href="ooAgda.SizedIO.Base.html#2535" class="Bound"
+      >i</a
+      ><a name="2596"
+      > </a
+      ><a name="2597" href="ooAgda.SizedIO.Base.html#2540" class="Bound"
+      >B</a
+      ><a name="2598"
+      >
+    </a
+      ><a name="2603" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="2608"
+      > </a
+      ><a name="2609" class="Symbol"
+      >(</a
+      ><a name="2610" href="ooAgda.SizedIO.Base.html#2610" class="Bound"
+      >m</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" href="ooAgda.SizedIO.Base.html#2525" class="Function Operator"
+      >&gt;&gt;+</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="ooAgda.SizedIO.Base.html#2616" class="Bound"
+      >k</a
+      ><a name="2617" class="Symbol"
+      >)</a
+      ><a name="2618"
+      > </a
+      ><a name="2619" class="Symbol"
+      >=</a
+      ><a name="2620"
+      > </a
+      ><a name="2621" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="2626"
+      > </a
+      ><a name="2627" href="ooAgda.SizedIO.Base.html#2610" class="Bound"
+      >m</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" href="ooAgda.SizedIO.Base.html#2641" class="Function Operator"
+      >&gt;&gt;+'</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" href="ooAgda.SizedIO.Base.html#2616" class="Bound"
+      >k</a
+      ><a name="2635"
+      >
+
+    </a
+      ><a name="2641" href="ooAgda.SizedIO.Base.html#2641" class="Function Operator"
+      >_&gt;&gt;+'_</a
+      ><a name="2647"
+      > </a
+      ><a name="2648" class="Symbol"
+      >:</a
+      ><a name="2649"
+      > </a
+      ><a name="2650" class="Symbol"
+      >&#8704;{</a
+      ><a name="2652" href="ooAgda.SizedIO.Base.html#2652" class="Bound"
+      >j</a
+      ><a name="2653" class="Symbol"
+      >}{</a
+      ><a name="2655" href="ooAgda.SizedIO.Base.html#2655" class="Bound"
+      >A</a
+      ><a name="2656"
+      > </a
+      ><a name="2657" href="ooAgda.SizedIO.Base.html#2657" class="Bound"
+      >B</a
+      ><a name="2658"
+      > </a
+      ><a name="2659" class="Symbol"
+      >:</a
+      ><a name="2660"
+      > </a
+      ><a name="2661" class="PrimitiveType"
+      >Set</a
+      ><a name="2664" class="Symbol"
+      >}</a
+      ><a name="2665"
+      > </a
+      ><a name="2666" class="Symbol"
+      >(</a
+      ><a name="2667" href="ooAgda.SizedIO.Base.html#2667" class="Bound"
+      >m</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" class="Symbol"
+      >:</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="2674"
+      > </a
+      ><a name="2675" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="ooAgda.SizedIO.Base.html#2652" class="Bound"
+      >j</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" class="Symbol"
+      >(</a
+      ><a name="2680" href="ooAgda.SizedIO.Base.html#2655" class="Bound"
+      >A</a
+      ><a name="2681"
+      > </a
+      ><a name="2682" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="2683"
+      > </a
+      ><a name="2684" href="ooAgda.SizedIO.Base.html#2657" class="Bound"
+      >B</a
+      ><a name="2685" class="Symbol"
+      >))</a
+      ><a name="2687"
+      > </a
+      ><a name="2688" class="Symbol"
+      >(</a
+      ><a name="2689" href="ooAgda.SizedIO.Base.html#2689" class="Bound"
+      >k</a
+      ><a name="2690"
+      > </a
+      ><a name="2691" class="Symbol"
+      >:</a
+      ><a name="2692"
+      > </a
+      ><a name="2693" href="ooAgda.SizedIO.Base.html#2655" class="Bound"
+      >A</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" class="Symbol"
+      >&#8594;</a
+      ><a name="2696"
+      > </a
+      ><a name="2697" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2699"
+      > </a
+      ><a name="2700" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" class="Symbol"
+      >(</a
+      ><a name="2703" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" href="ooAgda.SizedIO.Base.html#2652" class="Bound"
+      >j</a
+      ><a name="2706" class="Symbol"
+      >)</a
+      ><a name="2707"
+      > </a
+      ><a name="2708" href="ooAgda.SizedIO.Base.html#2657" class="Bound"
+      >B</a
+      ><a name="2709" class="Symbol"
+      >)</a
+      ><a name="2710"
+      > </a
+      ><a name="2711" class="Symbol"
+      >&#8594;</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2718"
+      > </a
+      ><a name="2719" href="ooAgda.SizedIO.Base.html#2652" class="Bound"
+      >j</a
+      ><a name="2720"
+      > </a
+      ><a name="2721" href="ooAgda.SizedIO.Base.html#2657" class="Bound"
+      >B</a
+      ><a name="2722"
+      >
+    </a
+      ><a name="2727" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="2730"
+      > </a
+      ><a name="2731" href="ooAgda.SizedIO.Base.html#2731" class="Bound"
+      >c</a
+      ><a name="2732"
+      > </a
+      ><a name="2733" href="ooAgda.SizedIO.Base.html#2733" class="Bound"
+      >f</a
+      ><a name="2734"
+      >            </a
+      ><a name="2746" href="ooAgda.SizedIO.Base.html#2641" class="Function Operator"
+      >&gt;&gt;+'</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" href="ooAgda.SizedIO.Base.html#2751" class="Bound"
+      >k</a
+      ><a name="2752"
+      > </a
+      ><a name="2753" class="Symbol"
+      >=</a
+      ><a name="2754"
+      > </a
+      ><a name="2755" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="2758"
+      > </a
+      ><a name="2759" href="ooAgda.SizedIO.Base.html#2731" class="Bound"
+      >c</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" class="Symbol"
+      >&#955;</a
+      ><a name="2762"
+      > </a
+      ><a name="2763" href="ooAgda.SizedIO.Base.html#2763" class="Bound"
+      >x</a
+      ><a name="2764"
+      > </a
+      ><a name="2765" class="Symbol"
+      >&#8594;</a
+      ><a name="2766"
+      > </a
+      ><a name="2767" href="ooAgda.SizedIO.Base.html#2733" class="Bound"
+      >f</a
+      ><a name="2768"
+      > </a
+      ><a name="2769" href="ooAgda.SizedIO.Base.html#2763" class="Bound"
+      >x</a
+      ><a name="2770"
+      > </a
+      ><a name="2771" href="ooAgda.SizedIO.Base.html#2525" class="Function Operator"
+      >&gt;&gt;+</a
+      ><a name="2774"
+      > </a
+      ><a name="2775" href="ooAgda.SizedIO.Base.html#2751" class="Bound"
+      >k</a
+      ><a name="2776"
+      >
+    </a
+      ><a name="2781" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="2788"
+      > </a
+      ><a name="2789" class="Symbol"
+      >(</a
+      ><a name="2790" href="Data.Sum.html#489" class="InductiveConstructor"
+      >left</a
+      ><a name="2794"
+      >  </a
+      ><a name="2796" href="ooAgda.SizedIO.Base.html#2796" class="Bound"
+      >a</a
+      ><a name="2797" class="Symbol"
+      >)</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" href="ooAgda.SizedIO.Base.html#2641" class="Function Operator"
+      >&gt;&gt;+'</a
+      ><a name="2803"
+      > </a
+      ><a name="2804" href="ooAgda.SizedIO.Base.html#2804" class="Bound"
+      >k</a
+      ><a name="2805"
+      > </a
+      ><a name="2806" class="Symbol"
+      >=</a
+      ><a name="2807"
+      > </a
+      ><a name="2808" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" class="Symbol"
+      >(</a
+      ><a name="2815" href="ooAgda.SizedIO.Base.html#2804" class="Bound"
+      >k</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" href="ooAgda.SizedIO.Base.html#2796" class="Bound"
+      >a</a
+      ><a name="2818" class="Symbol"
+      >)</a
+      ><a name="2819"
+      >
+    </a
+      ><a name="2824" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="2831"
+      > </a
+      ><a name="2832" class="Symbol"
+      >(</a
+      ><a name="2833" href="Data.Sum.html#514" class="InductiveConstructor"
+      >right</a
+      ><a name="2838"
+      > </a
+      ><a name="2839" href="ooAgda.SizedIO.Base.html#2839" class="Bound"
+      >b</a
+      ><a name="2840" class="Symbol"
+      >)</a
+      ><a name="2841"
+      > </a
+      ><a name="2842" href="ooAgda.SizedIO.Base.html#2641" class="Function Operator"
+      >&gt;&gt;+'</a
+      ><a name="2846"
+      > </a
+      ><a name="2847" href="ooAgda.SizedIO.Base.html#2847" class="Bound"
+      >k</a
+      ><a name="2848"
+      > </a
+      ><a name="2849" class="Symbol"
+      >=</a
+      ><a name="2850"
+      > </a
+      ><a name="2851" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="2858"
+      > </a
+      ><a name="2859" href="ooAgda.SizedIO.Base.html#2839" class="Bound"
+      >b</a
+      ><a name="2860"
+      >
+
+   </a
+      ><a name="2865" class="Comment"
+      >-- loop</a
+      ><a name="2872"
+      >
+
+  </a
+      ><a name="2876" href="ooAgda.SizedIO.Base.html#2876" class="Function"
+      >trampoline</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" class="Symbol"
+      >:</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" class="Symbol"
+      >&#8704;{</a
+      ><a name="2891" href="ooAgda.SizedIO.Base.html#2891" class="Bound"
+      >i</a
+      ><a name="2892" class="Symbol"
+      >}{</a
+      ><a name="2894" href="ooAgda.SizedIO.Base.html#2894" class="Bound"
+      >A</a
+      ><a name="2895"
+      > </a
+      ><a name="2896" href="ooAgda.SizedIO.Base.html#2896" class="Bound"
+      >S</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" class="Symbol"
+      >:</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" class="PrimitiveType"
+      >Set</a
+      ><a name="2903" class="Symbol"
+      >}</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" class="Symbol"
+      >(</a
+      ><a name="2906" href="ooAgda.SizedIO.Base.html#2906" class="Bound"
+      >f</a
+      ><a name="2907"
+      > </a
+      ><a name="2908" class="Symbol"
+      >:</a
+      ><a name="2909"
+      > </a
+      ><a name="2910" href="ooAgda.SizedIO.Base.html#2896" class="Bound"
+      >S</a
+      ><a name="2911"
+      > </a
+      ><a name="2912" class="Symbol"
+      >&#8594;</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="2917"
+      > </a
+      ><a name="2918" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2919"
+      > </a
+      ><a name="2920" href="ooAgda.SizedIO.Base.html#2891" class="Bound"
+      >i</a
+      ><a name="2921"
+      > </a
+      ><a name="2922" class="Symbol"
+      >(</a
+      ><a name="2923" href="ooAgda.SizedIO.Base.html#2896" class="Bound"
+      >S</a
+      ><a name="2924"
+      > </a
+      ><a name="2925" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="2926"
+      > </a
+      ><a name="2927" href="ooAgda.SizedIO.Base.html#2894" class="Bound"
+      >A</a
+      ><a name="2928" class="Symbol"
+      >))</a
+      ><a name="2930"
+      > </a
+      ><a name="2931" class="Symbol"
+      >(</a
+      ><a name="2932" href="ooAgda.SizedIO.Base.html#2932" class="Bound"
+      >s</a
+      ><a name="2933"
+      > </a
+      ><a name="2934" class="Symbol"
+      >:</a
+      ><a name="2935"
+      > </a
+      ><a name="2936" href="ooAgda.SizedIO.Base.html#2896" class="Bound"
+      >S</a
+      ><a name="2937" class="Symbol"
+      >)</a
+      ><a name="2938"
+      > </a
+      ><a name="2939" class="Symbol"
+      >&#8594;</a
+      ><a name="2940"
+      > </a
+      ><a name="2941" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="2943"
+      > </a
+      ><a name="2944" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" href="ooAgda.SizedIO.Base.html#2891" class="Bound"
+      >i</a
+      ><a name="2947"
+      > </a
+      ><a name="2948" href="ooAgda.SizedIO.Base.html#2894" class="Bound"
+      >A</a
+      ><a name="2949"
+      >
+  </a
+      ><a name="2952" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" class="Symbol"
+      >(</a
+      ><a name="2959" href="ooAgda.SizedIO.Base.html#2876" class="Function"
+      >trampoline</a
+      ><a name="2969"
+      > </a
+      ><a name="2970" href="ooAgda.SizedIO.Base.html#2970" class="Bound"
+      >f</a
+      ><a name="2971"
+      > </a
+      ><a name="2972" href="ooAgda.SizedIO.Base.html#2972" class="Bound"
+      >s</a
+      ><a name="2973" class="Symbol"
+      >)</a
+      ><a name="2974"
+      > </a
+      ><a name="2975" class="Symbol"
+      >=</a
+      ><a name="2976"
+      > </a
+      ><a name="2977" href="Function.html#2761" class="Function Operator"
+      >case</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" class="Symbol"
+      >(</a
+      ><a name="2983" href="ooAgda.SizedIO.Base.html#2970" class="Bound"
+      >f</a
+      ><a name="2984"
+      > </a
+      ><a name="2985" href="ooAgda.SizedIO.Base.html#2972" class="Bound"
+      >s</a
+      ><a name="2986" class="Symbol"
+      >)</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="Function.html#2761" class="Function Operator"
+      >of</a
+      ><a name="2990"
+      >
+    </a
+      ><a name="2995" class="Symbol"
+      >\{</a
+      ><a name="2997"
+      > </a
+      ><a name="2998" class="Symbol"
+      >(</a
+      ><a name="2999" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" href="ooAgda.SizedIO.Base.html#3003" class="Bound"
+      >c</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="ooAgda.SizedIO.Base.html#3005" class="Bound"
+      >k</a
+      ><a name="3006" class="Symbol"
+      >)</a
+      ><a name="3007"
+      > </a
+      ><a name="3008" class="Symbol"
+      >&#8594;</a
+      ><a name="3009"
+      > </a
+      ><a name="3010" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="3013"
+      > </a
+      ><a name="3014" href="ooAgda.SizedIO.Base.html#3003" class="Bound"
+      >c</a
+      ><a name="3015"
+      > </a
+      ><a name="3016" class="Symbol"
+      >&#955;</a
+      ><a name="3017"
+      > </a
+      ><a name="3018" href="ooAgda.SizedIO.Base.html#3018" class="Bound"
+      >r</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" class="Symbol"
+      >&#8594;</a
+      ><a name="3021"
+      > </a
+      ><a name="3022" href="ooAgda.SizedIO.Base.html#3005" class="Bound"
+      >k</a
+      ><a name="3023"
+      > </a
+      ><a name="3024" href="ooAgda.SizedIO.Base.html#3018" class="Bound"
+      >r</a
+      ><a name="3025"
+      > </a
+      ><a name="3026" href="ooAgda.SizedIO.Base.html#2525" class="Function Operator"
+      >&gt;&gt;+</a
+      ><a name="3029"
+      > </a
+      ><a name="3030" href="ooAgda.SizedIO.Base.html#2876" class="Function"
+      >trampoline</a
+      ><a name="3040"
+      > </a
+      ><a name="3041" href="ooAgda.SizedIO.Base.html#2970" class="Bound"
+      >f</a
+      ><a name="3042"
+      > </a
+      ><a name="3043" class="Symbol"
+      >}</a
+      ><a name="3044"
+      >
+
+  </a
+      ><a name="3048" class="Comment"
+      >-- simple infinite loop</a
+      ><a name="3071"
+      >
+
+  </a
+      ><a name="3075" href="ooAgda.SizedIO.Base.html#3075" class="Function"
+      >forever</a
+      ><a name="3082"
+      > </a
+      ><a name="3083" class="Symbol"
+      >:</a
+      ><a name="3084"
+      > </a
+      ><a name="3085" class="Symbol"
+      >&#8704;{</a
+      ><a name="3087" href="ooAgda.SizedIO.Base.html#3087" class="Bound"
+      >i</a
+      ><a name="3088" class="Symbol"
+      >}{</a
+      ><a name="3090" href="ooAgda.SizedIO.Base.html#3090" class="Bound"
+      >A</a
+      ><a name="3091"
+      > </a
+      ><a name="3092" href="ooAgda.SizedIO.Base.html#3092" class="Bound"
+      >B</a
+      ><a name="3093"
+      > </a
+      ><a name="3094" class="Symbol"
+      >:</a
+      ><a name="3095"
+      > </a
+      ><a name="3096" class="PrimitiveType"
+      >Set</a
+      ><a name="3099" class="Symbol"
+      >}</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" class="Symbol"
+      >&#8594;</a
+      ><a name="3102"
+      > </a
+      ><a name="3103" href="ooAgda.SizedIO.Base.html#787" class="Datatype"
+      >IO+</a
+      ><a name="3106"
+      > </a
+      ><a name="3107" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="3108"
+      > </a
+      ><a name="3109" href="ooAgda.SizedIO.Base.html#3087" class="Bound"
+      >i</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="ooAgda.SizedIO.Base.html#3090" class="Bound"
+      >A</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" class="Symbol"
+      >&#8594;</a
+      ><a name="3114"
+      > </a
+      ><a name="3115" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="3117"
+      > </a
+      ><a name="3118" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="3119"
+      > </a
+      ><a name="3120" href="ooAgda.SizedIO.Base.html#3087" class="Bound"
+      >i</a
+      ><a name="3121"
+      > </a
+      ><a name="3122" href="ooAgda.SizedIO.Base.html#3092" class="Bound"
+      >B</a
+      ><a name="3123"
+      >
+  </a
+      ><a name="3126" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="3131"
+      > </a
+      ><a name="3132" class="Symbol"
+      >(</a
+      ><a name="3133" href="ooAgda.SizedIO.Base.html#3075" class="Function"
+      >forever</a
+      ><a name="3140"
+      > </a
+      ><a name="3141" class="Symbol"
+      >(</a
+      ><a name="3142" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="3145"
+      > </a
+      ><a name="3146" href="ooAgda.SizedIO.Base.html#3146" class="Bound"
+      >c</a
+      ><a name="3147"
+      > </a
+      ><a name="3148" href="ooAgda.SizedIO.Base.html#3148" class="Bound"
+      >f</a
+      ><a name="3149" class="Symbol"
+      >))</a
+      ><a name="3151"
+      > </a
+      ><a name="3152" class="Symbol"
+      >=</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="3157"
+      > </a
+      ><a name="3158" href="ooAgda.SizedIO.Base.html#3146" class="Bound"
+      >c</a
+      ><a name="3159"
+      > </a
+      ><a name="3160" class="Symbol"
+      >&#955;</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" href="ooAgda.SizedIO.Base.html#3162" class="Bound"
+      >r</a
+      ><a name="3163"
+      > </a
+      ><a name="3164" class="Symbol"
+      >&#8594;</a
+      ><a name="3165"
+      > </a
+      ><a name="3166" href="ooAgda.SizedIO.Base.html#3148" class="Bound"
+      >f</a
+      ><a name="3167"
+      > </a
+      ><a name="3168" href="ooAgda.SizedIO.Base.html#3162" class="Bound"
+      >r</a
+      ><a name="3169"
+      > </a
+      ><a name="3170" href="ooAgda.SizedIO.Base.html#1395" class="Function Operator"
+      >&gt;&gt;=</a
+      ><a name="3173"
+      > </a
+      ><a name="3174" class="Symbol"
+      >&#955;</a
+      ><a name="3175"
+      > </a
+      ><a name="3176" href="ooAgda.SizedIO.Base.html#3176" class="Bound"
+      >_</a
+      ><a name="3177"
+      > </a
+      ><a name="3178" class="Symbol"
+      >&#8594;</a
+      ><a name="3179"
+      > </a
+      ><a name="3180" href="ooAgda.SizedIO.Base.html#3075" class="Function"
+      >forever</a
+      ><a name="3187"
+      > </a
+      ><a name="3188" class="Symbol"
+      >(</a
+      ><a name="3189" href="ooAgda.SizedIO.Base.html#829" class="InductiveConstructor"
+      >do'</a
+      ><a name="3192"
+      > </a
+      ><a name="3193" href="ooAgda.SizedIO.Base.html#3146" class="Bound"
+      >c</a
+      ><a name="3194"
+      > </a
+      ><a name="3195" href="ooAgda.SizedIO.Base.html#3148" class="Bound"
+      >f</a
+      ><a name="3196" class="Symbol"
+      >)</a
+      ><a name="3197"
+      >
+
+  </a
+      ><a name="3201" href="ooAgda.SizedIO.Base.html#3201" class="Function"
+      >whenJust</a
+      ><a name="3209"
+      > </a
+      ><a name="3210" class="Symbol"
+      >:</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" class="Symbol"
+      >&#8704;{</a
+      ><a name="3214" href="ooAgda.SizedIO.Base.html#3214" class="Bound"
+      >i</a
+      ><a name="3215" class="Symbol"
+      >}{</a
+      ><a name="3217" href="ooAgda.SizedIO.Base.html#3217" class="Bound"
+      >A</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" class="Symbol"
+      >:</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" class="PrimitiveType"
+      >Set</a
+      ><a name="3224" class="Symbol"
+      >}</a
+      ><a name="3225"
+      > </a
+      ><a name="3226" class="Symbol"
+      >&#8594;</a
+      ><a name="3227"
+      > </a
+      ><a name="3228" href="Data.Maybe.Base.html#335" class="Datatype"
+      >Maybe</a
+      ><a name="3233"
+      > </a
+      ><a name="3234" href="ooAgda.SizedIO.Base.html#3217" class="Bound"
+      >A</a
+      ><a name="3235"
+      > </a
+      ><a name="3236" class="Symbol"
+      >&#8594;</a
+      ><a name="3237"
+      > </a
+      ><a name="3238" class="Symbol"
+      >(</a
+      ><a name="3239" href="ooAgda.SizedIO.Base.html#3217" class="Bound"
+      >A</a
+      ><a name="3240"
+      > </a
+      ><a name="3241" class="Symbol"
+      >&#8594;</a
+      ><a name="3242"
+      > </a
+      ><a name="3243" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="3245"
+      > </a
+      ><a name="3246" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="3247"
+      > </a
+      ><a name="3248" href="ooAgda.SizedIO.Base.html#3214" class="Bound"
+      >i</a
+      ><a name="3249"
+      > </a
+      ><a name="3250" class="Symbol"
+      >(</a
+      ><a name="3251" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="3255"
+      > </a
+      ><a name="3256" class="Symbol"
+      >))</a
+      ><a name="3258"
+      > </a
+      ><a name="3259" class="Symbol"
+      >&#8594;</a
+      ><a name="3260"
+      > </a
+      ><a name="3261" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="3263"
+      > </a
+      ><a name="3264" href="ooAgda.SizedIO.Base.html#900" class="Bound"
+      >I</a
+      ><a name="3265"
+      > </a
+      ><a name="3266" href="ooAgda.SizedIO.Base.html#3214" class="Bound"
+      >i</a
+      ><a name="3267"
+      > </a
+      ><a name="3268" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="3272"
+      >
+  </a
+      ><a name="3275" href="ooAgda.SizedIO.Base.html#3201" class="Function"
+      >whenJust</a
+      ><a name="3283"
+      > </a
+      ><a name="3284" href="Data.Maybe.Base.html#403" class="InductiveConstructor"
+      >nothing</a
+      ><a name="3291"
+      >  </a
+      ><a name="3293" href="ooAgda.SizedIO.Base.html#3293" class="Bound"
+      >k</a
+      ><a name="3294"
+      > </a
+      ><a name="3295" class="Symbol"
+      >=</a
+      ><a name="3296"
+      > </a
+      ><a name="3297" href="ooAgda.SizedIO.Base.html#968" class="Function"
+      >return</a
+      ><a name="3303"
+      > </a
+      ><a name="3304" class="Symbol"
+      >_</a
+      ><a name="3305"
+      >
+  </a
+      ><a name="3308" href="ooAgda.SizedIO.Base.html#3201" class="Function"
+      >whenJust</a
+      ><a name="3316"
+      > </a
+      ><a name="3317" class="Symbol"
+      >(</a
+      ><a name="3318" href="Data.Maybe.Base.html#373" class="InductiveConstructor"
+      >just</a
+      ><a name="3322"
+      > </a
+      ><a name="3323" href="ooAgda.SizedIO.Base.html#3323" class="Bound"
+      >a</a
+      ><a name="3324" class="Symbol"
+      >)</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" href="ooAgda.SizedIO.Base.html#3326" class="Bound"
+      >k</a
+      ><a name="3327"
+      > </a
+      ><a name="3328" class="Symbol"
+      >=</a
+      ><a name="3329"
+      > </a
+      ><a name="3330" href="ooAgda.SizedIO.Base.html#3326" class="Bound"
+      >k</a
+      ><a name="3331"
+      > </a
+      ><a name="3332" href="ooAgda.SizedIO.Base.html#3323" class="Bound"
+      >a</a
+      ><a name="3333"
+      >
+
+
+</a
+      ><a name="3336" class="Keyword"
+      >mutual</a
+      ><a name="3342"
+      > 
+  </a
+      ><a name="3346" href="ooAgda.SizedIO.Base.html#3346" class="Function"
+      >mapIO</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" class="Symbol"
+      >:</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" class="Symbol"
+      >&#8704;</a
+      ><a name="3355"
+      > </a
+      ><a name="3356" class="Symbol"
+      >{</a
+      ><a name="3357" href="ooAgda.SizedIO.Base.html#3357" class="Bound"
+      >i</a
+      ><a name="3358" class="Symbol"
+      >}</a
+      ><a name="3359"
+      > </a
+      ><a name="3360" class="Symbol"
+      >&#8594;</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" class="Symbol"
+      >{</a
+      ><a name="3363" href="ooAgda.SizedIO.Base.html#3363" class="Bound"
+      >I</a
+      ><a name="3364"
+      > </a
+      ><a name="3365" class="Symbol"
+      >:</a
+      ><a name="3366"
+      > </a
+      ><a name="3367" href="ooAgda.SizedIO.Base.html#302" class="Record"
+      >IOInterface</a
+      ><a name="3378" class="Symbol"
+      >}</a
+      ><a name="3379"
+      > </a
+      ><a name="3380" class="Symbol"
+      >&#8594;</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" class="Symbol"
+      >{</a
+      ><a name="3383" href="ooAgda.SizedIO.Base.html#3383" class="Bound"
+      >A</a
+      ><a name="3384"
+      > </a
+      ><a name="3385" href="ooAgda.SizedIO.Base.html#3385" class="Bound"
+      >B</a
+      ><a name="3386"
+      > </a
+      ><a name="3387" class="Symbol"
+      >:</a
+      ><a name="3388"
+      > </a
+      ><a name="3389" class="PrimitiveType"
+      >Set</a
+      ><a name="3392" class="Symbol"
+      >}</a
+      ><a name="3393"
+      > </a
+      ><a name="3394" class="Symbol"
+      >&#8594;</a
+      ><a name="3395"
+      > </a
+      ><a name="3396" class="Symbol"
+      >(</a
+      ><a name="3397" href="ooAgda.SizedIO.Base.html#3383" class="Bound"
+      >A</a
+      ><a name="3398"
+      > </a
+      ><a name="3399" class="Symbol"
+      >&#8594;</a
+      ><a name="3400"
+      > </a
+      ><a name="3401" href="ooAgda.SizedIO.Base.html#3385" class="Bound"
+      >B</a
+      ><a name="3402" class="Symbol"
+      >)</a
+      ><a name="3403"
+      > </a
+      ><a name="3404" class="Symbol"
+      >&#8594;</a
+      ><a name="3405"
+      > </a
+      ><a name="3406" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="3408"
+      > </a
+      ><a name="3409" href="ooAgda.SizedIO.Base.html#3363" class="Bound"
+      >I</a
+      ><a name="3410"
+      > </a
+      ><a name="3411" href="ooAgda.SizedIO.Base.html#3357" class="Bound"
+      >i</a
+      ><a name="3412"
+      >  </a
+      ><a name="3414" href="ooAgda.SizedIO.Base.html#3383" class="Bound"
+      >A</a
+      ><a name="3415"
+      >  </a
+      ><a name="3417" class="Symbol"
+      >&#8594;</a
+      ><a name="3418"
+      > </a
+      ><a name="3419" href="ooAgda.SizedIO.Base.html#513" class="Record"
+      >IO</a
+      ><a name="3421"
+      > </a
+      ><a name="3422" href="ooAgda.SizedIO.Base.html#3363" class="Bound"
+      >I</a
+      ><a name="3423"
+      > </a
+      ><a name="3424" href="ooAgda.SizedIO.Base.html#3357" class="Bound"
+      >i</a
+      ><a name="3425"
+      > </a
+      ><a name="3426" href="ooAgda.SizedIO.Base.html#3385" class="Bound"
+      >B</a
+      ><a name="3427"
+      >
+  </a
+      ><a name="3430" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="3435"
+      > </a
+      ><a name="3436" class="Symbol"
+      >(</a
+      ><a name="3437" href="ooAgda.SizedIO.Base.html#3346" class="Function"
+      >mapIO</a
+      ><a name="3442"
+      > </a
+      ><a name="3443" href="ooAgda.SizedIO.Base.html#3443" class="Bound"
+      >f</a
+      ><a name="3444"
+      > </a
+      ><a name="3445" href="ooAgda.SizedIO.Base.html#3445" class="Bound"
+      >p</a
+      ><a name="3446" class="Symbol"
+      >)</a
+      ><a name="3447"
+      > </a
+      ><a name="3448" class="Symbol"
+      >=</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" href="ooAgda.SizedIO.Base.html#3472" class="Function"
+      >mapIO'</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" href="ooAgda.SizedIO.Base.html#3443" class="Bound"
+      >f</a
+      ><a name="3458"
+      > </a
+      ><a name="3459" class="Symbol"
+      >(</a
+      ><a name="3460" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" href="ooAgda.SizedIO.Base.html#3445" class="Bound"
+      >p</a
+      ><a name="3467" class="Symbol"
+      >)</a
+      ><a name="3468"
+      >
+
+  </a
+      ><a name="3472" href="ooAgda.SizedIO.Base.html#3472" class="Function"
+      >mapIO'</a
+      ><a name="3478"
+      > </a
+      ><a name="3479" class="Symbol"
+      >:</a
+      ><a name="3480"
+      > </a
+      ><a name="3481" class="Symbol"
+      >&#8704;</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" class="Symbol"
+      >{</a
+      ><a name="3484" href="ooAgda.SizedIO.Base.html#3484" class="Bound"
+      >i</a
+      ><a name="3485" class="Symbol"
+      >}</a
+      ><a name="3486"
+      > </a
+      ><a name="3487" class="Symbol"
+      >&#8594;</a
+      ><a name="3488"
+      > </a
+      ><a name="3489" class="Symbol"
+      >{</a
+      ><a name="3490" href="ooAgda.SizedIO.Base.html#3490" class="Bound"
+      >I</a
+      ><a name="3491"
+      > </a
+      ><a name="3492" class="Symbol"
+      >:</a
+      ><a name="3493"
+      > </a
+      ><a name="3494" href="ooAgda.SizedIO.Base.html#302" class="Record"
+      >IOInterface</a
+      ><a name="3505" class="Symbol"
+      >}</a
+      ><a name="3506"
+      > </a
+      ><a name="3507" class="Symbol"
+      >&#8594;</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" class="Symbol"
+      >{</a
+      ><a name="3510" href="ooAgda.SizedIO.Base.html#3510" class="Bound"
+      >A</a
+      ><a name="3511"
+      > </a
+      ><a name="3512" href="ooAgda.SizedIO.Base.html#3512" class="Bound"
+      >B</a
+      ><a name="3513"
+      > </a
+      ><a name="3514" class="Symbol"
+      >:</a
+      ><a name="3515"
+      > </a
+      ><a name="3516" class="PrimitiveType"
+      >Set</a
+      ><a name="3519" class="Symbol"
+      >}</a
+      ><a name="3520"
+      > </a
+      ><a name="3521" class="Symbol"
+      >&#8594;</a
+      ><a name="3522"
+      > </a
+      ><a name="3523" class="Symbol"
+      >(</a
+      ><a name="3524" href="ooAgda.SizedIO.Base.html#3510" class="Bound"
+      >A</a
+      ><a name="3525"
+      > </a
+      ><a name="3526" class="Symbol"
+      >&#8594;</a
+      ><a name="3527"
+      > </a
+      ><a name="3528" href="ooAgda.SizedIO.Base.html#3512" class="Bound"
+      >B</a
+      ><a name="3529" class="Symbol"
+      >)</a
+      ><a name="3530"
+      > </a
+      ><a name="3531" class="Symbol"
+      >&#8594;</a
+      ><a name="3532"
+      > </a
+      ><a name="3533" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="3536"
+      > </a
+      ><a name="3537" href="ooAgda.SizedIO.Base.html#3490" class="Bound"
+      >I</a
+      ><a name="3538"
+      > </a
+      ><a name="3539" href="ooAgda.SizedIO.Base.html#3484" class="Bound"
+      >i</a
+      ><a name="3540"
+      >  </a
+      ><a name="3542" href="ooAgda.SizedIO.Base.html#3510" class="Bound"
+      >A</a
+      ><a name="3543"
+      >  </a
+      ><a name="3545" class="Symbol"
+      >&#8594;</a
+      ><a name="3546"
+      > </a
+      ><a name="3547" href="ooAgda.SizedIO.Base.html#654" class="Datatype"
+      >IO'</a
+      ><a name="3550"
+      > </a
+      ><a name="3551" href="ooAgda.SizedIO.Base.html#3490" class="Bound"
+      >I</a
+      ><a name="3552"
+      > </a
+      ><a name="3553" href="ooAgda.SizedIO.Base.html#3484" class="Bound"
+      >i</a
+      ><a name="3554"
+      > </a
+      ><a name="3555" href="ooAgda.SizedIO.Base.html#3512" class="Bound"
+      >B</a
+      ><a name="3556"
+      >
+  </a
+      ><a name="3559" href="ooAgda.SizedIO.Base.html#3472" class="Function"
+      >mapIO'</a
+      ><a name="3565"
+      > </a
+      ><a name="3566" href="ooAgda.SizedIO.Base.html#3566" class="Bound"
+      >f</a
+      ><a name="3567"
+      > </a
+      ><a name="3568" class="Symbol"
+      >(</a
+      ><a name="3569" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="3572"
+      > </a
+      ><a name="3573" href="ooAgda.SizedIO.Base.html#3573" class="Bound"
+      >c</a
+      ><a name="3574"
+      > </a
+      ><a name="3575" href="ooAgda.SizedIO.Base.html#3575" class="Bound"
+      >g</a
+      ><a name="3576" class="Symbol"
+      >)</a
+      ><a name="3577"
+      > </a
+      ><a name="3578" class="Symbol"
+      >=</a
+      ><a name="3579"
+      > </a
+      ><a name="3580" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="3583"
+      > </a
+      ><a name="3584" href="ooAgda.SizedIO.Base.html#3573" class="Bound"
+      >c</a
+      ><a name="3585"
+      > </a
+      ><a name="3586" class="Symbol"
+      >(&#955;</a
+      ><a name="3588"
+      > </a
+      ><a name="3589" href="ooAgda.SizedIO.Base.html#3589" class="Bound"
+      >r</a
+      ><a name="3590"
+      > </a
+      ><a name="3591" class="Symbol"
+      >&#8594;</a
+      ><a name="3592"
+      > </a
+      ><a name="3593" href="ooAgda.SizedIO.Base.html#3346" class="Function"
+      >mapIO</a
+      ><a name="3598"
+      > </a
+      ><a name="3599" href="ooAgda.SizedIO.Base.html#3566" class="Bound"
+      >f</a
+      ><a name="3600"
+      > </a
+      ><a name="3601" class="Symbol"
+      >(</a
+      ><a name="3602" href="ooAgda.SizedIO.Base.html#3575" class="Bound"
+      >g</a
+      ><a name="3603"
+      > </a
+      ><a name="3604" href="ooAgda.SizedIO.Base.html#3589" class="Bound"
+      >r</a
+      ><a name="3605" class="Symbol"
+      >))</a
+      ><a name="3607"
+      >
+  </a
+      ><a name="3610" href="ooAgda.SizedIO.Base.html#3472" class="Function"
+      >mapIO'</a
+      ><a name="3616"
+      > </a
+      ><a name="3617" href="ooAgda.SizedIO.Base.html#3617" class="Bound"
+      >f</a
+      ><a name="3618"
+      > </a
+      ><a name="3619" class="Symbol"
+      >(</a
+      ><a name="3620" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="3627"
+      > </a
+      ><a name="3628" href="ooAgda.SizedIO.Base.html#3628" class="Bound"
+      >a</a
+      ><a name="3629" class="Symbol"
+      >)</a
+      ><a name="3630"
+      > </a
+      ><a name="3631" class="Symbol"
+      >=</a
+      ><a name="3632"
+      > </a
+      ><a name="3633" href="ooAgda.SizedIO.Base.html#751" class="InductiveConstructor"
+      >return'</a
+      ><a name="3640"
+      > </a
+      ><a name="3641" class="Symbol"
+      >(</a
+      ><a name="3642" href="ooAgda.SizedIO.Base.html#3617" class="Bound"
+      >f</a
+      ><a name="3643"
+      > </a
+      ><a name="3644" href="ooAgda.SizedIO.Base.html#3628" class="Bound"
+      >a</a
+      ><a name="3645" class="Symbol"
+      >)</a
+      ><a name="3646"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

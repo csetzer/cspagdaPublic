@@ -1,0 +1,1364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >simulatorCutDown</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="simulatorCutDown.html#1" class="Module"
+      >simulatorCutDown</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >where</a
+      ><a name="30"
+      >
+
+
+</a
+      ><a name="33" class="Keyword"
+      >open</a
+      ><a name="37"
+      > </a
+      ><a name="38" class="Keyword"
+      >import</a
+      ><a name="44"
+      > </a
+      ><a name="45" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="49"
+      >
+</a
+      ><a name="50" class="Keyword"
+      >open</a
+      ><a name="54"
+      > </a
+      ><a name="55" class="Keyword"
+      >import</a
+      ><a name="61"
+      > </a
+      ><a name="62" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="70"
+      >
+</a
+      ><a name="71" class="Keyword"
+      >open</a
+      ><a name="75"
+      > </a
+      ><a name="76" class="Keyword"
+      >import</a
+      ><a name="82"
+      > </a
+      ><a name="83" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="92"
+      >
+</a
+      ><a name="93" class="Keyword"
+      >open</a
+      ><a name="97"
+      > </a
+      ><a name="98" class="Keyword"
+      >import</a
+      ><a name="104"
+      > </a
+      ><a name="105" href="Data.Maybe.html#1" class="Module"
+      >Data.Maybe</a
+      ><a name="115"
+      >
+</a
+      ><a name="116" class="Keyword"
+      >open</a
+      ><a name="120"
+      > </a
+      ><a name="121" class="Keyword"
+      >import</a
+      ><a name="127"
+      > </a
+      ><a name="128" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="137"
+      >
+</a
+      ><a name="138" class="Keyword"
+      >open</a
+      ><a name="142"
+      > </a
+      ><a name="143" class="Keyword"
+      >import</a
+      ><a name="149"
+      > </a
+      ><a name="150" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="161"
+      > </a
+      ><a name="162" class="Keyword"
+      >renaming</a
+      ><a name="170"
+      >  </a
+      ><a name="172" class="Symbol"
+      >(</a
+      ><a name="173" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="177"
+      > </a
+      ><a name="178" class="Symbol"
+      >to</a
+      ><a name="180"
+      > </a
+      ><a name="181" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="189" class="Symbol"
+      >;</a
+      ><a name="190"
+      > </a
+      ><a name="191" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="195"
+      > </a
+      ><a name="196" class="Symbol"
+      >to</a
+      ><a name="198"
+      > </a
+      ><a name="199" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="204" class="Symbol"
+      >)</a
+      ><a name="205"
+      >
+</a
+      ><a name="206" class="Keyword"
+      >open</a
+      ><a name="210"
+      > </a
+      ><a name="211" class="Keyword"
+      >import</a
+      ><a name="217"
+      > </a
+      ><a name="218" href="ooAgda.SizedIO.Base.html#1" class="Module"
+      >ooAgda.SizedIO.Base</a
+      ><a name="237"
+      >  </a
+      ><a name="239" class="Keyword"
+      >renaming</a
+      ><a name="247"
+      > </a
+      ><a name="248" class="Symbol"
+      >(</a
+      ><a name="249" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="254"
+      > </a
+      ><a name="255" class="Symbol"
+      >to</a
+      ><a name="257"
+      > </a
+      ><a name="258" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >forceIO</a
+      ><a name="265" class="Symbol"
+      >;</a
+      ><a name="266"
+      > </a
+      ><a name="267" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delay</a
+      ><a name="272"
+      > </a
+      ><a name="273" class="Symbol"
+      >to</a
+      ><a name="275"
+      > </a
+      ><a name="276" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delayIO</a
+      ><a name="283" class="Symbol"
+      >)</a
+      ><a name="284"
+      >
+</a
+      ><a name="285" class="Keyword"
+      >open</a
+      ><a name="289"
+      > </a
+      ><a name="290" class="Keyword"
+      >import</a
+      ><a name="296"
+      > </a
+      ><a name="297" href="ooAgda.SizedIO.Console.html#1" class="Module"
+      >ooAgda.SizedIO.Console</a
+      ><a name="319"
+      > </a
+      ><a name="320" class="Keyword"
+      >hiding</a
+      ><a name="326"
+      > </a
+      ><a name="327" class="Symbol"
+      >(</a
+      ><a name="328" href="ooAgda.SizedIO.Console.html#903" class="Function"
+      >main</a
+      ><a name="332" class="Symbol"
+      >)</a
+      ><a name="333"
+      >
+</a
+      ><a name="334" class="Keyword"
+      >open</a
+      ><a name="338"
+      > </a
+      ><a name="339" class="Keyword"
+      >import</a
+      ><a name="345"
+      > </a
+      ><a name="346" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="361"
+      > 
+</a
+      ><a name="363" class="Keyword"
+      >open</a
+      ><a name="367"
+      > </a
+      ><a name="368" class="Keyword"
+      >import</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="385"
+      >
+</a
+      ><a name="386" class="Keyword"
+      >open</a
+      ><a name="390"
+      > </a
+      ><a name="391" class="Keyword"
+      >import</a
+      ><a name="397"
+      > </a
+      ><a name="398" href="process.html#1" class="Module"
+      >process</a
+      ><a name="405"
+      > 
+</a
+      ><a name="407" class="Keyword"
+      >open</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="420"
+      >
+</a
+      ><a name="421" class="Keyword"
+      >open</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="434"
+      >
+</a
+      ><a name="435" class="Keyword"
+      >open</a
+      ><a name="439"
+      > </a
+      ><a name="440" class="Keyword"
+      >import</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="459"
+      >
+</a
+      ><a name="460" class="Keyword"
+      >open</a
+      ><a name="464"
+      > </a
+      ><a name="465" class="Keyword"
+      >import</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="489"
+      >
+</a
+      ><a name="490" class="Keyword"
+      >open</a
+      ><a name="494"
+      > </a
+      ><a name="495" class="Keyword"
+      >import</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="label.html#1" class="Module"
+      >label</a
+      ><a name="507"
+      >
+</a
+      ><a name="508" class="Keyword"
+      >open</a
+      ><a name="512"
+      > </a
+      ><a name="513" class="Keyword"
+      >import</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="526"
+      >
+</a
+      ><a name="527" class="Keyword"
+      >open</a
+      ><a name="531"
+      > </a
+      ><a name="532" class="Keyword"
+      >import</a
+      ><a name="538"
+      > </a
+      ><a name="539" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="555"
+      >
+</a
+      ><a name="556" class="Keyword"
+      >open</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Keyword"
+      >import</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="interleave.html#1" class="Module"
+      >interleave</a
+      ><a name="578"
+      >
+
+
+</a
+      ><a name="581" class="Keyword"
+      >mutual</a
+      ><a name="587"
+      >
+   </a
+      ><a name="591" href="simulatorCutDown.html#591" class="Function"
+      >simulator</a
+      ><a name="600"
+      > </a
+      ><a name="601" class="Symbol"
+      >:</a
+      ><a name="602"
+      > </a
+      ><a name="603" class="Symbol"
+      >&#8704;</a
+      ><a name="604"
+      > </a
+      ><a name="605" class="Symbol"
+      >{</a
+      ><a name="606" href="simulatorCutDown.html#606" class="Bound"
+      >i</a
+      ><a name="607" class="Symbol"
+      >}</a
+      ><a name="608"
+      > </a
+      ><a name="609" class="Symbol"
+      >&#8594;</a
+      ><a name="610"
+      > </a
+      ><a name="611" class="Symbol"
+      >{</a
+      ><a name="612" href="simulatorCutDown.html#612" class="Bound"
+      >c&#8320;</a
+      ><a name="614"
+      > </a
+      ><a name="615" class="Symbol"
+      >:</a
+      ><a name="616"
+      > </a
+      ><a name="617" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="623" class="Symbol"
+      >}</a
+      ><a name="624"
+      > 
+            </a
+      ><a name="638" class="Symbol"
+      >&#8594;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="649"
+      > </a
+      ><a name="650" href="simulatorCutDown.html#612" class="Bound"
+      >c&#8320;</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >&#8594;</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="ooAgda.SizedIO.Console.html#478" class="Function"
+      >IOConsole</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="simulatorCutDown.html#606" class="Bound"
+      >i</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="671"
+      >
+   </a
+      ><a name="675" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >forceIO</a
+      ><a name="682"
+      > </a
+      ><a name="683" class="Symbol"
+      >(</a
+      ><a name="684" href="simulatorCutDown.html#591" class="Function"
+      >simulator</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="695" class="Symbol"
+      >)</a
+      ><a name="696"
+      > </a
+      ><a name="697" class="Symbol"
+      >=</a
+      ><a name="698"
+      > 
+      </a
+      ><a name="706" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="709"
+      > </a
+      ><a name="710" class="Symbol"
+      >(</a
+      ><a name="711" href="ooAgda.SizedIO.Console.html#203" class="InductiveConstructor"
+      >putStrLn</a
+      ><a name="719"
+      > </a
+      ><a name="720" class="Symbol"
+      >(</a
+      ><a name="721" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="726" class="Symbol"
+      >))</a
+      ><a name="728"
+      >                 </a
+      ><a name="745" class="Symbol"
+      >&#955;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="simulatorCutDown.html#747" class="Bound"
+      >_</a
+      ><a name="748"
+      >  </a
+      ><a name="750" class="Symbol"
+      >&#8594;</a
+      ><a name="751"
+      > 
+      </a
+      ><a name="759" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="761"
+      >  </a
+      ><a name="763" class="Symbol"
+      >(</a
+      ><a name="764" href="ooAgda.SizedIO.Console.html#203" class="InductiveConstructor"
+      >putStrLn</a
+      ><a name="772"
+      > </a
+      ><a name="773" class="Symbol"
+      >(</a
+      ><a name="774" class="String"
+      >&quot;Termination-Events:&quot;</a
+      ><a name="795"
+      > 
+                     </a
+      ><a name="818" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="821"
+      > </a
+      ><a name="822" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="833" class="Symbol"
+      >))</a
+      ><a name="835"
+      >       </a
+      ><a name="842" class="Symbol"
+      >&#955;</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="simulatorCutDown.html#844" class="Bound"
+      >_</a
+      ><a name="845"
+      >  </a
+      ><a name="847" class="Symbol"
+      >&#8594;</a
+      ><a name="848"
+      > 
+      </a
+      ><a name="856" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="858"
+      >  </a
+      ><a name="860" class="Symbol"
+      >(</a
+      ><a name="861" href="ooAgda.SizedIO.Console.html#203" class="InductiveConstructor"
+      >putStrLn</a
+      ><a name="869"
+      > 
+             </a
+      ><a name="884" class="Symbol"
+      >(</a
+      ><a name="885" class="String"
+      >&quot;Events&quot;</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="911" class="Symbol"
+      >))</a
+      ><a name="913"
+      >   </a
+      ><a name="916" class="Symbol"
+      >&#955;</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="simulatorCutDown.html#918" class="Bound"
+      >_</a
+      ><a name="919"
+      >  </a
+      ><a name="921" class="Symbol"
+      >&#8594;</a
+      ><a name="922"
+      > 
+      </a
+      ><a name="930" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="932"
+      >  </a
+      ><a name="934" class="Symbol"
+      >(</a
+      ><a name="935" href="ooAgda.SizedIO.Console.html#203" class="InductiveConstructor"
+      >putStrLn</a
+      ><a name="943"
+      > </a
+      ><a name="944" class="Symbol"
+      >(</a
+      ><a name="945" class="String"
+      >&quot;Choose Event&quot;</a
+      ><a name="959" class="Symbol"
+      >))</a
+      ><a name="961"
+      >        </a
+      ><a name="969" class="Symbol"
+      >&#955;</a
+      ><a name="970"
+      > </a
+      ><a name="971" href="simulatorCutDown.html#971" class="Bound"
+      >_</a
+      ><a name="972"
+      >  </a
+      ><a name="974" class="Symbol"
+      >&#8594;</a
+      ><a name="975"
+      > 
+      </a
+      ><a name="983" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="985"
+      >  </a
+      ><a name="987" href="ooAgda.SizedIO.Console.html#240" class="InductiveConstructor"
+      >getLine</a
+      ><a name="994"
+      >                            </a
+      ><a name="1022" class="Symbol"
+      >&#955;</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="simulatorCutDown.html#1024" class="Bound"
+      >s</a
+      ><a name="1025"
+      >  </a
+      ><a name="1027" class="Symbol"
+      >&#8594;</a
+      ><a name="1028"
+      > 
+      </a
+      ><a name="1036" href="simulatorCutDown.html#1122" class="Function"
+      >simulator&#8321;</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="1048"
+      >  </a
+      ><a name="1050" class="Symbol"
+      >(</a
+      ><a name="1051" href="choiceAuxFunction.html#1262" class="Function"
+      >lookupChoice</a
+      ><a name="1063"
+      > 
+                    </a
+      ><a name="1085" class="Symbol"
+      >(</a
+      ><a name="1086" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="1098" class="Symbol"
+      >)</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" class="Symbol"
+      >(</a
+      ><a name="1101" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" href="simulatorCutDown.html#694" class="Bound"
+      >P</a
+      ><a name="1113" class="Symbol"
+      >)</a
+      ><a name="1114"
+      > </a
+      ><a name="1115" href="simulatorCutDown.html#1024" class="Bound"
+      >s</a
+      ><a name="1116" class="Symbol"
+      >)</a
+      ><a name="1117"
+      >
+
+   </a
+      ><a name="1122" href="simulatorCutDown.html#1122" class="Function"
+      >simulator&#8321;</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" class="Symbol"
+      >:</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" class="Symbol"
+      >&#8704;</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >{</a
+      ><a name="1138" href="simulatorCutDown.html#1138" class="Bound"
+      >i</a
+      ><a name="1139" class="Symbol"
+      >}</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" class="Symbol"
+      >&#8594;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" class="Symbol"
+      >{</a
+      ><a name="1144" href="simulatorCutDown.html#1144" class="Bound"
+      >c&#8320;</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" class="Symbol"
+      >:</a
+      ><a name="1148"
+      > </a
+      ><a name="1149" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1155" class="Symbol"
+      >}</a
+      ><a name="1156"
+      > 
+               </a
+      ><a name="1173" class="Symbol"
+      >&#8594;</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" class="Symbol"
+      >(</a
+      ><a name="1176" href="simulatorCutDown.html#1176" class="Bound"
+      >P</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" class="Symbol"
+      >:</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="simulatorCutDown.html#1144" class="Bound"
+      >c&#8320;</a
+      ><a name="1192" class="Symbol"
+      >)</a
+      ><a name="1193"
+      > 
+               </a
+      ><a name="1210" class="Symbol"
+      >&#8594;</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="Data.Maybe.Base.html#335" class="Datatype"
+      >Maybe</a
+      ><a name="1217"
+      > </a
+      ><a name="1218" class="Symbol"
+      >((</a
+      ><a name="1220" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" class="Symbol"
+      >(</a
+      ><a name="1231" href="showFunction.html#1924" class="Function"
+      >processToE</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="simulatorCutDown.html#1176" class="Bound"
+      >P</a
+      ><a name="1243" class="Symbol"
+      >))</a
+      ><a name="1245"
+      > 
+                      </a
+      ><a name="1269" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" class="Symbol"
+      >(</a
+      ><a name="1272" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" class="Symbol"
+      >(</a
+      ><a name="1283" href="showFunction.html#2042" class="Function"
+      >processToI</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" href="simulatorCutDown.html#1176" class="Bound"
+      >P</a
+      ><a name="1295" class="Symbol"
+      >)))</a
+      ><a name="1298"
+      >
+               </a
+      ><a name="1314" class="Symbol"
+      >&#8594;</a
+      ><a name="1315"
+      > </a
+      ><a name="1316" href="ooAgda.SizedIO.Console.html#478" class="Function"
+      >IOConsole</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="simulatorCutDown.html#1138" class="Bound"
+      >i</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="1332"
+      >  
+   </a
+      ><a name="1338" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >forceIO</a
+      ><a name="1345"
+      > </a
+      ><a name="1346" class="Symbol"
+      >(</a
+      ><a name="1347" href="simulatorCutDown.html#1122" class="Function"
+      >simulator&#8321;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="simulatorCutDown.html#1358" class="Bound"
+      >P</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" href="Data.Maybe.Base.html#403" class="InductiveConstructor"
+      >nothing</a
+      ><a name="1367" class="Symbol"
+      >)</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" class="Symbol"
+      >=</a
+      ><a name="1370"
+      > 
+      </a
+      ><a name="1378" href="ooAgda.SizedIO.Base.html#698" class="InductiveConstructor"
+      >do'</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" class="Symbol"
+      >(</a
+      ><a name="1383" href="ooAgda.SizedIO.Console.html#203" class="InductiveConstructor"
+      >putStrLn</a
+      ><a name="1391"
+      >
+        </a
+      ><a name="1400" class="String"
+      >&quot;please enter a choice amongst&quot;</a
+      ><a name="1431" class="Symbol"
+      >)</a
+      ><a name="1432"
+      >     </a
+      ><a name="1437" class="Symbol"
+      >&#955;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" href="simulatorCutDown.html#1439" class="Bound"
+      >_</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" class="Symbol"
+      >&#8594;</a
+      ><a name="1442"
+      >  
+      </a
+      ><a name="1451" href="ooAgda.SizedIO.Base.html#1044" class="Function"
+      >do</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" class="Symbol"
+      >(</a
+      ><a name="1455" href="ooAgda.SizedIO.Console.html#203" class="InductiveConstructor"
+      >putStrLn</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >(</a
+      ><a name="1465" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="simulatorCutDown.html#1358" class="Bound"
+      >P</a
+      ><a name="1478" class="Symbol"
+      >))</a
+      ><a name="1480"
+      >          </a
+      ><a name="1490" class="Symbol"
+      >&#955;</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="simulatorCutDown.html#1492" class="Bound"
+      >_</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" class="Symbol"
+      >&#8594;</a
+      ><a name="1495"
+      >  
+      </a
+      ><a name="1504" href="simulatorCutDown.html#591" class="Function"
+      >simulator</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" href="simulatorCutDown.html#1358" class="Bound"
+      >P</a
+      ><a name="1515"
+      >
+   </a
+      ><a name="1519" href="simulatorCutDown.html#1122" class="Function"
+      >simulator&#8321;</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="simulatorCutDown.html#1530" class="Bound"
+      >P</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" class="Symbol"
+      >(</a
+      ><a name="1533" href="Data.Maybe.Base.html#373" class="InductiveConstructor"
+      >just</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" href="simulatorCutDown.html#1538" class="Bound"
+      >c&#8321;</a
+      ><a name="1540" class="Symbol"
+      >)</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" class="Symbol"
+      >=</a
+      ><a name="1543"
+      > 
+      </a
+      ><a name="1551" href="simulatorCutDown.html#591" class="Function"
+      >simulator</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" class="Symbol"
+      >(</a
+      ><a name="1562" href="showFunction.html#4330" class="Function"
+      >processToSubprocess</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" href="simulatorCutDown.html#1530" class="Bound"
+      >P</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="simulatorCutDown.html#1538" class="Bound"
+      >c&#8321;</a
+      ><a name="1586" class="Symbol"
+      >)</a
+      ><a name="1587"
+      >
+
+</a
+      ><a name="1589" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" class="Symbol"
+      >:</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1605"
+      >
+</a
+      ><a name="1606" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1613"
+      > </a
+      ><a name="1614" class="Symbol"
+      >=</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="choiceSetU.html#753" class="InductiveConstructor"
+      >namedElements</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" class="Symbol"
+      >(</a
+      ><a name="1631" class="String"
+      >&quot;STOP&quot;</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="1642" class="Symbol"
+      >)</a
+      ><a name="1643"
+      >
+
+</a
+      ><a name="1645" href="simulatorCutDown.html#1645" class="Function"
+      >transition&#8321;</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" class="Symbol"
+      >:</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" class="Symbol"
+      >&#8704;</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" href="simulatorCutDown.html#1661" class="Bound"
+      >i</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" class="Symbol"
+      >&#8594;</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="simulatorCutDown.html#1661" class="Bound"
+      >i</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1682"
+      >
+</a
+      ><a name="1683" href="simulatorCutDown.html#1645" class="Function"
+      >transition&#8321;</a
+      ><a name="1694"
+      >  </a
+      ><a name="1696" href="simulatorCutDown.html#1696" class="Bound"
+      >i</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" class="Symbol"
+      >=</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="1704"
+      > </a
+      ><a name="1705" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >(</a
+      ><a name="1714" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" class="Symbol"
+      >(</a
+      ><a name="1728" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="1732"
+      > </a
+      ><a name="1733" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="1734"
+      > </a
+      ><a name="1735" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" class="Symbol"
+      >(</a
+      ><a name="1742" href="primitiveProcess.html#367" class="Function"
+      >STOP</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" class="Symbol"
+      >{</a
+      ><a name="1748" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1749" class="Symbol"
+      >}</a
+      ><a name="1750"
+      > </a
+      ><a name="1751" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" class="Symbol"
+      >)))</a
+      ><a name="1762"
+      >
+
+</a
+      ><a name="1764" href="simulatorCutDown.html#1764" class="Function"
+      >transition&#8322;</a
+      ><a name="1775"
+      > </a
+      ><a name="1776" class="Symbol"
+      >:</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" class="Symbol"
+      >&#8704;</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="simulatorCutDown.html#1780" class="Bound"
+      >i</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" class="Symbol"
+      >&#8594;</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1791"
+      > </a
+      ><a name="1792" href="simulatorCutDown.html#1780" class="Bound"
+      >i</a
+      ><a name="1793"
+      > </a
+      ><a name="1794" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1801"
+      >
+</a
+      ><a name="1802" href="simulatorCutDown.html#1764" class="Function"
+      >transition&#8322;</a
+      ><a name="1813"
+      >  </a
+      ><a name="1815" href="simulatorCutDown.html#1815" class="Bound"
+      >i</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" class="Symbol"
+      >=</a
+      ><a name="1818"
+      > </a
+      ><a name="1819" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="1823"
+      > </a
+      ><a name="1824" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" class="Symbol"
+      >(</a
+      ><a name="1833" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1845"
+      > </a
+      ><a name="1846" class="Symbol"
+      >(</a
+      ><a name="1847" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="preFix.html#538" class="Function Operator"
+      >&#10230;</a
+      ><a name="1853"
+      > </a
+      ><a name="1854" href="process.html#1715" class="Function"
+      >delay</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >{</a
+      ><a name="1861" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" class="Symbol"
+      >(</a
+      ><a name="1864" href="Agda.Builtin.Size.html#178" class="Postulate Operator"
+      >&#8593;</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="simulatorCutDown.html#1815" class="Bound"
+      >i</a
+      ><a name="1867" class="Symbol"
+      >)}</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" class="Symbol"
+      >(</a
+      ><a name="1871" href="primitiveProcess.html#367" class="Function"
+      >STOP</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" class="Symbol"
+      >{</a
+      ><a name="1877" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1878" class="Symbol"
+      >}</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" class="Symbol"
+      >)))</a
+      ><a name="1891"
+      >
+
+</a
+      ><a name="1893" href="simulatorCutDown.html#1893" class="Function"
+      >myResultType</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" class="Symbol"
+      >:</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1914"
+      >
+</a
+      ><a name="1915" href="simulatorCutDown.html#1893" class="Function"
+      >myResultType</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" class="Symbol"
+      >=</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" href="simulatorCutDown.html#1589" class="Function"
+      >setSTOP</a
+      ><a name="1948"
+      >
+
+</a
+      ><a name="1950" href="simulatorCutDown.html#1950" class="Function"
+      >myProcess</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" class="Symbol"
+      >:</a
+      ><a name="1961"
+      >  </a
+      ><a name="1963" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1972"
+      > </a
+      ><a name="1973" href="simulatorCutDown.html#1893" class="Function"
+      >myResultType</a
+      ><a name="1985"
+      >
+</a
+      ><a name="1986" href="simulatorCutDown.html#1950" class="Function"
+      >myProcess</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" class="Symbol"
+      >=</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" href="simulatorCutDown.html#1645" class="Function"
+      >transition&#8321;</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="2011"
+      >  </a
+      ><a name="2013" href="interleave.html#668" class="Function Operator"
+      >|||</a
+      ><a name="2016"
+      > </a
+      ><a name="2017" href="simulatorCutDown.html#1764" class="Function"
+      >transition&#8322;</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="2030"
+      > 
+
+</a
+      ><a name="2033" href="simulatorCutDown.html#2033" class="Function"
+      >main</a
+      ><a name="2037"
+      >  </a
+      ><a name="2039" class="Symbol"
+      >:</a
+      ><a name="2040"
+      > </a
+      ><a name="2041" href="ooAgda.NativeIO.html#119" class="Postulate"
+      >NativeIO</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="2054"
+      > 
+</a
+      ><a name="2056" href="simulatorCutDown.html#2033" class="Function"
+      >main</a
+      ><a name="2060"
+      > </a
+      ><a name="2061" class="Symbol"
+      >=</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" href="ooAgda.SizedIO.Console.html#785" class="Function"
+      >translateIOConsole</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" class="Symbol"
+      >(</a
+      ><a name="2083" href="simulatorCutDown.html#591" class="Function"
+      >simulator</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" href="simulatorCutDown.html#1950" class="Function"
+      >myProcess</a
+      ><a name="2102" class="Symbol"
+      >)</a
+      ><a name="2103"
+      >
+
+</a
+      ></pre
+    ></body
+  ></html
+>

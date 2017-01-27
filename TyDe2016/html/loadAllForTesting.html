@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >loadAllForTesting</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="loadAllForTesting.html#1" class="Module"
+      >loadAllForTesting</a
+      ><a name="25"
+      > </a
+      ><a name="26" class="Keyword"
+      >where</a
+      ><a name="31"
+      >
+
+</a
+      ><a name="33" class="Keyword"
+      >open</a
+      ><a name="37"
+      > </a
+      ><a name="38" class="Keyword"
+      >import</a
+      ><a name="44"
+      > </a
+      ><a name="45" href="addTick.html#1" class="Module"
+      >addTick</a
+      ><a name="52"
+      >
+</a
+      ><a name="53" class="Keyword"
+      >open</a
+      ><a name="57"
+      > </a
+      ><a name="58" class="Keyword"
+      >import</a
+      ><a name="64"
+      > </a
+      ><a name="65" href="addTickOperator.html#1" class="Module"
+      >addTickOperator</a
+      ><a name="80"
+      >
+</a
+      ><a name="81" class="Keyword"
+      >open</a
+      ><a name="85"
+      > </a
+      ><a name="86" class="Keyword"
+      >import</a
+      ><a name="92"
+      > </a
+      ><a name="93" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="100"
+      >
+</a
+      ><a name="101" class="Keyword"
+      >open</a
+      ><a name="105"
+      > </a
+      ><a name="106" class="Keyword"
+      >import</a
+      ><a name="112"
+      > </a
+      ><a name="113" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="130"
+      >
+</a
+      ><a name="131" class="Keyword"
+      >open</a
+      ><a name="135"
+      > </a
+      ><a name="136" class="Keyword"
+      >import</a
+      ><a name="142"
+      > </a
+      ><a name="143" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="153"
+      >
+</a
+      ><a name="154" class="Keyword"
+      >open</a
+      ><a name="158"
+      > </a
+      ><a name="159" class="Keyword"
+      >import</a
+      ><a name="165"
+      > </a
+      ><a name="166" href="codeAsInTyDe2016Paper.html#1" class="Module"
+      >codeAsInTyDe2016Paper</a
+      ><a name="187"
+      >
+</a
+      ><a name="188" class="Keyword"
+      >open</a
+      ><a name="192"
+      > </a
+      ><a name="193" class="Keyword"
+      >import</a
+      ><a name="199"
+      > </a
+      ><a name="200" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="215"
+      >
+</a
+      ><a name="216" class="Keyword"
+      >open</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="Keyword"
+      >import</a
+      ><a name="227"
+      > </a
+      ><a name="228" href="div.html#1" class="Module"
+      >div</a
+      ><a name="231"
+      >
+</a
+      ><a name="232" class="Keyword"
+      >open</a
+      ><a name="236"
+      > </a
+      ><a name="237" class="Keyword"
+      >import</a
+      ><a name="243"
+      > </a
+      ><a name="244" href="efq.html#1" class="Module"
+      >efq</a
+      ><a name="247"
+      >
+</a
+      ><a name="248" class="Keyword"
+      >open</a
+      ><a name="252"
+      > </a
+      ><a name="253" class="Keyword"
+      >import</a
+      ><a name="259"
+      > </a
+      ><a name="260" href="eliminationExample.html#1" class="Module"
+      >eliminationExample</a
+      ><a name="278"
+      >
+</a
+      ><a name="279" class="Keyword"
+      >open</a
+      ><a name="283"
+      > </a
+      ><a name="284" class="Keyword"
+      >import</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="exampleFinFun.html#1" class="Module"
+      >exampleFinFun</a
+      ><a name="304"
+      >
+</a
+      ><a name="305" class="Keyword"
+      >open</a
+      ><a name="309"
+      > </a
+      ><a name="310" class="Keyword"
+      >import</a
+      ><a name="316"
+      > </a
+      ><a name="317" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="331"
+      >
+</a
+      ><a name="332" class="Keyword"
+      >open</a
+      ><a name="336"
+      > </a
+      ><a name="337" class="Keyword"
+      >import</a
+      ><a name="343"
+      > </a
+      ><a name="344" href="finn.html#1" class="Module"
+      >finn</a
+      ><a name="348"
+      >
+</a
+      ><a name="349" class="Keyword"
+      >open</a
+      ><a name="353"
+      > </a
+      ><a name="354" class="Keyword"
+      >import</a
+      ><a name="360"
+      > </a
+      ><a name="361" href="hidingOperator.html#1" class="Module"
+      >hidingOperator</a
+      ><a name="375"
+      >
+</a
+      ><a name="376" class="Keyword"
+      >open</a
+      ><a name="380"
+      > </a
+      ><a name="381" class="Keyword"
+      >import</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="interleave.html#1" class="Module"
+      >interleave</a
+      ><a name="398"
+      >
+</a
+      ><a name="399" class="Keyword"
+      >open</a
+      ><a name="403"
+      > </a
+      ><a name="404" class="Keyword"
+      >import</a
+      ><a name="410"
+      > </a
+      ><a name="411" href="internalChoice.html#1" class="Module"
+      >internalChoice</a
+      ><a name="425"
+      >
+</a
+      ><a name="426" class="Keyword"
+      >open</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Keyword"
+      >import</a
+      ><a name="437"
+      > </a
+      ><a name="438" href="interrupt.html#1" class="Module"
+      >interrupt</a
+      ><a name="447"
+      >
+</a
+      ><a name="448" class="Keyword"
+      >open</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Keyword"
+      >import</a
+      ><a name="459"
+      > </a
+      ><a name="460" href="IOExtchoice.html#1" class="Module"
+      >IOExtchoice</a
+      ><a name="471"
+      >
+</a
+      ><a name="472" class="Keyword"
+      >open</a
+      ><a name="476"
+      > </a
+      ><a name="477" class="Keyword"
+      >import</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="IOInterleav.html#1" class="Module"
+      >IOInterleav</a
+      ><a name="495"
+      >
+</a
+      ><a name="496" class="Keyword"
+      >open</a
+      ><a name="500"
+      > </a
+      ><a name="501" class="Keyword"
+      >import</a
+      ><a name="507"
+      > </a
+      ><a name="508" href="IOInternalchoice.html#1" class="Module"
+      >IOInternalchoice</a
+      ><a name="524"
+      >
+</a
+      ><a name="525" class="Keyword"
+      >open</a
+      ><a name="529"
+      > </a
+      ><a name="530" class="Keyword"
+      >import</a
+      ><a name="536"
+      > </a
+      ><a name="537" href="IOSeqCom.html#1" class="Module"
+      >IOSeqCom</a
+      ><a name="545"
+      >
+</a
+      ><a name="546" class="Keyword"
+      >open</a
+      ><a name="550"
+      > </a
+      ><a name="551" class="Keyword"
+      >import</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="label.html#1" class="Module"
+      >label</a
+      ><a name="563"
+      >
+</a
+      ><a name="564" class="Keyword"
+      >open</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Keyword"
+      >import</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="labelEq.html#1" class="Module"
+      >labelEq</a
+      ><a name="583"
+      >
+</a
+      ><a name="584" class="Keyword"
+      >open</a
+      ><a name="588"
+      > </a
+      ><a name="589" class="Keyword"
+      >import</a
+      ><a name="595"
+      > </a
+      ><a name="596" href="parallel.html#1" class="Module"
+      >parallel</a
+      ><a name="604"
+      >
+</a
+      ><a name="605" class="Keyword"
+      >open</a
+      ><a name="609"
+      > </a
+      ><a name="610" class="Keyword"
+      >import</a
+      ><a name="616"
+      > </a
+      ><a name="617" href="parallelSimple.html#1" class="Module"
+      >parallelSimple</a
+      ><a name="631"
+      >
+</a
+      ><a name="632" class="Keyword"
+      >open</a
+      ><a name="636"
+      > </a
+      ><a name="637" class="Keyword"
+      >import</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="650"
+      >
+</a
+      ><a name="651" class="Keyword"
+      >open</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Keyword"
+      >import</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="679"
+      >
+</a
+      ><a name="680" class="Keyword"
+      >open</a
+      ><a name="684"
+      > </a
+      ><a name="685" class="Keyword"
+      >import</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="process.html#1" class="Module"
+      >process</a
+      ><a name="699"
+      >
+</a
+      ><a name="700" class="Keyword"
+      >open</a
+      ><a name="704"
+      > </a
+      ><a name="705" class="Keyword"
+      >import</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="rec.html#1" class="Module"
+      >rec</a
+      ><a name="715"
+      >
+</a
+      ><a name="716" class="Keyword"
+      >open</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Keyword"
+      >import</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="renamingOperator.html#1" class="Module"
+      >renamingOperator</a
+      ><a name="744"
+      >
+</a
+      ><a name="745" class="Keyword"
+      >open</a
+      ><a name="749"
+      > </a
+      ><a name="750" class="Keyword"
+      >import</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="renamingProcess.html#1" class="Module"
+      >renamingProcess</a
+      ><a name="772"
+      >
+</a
+      ><a name="773" class="Keyword"
+      >open</a
+      ><a name="777"
+      > </a
+      ><a name="778" class="Keyword"
+      >import</a
+      ><a name="784"
+      > </a
+      ><a name="785" href="renamingResult.html#1" class="Module"
+      >renamingResult</a
+      ><a name="799"
+      >
+</a
+      ><a name="800" class="Keyword"
+      >open</a
+      ><a name="804"
+      > </a
+      ><a name="805" class="Keyword"
+      >import</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="renamingResultOriginal.html#1" class="Module"
+      >renamingResultOriginal</a
+      ><a name="834"
+      >
+</a
+      ><a name="835" class="Keyword"
+      >open</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Keyword"
+      >import</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="restrict.html#1" class="Module"
+      >restrict</a
+      ><a name="855"
+      >
+</a
+      ><a name="856" class="Keyword"
+      >open</a
+      ><a name="860"
+      > </a
+      ><a name="861" class="Keyword"
+      >import</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="sequentialComposition.html#1" class="Module"
+      >sequentialComposition</a
+      ><a name="889"
+      >
+</a
+      ><a name="890" class="Keyword"
+      >open</a
+      ><a name="894"
+      > </a
+      ><a name="895" class="Keyword"
+      >import</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="setLabel.html#1" class="Module"
+      >setLabel</a
+      ><a name="910"
+      >
+</a
+      ><a name="911" class="Keyword"
+      >open</a
+      ><a name="915"
+      > </a
+      ><a name="916" class="Keyword"
+      >import</a
+      ><a name="922"
+      > </a
+      ><a name="923" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="935"
+      >
+</a
+      ><a name="936" class="Keyword"
+      >open</a
+      ><a name="940"
+      > </a
+      ><a name="941" class="Keyword"
+      >import</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="958"
+      >
+</a
+      ><a name="959" class="Keyword"
+      >open</a
+      ><a name="963"
+      > </a
+      ><a name="964" class="Keyword"
+      >import</a
+      ><a name="970"
+      > </a
+      ><a name="971" href="simulator.html#1" class="Module"
+      >simulator</a
+      ><a name="980"
+      >
+</a
+      ><a name="981" class="Keyword"
+      >open</a
+      ><a name="985"
+      > </a
+      ><a name="986" class="Keyword"
+      >import</a
+      ><a name="992"
+      > </a
+      ><a name="993" href="simulatorCutDown.html#1" class="Module"
+      >simulatorCutDown</a
+      ><a name="1009"
+      >
+</a
+      ><a name="1010" class="Keyword"
+      >open</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" class="Keyword"
+      >import</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="skip.html#1" class="Module"
+      >skip</a
+      ><a name="1026"
+      >
+</a
+      ><a name="1027" class="Keyword"
+      >open</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" class="Keyword"
+      >import</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="test.html#1" class="Module"
+      >test</a
+      ><a name="1043"
+      >
+</a
+      ><a name="1044" class="Keyword"
+      >open</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" class="Keyword"
+      >import</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="testExampleProcesses.html#1" class="Module"
+      >testExampleProcesses</a
+      ><a name="1076"
+      >
+</a
+      ><a name="1077" class="Keyword"
+      >open</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" class="Keyword"
+      >import</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="testInternalChoice.html#1" class="Module"
+      >testInternalChoice</a
+      ><a name="1107"
+      >
+</a
+      ><a name="1108" class="Keyword"
+      >open</a
+      ><a name="1112"
+      > </a
+      ><a name="1113" class="Keyword"
+      >import</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" href="testRec.html#1" class="Module"
+      >testRec</a
+      ><a name="1127"
+      >
+</a
+      ><a name="1128" class="Keyword"
+      >open</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" class="Keyword"
+      >import</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="testRenamingOperator.html#1" class="Module"
+      >testRenamingOperator</a
+      ><a name="1160"
+      >
+</a
+      ><a name="1161" class="Keyword"
+      >open</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" class="Keyword"
+      >import</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" href="testRenamingResult.html#1" class="Module"
+      >testRenamingResult</a
+      ><a name="1191"
+      >
+</a
+      ><a name="1192" class="Keyword"
+      >open</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" class="Keyword"
+      >import</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" href="testShowFunction.html#1" class="Module"
+      >testShowFunction</a
+      ><a name="1220"
+      >
+</a
+      ><a name="1221" class="Keyword"
+      >open</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" class="Keyword"
+      >import</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="testShowLabelP.html#1" class="Module"
+      >testShowLabelP</a
+      ><a name="1247"
+      >
+</a
+      ><a name="1248" class="Keyword"
+      >open</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Keyword"
+      >import</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" href="Unit.html#1" class="Module"
+      >Unit</a
+      ><a name="1264"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

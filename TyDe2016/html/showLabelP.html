@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >showLabelP</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="18"
+      > </a
+      ><a name="19" class="Keyword"
+      >where</a
+      ><a name="24"
+      >
+
+</a
+      ><a name="26" class="Keyword"
+      >open</a
+      ><a name="30"
+      > </a
+      ><a name="31" class="Keyword"
+      >import</a
+      ><a name="37"
+      > </a
+      ><a name="38" href="label.html#1" class="Module"
+      >label</a
+      ><a name="43"
+      >
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="67"
+      > </a
+      ><a name="68" class="Keyword"
+      >renaming</a
+      ><a name="76"
+      > </a
+      ><a name="77" class="Symbol"
+      >(</a
+      ><a name="78" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="82"
+      > </a
+      ><a name="83" class="Symbol"
+      >to</a
+      ><a name="85"
+      > </a
+      ><a name="86" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="91" class="Symbol"
+      >)</a
+      ><a name="92"
+      >
+</a
+      ><a name="93" class="Keyword"
+      >open</a
+      ><a name="97"
+      > </a
+      ><a name="98" class="Keyword"
+      >import</a
+      ><a name="104"
+      > </a
+      ><a name="105" href="Data.String.Base.html#1" class="Module"
+      >Data.String.Base</a
+      ><a name="121"
+      >
+</a
+      ><a name="122" class="Keyword"
+      >open</a
+      ><a name="126"
+      > </a
+      ><a name="127" class="Keyword"
+      >import</a
+      ><a name="133"
+      > </a
+      ><a name="134" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="143"
+      >
+</a
+      ><a name="144" class="Keyword"
+      >open</a
+      ><a name="148"
+      > </a
+      ><a name="149" class="Keyword"
+      >import</a
+      ><a name="155"
+      > </a
+      ><a name="156" href="Data.List.Base.html#1" class="Module"
+      >Data.List.Base</a
+      ><a name="170"
+      >
+</a
+      ><a name="171" class="Keyword"
+      >open</a
+      ><a name="175"
+      > </a
+      ><a name="176" class="Keyword"
+      >import</a
+      ><a name="182"
+      > </a
+      ><a name="183" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="192"
+      >
+
+</a
+      ><a name="194" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="217"
+      > </a
+      ><a name="218" class="Symbol"
+      >:</a
+      ><a name="219"
+      > </a
+      ><a name="220" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="226"
+      > </a
+      ><a name="227" class="Symbol"
+      >&#8594;</a
+      ><a name="228"
+      > </a
+      ><a name="229" href="Agda.Builtin.List.html#80" class="Datatype"
+      >List</a
+      ><a name="233"
+      > </a
+      ><a name="234" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="240"
+      > </a
+      ><a name="241" class="Symbol"
+      >&#8594;</a
+      ><a name="242"
+      > </a
+      ><a name="243" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="249"
+      >
+</a
+      ><a name="250" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="273"
+      > </a
+      ><a name="274" href="showLabelP.html#274" class="Bound"
+      >s</a
+      ><a name="275"
+      > </a
+      ><a name="276" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="278"
+      > </a
+      ><a name="279" class="Symbol"
+      >=</a
+      ><a name="280"
+      > </a
+      ><a name="281" class="String"
+      >&quot;&quot;</a
+      ><a name="283"
+      >
+</a
+      ><a name="284" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="307"
+      > </a
+      ><a name="308" href="showLabelP.html#308" class="Bound"
+      >s</a
+      ><a name="309"
+      > </a
+      ><a name="310" class="Symbol"
+      >(</a
+      ><a name="311" href="showLabelP.html#311" class="Bound"
+      >s'</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="315"
+      > </a
+      ><a name="316" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="318" class="Symbol"
+      >)</a
+      ><a name="319"
+      > </a
+      ><a name="320" class="Symbol"
+      >=</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="showLabelP.html#311" class="Bound"
+      >s'</a
+      ><a name="324"
+      >
+</a
+      ><a name="325" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="348"
+      > </a
+      ><a name="349" href="showLabelP.html#349" class="Bound"
+      >s</a
+      ><a name="350"
+      > </a
+      ><a name="351" class="Symbol"
+      >(</a
+      ><a name="352" href="showLabelP.html#352" class="Bound"
+      >s'</a
+      ><a name="354"
+      > </a
+      ><a name="355" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="356"
+      > </a
+      ><a name="357" href="showLabelP.html#357" class="Bound"
+      >s''</a
+      ><a name="360"
+      > </a
+      ><a name="361" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="showLabelP.html#363" class="Bound"
+      >l</a
+      ><a name="364" class="Symbol"
+      >)</a
+      ><a name="365"
+      > </a
+      ><a name="366" class="Symbol"
+      >=</a
+      ><a name="367"
+      > </a
+      ><a name="368" href="showLabelP.html#352" class="Bound"
+      >s'</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="showLabelP.html#349" class="Bound"
+      >s</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="380"
+      > </a
+      ><a name="381" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="404"
+      > </a
+      ><a name="405" href="showLabelP.html#349" class="Bound"
+      >s</a
+      ><a name="406"
+      > </a
+      ><a name="407" class="Symbol"
+      >(</a
+      ><a name="408" href="showLabelP.html#357" class="Bound"
+      >s''</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="showLabelP.html#363" class="Bound"
+      >l</a
+      ><a name="415" class="Symbol"
+      >)</a
+      ><a name="416"
+      >
+
+
+</a
+      ><a name="419" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Symbol"
+      >:</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="436"
+      > </a
+      ><a name="437" class="Symbol"
+      >&#8594;</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="445"
+      >
+</a
+      ><a name="446" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="455"
+      > </a
+      ><a name="456" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="460"
+      > </a
+      ><a name="461" class="Symbol"
+      >=</a
+      ><a name="462"
+      > </a
+      ><a name="463" class="String"
+      >&quot;a&quot;</a
+      ><a name="466"
+      >
+</a
+      ><a name="467" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="476"
+      > </a
+      ><a name="477" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="481"
+      > </a
+      ><a name="482" class="Symbol"
+      >=</a
+      ><a name="483"
+      > </a
+      ><a name="484" class="String"
+      >&quot;b&quot;</a
+      ><a name="487"
+      >
+</a
+      ><a name="488" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="497"
+      > </a
+      ><a name="498" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="502"
+      > </a
+      ><a name="503" class="Symbol"
+      >=</a
+      ><a name="504"
+      > </a
+      ><a name="505" class="String"
+      >&quot;c&quot;</a
+      ><a name="508"
+      >
+
+
+</a
+      ><a name="511" href="showLabelP.html#511" class="Function"
+      >LabelList</a
+      ><a name="520"
+      > </a
+      ><a name="521" class="Symbol"
+      >:</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="Agda.Builtin.List.html#80" class="Datatype"
+      >List</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="533"
+      >
+</a
+      ><a name="534" href="showLabelP.html#511" class="Function"
+      >LabelList</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >=</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="label.html#48" class="InductiveConstructor"
+      >laba</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="552"
+      > </a
+      ><a name="553" href="label.html#53" class="InductiveConstructor"
+      >labb</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="label.html#58" class="InductiveConstructor"
+      >labc</a
+      ><a name="564"
+      > </a
+      ><a name="565" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="569"
+      >
+
+
+</a
+      ><a name="572" href="showLabelP.html#572" class="Function"
+      >labelBoolFunToString</a
+      ><a name="592"
+      > </a
+      ><a name="593" class="Symbol"
+      >:</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Symbol"
+      >(</a
+      ><a name="596" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="601"
+      > </a
+      ><a name="602" class="Symbol"
+      >&#8594;</a
+      ><a name="603"
+      > </a
+      ><a name="604" href="Agda.Builtin.Bool.html#67" class="Datatype"
+      >Bool</a
+      ><a name="608" class="Symbol"
+      >)</a
+      ><a name="609"
+      > </a
+      ><a name="610" class="Symbol"
+      >&#8594;</a
+      ><a name="611"
+      >  </a
+      ><a name="613" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="619"
+      >
+</a
+      ><a name="620" href="showLabelP.html#572" class="Function"
+      >labelBoolFunToString</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="showLabelP.html#641" class="Bound"
+      >f</a
+      ><a name="642"
+      > </a
+      ><a name="643" class="Symbol"
+      >=</a
+      ><a name="644"
+      > </a
+      ><a name="645" href="Data.String.Base.html#1200" class="Function"
+      >unlines</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >(</a
+      ><a name="654" href="Data.List.Base.html#1207" class="Function"
+      >map</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="667"
+      > </a
+      ><a name="668" class="Symbol"
+      >(</a
+      ><a name="669" href="Data.List.Base.html#6125" class="Function"
+      >filter</a
+      ><a name="675"
+      > </a
+      ><a name="676" href="showLabelP.html#641" class="Bound"
+      >f</a
+      ><a name="677"
+      >  </a
+      ><a name="679" href="showLabelP.html#511" class="Function"
+      >LabelList</a
+      ><a name="688" class="Symbol"
+      >))</a
+      ><a name="690"
+      >
+
+
+
+</a
+      ><a name="694" href="showLabelP.html#694" class="Function"
+      >labelLabelFunToString</a
+      ><a name="715"
+      > </a
+      ><a name="716" class="Symbol"
+      >:</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >(</a
+      ><a name="719" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="724"
+      > </a
+      ><a name="725" class="Symbol"
+      >&#8594;</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="732" class="Symbol"
+      >)</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >&#8594;</a
+      ><a name="735"
+      >  </a
+      ><a name="737" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="743"
+      >
+</a
+      ><a name="744" href="showLabelP.html#694" class="Function"
+      >labelLabelFunToString</a
+      ><a name="765"
+      > </a
+      ><a name="766" href="showLabelP.html#766" class="Bound"
+      >f</a
+      ><a name="767"
+      > </a
+      ><a name="768" class="Symbol"
+      >=</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="String"
+      >&quot;[[&quot;</a
+      ><a name="774"
+      > 
+                          </a
+      ><a name="802" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="805"
+      > </a
+      ><a name="806" href="showLabelP.html#194" class="Function"
+      >unlinesWithChosenString</a
+      ><a name="829"
+      > </a
+      ><a name="830" class="String"
+      >&quot;, &quot;</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >(</a
+      ><a name="836" href="Data.List.Base.html#1207" class="Function"
+      >map</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Symbol"
+      >(&#955;</a
+      ><a name="842"
+      > </a
+      ><a name="843" href="showLabelP.html#843" class="Bound"
+      >l</a
+      ><a name="844"
+      > </a
+      ><a name="845" class="Symbol"
+      >&#8594;</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="856"
+      > </a
+      ><a name="857" class="Symbol"
+      >(</a
+      ><a name="858" href="showLabelP.html#766" class="Bound"
+      >f</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="showLabelP.html#843" class="Bound"
+      >l</a
+      ><a name="861" class="Symbol"
+      >)</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="866"
+      > </a
+      ><a name="867" class="String"
+      >&quot; &lt;- &quot;</a
+      ><a name="873"
+      > </a
+      ><a name="874" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="showLabelP.html#419" class="Function"
+      >showLabel</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="showLabelP.html#843" class="Bound"
+      >l</a
+      ><a name="889" class="Symbol"
+      >)</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="showLabelP.html#511" class="Function"
+      >LabelList</a
+      ><a name="900"
+      > </a
+      ><a name="901" class="Symbol"
+      >)</a
+      ><a name="902"
+      > 
+                          </a
+      ><a name="930" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="933"
+      > </a
+      ><a name="934" class="String"
+      >&quot;]]&quot;</a
+      ><a name="938"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

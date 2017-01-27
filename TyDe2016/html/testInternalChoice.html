@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >testInternalChoice</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="testInternalChoice.html#1" class="Module"
+      >testInternalChoice</a
+      ><a name="26"
+      > </a
+      ><a name="27" class="Keyword"
+      >where</a
+      ><a name="32"
+      > 
+
+
+
+</a
+      ><a name="37" class="Keyword"
+      >open</a
+      ><a name="41"
+      > </a
+      ><a name="42" class="Keyword"
+      >import</a
+      ><a name="48"
+      > </a
+      ><a name="49" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="53"
+      > 
+</a
+      ><a name="55" class="Keyword"
+      >open</a
+      ><a name="59"
+      > </a
+      ><a name="60" class="Keyword"
+      >import</a
+      ><a name="66"
+      > </a
+      ><a name="67" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="81"
+      > 
+</a
+      ><a name="83" class="Keyword"
+      >open</a
+      ><a name="87"
+      > </a
+      ><a name="88" class="Keyword"
+      >import</a
+      ><a name="94"
+      > </a
+      ><a name="95" href="process.html#1" class="Module"
+      >process</a
+      ><a name="102"
+      > 
+</a
+      ><a name="104" class="Keyword"
+      >open</a
+      ><a name="108"
+      > </a
+      ><a name="109" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="117"
+      >
+</a
+      ><a name="118" class="Keyword"
+      >open</a
+      ><a name="122"
+      > </a
+      ><a name="123" class="Keyword"
+      >import</a
+      ><a name="129"
+      > </a
+      ><a name="130" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="140"
+      >
+</a
+      ><a name="141" class="Keyword"
+      >open</a
+      ><a name="145"
+      > </a
+      ><a name="146" class="Keyword"
+      >import</a
+      ><a name="152"
+      > </a
+      ><a name="153" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="170"
+      >
+</a
+      ><a name="171" class="Keyword"
+      >open</a
+      ><a name="175"
+      > </a
+      ><a name="176" class="Keyword"
+      >import</a
+      ><a name="182"
+      > </a
+      ><a name="183" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="189"
+      >   
+</a
+      ><a name="193" class="Keyword"
+      >open</a
+      ><a name="197"
+      > </a
+      ><a name="198" class="Keyword"
+      >import</a
+      ><a name="204"
+      > </a
+      ><a name="205" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="221"
+      >
+</a
+      ><a name="222" class="Keyword"
+      >open</a
+      ><a name="226"
+      > </a
+      ><a name="227" class="Keyword"
+      >import</a
+      ><a name="233"
+      > </a
+      ><a name="234" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="241"
+      >
+</a
+      ><a name="242" class="Keyword"
+      >open</a
+      ><a name="246"
+      > </a
+      ><a name="247" class="Keyword"
+      >import</a
+      ><a name="253"
+      > </a
+      ><a name="254" href="label.html#1" class="Module"
+      >label</a
+      ><a name="259"
+      >
+</a
+      ><a name="260" class="Keyword"
+      >open</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Keyword"
+      >import</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="sequentialComposition.html#1" class="Module"
+      >sequentialComposition</a
+      ><a name="293"
+      >
+</a
+      ><a name="294" class="Keyword"
+      >open</a
+      ><a name="298"
+      > </a
+      ><a name="299" class="Keyword"
+      >import</a
+      ><a name="305"
+      > </a
+      ><a name="306" href="simulator.html#1" class="Module"
+      >simulator</a
+      ><a name="315"
+      >
+</a
+      ><a name="316" class="Keyword"
+      >open</a
+      ><a name="320"
+      > </a
+      ><a name="321" class="Keyword"
+      >import</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="332"
+      >
+</a
+      ><a name="333" class="Keyword"
+      >open</a
+      ><a name="337"
+      > </a
+      ><a name="338" class="Keyword"
+      >import</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="353"
+      >
+</a
+      ><a name="354" class="Keyword"
+      >open</a
+      ><a name="358"
+      > </a
+      ><a name="359" class="Keyword"
+      >import</a
+      ><a name="365"
+      > </a
+      ><a name="366" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="375"
+      >
+</a
+      ><a name="376" class="Keyword"
+      >open</a
+      ><a name="380"
+      > </a
+      ><a name="381" class="Keyword"
+      >import</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="Data.Bool.Base.html#1" class="Module"
+      >Data.Bool.Base</a
+      ><a name="402"
+      >
+</a
+      ><a name="403" class="Keyword"
+      >open</a
+      ><a name="407"
+      > </a
+      ><a name="408" class="Keyword"
+      >import</a
+      ><a name="414"
+      > </a
+      ><a name="415" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="423"
+      >
+</a
+      ><a name="424" class="Keyword"
+      >open</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Keyword"
+      >import</a
+      ><a name="435"
+      > </a
+      ><a name="436" href="Agda.Builtin.Nat.html#1" class="Module"
+      >Agda.Builtin.Nat</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Keyword"
+      >renaming</a
+      ><a name="461"
+      > </a
+      ><a name="462" class="Symbol"
+      >(</a
+      ><a name="463" href="Agda.Builtin.Nat.html#651" class="Primitive Operator"
+      >_&lt;_</a
+      ><a name="466"
+      > </a
+      ><a name="467" class="Symbol"
+      >to</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="Agda.Builtin.Nat.html#651" class="Primitive Operator"
+      >_&lt;N_</a
+      ><a name="474" class="Symbol"
+      >;</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="Agda.Builtin.Nat.html#525" class="Primitive Operator"
+      >_==_</a
+      ><a name="480"
+      > </a
+      ><a name="481" class="Symbol"
+      >to</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="Agda.Builtin.Nat.html#525" class="Primitive Operator"
+      >_==N_</a
+      ><a name="489" class="Symbol"
+      >)</a
+      ><a name="490"
+      >
+</a
+      ><a name="491" class="Keyword"
+      >open</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Keyword"
+      >import</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="511"
+      > </a
+      ><a name="512" class="Keyword"
+      >renaming</a
+      ><a name="520"
+      > </a
+      ><a name="521" class="Symbol"
+      >(</a
+      ><a name="522" href="Data.Fin.html#3834" class="Function Operator"
+      >_+_</a
+      ><a name="525"
+      > </a
+      ><a name="526" class="Symbol"
+      >to</a
+      ><a name="528"
+      > </a
+      ><a name="529" href="Data.Fin.html#3834" class="Function Operator"
+      >_+,_</a
+      ><a name="533" class="Symbol"
+      >;</a
+      ><a name="534" href="Data.Fin.html#4657" class="Function Operator"
+      >_&lt;_</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="Symbol"
+      >to</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="Data.Fin.html#4657" class="Function Operator"
+      >_&lt;F_</a
+      ><a name="545" class="Symbol"
+      >)</a
+      ><a name="546"
+      >
+</a
+      ><a name="547" class="Keyword"
+      >open</a
+      ><a name="551"
+      > </a
+      ><a name="552" class="Keyword"
+      >import</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="Data.Char.html#1" class="Module"
+      >Data.Char</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Keyword"
+      >renaming</a
+      ><a name="577"
+      > </a
+      ><a name="578" class="Symbol"
+      >(</a
+      ><a name="579" href="Data.Char.html#1218" class="Function Operator"
+      >_==_</a
+      ><a name="583"
+      > </a
+      ><a name="584" class="Symbol"
+      >to</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="Data.Char.html#1218" class="Function Operator"
+      >_==?_</a
+      ><a name="592" class="Symbol"
+      >)</a
+      ><a name="593"
+      >
+</a
+      ><a name="594" class="Keyword"
+      >open</a
+      ><a name="598"
+      > </a
+      ><a name="599" class="Keyword"
+      >import</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="Data.Maybe.html#1" class="Module"
+      >Data.Maybe</a
+      ><a name="616"
+      >
+</a
+      ><a name="617" class="Keyword"
+      >open</a
+      ><a name="621"
+      > </a
+      ><a name="622" class="Keyword"
+      >import</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="637"
+      > 
+</a
+      ><a name="639" class="Keyword"
+      >open</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Keyword"
+      >import</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="660"
+      >
+</a
+      ><a name="661" class="Keyword"
+      >open</a
+      ><a name="665"
+      > </a
+      ><a name="666" class="Keyword"
+      >import</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="684"
+      > </a
+      ><a name="685" class="Keyword"
+      >renaming</a
+      ><a name="693"
+      >  </a
+      ><a name="695" class="Symbol"
+      >(</a
+      ><a name="696" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >to</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="712" class="Symbol"
+      >;</a
+      ><a name="713"
+      > </a
+      ><a name="714" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >to</a
+      ><a name="721"
+      > </a
+      ><a name="722" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="727" class="Symbol"
+      >)</a
+      ><a name="728"
+      >
+</a
+      ><a name="729" class="Keyword"
+      >open</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Keyword"
+      >import</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="Data.Nat.Show.html#1" class="Module"
+      >Data.Nat.Show</a
+      ><a name="754"
+      > </a
+      ><a name="755" class="Keyword"
+      >renaming</a
+      ><a name="763"
+      > </a
+      ><a name="764" class="Symbol"
+      >(</a
+      ><a name="765" href="Data.Nat.Show.html#951" class="Function"
+      >show</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >to</a
+      ><a name="772"
+      > </a
+      ><a name="773" href="Data.Nat.Show.html#951" class="Function"
+      >show&#8469;</a
+      ><a name="778" class="Symbol"
+      >)</a
+      ><a name="779"
+      >
+</a
+      ><a name="780" class="Keyword"
+      >open</a
+      ><a name="784"
+      > </a
+      ><a name="785" class="Keyword"
+      >import</a
+      ><a name="791"
+      > </a
+      ><a name="792" href="ooAgda.SizedIO.Base.html#1" class="Module"
+      >ooAgda.SizedIO.Base</a
+      ><a name="811"
+      >  </a
+      ><a name="813" class="Keyword"
+      >renaming</a
+      ><a name="821"
+      > </a
+      ><a name="822" class="Symbol"
+      >(</a
+      ><a name="823" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="828"
+      > </a
+      ><a name="829" class="Symbol"
+      >to</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >forceIO</a
+      ><a name="839" class="Symbol"
+      >;</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delay</a
+      ><a name="846"
+      > </a
+      ><a name="847" class="Symbol"
+      >to</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delayIO</a
+      ><a name="857" class="Symbol"
+      >)</a
+      ><a name="858"
+      >
+</a
+      ><a name="859" class="Keyword"
+      >open</a
+      ><a name="863"
+      > </a
+      ><a name="864" class="Keyword"
+      >import</a
+      ><a name="870"
+      > </a
+      ><a name="871" href="ooAgda.SizedIO.Console.html#1" class="Module"
+      >ooAgda.SizedIO.Console</a
+      ><a name="893"
+      > </a
+      ><a name="894" class="Keyword"
+      >hiding</a
+      ><a name="900"
+      > </a
+      ><a name="901" class="Symbol"
+      >(</a
+      ><a name="902" href="ooAgda.SizedIO.Console.html#903" class="Function"
+      >main</a
+      ><a name="906" class="Symbol"
+      >)</a
+      ><a name="907"
+      >
+</a
+      ><a name="908" class="Keyword"
+      >open</a
+      ><a name="912"
+      > </a
+      ><a name="913" class="Keyword"
+      >import</a
+      ><a name="919"
+      > </a
+      ><a name="920" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="935"
+      >
+</a
+      ><a name="936" class="Keyword"
+      >open</a
+      ><a name="940"
+      > </a
+      ><a name="941" class="Keyword"
+      >import</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="Agda.Builtin.Unit.html#1" class="Module"
+      >Agda.Builtin.Unit</a
+      ><a name="965"
+      >
+</a
+      ><a name="966" class="Keyword"
+      >open</a
+      ><a name="970"
+      > </a
+      ><a name="971" class="Keyword"
+      >import</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="Data.List.Base.html#1" class="Module"
+      >Data.List.Base</a
+      ><a name="992"
+      > </a
+      ><a name="993" class="Keyword"
+      >renaming</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Symbol"
+      >(</a
+      ><a name="1003" href="Data.List.Base.html#1207" class="Function"
+      >map</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" class="Symbol"
+      >to</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="1014" class="Symbol"
+      >)</a
+      ><a name="1015"
+      >
+</a
+      ><a name="1016" class="Keyword"
+      >open</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" class="Keyword"
+      >import</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="1042"
+      >
+</a
+      ><a name="1043" class="Keyword"
+      >open</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" class="Keyword"
+      >import</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="1062"
+      >
+</a
+      ><a name="1063" class="Keyword"
+      >open</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" class="Keyword"
+      >import</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="1090"
+      >
+</a
+      ><a name="1091" class="Keyword"
+      >open</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" class="Keyword"
+      >import</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="1113"
+      >
+</a
+      ><a name="1114" class="Keyword"
+      >open</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" class="Keyword"
+      >import</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="internalChoice.html#1" class="Module"
+      >internalChoice</a
+      ><a name="1140"
+      >
+</a
+      ><a name="1141" class="Keyword"
+      >open</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" class="Keyword"
+      >import</a
+      ><a name="1152"
+      > </a
+      ><a name="1153" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="1165"
+      > 
+</a
+      ><a name="1167" class="Keyword"
+      >open</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" class="Keyword"
+      >import</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" href="IOInternalchoice.html#1" class="Module"
+      >IOInternalchoice</a
+      ><a name="1195"
+      >
+
+</a
+      ><a name="1197" href="testInternalChoice.html#1197" class="Function"
+      >s</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" class="Symbol"
+      >:</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1207"
+      >
+</a
+      ><a name="1208" href="testInternalChoice.html#1197" class="Function"
+      >s</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" class="Symbol"
+      >=</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" class="Symbol"
+      >(</a
+      ><a name="1225" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="IOInternalchoice.html#1405" class="Function"
+      >transition&#8326;</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" class="Symbol"
+      >{</a
+      ><a name="1245" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1246" class="Symbol"
+      >})</a
+      ><a name="1248"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

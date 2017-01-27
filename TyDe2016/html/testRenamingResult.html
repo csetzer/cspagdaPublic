@@ -1,0 +1,1130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >testRenamingResult</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="testRenamingResult.html#1" class="Module"
+      >testRenamingResult</a
+      ><a name="26"
+      > </a
+      ><a name="27" class="Keyword"
+      >where</a
+      ><a name="32"
+      >
+
+</a
+      ><a name="34" class="Keyword"
+      >open</a
+      ><a name="38"
+      > </a
+      ><a name="39" class="Keyword"
+      >import</a
+      ><a name="45"
+      > </a
+      ><a name="46" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="50"
+      > 
+</a
+      ><a name="52" class="Keyword"
+      >open</a
+      ><a name="56"
+      > </a
+      ><a name="57" class="Keyword"
+      >import</a
+      ><a name="63"
+      > </a
+      ><a name="64" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="78"
+      > 
+</a
+      ><a name="80" class="Keyword"
+      >open</a
+      ><a name="84"
+      > </a
+      ><a name="85" class="Keyword"
+      >import</a
+      ><a name="91"
+      > </a
+      ><a name="92" href="process.html#1" class="Module"
+      >process</a
+      ><a name="99"
+      > 
+</a
+      ><a name="101" class="Keyword"
+      >open</a
+      ><a name="105"
+      > </a
+      ><a name="106" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="114"
+      >
+</a
+      ><a name="115" class="Keyword"
+      >open</a
+      ><a name="119"
+      > </a
+      ><a name="120" class="Keyword"
+      >import</a
+      ><a name="126"
+      > </a
+      ><a name="127" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="137"
+      >
+</a
+      ><a name="138" class="Keyword"
+      >open</a
+      ><a name="142"
+      > </a
+      ><a name="143" class="Keyword"
+      >import</a
+      ><a name="149"
+      > </a
+      ><a name="150" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="167"
+      >
+</a
+      ><a name="168" class="Keyword"
+      >open</a
+      ><a name="172"
+      > </a
+      ><a name="173" class="Keyword"
+      >import</a
+      ><a name="179"
+      > </a
+      ><a name="180" href="preFix.html#1" class="Module"
+      >preFix</a
+      ><a name="186"
+      >   
+</a
+      ><a name="190" class="Keyword"
+      >open</a
+      ><a name="194"
+      > </a
+      ><a name="195" class="Keyword"
+      >import</a
+      ><a name="201"
+      > </a
+      ><a name="202" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="218"
+      >
+</a
+      ><a name="219" class="Keyword"
+      >open</a
+      ><a name="223"
+      > </a
+      ><a name="224" class="Keyword"
+      >import</a
+      ><a name="230"
+      > </a
+      ><a name="231" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="238"
+      >
+</a
+      ><a name="239" class="Keyword"
+      >open</a
+      ><a name="243"
+      > </a
+      ><a name="244" class="Keyword"
+      >import</a
+      ><a name="250"
+      > </a
+      ><a name="251" href="label.html#1" class="Module"
+      >label</a
+      ><a name="256"
+      >
+</a
+      ><a name="257" class="Keyword"
+      >open</a
+      ><a name="261"
+      > </a
+      ><a name="262" class="Keyword"
+      >import</a
+      ><a name="268"
+      > </a
+      ><a name="269" href="sequentialComposition.html#1" class="Module"
+      >sequentialComposition</a
+      ><a name="290"
+      >
+</a
+      ><a name="291" class="Keyword"
+      >open</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Keyword"
+      >import</a
+      ><a name="302"
+      > </a
+      ><a name="303" href="simulator.html#1" class="Module"
+      >simulator</a
+      ><a name="312"
+      >
+</a
+      ><a name="313" class="Keyword"
+      >open</a
+      ><a name="317"
+      > </a
+      ><a name="318" class="Keyword"
+      >import</a
+      ><a name="324"
+      > </a
+      ><a name="325" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="329"
+      >
+</a
+      ><a name="330" class="Keyword"
+      >open</a
+      ><a name="334"
+      > </a
+      ><a name="335" class="Keyword"
+      >import</a
+      ><a name="341"
+      > </a
+      ><a name="342" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="350"
+      >
+</a
+      ><a name="351" class="Keyword"
+      >open</a
+      ><a name="355"
+      > </a
+      ><a name="356" class="Keyword"
+      >import</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="Data.Bool.html#1" class="Module"
+      >Data.Bool</a
+      ><a name="372"
+      >
+</a
+      ><a name="373" class="Keyword"
+      >open</a
+      ><a name="377"
+      > </a
+      ><a name="378" class="Keyword"
+      >import</a
+      ><a name="384"
+      > </a
+      ><a name="385" href="Data.Bool.Base.html#1" class="Module"
+      >Data.Bool.Base</a
+      ><a name="399"
+      >
+</a
+      ><a name="400" class="Keyword"
+      >open</a
+      ><a name="404"
+      > </a
+      ><a name="405" class="Keyword"
+      >import</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="420"
+      >
+</a
+      ><a name="421" class="Keyword"
+      >open</a
+      ><a name="425"
+      > </a
+      ><a name="426" class="Keyword"
+      >import</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="Agda.Builtin.Nat.html#1" class="Module"
+      >Agda.Builtin.Nat</a
+      ><a name="449"
+      > </a
+      ><a name="450" class="Keyword"
+      >renaming</a
+      ><a name="458"
+      > </a
+      ><a name="459" class="Symbol"
+      >(</a
+      ><a name="460" href="Agda.Builtin.Nat.html#651" class="Primitive Operator"
+      >_&lt;_</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Symbol"
+      >to</a
+      ><a name="466"
+      > </a
+      ><a name="467" href="Agda.Builtin.Nat.html#651" class="Primitive Operator"
+      >_&lt;N_</a
+      ><a name="471" class="Symbol"
+      >;</a
+      ><a name="472"
+      > </a
+      ><a name="473" href="Agda.Builtin.Nat.html#525" class="Primitive Operator"
+      >_==_</a
+      ><a name="477"
+      > </a
+      ><a name="478" class="Symbol"
+      >to</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="Agda.Builtin.Nat.html#525" class="Primitive Operator"
+      >_==N_</a
+      ><a name="486" class="Symbol"
+      >)</a
+      ><a name="487"
+      >
+</a
+      ><a name="488" class="Keyword"
+      >open</a
+      ><a name="492"
+      > </a
+      ><a name="493" class="Keyword"
+      >import</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="508"
+      > </a
+      ><a name="509" class="Keyword"
+      >renaming</a
+      ><a name="517"
+      > </a
+      ><a name="518" class="Symbol"
+      >(</a
+      ><a name="519" href="Data.Fin.html#3834" class="Function Operator"
+      >_+_</a
+      ><a name="522"
+      > </a
+      ><a name="523" class="Symbol"
+      >to</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="Data.Fin.html#3834" class="Function Operator"
+      >_+,_</a
+      ><a name="530" class="Symbol"
+      >;</a
+      ><a name="531" href="Data.Fin.html#4657" class="Function Operator"
+      >_&lt;_</a
+      ><a name="534"
+      > </a
+      ><a name="535" class="Symbol"
+      >to</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="Data.Fin.html#4657" class="Function Operator"
+      >_&lt;F_</a
+      ><a name="542" class="Symbol"
+      >)</a
+      ><a name="543"
+      >
+</a
+      ><a name="544" class="Keyword"
+      >open</a
+      ><a name="548"
+      > </a
+      ><a name="549" class="Keyword"
+      >import</a
+      ><a name="555"
+      > </a
+      ><a name="556" href="Data.Char.html#1" class="Module"
+      >Data.Char</a
+      ><a name="565"
+      > </a
+      ><a name="566" class="Keyword"
+      >renaming</a
+      ><a name="574"
+      > </a
+      ><a name="575" class="Symbol"
+      >(</a
+      ><a name="576" href="Data.Char.html#1218" class="Function Operator"
+      >_==_</a
+      ><a name="580"
+      > </a
+      ><a name="581" class="Symbol"
+      >to</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="Data.Char.html#1218" class="Function Operator"
+      >_==?_</a
+      ><a name="589" class="Symbol"
+      >)</a
+      ><a name="590"
+      >
+</a
+      ><a name="591" class="Keyword"
+      >open</a
+      ><a name="595"
+      > </a
+      ><a name="596" class="Keyword"
+      >import</a
+      ><a name="602"
+      > </a
+      ><a name="603" href="Data.Maybe.html#1" class="Module"
+      >Data.Maybe</a
+      ><a name="613"
+      >
+</a
+      ><a name="614" class="Keyword"
+      >open</a
+      ><a name="618"
+      > </a
+      ><a name="619" class="Keyword"
+      >import</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="Data.Nat.html#1" class="Module"
+      >Data.Nat</a
+      ><a name="634"
+      > 
+</a
+      ><a name="636" class="Keyword"
+      >open</a
+      ><a name="640"
+      > </a
+      ><a name="641" class="Keyword"
+      >import</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="657"
+      >
+</a
+      ><a name="658" class="Keyword"
+      >open</a
+      ><a name="662"
+      > </a
+      ><a name="663" class="Keyword"
+      >import</a
+      ><a name="669"
+      > </a
+      ><a name="670" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="681"
+      > </a
+      ><a name="682" class="Keyword"
+      >renaming</a
+      ><a name="690"
+      >  </a
+      ><a name="692" class="Symbol"
+      >(</a
+      ><a name="693" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="697"
+      > </a
+      ><a name="698" class="Symbol"
+      >to</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="709" class="Symbol"
+      >;</a
+      ><a name="710"
+      > </a
+      ><a name="711" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="715"
+      > </a
+      ><a name="716" class="Symbol"
+      >to</a
+      ><a name="718"
+      > </a
+      ><a name="719" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="724" class="Symbol"
+      >)</a
+      ><a name="725"
+      >
+</a
+      ><a name="726" class="Keyword"
+      >open</a
+      ><a name="730"
+      > </a
+      ><a name="731" class="Keyword"
+      >import</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="Data.Nat.Show.html#1" class="Module"
+      >Data.Nat.Show</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Keyword"
+      >renaming</a
+      ><a name="760"
+      > </a
+      ><a name="761" class="Symbol"
+      >(</a
+      ><a name="762" href="Data.Nat.Show.html#951" class="Function"
+      >show</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >to</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="Data.Nat.Show.html#951" class="Function"
+      >show&#8469;</a
+      ><a name="775" class="Symbol"
+      >)</a
+      ><a name="776"
+      >
+</a
+      ><a name="777" class="Keyword"
+      >open</a
+      ><a name="781"
+      > </a
+      ><a name="782" class="Keyword"
+      >import</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="ooAgda.SizedIO.Base.html#1" class="Module"
+      >ooAgda.SizedIO.Base</a
+      ><a name="808"
+      >  </a
+      ><a name="810" class="Keyword"
+      >renaming</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="Symbol"
+      >(</a
+      ><a name="820" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >force</a
+      ><a name="825"
+      > </a
+      ><a name="826" class="Symbol"
+      >to</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="ooAgda.SizedIO.Base.html#612" class="Field"
+      >forceIO</a
+      ><a name="836" class="Symbol"
+      >;</a
+      ><a name="837"
+      > </a
+      ><a name="838" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delay</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >to</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="ooAgda.SizedIO.Base.html#586" class="CoinductiveConstructor"
+      >delayIO</a
+      ><a name="854" class="Symbol"
+      >)</a
+      ><a name="855"
+      >
+</a
+      ><a name="856" class="Keyword"
+      >open</a
+      ><a name="860"
+      > </a
+      ><a name="861" class="Keyword"
+      >import</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="ooAgda.SizedIO.Console.html#1" class="Module"
+      >ooAgda.SizedIO.Console</a
+      ><a name="890"
+      > </a
+      ><a name="891" class="Keyword"
+      >hiding</a
+      ><a name="897"
+      > </a
+      ><a name="898" class="Symbol"
+      >(</a
+      ><a name="899" href="ooAgda.SizedIO.Console.html#903" class="Function"
+      >main</a
+      ><a name="903" class="Symbol"
+      >)</a
+      ><a name="904"
+      >
+</a
+      ><a name="905" class="Keyword"
+      >open</a
+      ><a name="909"
+      > </a
+      ><a name="910" class="Keyword"
+      >import</a
+      ><a name="916"
+      > </a
+      ><a name="917" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="932"
+      >
+</a
+      ><a name="933" class="Keyword"
+      >open</a
+      ><a name="937"
+      > </a
+      ><a name="938" class="Keyword"
+      >import</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="Agda.Builtin.Unit.html#1" class="Module"
+      >Agda.Builtin.Unit</a
+      ><a name="962"
+      >
+</a
+      ><a name="963" class="Keyword"
+      >open</a
+      ><a name="967"
+      > </a
+      ><a name="968" class="Keyword"
+      >import</a
+      ><a name="974"
+      > </a
+      ><a name="975" href="Data.List.Base.html#1" class="Module"
+      >Data.List.Base</a
+      ><a name="989"
+      > </a
+      ><a name="990" class="Keyword"
+      >renaming</a
+      ><a name="998"
+      > </a
+      ><a name="999" class="Symbol"
+      >(</a
+      ><a name="1000" href="Data.List.Base.html#1207" class="Function"
+      >map</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >to</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" href="Data.List.Base.html#1207" class="Function"
+      >mapL</a
+      ><a name="1011" class="Symbol"
+      >)</a
+      ><a name="1012"
+      >
+</a
+      ><a name="1013" class="Keyword"
+      >open</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" class="Keyword"
+      >import</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="1039"
+      >
+</a
+      ><a name="1040" class="Keyword"
+      >open</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" class="Keyword"
+      >import</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="1059"
+      >
+</a
+      ><a name="1060" class="Keyword"
+      >open</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Keyword"
+      >import</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="1087"
+      >
+</a
+      ><a name="1088" class="Keyword"
+      >open</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" class="Keyword"
+      >import</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="1110"
+      >
+</a
+      ><a name="1111" class="Keyword"
+      >open</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" class="Keyword"
+      >import</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="internalChoice.html#1" class="Module"
+      >internalChoice</a
+      ><a name="1137"
+      >
+</a
+      ><a name="1138" class="Keyword"
+      >open</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" class="Keyword"
+      >import</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="1162"
+      > 
+</a
+      ><a name="1164" class="Keyword"
+      >open</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" class="Keyword"
+      >import</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" href="renamingResult.html#1" class="Module"
+      >renamingResult</a
+      ><a name="1190"
+      >
+</a
+      ><a name="1191" class="Keyword"
+      >open</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" class="Keyword"
+      >import</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="IOInternalchoice.html#1" class="Module"
+      >IOInternalchoice</a
+      ><a name="1219"
+      > </a
+      ><a name="1220" class="Keyword"
+      >hiding</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" class="Symbol"
+      >(</a
+      ><a name="1228" href="IOInternalchoice.html#1265" class="Function"
+      >f</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" class="Symbol"
+      >)</a
+      ><a name="1231"
+      >
+
+</a
+      ><a name="1233" href="testRenamingResult.html#1233" class="Function"
+      >f</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" class="Symbol"
+      >:</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" href="IOInternalchoice.html#534" class="Function"
+      >SetSTOP</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" class="Symbol"
+      >&#8594;</a
+      ><a name="1246"
+      > </a
+      ><a name="1247" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="Symbol"
+      >(</a
+      ><a name="1258" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" class="Number"
+      >3</a
+      ><a name="1263" class="Symbol"
+      >)</a
+      ><a name="1264"
+      >
+</a
+      ><a name="1265" href="testRenamingResult.html#1233" class="Function"
+      >f</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" class="Symbol"
+      >(</a
+      ><a name="1268" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1275" class="Symbol"
+      >)</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" class="Symbol"
+      >=</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1282"
+      > </a
+      ><a name="1283" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1287"
+      >
+</a
+      ><a name="1288" href="testRenamingResult.html#1233" class="Function"
+      >f</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" class="Symbol"
+      >(</a
+      ><a name="1291" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" class="Symbol"
+      >(</a
+      ><a name="1295" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" class="Symbol"
+      >()))</a
+      ><a name="1303"
+      > 
+
+</a
+      ><a name="1306" href="testRenamingResult.html#1306" class="Function"
+      >g</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" class="Symbol"
+      >:</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" href="Data.Fin.html#842" class="Datatype"
+      >Fin</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" class="Number"
+      >3</a
+      ><a name="1315"
+      > </a
+      ><a name="1316" class="Symbol"
+      >&#8594;</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" href="Data.Fin.html#842" class="Datatype"
+      >Fin</a
+      ><a name="1321"
+      > </a
+      ><a name="1322" class="Number"
+      >4</a
+      ><a name="1323"
+      >
+</a
+      ><a name="1324" href="testRenamingResult.html#1306" class="Function"
+      >g</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" class="Symbol"
+      >=</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1336"
+      > </a
+      ><a name="1337" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1341"
+      >
+</a
+      ><a name="1342" href="testRenamingResult.html#1306" class="Function"
+      >g</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" class="Symbol"
+      >(</a
+      ><a name="1345" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1353" class="Symbol"
+      >)</a
+      ><a name="1354"
+      > </a
+      ><a name="1355" class="Symbol"
+      >=</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1361"
+      >
+</a
+      ><a name="1362" href="testRenamingResult.html#1306" class="Function"
+      >g</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" class="Symbol"
+      >(</a
+      ><a name="1365" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" class="Symbol"
+      >(</a
+      ><a name="1370" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1378" class="Symbol"
+      >))</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" class="Symbol"
+      >=</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="1387"
+      >
+</a
+      ><a name="1388" href="testRenamingResult.html#1306" class="Function"
+      >g</a
+      ><a name="1389"
+      > </a
+      ><a name="1390" class="Symbol"
+      >(</a
+      ><a name="1391" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" class="Symbol"
+      >(</a
+      ><a name="1396" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" class="Symbol"
+      >(</a
+      ><a name="1401" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="1404"
+      > </a
+      ><a name="1405" class="Symbol"
+      >())))</a
+      ><a name="1410"
+      >
+
+</a
+      ><a name="1412" href="testRenamingResult.html#1412" class="Function"
+      >Q</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" class="Symbol"
+      >:</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1423"
+      > </a
+      ><a name="1424" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" class="Symbol"
+      >(</a
+      ><a name="1427" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" class="Number"
+      >3</a
+      ><a name="1432" class="Symbol"
+      >)</a
+      ><a name="1433"
+      >
+</a
+      ><a name="1434" href="testRenamingResult.html#1412" class="Function"
+      >Q</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" class="Symbol"
+      >=</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" href="renamingResult.html#255" class="Function"
+      >fmap</a
+      ><a name="1442"
+      > </a
+      ><a name="1443" href="testRenamingResult.html#1233" class="Function"
+      >f</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" class="Symbol"
+      >(</a
+      ><a name="1446" href="IOInternalchoice.html#809" class="Function"
+      >transition&#8322;</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1459" class="Symbol"
+      >)</a
+      ><a name="1460"
+      >
+
+</a
+      ><a name="1462" href="testRenamingResult.html#1462" class="Function"
+      >s</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >:</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1472"
+      >
+</a
+      ><a name="1473" href="testRenamingResult.html#1462" class="Function"
+      >s</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" class="Symbol"
+      >=</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" href="testRenamingResult.html#1412" class="Function"
+      >Q</a
+      ><a name="1482"
+      >
+
+</a
+      ><a name="1484" href="testRenamingResult.html#1484" class="Function"
+      >Q'</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" class="Symbol"
+      >:</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" class="Symbol"
+      >(</a
+      ><a name="1500" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" class="Number"
+      >4</a
+      ><a name="1505" class="Symbol"
+      >)</a
+      ><a name="1506"
+      >
+</a
+      ><a name="1507" href="testRenamingResult.html#1484" class="Function"
+      >Q'</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" class="Symbol"
+      >=</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" href="renamingResult.html#255" class="Function"
+      >fmap</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" href="testRenamingResult.html#1306" class="Function"
+      >g</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="testRenamingResult.html#1412" class="Function"
+      >Q</a
+      ><a name="1520"
+      >
+
+
+</a
+      ><a name="1523" href="testRenamingResult.html#1523" class="Function"
+      >s'</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" class="Symbol"
+      >:</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="1534"
+      >
+</a
+      ><a name="1535" href="testRenamingResult.html#1523" class="Function"
+      >s'</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" class="Symbol"
+      >=</a
+      ><a name="1539"
+      > </a
+      ><a name="1540" href="process.html#1575" class="Function"
+      >Str</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" href="testRenamingResult.html#1484" class="Function"
+      >Q'</a
+      ><a name="1546"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

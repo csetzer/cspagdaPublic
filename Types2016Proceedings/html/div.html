@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >div</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="div.html#1" class="Module"
+      >div</a
+      ><a name="11"
+      > </a
+      ><a name="12" class="Keyword"
+      >where</a
+      ><a name="17"
+      > 
+
+</a
+      ><a name="20" class="Keyword"
+      >open</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >import</a
+      ><a name="31"
+      > </a
+      ><a name="32" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="36"
+      >
+</a
+      ><a name="37" class="Keyword"
+      >open</a
+      ><a name="41"
+      > </a
+      ><a name="42" class="Keyword"
+      >import</a
+      ><a name="48"
+      > </a
+      ><a name="49" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="60"
+      > </a
+      ><a name="61" class="Keyword"
+      >renaming</a
+      ><a name="69"
+      >  </a
+      ><a name="71" class="Symbol"
+      >(</a
+      ><a name="72" href="Data.String.html#1640" class="Function Operator"
+      >_==_</a
+      ><a name="76"
+      > </a
+      ><a name="77" class="Symbol"
+      >to</a
+      ><a name="79"
+      > </a
+      ><a name="80" href="Data.String.html#1640" class="Function Operator"
+      >_==strb_</a
+      ><a name="88" class="Symbol"
+      >;</a
+      ><a name="89"
+      > </a
+      ><a name="90" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="94"
+      > </a
+      ><a name="95" class="Symbol"
+      >to</a
+      ><a name="97"
+      > </a
+      ><a name="98" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="103" class="Symbol"
+      >)</a
+      ><a name="104"
+      >
+</a
+      ><a name="105" class="Keyword"
+      >open</a
+      ><a name="109"
+      > </a
+      ><a name="110" class="Keyword"
+      >import</a
+      ><a name="116"
+      > </a
+      ><a name="117" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="126"
+      >
+</a
+      ><a name="127" class="Keyword"
+      >open</a
+      ><a name="131"
+      > </a
+      ><a name="132" class="Keyword"
+      >import</a
+      ><a name="138"
+      > </a
+      ><a name="139" href="process.html#1" class="Module"
+      >process</a
+      ><a name="146"
+      >
+</a
+      ><a name="147" class="Keyword"
+      >open</a
+      ><a name="151"
+      > </a
+      ><a name="152" class="Keyword"
+      >import</a
+      ><a name="158"
+      > </a
+      ><a name="159" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="166"
+      >
+</a
+      ><a name="167" class="Keyword"
+      >open</a
+      ><a name="171"
+      > </a
+      ><a name="172" class="Keyword"
+      >import</a
+      ><a name="178"
+      > </a
+      ><a name="179" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="194"
+      > 
+</a
+      ><a name="196" class="Keyword"
+      >open</a
+      ><a name="200"
+      > </a
+      ><a name="201" class="Keyword"
+      >import</a
+      ><a name="207"
+      > </a
+      ><a name="208" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="218"
+      >
+</a
+      ><a name="219" class="Keyword"
+      >open</a
+      ><a name="223"
+      > </a
+      ><a name="224" href="process.html#151" class="Module"
+      >Process&#8734;</a
+      ><a name="232"
+      >  
+</a
+      ><a name="235" class="Keyword"
+      >open</a
+      ><a name="239"
+      > </a
+      ><a name="240" href="process.html#445" class="Module"
+      >Process+</a
+      ><a name="248"
+      >
+
+</a
+      ><a name="250" class="Keyword"
+      >mutual</a
+      ><a name="256"
+      >
+  </a
+      ><a name="259" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="263"
+      >  </a
+      ><a name="265" class="Symbol"
+      >:</a
+      ><a name="266"
+      > </a
+      ><a name="267" class="Symbol"
+      >{</a
+      ><a name="268" href="div.html#268" class="Bound"
+      >i</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Symbol"
+      >:</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="276" class="Symbol"
+      >}</a
+      ><a name="277"
+      > </a
+      ><a name="278" class="Symbol"
+      >&#8594;</a
+      ><a name="279"
+      > </a
+      ><a name="280" class="Symbol"
+      >{</a
+      ><a name="281" href="div.html#281" class="Bound"
+      >c</a
+      ><a name="282"
+      > </a
+      ><a name="283" class="Symbol"
+      >:</a
+      ><a name="284"
+      > </a
+      ><a name="285" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="291" class="Symbol"
+      >}</a
+      ><a name="292"
+      > </a
+      ><a name="293" class="Symbol"
+      >&#8594;</a
+      ><a name="294"
+      > </a
+      ><a name="295" href="process.html#151" class="Record"
+      >Process&#8734;</a
+      ><a name="303"
+      > </a
+      ><a name="304" href="div.html#268" class="Bound"
+      >i</a
+      ><a name="305"
+      > </a
+      ><a name="306" href="div.html#281" class="Bound"
+      >c</a
+      ><a name="307"
+      >
+  </a
+      ><a name="310" href="process.html#228" class="Field"
+      >forcep</a
+      ><a name="316"
+      >  </a
+      ><a name="318" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="322"
+      >   </a
+      ><a name="325" class="Symbol"
+      >=</a
+      ><a name="326"
+      > </a
+      ><a name="327" href="div.html#360" class="Function"
+      >DIV</a
+      ><a name="330"
+      >
+  </a
+      ><a name="333" href="process.html#272" class="Field"
+      >Str&#8734;</a
+      ><a name="337"
+      >    </a
+      ><a name="341" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="345"
+      >   </a
+      ><a name="348" class="Symbol"
+      >=</a
+      ><a name="349"
+      >  </a
+      ><a name="351" class="String"
+      >&quot;DIV&quot;</a
+      ><a name="356"
+      >
+
+  </a
+      ><a name="360" href="div.html#360" class="Function"
+      >DIV</a
+      ><a name="363"
+      > </a
+      ><a name="364" class="Symbol"
+      >:</a
+      ><a name="365"
+      > </a
+      ><a name="366" class="Symbol"
+      >{</a
+      ><a name="367" href="div.html#367" class="Bound"
+      >i</a
+      ><a name="368"
+      > </a
+      ><a name="369" class="Symbol"
+      >:</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="375" class="Symbol"
+      >}</a
+      ><a name="376"
+      > </a
+      ><a name="377" class="Symbol"
+      >&#8594;</a
+      ><a name="378"
+      > </a
+      ><a name="379" class="Symbol"
+      >{</a
+      ><a name="380" href="div.html#380" class="Bound"
+      >c</a
+      ><a name="381"
+      > </a
+      ><a name="382" class="Symbol"
+      >:</a
+      ><a name="383"
+      > </a
+      ><a name="384" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="390" class="Symbol"
+      >}</a
+      ><a name="391"
+      > </a
+      ><a name="392" class="Symbol"
+      >&#8594;</a
+      ><a name="393"
+      > </a
+      ><a name="394" href="process.html#296" class="Datatype"
+      >Process</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="div.html#367" class="Bound"
+      >i</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="div.html#380" class="Bound"
+      >c</a
+      ><a name="405"
+      >
+  </a
+      ><a name="408" href="div.html#360" class="Function"
+      >DIV</a
+      ><a name="411"
+      > </a
+      ><a name="412" class="Symbol"
+      >=</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="process.html#392" class="InductiveConstructor"
+      >node</a
+      ><a name="418"
+      > </a
+      ><a name="419" href="div.html#427" class="Function"
+      >DIV+</a
+      ><a name="423"
+      >
+
+  </a
+      ><a name="427" href="div.html#427" class="Function"
+      >DIV+</a
+      ><a name="431"
+      > </a
+      ><a name="432" class="Symbol"
+      >:</a
+      ><a name="433"
+      > </a
+      ><a name="434" class="Symbol"
+      >{</a
+      ><a name="435" href="div.html#435" class="Bound"
+      >i</a
+      ><a name="436"
+      > </a
+      ><a name="437" class="Symbol"
+      >:</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="443" class="Symbol"
+      >}</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >&#8594;</a
+      ><a name="446"
+      > </a
+      ><a name="447" class="Symbol"
+      >{</a
+      ><a name="448" href="div.html#448" class="Bound"
+      >c</a
+      ><a name="449"
+      > </a
+      ><a name="450" class="Symbol"
+      >:</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="choiceSetU.html#643" class="Datatype"
+      >Choice</a
+      ><a name="458" class="Symbol"
+      >}</a
+      ><a name="459"
+      > </a
+      ><a name="460" class="Symbol"
+      >&#8594;</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="process.html#445" class="Record"
+      >Process+</a
+      ><a name="470"
+      > </a
+      ><a name="471" href="div.html#435" class="Bound"
+      >i</a
+      ><a name="472"
+      > </a
+      ><a name="473" href="div.html#448" class="Bound"
+      >c</a
+      ><a name="474"
+      >
+  </a
+      ><a name="477" href="div.html#427" class="Function"
+      >DIV+</a
+      ><a name="481"
+      > </a
+      ><a name="482" class="Symbol"
+      >=</a
+      ><a name="483"
+      > </a
+      ><a name="484" class="Symbol"
+      >(</a
+      ><a name="485" href="process.html#506" class="CoinductiveConstructor"
+      >process+</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="choiceSetU.html#1342" class="Function"
+      >&#8868;'</a
+      ><a name="507"
+      >  </a
+      ><a name="509" class="Symbol"
+      >(&#955;</a
+      ><a name="511"
+      > </a
+      ><a name="512" href="div.html#512" class="Bound"
+      >_</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="Symbol"
+      >&#8594;</a
+      ><a name="515"
+      > </a
+      ><a name="516" href="div.html#259" class="Function"
+      >DIV&#8734;</a
+      ><a name="520" class="Symbol"
+      >)</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="choiceSetU.html#1318" class="Function"
+      >&#8709;'</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="dataAuxFunction.html#1151" class="Function"
+      >efq</a
+      ><a name="528"
+      > </a
+      ><a name="529" class="String"
+      >&quot;DIV&quot;</a
+      ><a name="534" class="Symbol"
+      >)</a
+      ><a name="535"
+      >
+
+</a
+      ></pre
+    ></body
+  ></html
+>

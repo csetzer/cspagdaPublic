@@ -1,0 +1,2283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >interleave</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="interleave.html#1" class="Module"
+      >interleave</a
+      ><a name="18"
+      > </a
+      ><a name="19" class="Keyword"
+      >where</a
+      ><a name="24"
+      > 
+
+</a
+      ><a name="27" class="Keyword"
+      >open</a
+      ><a name="31"
+      > </a
+      ><a name="32" class="Keyword"
+      >import</a
+      ><a name="38"
+      > </a
+      ><a name="39" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="43"
+      >
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="process.html#1" class="Module"
+      >process</a
+      ><a name="63"
+      >
+</a
+      ><a name="64" class="Keyword"
+      >open</a
+      ><a name="68"
+      > </a
+      ><a name="69" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="77"
+      >
+</a
+      ><a name="78" class="Keyword"
+      >open</a
+      ><a name="82"
+      > </a
+      ><a name="83" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="91"
+      >
+</a
+      ><a name="92" class="Keyword"
+      >open</a
+      ><a name="96"
+      > </a
+      ><a name="97" class="Keyword"
+      >import</a
+      ><a name="103"
+      > </a
+      ><a name="104" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="114"
+      >
+</a
+      ><a name="115" class="Keyword"
+      >open</a
+      ><a name="119"
+      > </a
+      ><a name="120" class="Keyword"
+      >import</a
+      ><a name="126"
+      > </a
+      ><a name="127" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="144"
+      >
+</a
+      ><a name="145" class="Keyword"
+      >open</a
+      ><a name="149"
+      > </a
+      ><a name="150" class="Keyword"
+      >import</a
+      ><a name="156"
+      > </a
+      ><a name="157" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="172"
+      >
+</a
+      ><a name="173" class="Keyword"
+      >open</a
+      ><a name="177"
+      > </a
+      ><a name="178" class="Keyword"
+      >import</a
+      ><a name="184"
+      > </a
+      ><a name="185" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="192"
+      >
+</a
+      ><a name="193" class="Keyword"
+      >open</a
+      ><a name="197"
+      > </a
+      ><a name="198" class="Keyword"
+      >import</a
+      ><a name="204"
+      > </a
+      ><a name="205" href="label.html#1" class="Module"
+      >label</a
+      ><a name="210"
+      >
+</a
+      ><a name="211" class="Keyword"
+      >open</a
+      ><a name="215"
+      > </a
+      ><a name="216" class="Keyword"
+      >import</a
+      ><a name="222"
+      > </a
+      ><a name="223" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="234"
+      > </a
+      ><a name="235" class="Keyword"
+      >renaming</a
+      ><a name="243"
+      > </a
+      ><a name="244" class="Symbol"
+      >(</a
+      ><a name="245" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Symbol"
+      >to</a
+      ><a name="252"
+      > </a
+      ><a name="253" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="258" class="Symbol"
+      >)</a
+      ><a name="259"
+      >
+</a
+      ><a name="260" class="Keyword"
+      >open</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Keyword"
+      >import</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="284"
+      >
+</a
+      ><a name="285" class="Keyword"
+      >open</a
+      ><a name="289"
+      > </a
+      ><a name="290" class="Keyword"
+      >import</a
+      ><a name="296"
+      > </a
+      ><a name="297" href="Data.Sum.html#1" class="Module"
+      >Data.Sum</a
+      ><a name="305"
+      >
+</a
+      ><a name="306" class="Keyword"
+      >open</a
+      ><a name="310"
+      > </a
+      ><a name="311" class="Keyword"
+      >import</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="renamingResult.html#1" class="Module"
+      >renamingResult</a
+      ><a name="332"
+      >
+
+</a
+      ><a name="334" href="interleave.html#334" class="Function Operator"
+      >_|||Str_</a
+      ><a name="342"
+      > </a
+      ><a name="343" class="Symbol"
+      >:</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="351"
+      > </a
+      ><a name="352" class="Symbol"
+      >&#8594;</a
+      ><a name="353"
+      > </a
+      ><a name="354" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="360"
+      > </a
+      ><a name="361" class="Symbol"
+      >&#8594;</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="369"
+      >
+</a
+      ><a name="370" href="interleave.html#370" class="Bound"
+      >s</a
+      ><a name="371"
+      > </a
+      ><a name="372" href="interleave.html#334" class="Function Operator"
+      >|||Str</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="interleave.html#379" class="Bound"
+      >s'</a
+      ><a name="381"
+      > </a
+      ><a name="382" class="Symbol"
+      >=</a
+      ><a name="383"
+      > </a
+      ><a name="384" href="interleave.html#370" class="Bound"
+      >s</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="389"
+      > </a
+      ><a name="390" class="String"
+      >&quot;|||&quot;</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="interleave.html#379" class="Bound"
+      >s'</a
+      ><a name="402"
+      >
+
+</a
+      ><a name="404" class="Keyword"
+      >mutual</a
+      ><a name="410"
+      >
+   </a
+      ><a name="414" href="interleave.html#414" class="Function Operator"
+      >_|||&#8734;_</a
+      ><a name="420"
+      > </a
+      ><a name="421" class="Symbol"
+      >:</a
+      ><a name="422"
+      > </a
+      ><a name="423" class="Symbol"
+      >{</a
+      ><a name="424" href="interleave.html#424" class="Bound"
+      >i</a
+      ><a name="425"
+      > </a
+      ><a name="426" class="Symbol"
+      >:</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="432" class="Symbol"
+      >}</a
+      ><a name="433"
+      >
+          </a
+      ><a name="444" class="Symbol"
+      >&#8594;</a
+      ><a name="445"
+      > </a
+      ><a name="446" class="Symbol"
+      >{</a
+      ><a name="447" href="interleave.html#447" class="Bound"
+      >c&#8320;</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="interleave.html#450" class="Bound"
+      >c&#8321;</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >:</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="461" class="Symbol"
+      >}</a
+      ><a name="462"
+      >
+          </a
+      ><a name="473" class="Symbol"
+      >&#8594;</a
+      ><a name="474"
+      > </a
+      ><a name="475" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="interleave.html#424" class="Bound"
+      >i</a
+      ><a name="485"
+      > </a
+      ><a name="486" href="interleave.html#447" class="Bound"
+      >c&#8320;</a
+      ><a name="488"
+      >
+          </a
+      ><a name="499" class="Symbol"
+      >&#8594;</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="509"
+      > </a
+      ><a name="510" href="interleave.html#424" class="Bound"
+      >i</a
+      ><a name="511"
+      > </a
+      ><a name="512" href="interleave.html#450" class="Bound"
+      >c&#8321;</a
+      ><a name="514"
+      >
+          </a
+      ><a name="525" class="Symbol"
+      >&#8594;</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="535"
+      > </a
+      ><a name="536" href="interleave.html#424" class="Bound"
+      >i</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="Symbol"
+      >(</a
+      ><a name="539" href="interleave.html#447" class="Bound"
+      >c&#8320;</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="544"
+      > </a
+      ><a name="545" href="interleave.html#450" class="Bound"
+      >c&#8321;</a
+      ><a name="547" class="Symbol"
+      >)</a
+      ><a name="548"
+      >
+   </a
+      ><a name="552" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="558"
+      > </a
+      ><a name="559" class="Symbol"
+      >(</a
+      ><a name="560" href="interleave.html#560" class="Bound"
+      >P</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="interleave.html#414" class="Function Operator"
+      >|||&#8734;</a
+      ><a name="566"
+      >  </a
+      ><a name="568" href="interleave.html#568" class="Bound"
+      >Q</a
+      ><a name="569" class="Symbol"
+      >)</a
+      ><a name="570"
+      >   </a
+      ><a name="573" class="Symbol"
+      >=</a
+      ><a name="574"
+      >  </a
+      ><a name="576" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="582"
+      >  </a
+      ><a name="584" href="interleave.html#560" class="Bound"
+      >P</a
+      ><a name="585"
+      >   </a
+      ><a name="588" href="interleave.html#668" class="Function Operator"
+      >|||</a
+      ><a name="591"
+      >     </a
+      ><a name="596" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="602"
+      >  </a
+      ><a name="604" href="interleave.html#568" class="Bound"
+      >Q</a
+      ><a name="605"
+      > 
+   </a
+      ><a name="610" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="614"
+      >   </a
+      ><a name="617" class="Symbol"
+      >(</a
+      ><a name="618" href="interleave.html#618" class="Bound"
+      >P</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="interleave.html#414" class="Function Operator"
+      >|||&#8734;</a
+      ><a name="624"
+      >  </a
+      ><a name="626" href="interleave.html#626" class="Bound"
+      >Q</a
+      ><a name="627" class="Symbol"
+      >)</a
+      ><a name="628"
+      >   </a
+      ><a name="631" class="Symbol"
+      >=</a
+      ><a name="632"
+      >  </a
+      ><a name="634" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="638"
+      >    </a
+      ><a name="642" href="interleave.html#618" class="Bound"
+      >P</a
+      ><a name="643"
+      >   </a
+      ><a name="646" href="interleave.html#334" class="Function Operator"
+      >|||Str</a
+      ><a name="652"
+      >  </a
+      ><a name="654" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="658"
+      >    </a
+      ><a name="662" href="interleave.html#626" class="Bound"
+      >Q</a
+      ><a name="663"
+      >
+
+   </a
+      ><a name="668" href="interleave.html#668" class="Function Operator"
+      >_|||_</a
+      ><a name="673"
+      > </a
+      ><a name="674" class="Symbol"
+      >:</a
+      ><a name="675"
+      > </a
+      ><a name="676" class="Symbol"
+      >{</a
+      ><a name="677" href="interleave.html#677" class="Bound"
+      >i</a
+      ><a name="678"
+      > </a
+      ><a name="679" class="Symbol"
+      >:</a
+      ><a name="680"
+      > </a
+      ><a name="681" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="685" class="Symbol"
+      >}</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >&#8594;</a
+      ><a name="688"
+      > </a
+      ><a name="689" class="Symbol"
+      >{</a
+      ><a name="690" href="interleave.html#690" class="Bound"
+      >c&#8320;</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="interleave.html#693" class="Bound"
+      >c&#8321;</a
+      ><a name="695"
+      > </a
+      ><a name="696" class="Symbol"
+      >:</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="704" class="Symbol"
+      >}</a
+      ><a name="705"
+      > </a
+      ><a name="706" class="Symbol"
+      >&#8594;</a
+      ><a name="707"
+      > </a
+      ><a name="708" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="715"
+      > </a
+      ><a name="716" href="interleave.html#677" class="Bound"
+      >i</a
+      ><a name="717"
+      > </a
+      ><a name="718" href="interleave.html#690" class="Bound"
+      >c&#8320;</a
+      ><a name="720"
+      >
+          </a
+      ><a name="731" class="Symbol"
+      >&#8594;</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="interleave.html#677" class="Bound"
+      >i</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="interleave.html#693" class="Bound"
+      >c&#8321;</a
+      ><a name="745"
+      > </a
+      ><a name="746" class="Symbol"
+      >&#8594;</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="interleave.html#677" class="Bound"
+      >i</a
+      ><a name="757"
+      > </a
+      ><a name="758" class="Symbol"
+      >(</a
+      ><a name="759" href="interleave.html#690" class="Bound"
+      >c&#8320;</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="interleave.html#693" class="Bound"
+      >c&#8321;</a
+      ><a name="767" class="Symbol"
+      >)</a
+      ><a name="768"
+      >
+   </a
+      ><a name="772" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="interleave.html#777" class="Bound"
+      >P</a
+      ><a name="778"
+      >  </a
+      ><a name="780" href="interleave.html#668" class="Function Operator"
+      >|||</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="interleave.html#789" class="Bound"
+      >Q</a
+      ><a name="790"
+      >  </a
+      ><a name="792" class="Symbol"
+      >=</a
+      ><a name="793"
+      >  </a
+      ><a name="795" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="799"
+      >  </a
+      ><a name="801" class="Symbol"
+      >(</a
+      ><a name="802" href="interleave.html#777" class="Bound"
+      >P</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="809"
+      > </a
+      ><a name="810" href="interleave.html#789" class="Bound"
+      >Q</a
+      ><a name="811" class="Symbol"
+      >)</a
+      ><a name="812"
+      >
+   </a
+      ><a name="816" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="interleave.html#826" class="Bound"
+      >a</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="interleave.html#668" class="Function Operator"
+      >|||</a
+      ><a name="831"
+      >  </a
+      ><a name="833" href="interleave.html#833" class="Bound"
+      >Q</a
+      ><a name="834"
+      >  </a
+      ><a name="836" class="Symbol"
+      >=</a
+      ><a name="837"
+      >  </a
+      ><a name="839" href="renamingResult.html#255" class="Function"
+      >fmap</a
+      ><a name="843"
+      >  </a
+      ><a name="845" class="Symbol"
+      >(&#955;</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="interleave.html#848" class="Bound"
+      >b</a
+      ><a name="849"
+      > </a
+      ><a name="850" class="Symbol"
+      >&#8594;</a
+      ><a name="851"
+      > </a
+      ><a name="852" class="Symbol"
+      >(</a
+      ><a name="853" href="interleave.html#826" class="Bound"
+      >a</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="auxData.html#175" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="interleave.html#848" class="Bound"
+      >b</a
+      ><a name="859" class="Symbol"
+      >))</a
+      ><a name="861"
+      > </a
+      ><a name="862" href="interleave.html#833" class="Bound"
+      >Q</a
+      ><a name="863"
+      >
+   </a
+      ><a name="867" href="interleave.html#867" class="Bound"
+      >P</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="interleave.html#668" class="Function Operator"
+      >|||</a
+      ><a name="872"
+      >  </a
+      ><a name="874" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="interleave.html#884" class="Bound"
+      >b</a
+      ><a name="885"
+      >  </a
+      ><a name="887" class="Symbol"
+      >=</a
+      ><a name="888"
+      >  </a
+      ><a name="890" href="renamingResult.html#255" class="Function"
+      >fmap</a
+      ><a name="894"
+      >  </a
+      ><a name="896" class="Symbol"
+      >(&#955;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="interleave.html#899" class="Bound"
+      >a</a
+      ><a name="900"
+      > </a
+      ><a name="901" class="Symbol"
+      >&#8594;</a
+      ><a name="902"
+      > </a
+      ><a name="903" class="Symbol"
+      >(</a
+      ><a name="904" href="interleave.html#899" class="Bound"
+      >a</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="auxData.html#175" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="908"
+      > </a
+      ><a name="909" href="interleave.html#884" class="Bound"
+      >b</a
+      ><a name="910" class="Symbol"
+      >))</a
+      ><a name="912"
+      > </a
+      ><a name="913" href="interleave.html#867" class="Bound"
+      >P</a
+      ><a name="914"
+      >
+
+   </a
+      ><a name="919" href="interleave.html#919" class="Function Operator"
+      >_|||&#8734;+_</a
+      ><a name="926"
+      > </a
+      ><a name="927" class="Symbol"
+      >:</a
+      ><a name="928"
+      > </a
+      ><a name="929" class="Symbol"
+      >{</a
+      ><a name="930" href="interleave.html#930" class="Bound"
+      >i</a
+      ><a name="931"
+      > </a
+      ><a name="932" class="Symbol"
+      >:</a
+      ><a name="933"
+      > </a
+      ><a name="934" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="938" class="Symbol"
+      >}</a
+      ><a name="939"
+      > </a
+      ><a name="940" class="Symbol"
+      >&#8594;</a
+      ><a name="941"
+      > </a
+      ><a name="942" class="Symbol"
+      >{</a
+      ><a name="943" href="interleave.html#943" class="Bound"
+      >c&#8320;</a
+      ><a name="945"
+      > </a
+      ><a name="946" href="interleave.html#946" class="Bound"
+      >c&#8321;</a
+      ><a name="948"
+      > </a
+      ><a name="949" class="Symbol"
+      >:</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="957" class="Symbol"
+      >}</a
+      ><a name="958"
+      > </a
+      ><a name="959" class="Symbol"
+      >&#8594;</a
+      ><a name="960"
+      > </a
+      ><a name="961" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="interleave.html#930" class="Bound"
+      >i</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="interleave.html#943" class="Bound"
+      >c&#8320;</a
+      ><a name="974"
+      >
+          </a
+      ><a name="985" class="Symbol"
+      >&#8594;</a
+      ><a name="986"
+      > </a
+      ><a name="987" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="995"
+      > </a
+      ><a name="996" href="interleave.html#930" class="Bound"
+      >i</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="interleave.html#946" class="Bound"
+      >c&#8321;</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" class="Symbol"
+      >&#8594;</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="interleave.html#930" class="Bound"
+      >i</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" class="Symbol"
+      >(</a
+      ><a name="1015" href="interleave.html#943" class="Bound"
+      >c&#8320;</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="interleave.html#946" class="Bound"
+      >c&#8321;</a
+      ><a name="1023" class="Symbol"
+      >)</a
+      ><a name="1024"
+      >
+   </a
+      ><a name="1028" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" class="Symbol"
+      >(</a
+      ><a name="1036" href="interleave.html#1036" class="Bound"
+      >P</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="interleave.html#919" class="Function Operator"
+      >|||&#8734;+</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="interleave.html#1044" class="Bound"
+      >Q</a
+      ><a name="1045" class="Symbol"
+      >)</a
+      ><a name="1046"
+      >    </a
+      ><a name="1050" class="Symbol"
+      >=</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" class="Symbol"
+      >(</a
+      ><a name="1058" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="interleave.html#1036" class="Bound"
+      >P</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="interleave.html#1341" class="Function Operator"
+      >|||p+</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" href="interleave.html#1044" class="Bound"
+      >Q</a
+      ><a name="1074" class="Symbol"
+      >)</a
+      ><a name="1075"
+      >
+   </a
+      ><a name="1079" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1083"
+      >   </a
+      ><a name="1086" class="Symbol"
+      >(</a
+      ><a name="1087" href="interleave.html#1087" class="Bound"
+      >P</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="interleave.html#919" class="Function Operator"
+      >|||&#8734;+</a
+      ><a name="1094"
+      >  </a
+      ><a name="1096" href="interleave.html#1096" class="Bound"
+      >Q</a
+      ><a name="1097" class="Symbol"
+      >)</a
+      ><a name="1098"
+      >   </a
+      ><a name="1101" class="Symbol"
+      >=</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1107"
+      >  </a
+      ><a name="1109" href="interleave.html#1087" class="Bound"
+      >P</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="interleave.html#334" class="Function Operator"
+      >|||Str</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="interleave.html#1096" class="Bound"
+      >Q</a
+      ><a name="1124"
+      >
+
+   </a
+      ><a name="1129" href="interleave.html#1129" class="Function Operator"
+      >_|||+&#8734;_</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >:</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" class="Symbol"
+      >{</a
+      ><a name="1140" href="interleave.html#1140" class="Bound"
+      >i</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" class="Symbol"
+      >:</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1148" class="Symbol"
+      >}</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" class="Symbol"
+      >&#8594;</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Symbol"
+      >{</a
+      ><a name="1153" href="interleave.html#1153" class="Bound"
+      >c&#8320;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="interleave.html#1156" class="Bound"
+      >c&#8321;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" class="Symbol"
+      >:</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1167" class="Symbol"
+      >}</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" class="Symbol"
+      >&#8594;</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" href="interleave.html#1140" class="Bound"
+      >i</a
+      ><a name="1181"
+      > </a
+      ><a name="1182" href="interleave.html#1153" class="Bound"
+      >c&#8320;</a
+      ><a name="1184"
+      >
+          </a
+      ><a name="1195" class="Symbol"
+      >&#8594;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1205"
+      > </a
+      ><a name="1206" href="interleave.html#1140" class="Bound"
+      >i</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" href="interleave.html#1156" class="Bound"
+      >c&#8321;</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" class="Symbol"
+      >&#8594;</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" href="interleave.html#1140" class="Bound"
+      >i</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" class="Symbol"
+      >(</a
+      ><a name="1225" href="interleave.html#1153" class="Bound"
+      >c&#8320;</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="interleave.html#1156" class="Bound"
+      >c&#8321;</a
+      ><a name="1233" class="Symbol"
+      >)</a
+      ><a name="1234"
+      >
+   </a
+      ><a name="1238" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" class="Symbol"
+      >(</a
+      ><a name="1246" href="interleave.html#1246" class="Bound"
+      >P</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" href="interleave.html#1129" class="Function Operator"
+      >|||+&#8734;</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" href="interleave.html#1254" class="Bound"
+      >Q</a
+      ><a name="1255" class="Symbol"
+      >)</a
+      ><a name="1256"
+      >    </a
+      ><a name="1260" class="Symbol"
+      >=</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" class="Symbol"
+      >(</a
+      ><a name="1268" href="interleave.html#1246" class="Bound"
+      >P</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="interleave.html#1537" class="Function Operator"
+      >|||+p</a
+      ><a name="1275"
+      >  </a
+      ><a name="1277" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="interleave.html#1254" class="Bound"
+      >Q</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" class="Symbol"
+      >)</a
+      ><a name="1287"
+      >
+   </a
+      ><a name="1291" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1295"
+      >   </a
+      ><a name="1298" class="Symbol"
+      >(</a
+      ><a name="1299" href="interleave.html#1299" class="Bound"
+      >P</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="interleave.html#1129" class="Function Operator"
+      >|||+&#8734;</a
+      ><a name="1306"
+      >  </a
+      ><a name="1308" href="interleave.html#1308" class="Bound"
+      >Q</a
+      ><a name="1309" class="Symbol"
+      >)</a
+      ><a name="1310"
+      >   </a
+      ><a name="1313" class="Symbol"
+      >=</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1319"
+      >  </a
+      ><a name="1321" href="interleave.html#1299" class="Bound"
+      >P</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="interleave.html#334" class="Function Operator"
+      >|||Str</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="interleave.html#1308" class="Bound"
+      >Q</a
+      ><a name="1336"
+      >
+
+   </a
+      ><a name="1341" href="interleave.html#1341" class="Function Operator"
+      >_|||p+_</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" class="Symbol"
+      >:</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >{</a
+      ><a name="1352" href="interleave.html#1352" class="Bound"
+      >i</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" class="Symbol"
+      >:</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1360" class="Symbol"
+      >}</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" class="Symbol"
+      >&#8594;</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" class="Symbol"
+      >{</a
+      ><a name="1365" href="interleave.html#1365" class="Bound"
+      >c&#8320;</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" href="interleave.html#1368" class="Bound"
+      >c&#8321;</a
+      ><a name="1370"
+      > </a
+      ><a name="1371" class="Symbol"
+      >:</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1379" class="Symbol"
+      >}</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" class="Symbol"
+      >&#8594;</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1390"
+      >  </a
+      ><a name="1392" href="interleave.html#1352" class="Bound"
+      >i</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" href="interleave.html#1365" class="Bound"
+      >c&#8320;</a
+      ><a name="1396"
+      >
+          </a
+      ><a name="1407" class="Symbol"
+      >&#8594;</a
+      ><a name="1408"
+      > </a
+      ><a name="1409" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" href="interleave.html#1352" class="Bound"
+      >i</a
+      ><a name="1419"
+      > </a
+      ><a name="1420" href="interleave.html#1368" class="Bound"
+      >c&#8321;</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" class="Symbol"
+      >&#8594;</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1433"
+      >  </a
+      ><a name="1435" href="interleave.html#1352" class="Bound"
+      >i</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" class="Symbol"
+      >(</a
+      ><a name="1438" href="interleave.html#1365" class="Bound"
+      >c&#8320;</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="interleave.html#1368" class="Bound"
+      >c&#8321;</a
+      ><a name="1446" class="Symbol"
+      >)</a
+      ><a name="1447"
+      >
+   </a
+      ><a name="1451" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="interleave.html#1461" class="Bound"
+      >a</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="interleave.html#1341" class="Function Operator"
+      >|||p+</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="interleave.html#1469" class="Bound"
+      >Q</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" class="Symbol"
+      >=</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" href="renamingResult.html#418" class="Function"
+      >fmap+</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" class="Symbol"
+      >(&#955;</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" href="interleave.html#1482" class="Bound"
+      >b</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" class="Symbol"
+      >&#8594;</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" class="Symbol"
+      >(</a
+      ><a name="1487" href="interleave.html#1461" class="Bound"
+      >a</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" href="auxData.html#175" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="interleave.html#1482" class="Bound"
+      >b</a
+      ><a name="1493" class="Symbol"
+      >))</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="interleave.html#1469" class="Bound"
+      >Q</a
+      ><a name="1497"
+      >
+   </a
+      ><a name="1501" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="interleave.html#1506" class="Bound"
+      >P</a
+      ><a name="1507"
+      >      </a
+      ><a name="1513" href="interleave.html#1341" class="Function Operator"
+      >|||p+</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="interleave.html#1519" class="Bound"
+      >Q</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" class="Symbol"
+      >=</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="interleave.html#1506" class="Bound"
+      >P</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="1530"
+      > </a
+      ><a name="1531" href="interleave.html#1519" class="Bound"
+      >Q</a
+      ><a name="1532"
+      >
+
+   </a
+      ><a name="1537" href="interleave.html#1537" class="Function Operator"
+      >_|||+p_</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >:</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" class="Symbol"
+      >{</a
+      ><a name="1548" href="interleave.html#1548" class="Bound"
+      >i</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" class="Symbol"
+      >:</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1556" class="Symbol"
+      >}</a
+      ><a name="1557"
+      > </a
+      ><a name="1558" class="Symbol"
+      >&#8594;</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" class="Symbol"
+      >{</a
+      ><a name="1561" href="interleave.html#1561" class="Bound"
+      >c&#8320;</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" href="interleave.html#1564" class="Bound"
+      >c&#8321;</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" class="Symbol"
+      >:</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1575" class="Symbol"
+      >}</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" class="Symbol"
+      >&#8594;</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1587"
+      >  </a
+      ><a name="1589" href="interleave.html#1548" class="Bound"
+      >i</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="interleave.html#1561" class="Bound"
+      >c&#8320;</a
+      ><a name="1593"
+      >
+          </a
+      ><a name="1604" class="Symbol"
+      >&#8594;</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="1613"
+      > </a
+      ><a name="1614" href="interleave.html#1548" class="Bound"
+      >i</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="interleave.html#1564" class="Bound"
+      >c&#8321;</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" class="Symbol"
+      >&#8594;</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1629"
+      >  </a
+      ><a name="1631" href="interleave.html#1548" class="Bound"
+      >i</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" class="Symbol"
+      >(</a
+      ><a name="1634" href="interleave.html#1561" class="Bound"
+      >c&#8320;</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="interleave.html#1564" class="Bound"
+      >c&#8321;</a
+      ><a name="1642" class="Symbol"
+      >)</a
+      ><a name="1643"
+      >
+   </a
+      ><a name="1647" href="interleave.html#1647" class="Bound"
+      >P</a
+      ><a name="1648"
+      > </a
+      ><a name="1649" href="interleave.html#1537" class="Function Operator"
+      >|||+p</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="interleave.html#1665" class="Bound"
+      >b</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" class="Symbol"
+      >=</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="renamingResult.html#418" class="Function"
+      >fmap+</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >(&#955;</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" href="interleave.html#1678" class="Bound"
+      >a</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" class="Symbol"
+      >&#8594;</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" class="Symbol"
+      >(</a
+      ><a name="1683" href="interleave.html#1678" class="Bound"
+      >a</a
+      ><a name="1684"
+      > </a
+      ><a name="1685" href="auxData.html#175" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" href="interleave.html#1665" class="Bound"
+      >b</a
+      ><a name="1689" class="Symbol"
+      >))</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="interleave.html#1647" class="Bound"
+      >P</a
+      ><a name="1693"
+      >
+   </a
+      ><a name="1697" href="interleave.html#1697" class="Bound"
+      >P</a
+      ><a name="1698"
+      > </a
+      ><a name="1699" href="interleave.html#1537" class="Function Operator"
+      >|||+p</a
+      ><a name="1704"
+      > </a
+      ><a name="1705" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="interleave.html#1710" class="Bound"
+      >Q</a
+      ><a name="1711"
+      >      </a
+      ><a name="1717" class="Symbol"
+      >=</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" href="interleave.html#1697" class="Bound"
+      >P</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" href="interleave.html#1710" class="Bound"
+      >Q</a
+      ><a name="1728"
+      >
+
+   </a
+      ><a name="1733" href="interleave.html#1733" class="Function Operator"
+      >_|||++_</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" class="Symbol"
+      >:</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" class="Symbol"
+      >{</a
+      ><a name="1744" href="interleave.html#1744" class="Bound"
+      >i</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" class="Symbol"
+      >:</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="1752" class="Symbol"
+      >}</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" class="Symbol"
+      >&#8594;</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" class="Symbol"
+      >{</a
+      ><a name="1757" href="interleave.html#1757" class="Bound"
+      >c&#8320;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="interleave.html#1760" class="Bound"
+      >c&#8321;</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" class="Symbol"
+      >:</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="1771" class="Symbol"
+      >}</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" class="Symbol"
+      >&#8594;</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="interleave.html#1744" class="Bound"
+      >i</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="interleave.html#1757" class="Bound"
+      >c&#8320;</a
+      ><a name="1788"
+      >
+          </a
+      ><a name="1799" class="Symbol"
+      >&#8594;</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1809"
+      > </a
+      ><a name="1810" href="interleave.html#1744" class="Bound"
+      >i</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="interleave.html#1760" class="Bound"
+      >c&#8321;</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" class="Symbol"
+      >&#8594;</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" href="interleave.html#1744" class="Bound"
+      >i</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" class="Symbol"
+      >(</a
+      ><a name="1829" href="interleave.html#1757" class="Bound"
+      >c&#8320;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="interleave.html#1760" class="Bound"
+      >c&#8321;</a
+      ><a name="1837" class="Symbol"
+      >)</a
+      ><a name="1838"
+      >
+   </a
+      ><a name="1842" href="process.html#570" class="Field"
+      >E</a
+      ><a name="1843"
+      >    </a
+      ><a name="1847" class="Symbol"
+      >(</a
+      ><a name="1848" href="interleave.html#1848" class="Bound"
+      >P</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="interleave.html#1856" class="Bound"
+      >Q</a
+      ><a name="1857" class="Symbol"
+      >)</a
+      ><a name="1858"
+      >            </a
+      ><a name="1870" class="Symbol"
+      >=</a
+      ><a name="1871"
+      >  </a
+      ><a name="1873" href="process.html#570" class="Field"
+      >E</a
+      ><a name="1874"
+      > </a
+      ><a name="1875" href="interleave.html#1848" class="Bound"
+      >P</a
+      ><a name="1876"
+      > </a
+      ><a name="1877" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" href="process.html#570" class="Field"
+      >E</a
+      ><a name="1881"
+      > </a
+      ><a name="1882" href="interleave.html#1856" class="Bound"
+      >Q</a
+      ><a name="1883"
+      >
+   </a
+      ><a name="1887" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1890"
+      >  </a
+      ><a name="1892" class="Symbol"
+      >(</a
+      ><a name="1893" href="interleave.html#1893" class="Bound"
+      >P</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" href="interleave.html#1901" class="Bound"
+      >Q</a
+      ><a name="1902" class="Symbol"
+      >)</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" class="Symbol"
+      >(</a
+      ><a name="1905" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" href="interleave.html#1910" class="Bound"
+      >c</a
+      ><a name="1911" class="Symbol"
+      >)</a
+      ><a name="1912"
+      >   </a
+      ><a name="1915" class="Symbol"
+      >=</a
+      ><a name="1916"
+      >  </a
+      ><a name="1918" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1921"
+      > </a
+      ><a name="1922" href="interleave.html#1893" class="Bound"
+      >P</a
+      ><a name="1923"
+      > </a
+      ><a name="1924" href="interleave.html#1910" class="Bound"
+      >c</a
+      ><a name="1925"
+      >
+   </a
+      ><a name="1929" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1932"
+      >  </a
+      ><a name="1934" class="Symbol"
+      >(</a
+      ><a name="1935" href="interleave.html#1935" class="Bound"
+      >P</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" href="interleave.html#1943" class="Bound"
+      >Q</a
+      ><a name="1944" class="Symbol"
+      >)</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" class="Symbol"
+      >(</a
+      ><a name="1947" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" href="interleave.html#1952" class="Bound"
+      >c</a
+      ><a name="1953" class="Symbol"
+      >)</a
+      ><a name="1954"
+      >   </a
+      ><a name="1957" class="Symbol"
+      >=</a
+      ><a name="1958"
+      >  </a
+      ><a name="1960" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" href="interleave.html#1943" class="Bound"
+      >Q</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="interleave.html#1952" class="Bound"
+      >c</a
+      ><a name="1967"
+      >
+   </a
+      ><a name="1971" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="1973"
+      >   </a
+      ><a name="1976" class="Symbol"
+      >(</a
+      ><a name="1977" href="interleave.html#1977" class="Bound"
+      >P</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="1984"
+      > </a
+      ><a name="1985" href="interleave.html#1985" class="Bound"
+      >Q</a
+      ><a name="1986" class="Symbol"
+      >)</a
+      ><a name="1987"
+      > </a
+      ><a name="1988" class="Symbol"
+      >(</a
+      ><a name="1989" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="1993"
+      > </a
+      ><a name="1994" href="interleave.html#1994" class="Bound"
+      >c</a
+      ><a name="1995" class="Symbol"
+      >)</a
+      ><a name="1996"
+      >   </a
+      ><a name="1999" class="Symbol"
+      >=</a
+      ><a name="2000"
+      >  </a
+      ><a name="2002" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" href="interleave.html#1977" class="Bound"
+      >P</a
+      ><a name="2006"
+      > </a
+      ><a name="2007" href="interleave.html#1994" class="Bound"
+      >c</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" href="interleave.html#919" class="Function Operator"
+      >|||&#8734;+</a
+      ><a name="2014"
+      >  </a
+      ><a name="2016" href="interleave.html#1985" class="Bound"
+      >Q</a
+      ><a name="2017"
+      >
+   </a
+      ><a name="2021" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="2023"
+      >   </a
+      ><a name="2026" class="Symbol"
+      >(</a
+      ><a name="2027" href="interleave.html#2027" class="Bound"
+      >P</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="interleave.html#2035" class="Bound"
+      >Q</a
+      ><a name="2036" class="Symbol"
+      >)</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" class="Symbol"
+      >(</a
+      ><a name="2039" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" href="interleave.html#2044" class="Bound"
+      >c</a
+      ><a name="2045" class="Symbol"
+      >)</a
+      ><a name="2046"
+      >   </a
+      ><a name="2049" class="Symbol"
+      >=</a
+      ><a name="2050"
+      >  </a
+      ><a name="2052" href="interleave.html#2027" class="Bound"
+      >P</a
+      ><a name="2053"
+      >  </a
+      ><a name="2055" href="interleave.html#1129" class="Function Operator"
+      >|||+&#8734;</a
+      ><a name="2060"
+      > </a
+      ><a name="2061" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="2063"
+      > </a
+      ><a name="2064" href="interleave.html#2035" class="Bound"
+      >Q</a
+      ><a name="2065"
+      > </a
+      ><a name="2066" href="interleave.html#2044" class="Bound"
+      >c</a
+      ><a name="2067"
+      >
+   </a
+      ><a name="2071" href="process.html#677" class="Field"
+      >I</a
+      ><a name="2072"
+      >    </a
+      ><a name="2076" class="Symbol"
+      >(</a
+      ><a name="2077" href="interleave.html#2077" class="Bound"
+      >P</a
+      ><a name="2078"
+      > </a
+      ><a name="2079" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" href="interleave.html#2085" class="Bound"
+      >Q</a
+      ><a name="2086" class="Symbol"
+      >)</a
+      ><a name="2087"
+      >            </a
+      ><a name="2099" class="Symbol"
+      >=</a
+      ><a name="2100"
+      >  </a
+      ><a name="2102" href="process.html#677" class="Field"
+      >I</a
+      ><a name="2103"
+      > </a
+      ><a name="2104" href="interleave.html#2077" class="Bound"
+      >P</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" href="process.html#677" class="Field"
+      >I</a
+      ><a name="2110"
+      > </a
+      ><a name="2111" href="interleave.html#2085" class="Bound"
+      >Q</a
+      ><a name="2112"
+      >
+   </a
+      ><a name="2116" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="2118"
+      >   </a
+      ><a name="2121" class="Symbol"
+      >(</a
+      ><a name="2122" href="interleave.html#2122" class="Bound"
+      >P</a
+      ><a name="2123"
+      > </a
+      ><a name="2124" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" href="interleave.html#2130" class="Bound"
+      >Q</a
+      ><a name="2131" class="Symbol"
+      >)</a
+      ><a name="2132"
+      > </a
+      ><a name="2133" class="Symbol"
+      >(</a
+      ><a name="2134" href="Data.Sum.html#489" class="InductiveConstructor"
+      >inj&#8321;</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" href="interleave.html#2139" class="Bound"
+      >c</a
+      ><a name="2140" class="Symbol"
+      >)</a
+      ><a name="2141"
+      >   </a
+      ><a name="2144" class="Symbol"
+      >=</a
+      ><a name="2145"
+      >  </a
+      ><a name="2147" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="interleave.html#2122" class="Bound"
+      >P</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" href="interleave.html#2139" class="Bound"
+      >c</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="interleave.html#919" class="Function Operator"
+      >|||&#8734;+</a
+      ><a name="2159"
+      >   </a
+      ><a name="2162" href="interleave.html#2130" class="Bound"
+      >Q</a
+      ><a name="2163"
+      >
+   </a
+      ><a name="2167" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="2169"
+      >   </a
+      ><a name="2172" class="Symbol"
+      >(</a
+      ><a name="2173" href="interleave.html#2173" class="Bound"
+      >P</a
+      ><a name="2174"
+      > </a
+      ><a name="2175" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" href="interleave.html#2181" class="Bound"
+      >Q</a
+      ><a name="2182" class="Symbol"
+      >)</a
+      ><a name="2183"
+      > </a
+      ><a name="2184" class="Symbol"
+      >(</a
+      ><a name="2185" href="Data.Sum.html#514" class="InductiveConstructor"
+      >inj&#8322;</a
+      ><a name="2189"
+      > </a
+      ><a name="2190" href="interleave.html#2190" class="Bound"
+      >c</a
+      ><a name="2191" class="Symbol"
+      >)</a
+      ><a name="2192"
+      >   </a
+      ><a name="2195" class="Symbol"
+      >=</a
+      ><a name="2196"
+      >  </a
+      ><a name="2198" href="interleave.html#2173" class="Bound"
+      >P</a
+      ><a name="2199"
+      >  </a
+      ><a name="2201" href="interleave.html#1129" class="Function Operator"
+      >|||+&#8734;</a
+      ><a name="2206"
+      > </a
+      ><a name="2207" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="interleave.html#2181" class="Bound"
+      >Q</a
+      ><a name="2211"
+      > </a
+      ><a name="2212" href="interleave.html#2190" class="Bound"
+      >c</a
+      ><a name="2213"
+      >
+   </a
+      ><a name="2217" href="process.html#746" class="Field"
+      >T</a
+      ><a name="2218"
+      >    </a
+      ><a name="2222" class="Symbol"
+      >(</a
+      ><a name="2223" href="interleave.html#2223" class="Bound"
+      >P</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2230"
+      > </a
+      ><a name="2231" href="interleave.html#2231" class="Bound"
+      >Q</a
+      ><a name="2232" class="Symbol"
+      >)</a
+      ><a name="2233"
+      >            </a
+      ><a name="2245" class="Symbol"
+      >=</a
+      ><a name="2246"
+      >  </a
+      ><a name="2248" href="process.html#746" class="Field"
+      >T</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="interleave.html#2223" class="Bound"
+      >P</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="choiceSetU.html#710" class="InductiveConstructor Operator"
+      >&#215;'</a
+      ><a name="2254"
+      > </a
+      ><a name="2255" href="process.html#746" class="Field"
+      >T</a
+      ><a name="2256"
+      > </a
+      ><a name="2257" href="interleave.html#2231" class="Bound"
+      >Q</a
+      ><a name="2258"
+      >
+   </a
+      ><a name="2262" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="2264"
+      >   </a
+      ><a name="2267" class="Symbol"
+      >(</a
+      ><a name="2268" href="interleave.html#2268" class="Bound"
+      >P</a
+      ><a name="2269"
+      > </a
+      ><a name="2270" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" href="interleave.html#2276" class="Bound"
+      >Q</a
+      ><a name="2277" class="Symbol"
+      >)</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" class="Symbol"
+      >(</a
+      ><a name="2280" href="interleave.html#2280" class="Bound"
+      >c</a
+      ><a name="2281"
+      > </a
+      ><a name="2282" href="auxData.html#175" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" href="interleave.html#2285" class="Bound"
+      >c&#8321;</a
+      ><a name="2287" class="Symbol"
+      >)</a
+      ><a name="2288"
+      >  </a
+      ><a name="2290" class="Symbol"
+      >=</a
+      ><a name="2291"
+      >  </a
+      ><a name="2293" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="2295"
+      > </a
+      ><a name="2296" href="interleave.html#2268" class="Bound"
+      >P</a
+      ><a name="2297"
+      > </a
+      ><a name="2298" href="interleave.html#2280" class="Bound"
+      >c</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" href="auxData.html#175" class="InductiveConstructor Operator"
+      >,,</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="2305"
+      > </a
+      ><a name="2306" href="interleave.html#2276" class="Bound"
+      >Q</a
+      ><a name="2307"
+      > </a
+      ><a name="2308" href="interleave.html#2285" class="Bound"
+      >c&#8321;</a
+      ><a name="2310"
+      >
+   </a
+      ><a name="2314" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" class="Symbol"
+      >(</a
+      ><a name="2320" href="interleave.html#2320" class="Bound"
+      >P</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" href="interleave.html#1733" class="Function Operator"
+      >|||++</a
+      ><a name="2327"
+      > </a
+      ><a name="2328" href="interleave.html#2328" class="Bound"
+      >Q</a
+      ><a name="2329" class="Symbol"
+      >)</a
+      ><a name="2330"
+      >            </a
+      ><a name="2342" class="Symbol"
+      >=</a
+      ><a name="2343"
+      >  </a
+      ><a name="2345" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="2349"
+      > </a
+      ><a name="2350" href="interleave.html#2320" class="Bound"
+      >P</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" href="interleave.html#334" class="Function Operator"
+      >|||Str</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="2363"
+      > </a
+      ><a name="2364" href="interleave.html#2328" class="Bound"
+      >Q</a
+      ><a name="2365"
+      >
+
+</a
+      ><a name="2367" class="Keyword"
+      >infixl</a
+      ><a name="2373"
+      > </a
+      ><a name="2374" class="Number"
+      >10</a
+      ><a name="2376"
+      > </a
+      ><a name="2377" href="interleave.html#414" class="Function Operator"
+      >_|||&#8734;_</a
+      ><a name="2383"
+      >  
+</a
+      ><a name="2386" class="Keyword"
+      >infixl</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" class="Number"
+      >10</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="interleave.html#668" class="Function Operator"
+      >_|||_</a
+      ><a name="2401"
+      >  
+</a
+      ></pre
+    ></body
+  ></html
+>

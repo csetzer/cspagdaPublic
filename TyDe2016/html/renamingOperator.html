@@ -1,0 +1,1128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >renamingOperator</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="renamingOperator.html#1" class="Module"
+      >renamingOperator</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >where</a
+      ><a name="30"
+      >
+
+</a
+      ><a name="32" class="Keyword"
+      >open</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >import</a
+      ><a name="43"
+      > </a
+      ><a name="44" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="48"
+      >
+</a
+      ><a name="49" class="Keyword"
+      >open</a
+      ><a name="53"
+      > </a
+      ><a name="54" class="Keyword"
+      >import</a
+      ><a name="60"
+      > </a
+      ><a name="61" href="process.html#1" class="Module"
+      >process</a
+      ><a name="68"
+      >
+</a
+      ><a name="69" class="Keyword"
+      >open</a
+      ><a name="73"
+      > </a
+      ><a name="74" class="Keyword"
+      >import</a
+      ><a name="80"
+      > </a
+      ><a name="81" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="91"
+      >
+</a
+      ><a name="92" class="Keyword"
+      >open</a
+      ><a name="96"
+      > </a
+      ><a name="97" class="Keyword"
+      >import</a
+      ><a name="103"
+      > </a
+      ><a name="104" href="choiceAuxFunction.html#1" class="Module"
+      >choiceAuxFunction</a
+      ><a name="121"
+      >
+</a
+      ><a name="122" class="Keyword"
+      >open</a
+      ><a name="126"
+      > </a
+      ><a name="127" class="Keyword"
+      >import</a
+      ><a name="133"
+      > </a
+      ><a name="134" href="dataAuxFunction.html#1" class="Module"
+      >dataAuxFunction</a
+      ><a name="149"
+      >
+</a
+      ><a name="150" class="Keyword"
+      >open</a
+      ><a name="154"
+      > </a
+      ><a name="155" class="Keyword"
+      >import</a
+      ><a name="161"
+      > </a
+      ><a name="162" href="auxData.html#1" class="Module"
+      >auxData</a
+      ><a name="169"
+      >
+</a
+      ><a name="170" class="Keyword"
+      >open</a
+      ><a name="174"
+      > </a
+      ><a name="175" class="Keyword"
+      >import</a
+      ><a name="181"
+      > </a
+      ><a name="182" href="label.html#1" class="Module"
+      >label</a
+      ><a name="187"
+      >
+</a
+      ><a name="188" class="Keyword"
+      >open</a
+      ><a name="192"
+      > </a
+      ><a name="193" class="Keyword"
+      >import</a
+      ><a name="199"
+      > </a
+      ><a name="200" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="211"
+      > </a
+      ><a name="212" class="Keyword"
+      >renaming</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="Symbol"
+      >(</a
+      ><a name="222" href="Data.String.Base.html#873" class="Function Operator"
+      >_++_</a
+      ><a name="226"
+      > </a
+      ><a name="227" class="Symbol"
+      >to</a
+      ><a name="229"
+      > </a
+      ><a name="230" href="Data.String.Base.html#873" class="Function Operator"
+      >_++s_</a
+      ><a name="235" class="Symbol"
+      >)</a
+      ><a name="236"
+      >
+</a
+      ><a name="237" class="Keyword"
+      >open</a
+      ><a name="241"
+      > </a
+      ><a name="242" href="process.html#468" class="Module"
+      >Process+</a
+      ><a name="250"
+      >
+</a
+      ><a name="251" class="Keyword"
+      >open</a
+      ><a name="255"
+      > </a
+      ><a name="256" href="process.html#175" class="Module"
+      >Process&#8734;</a
+      ><a name="264"
+      >
+</a
+      ><a name="265" class="Keyword"
+      >open</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Keyword"
+      >import</a
+      ><a name="276"
+      > </a
+      ><a name="277" href="showLabelP.html#1" class="Module"
+      >showLabelP</a
+      ><a name="287"
+      >
+
+</a
+      ><a name="289" href="renamingOperator.html#289" class="Function"
+      >RenameStr</a
+      ><a name="298"
+      > </a
+      ><a name="299" class="Symbol"
+      >:</a
+      ><a name="300"
+      > </a
+      ><a name="301" class="Symbol"
+      >(</a
+      ><a name="302" href="renamingOperator.html#302" class="Bound"
+      >f</a
+      ><a name="303"
+      > </a
+      ><a name="304" class="Symbol"
+      >:</a
+      ><a name="305"
+      > </a
+      ><a name="306" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="311"
+      > </a
+      ><a name="312" class="Symbol"
+      >&#8594;</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="319" class="Symbol"
+      >)</a
+      ><a name="320"
+      > </a
+      ><a name="321" class="Symbol"
+      >&#8594;</a
+      ><a name="322"
+      > </a
+      ><a name="323" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="329"
+      > </a
+      ><a name="330" class="Symbol"
+      >&#8594;</a
+      ><a name="331"
+      > </a
+      ><a name="332" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="338"
+      >
+</a
+      ><a name="339" href="renamingOperator.html#289" class="Function"
+      >RenameStr</a
+      ><a name="348"
+      > </a
+      ><a name="349" href="renamingOperator.html#349" class="Bound"
+      >f</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="renamingOperator.html#351" class="Bound"
+      >s</a
+      ><a name="352"
+      > </a
+      ><a name="353" class="Symbol"
+      >=</a
+      ><a name="354"
+      > </a
+      ><a name="355" class="String"
+      >&quot;(&quot;</a
+      ><a name="358"
+      > </a
+      ><a name="359" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="renamingOperator.html#351" class="Bound"
+      >s</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="368"
+      >  </a
+      ><a name="370" class="String"
+      >&quot;)&quot;</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="Data.String.Base.html#873" class="Function Operator"
+      >++s</a
+      ><a name="377"
+      > </a
+      ><a name="378" class="Symbol"
+      >(</a
+      ><a name="379" href="showLabelP.html#694" class="Function"
+      >labelLabelFunToString</a
+      ><a name="400"
+      > </a
+      ><a name="401" href="renamingOperator.html#349" class="Bound"
+      >f</a
+      ><a name="402" class="Symbol"
+      >)</a
+      ><a name="403"
+      >
+
+</a
+      ><a name="405" class="Keyword"
+      >mutual</a
+      ><a name="411"
+      >
+  </a
+      ><a name="414" href="renamingOperator.html#414" class="Function"
+      >Rename&#8734;</a
+      ><a name="421"
+      > </a
+      ><a name="422" class="Symbol"
+      >:</a
+      ><a name="423"
+      > </a
+      ><a name="424" class="Symbol"
+      >{</a
+      ><a name="425" href="renamingOperator.html#425" class="Bound"
+      >i</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >:</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="433" class="Symbol"
+      >}</a
+      ><a name="434"
+      > </a
+      ><a name="435" class="Symbol"
+      >&#8594;</a
+      ><a name="436"
+      > </a
+      ><a name="437" class="Symbol"
+      >{</a
+      ><a name="438" href="renamingOperator.html#438" class="Bound"
+      >c</a
+      ><a name="439"
+      > </a
+      ><a name="440" class="Symbol"
+      >:</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="448" class="Symbol"
+      >}</a
+      ><a name="449"
+      > </a
+      ><a name="450" class="Symbol"
+      >&#8594;</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >(</a
+      ><a name="453" href="renamingOperator.html#453" class="Bound"
+      >f</a
+      ><a name="454"
+      > </a
+      ><a name="455" class="Symbol"
+      >:</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="462"
+      > </a
+      ><a name="463" class="Symbol"
+      >&#8594;</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="470" class="Symbol"
+      >)</a
+      ><a name="471"
+      >
+             </a
+      ><a name="485" class="Symbol"
+      >&#8594;</a
+      ><a name="486"
+      > </a
+      ><a name="487" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="renamingOperator.html#425" class="Bound"
+      >i</a
+      ><a name="497"
+      > </a
+      ><a name="498" href="renamingOperator.html#438" class="Bound"
+      >c</a
+      ><a name="499"
+      > </a
+      ><a name="500" class="Symbol"
+      >&#8594;</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="process.html#175" class="Record"
+      >Process&#8734;</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="renamingOperator.html#425" class="Bound"
+      >i</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="renamingOperator.html#438" class="Bound"
+      >c</a
+      ><a name="514"
+      >
+  </a
+      ><a name="517" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="523"
+      > </a
+      ><a name="524" class="Symbol"
+      >(</a
+      ><a name="525" href="renamingOperator.html#414" class="Function"
+      >Rename&#8734;</a
+      ><a name="532"
+      > </a
+      ><a name="533" href="renamingOperator.html#533" class="Bound"
+      >f</a
+      ><a name="534"
+      > </a
+      ><a name="535" href="renamingOperator.html#535" class="Bound"
+      >P</a
+      ><a name="536" class="Symbol"
+      >)</a
+      ><a name="537"
+      >   </a
+      ><a name="540" class="Symbol"
+      >=</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="renamingOperator.html#617" class="Function"
+      >Rename</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="renamingOperator.html#533" class="Bound"
+      >f</a
+      ><a name="550"
+      > </a
+      ><a name="551" class="Symbol"
+      >(</a
+      ><a name="552" href="process.html#252" class="Field"
+      >forcep</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="renamingOperator.html#535" class="Bound"
+      >P</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >)</a
+      ><a name="562"
+      >
+  </a
+      ><a name="565" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="569"
+      >   </a
+      ><a name="572" class="Symbol"
+      >(</a
+      ><a name="573" href="renamingOperator.html#414" class="Function"
+      >Rename&#8734;</a
+      ><a name="580"
+      > </a
+      ><a name="581" href="renamingOperator.html#581" class="Bound"
+      >f</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="renamingOperator.html#583" class="Bound"
+      >P</a
+      ><a name="584" class="Symbol"
+      >)</a
+      ><a name="585"
+      >   </a
+      ><a name="588" class="Symbol"
+      >=</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="renamingOperator.html#289" class="Function"
+      >RenameStr</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="renamingOperator.html#581" class="Bound"
+      >f</a
+      ><a name="601"
+      > </a
+      ><a name="602" class="Symbol"
+      >(</a
+      ><a name="603" href="process.html#296" class="Field"
+      >Str&#8734;</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="renamingOperator.html#583" class="Bound"
+      >P</a
+      ><a name="609" class="Symbol"
+      >)</a
+      ><a name="610"
+      >
+   
+  </a
+      ><a name="617" href="renamingOperator.html#617" class="Function"
+      >Rename</a
+      ><a name="623"
+      > </a
+      ><a name="624" class="Symbol"
+      >:</a
+      ><a name="625"
+      > </a
+      ><a name="626" class="Symbol"
+      >{</a
+      ><a name="627" href="renamingOperator.html#627" class="Bound"
+      >i</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >:</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="635" class="Symbol"
+      >}</a
+      ><a name="636"
+      > </a
+      ><a name="637" class="Symbol"
+      >&#8594;</a
+      ><a name="638"
+      > </a
+      ><a name="639" class="Symbol"
+      >{</a
+      ><a name="640" href="renamingOperator.html#640" class="Bound"
+      >c</a
+      ><a name="641"
+      > </a
+      ><a name="642" class="Symbol"
+      >:</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="650" class="Symbol"
+      >}</a
+      ><a name="651"
+      > </a
+      ><a name="652" class="Symbol"
+      >&#8594;</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >(</a
+      ><a name="655" href="renamingOperator.html#655" class="Bound"
+      >f</a
+      ><a name="656"
+      > </a
+      ><a name="657" class="Symbol"
+      >:</a
+      ><a name="658"
+      > </a
+      ><a name="659" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="664"
+      >
+           </a
+      ><a name="676" class="Symbol"
+      >&#8594;</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="683" class="Symbol"
+      >)</a
+      ><a name="684"
+      > </a
+      ><a name="685" class="Symbol"
+      >&#8594;</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="renamingOperator.html#627" class="Bound"
+      >i</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="renamingOperator.html#640" class="Bound"
+      >c</a
+      ><a name="698"
+      >  </a
+      ><a name="700" class="Symbol"
+      >&#8594;</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="709"
+      > </a
+      ><a name="710" href="renamingOperator.html#627" class="Bound"
+      >i</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="renamingOperator.html#640" class="Bound"
+      >c</a
+      ><a name="713"
+      >
+  </a
+      ><a name="716" href="renamingOperator.html#617" class="Function"
+      >Rename</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="renamingOperator.html#723" class="Bound"
+      >f</a
+      ><a name="724"
+      > </a
+      ><a name="725" class="Symbol"
+      >(</a
+      ><a name="726" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="renamingOperator.html#731" class="Bound"
+      >P</a
+      ><a name="732" class="Symbol"
+      >)</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >=</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="process.html#416" class="InductiveConstructor"
+      >node</a
+      ><a name="740"
+      > </a
+      ><a name="741" class="Symbol"
+      >(</a
+      ><a name="742" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="renamingOperator.html#723" class="Bound"
+      >f</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="renamingOperator.html#731" class="Bound"
+      >P</a
+      ><a name="753" class="Symbol"
+      >)</a
+      ><a name="754"
+      >
+  </a
+      ><a name="757" href="renamingOperator.html#617" class="Function"
+      >Rename</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="renamingOperator.html#764" class="Bound"
+      >f</a
+      ><a name="765"
+      > </a
+      ><a name="766" class="Symbol"
+      >(</a
+      ><a name="767" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="renamingOperator.html#777" class="Bound"
+      >x</a
+      ><a name="778" class="Symbol"
+      >)</a
+      ><a name="779"
+      > </a
+      ><a name="780" class="Symbol"
+      >=</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="process.html#369" class="InductiveConstructor"
+      >terminate</a
+      ><a name="791"
+      > </a
+      ><a name="792" href="renamingOperator.html#777" class="Bound"
+      >x</a
+      ><a name="793"
+      >
+
+  </a
+      ><a name="797" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="804"
+      > </a
+      ><a name="805" class="Symbol"
+      >:</a
+      ><a name="806"
+      > </a
+      ><a name="807" class="Symbol"
+      >{</a
+      ><a name="808" href="renamingOperator.html#808" class="Bound"
+      >i</a
+      ><a name="809"
+      > </a
+      ><a name="810" class="Symbol"
+      >:</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="Agda.Builtin.Size.html#114" class="Postulate"
+      >Size</a
+      ><a name="816" class="Symbol"
+      >}</a
+      ><a name="817"
+      > </a
+      ><a name="818" class="Symbol"
+      >&#8594;</a
+      ><a name="819"
+      > </a
+      ><a name="820" class="Symbol"
+      >{</a
+      ><a name="821" href="renamingOperator.html#821" class="Bound"
+      >c</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Symbol"
+      >:</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="831" class="Symbol"
+      >}</a
+      ><a name="832"
+      > </a
+      ><a name="833" class="Symbol"
+      >&#8594;</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >(</a
+      ><a name="836" href="renamingOperator.html#836" class="Bound"
+      >f</a
+      ><a name="837"
+      > </a
+      ><a name="838" class="Symbol"
+      >:</a
+      ><a name="839"
+      > </a
+      ><a name="840" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="845"
+      >
+           </a
+      ><a name="857" class="Symbol"
+      >&#8594;</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="label.html#29" class="Datatype"
+      >Label</a
+      ><a name="864" class="Symbol"
+      >)</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >&#8594;</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="876"
+      > </a
+      ><a name="877" href="renamingOperator.html#808" class="Bound"
+      >i</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="renamingOperator.html#821" class="Bound"
+      >c</a
+      ><a name="880"
+      > </a
+      ><a name="881" class="Symbol"
+      >&#8594;</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="process.html#468" class="Record"
+      >Process+</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="renamingOperator.html#808" class="Bound"
+      >i</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="renamingOperator.html#821" class="Bound"
+      >c</a
+      ><a name="895"
+      >
+  </a
+      ><a name="898" href="process.html#570" class="Field"
+      >E</a
+      ><a name="899"
+      >    </a
+      ><a name="903" class="Symbol"
+      >(</a
+      ><a name="904" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="renamingOperator.html#912" class="Bound"
+      >f</a
+      ><a name="913"
+      > </a
+      ><a name="914" href="renamingOperator.html#914" class="Bound"
+      >P</a
+      ><a name="915" class="Symbol"
+      >)</a
+      ><a name="916"
+      >        </a
+      ><a name="924" class="Symbol"
+      >=</a
+      ><a name="925"
+      > </a
+      ><a name="926" class="Symbol"
+      >(</a
+      ><a name="927" href="process.html#570" class="Field"
+      >E</a
+      ><a name="928"
+      > </a
+      ><a name="929" href="renamingOperator.html#914" class="Bound"
+      >P</a
+      ><a name="930" class="Symbol"
+      >)</a
+      ><a name="931"
+      > 
+  </a
+      ><a name="935" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="938"
+      >  </a
+      ><a name="940" class="Symbol"
+      >(</a
+      ><a name="941" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="948"
+      > </a
+      ><a name="949" href="renamingOperator.html#949" class="Bound"
+      >f</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="renamingOperator.html#951" class="Bound"
+      >P</a
+      ><a name="952" class="Symbol"
+      >)</a
+      ><a name="953"
+      > </a
+      ><a name="954" href="renamingOperator.html#954" class="Bound"
+      >c</a
+      ><a name="955"
+      >      </a
+      ><a name="961" class="Symbol"
+      >=</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="renamingOperator.html#949" class="Bound"
+      >f</a
+      ><a name="964"
+      > </a
+      ><a name="965" class="Symbol"
+      >(</a
+      ><a name="966" href="process.html#592" class="Field"
+      >Lab</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="renamingOperator.html#951" class="Bound"
+      >P</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="renamingOperator.html#954" class="Bound"
+      >c</a
+      ><a name="973" class="Symbol"
+      >)</a
+      ><a name="974"
+      > 
+  </a
+      ><a name="978" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="980"
+      >   </a
+      ><a name="983" class="Symbol"
+      >(</a
+      ><a name="984" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="991"
+      > </a
+      ><a name="992" href="renamingOperator.html#992" class="Bound"
+      >f</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="renamingOperator.html#994" class="Bound"
+      >P</a
+      ><a name="995" class="Symbol"
+      >)</a
+      ><a name="996"
+      > </a
+      ><a name="997" href="renamingOperator.html#997" class="Bound"
+      >c</a
+      ><a name="998"
+      >      </a
+      ><a name="1004" class="Symbol"
+      >=</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="renamingOperator.html#414" class="Function"
+      >Rename&#8734;</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="renamingOperator.html#992" class="Bound"
+      >f</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="Symbol"
+      >(</a
+      ><a name="1017" href="process.html#630" class="Field"
+      >PE</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="renamingOperator.html#994" class="Bound"
+      >P</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="renamingOperator.html#997" class="Bound"
+      >c</a
+      ><a name="1023" class="Symbol"
+      >)</a
+      ><a name="1024"
+      >
+  </a
+      ><a name="1027" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1028"
+      >    </a
+      ><a name="1032" class="Symbol"
+      >(</a
+      ><a name="1033" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" href="renamingOperator.html#1041" class="Bound"
+      >f</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" href="renamingOperator.html#1043" class="Bound"
+      >P</a
+      ><a name="1044" class="Symbol"
+      >)</a
+      ><a name="1045"
+      >        </a
+      ><a name="1053" class="Symbol"
+      >=</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" href="process.html#677" class="Field"
+      >I</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" href="renamingOperator.html#1043" class="Bound"
+      >P</a
+      ><a name="1058"
+      >  
+  </a
+      ><a name="1063" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="1065"
+      >   </a
+      ><a name="1068" class="Symbol"
+      >(</a
+      ><a name="1069" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="renamingOperator.html#1077" class="Bound"
+      >f</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="renamingOperator.html#1079" class="Bound"
+      >P</a
+      ><a name="1080" class="Symbol"
+      >)</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="renamingOperator.html#1082" class="Bound"
+      >c</a
+      ><a name="1083"
+      >      </a
+      ><a name="1089" class="Symbol"
+      >=</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="renamingOperator.html#414" class="Function"
+      >Rename&#8734;</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" href="renamingOperator.html#1077" class="Bound"
+      >f</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" class="Symbol"
+      >(</a
+      ><a name="1102" href="process.html#699" class="Field"
+      >PI</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="renamingOperator.html#1079" class="Bound"
+      >P</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="renamingOperator.html#1082" class="Bound"
+      >c</a
+      ><a name="1108" class="Symbol"
+      >)</a
+      ><a name="1109"
+      >
+  </a
+      ><a name="1112" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1113"
+      >    </a
+      ><a name="1117" class="Symbol"
+      >(</a
+      ><a name="1118" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="renamingOperator.html#1126" class="Bound"
+      >f</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="renamingOperator.html#1128" class="Bound"
+      >P</a
+      ><a name="1129" class="Symbol"
+      >)</a
+      ><a name="1130"
+      >        </a
+      ><a name="1138" class="Symbol"
+      >=</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="process.html#746" class="Field"
+      >T</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="renamingOperator.html#1128" class="Bound"
+      >P</a
+      ><a name="1143"
+      >  
+  </a
+      ><a name="1148" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1150"
+      >   </a
+      ><a name="1153" class="Symbol"
+      >(</a
+      ><a name="1154" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" href="renamingOperator.html#1162" class="Bound"
+      >f</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" href="renamingOperator.html#1164" class="Bound"
+      >P</a
+      ><a name="1165" class="Symbol"
+      >)</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="renamingOperator.html#1167" class="Bound"
+      >c</a
+      ><a name="1168"
+      >      </a
+      ><a name="1174" class="Symbol"
+      >=</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" href="process.html#768" class="Field"
+      >PT</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" href="renamingOperator.html#1164" class="Bound"
+      >P</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="renamingOperator.html#1167" class="Bound"
+      >c</a
+      ><a name="1182"
+      > 
+  </a
+      ><a name="1186" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1190"
+      > </a
+      ><a name="1191" class="Symbol"
+      >(</a
+      ><a name="1192" href="renamingOperator.html#797" class="Function"
+      >Rename+</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="renamingOperator.html#1200" class="Bound"
+      >f</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="renamingOperator.html#1202" class="Bound"
+      >P</a
+      ><a name="1203" class="Symbol"
+      >)</a
+      ><a name="1204"
+      >        </a
+      ><a name="1212" class="Symbol"
+      >=</a
+      ><a name="1213"
+      > </a
+      ><a name="1214" href="renamingOperator.html#289" class="Function"
+      >RenameStr</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="renamingOperator.html#1200" class="Bound"
+      >f</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" class="Symbol"
+      >(</a
+      ><a name="1227" href="process.html#812" class="Field"
+      >Str+</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="renamingOperator.html#1202" class="Bound"
+      >P</a
+      ><a name="1233" class="Symbol"
+      >)</a
+      ><a name="1234"
+      >
+
+</a
+      ></pre
+    ></body
+  ></html
+>

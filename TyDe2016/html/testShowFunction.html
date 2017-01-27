@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >testShowFunction</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="testShowFunction.html#1" class="Module"
+      >testShowFunction</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >where</a
+      ><a name="30"
+      >
+
+</a
+      ><a name="32" class="Keyword"
+      >open</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >import</a
+      ><a name="43"
+      > </a
+      ><a name="44" href="Data.List.html#1" class="Module"
+      >Data.List</a
+      ><a name="53"
+      >
+</a
+      ><a name="54" class="Keyword"
+      >open</a
+      ><a name="58"
+      > </a
+      ><a name="59" class="Keyword"
+      >import</a
+      ><a name="65"
+      > </a
+      ><a name="66" href="Data.Fin.html#1" class="Module"
+      >Data.Fin</a
+      ><a name="74"
+      >
+</a
+      ><a name="75" class="Keyword"
+      >open</a
+      ><a name="79"
+      > </a
+      ><a name="80" class="Keyword"
+      >import</a
+      ><a name="86"
+      > </a
+      ><a name="87" href="Data.String.html#1" class="Module"
+      >Data.String</a
+      ><a name="98"
+      >
+</a
+      ><a name="99" class="Keyword"
+      >open</a
+      ><a name="103"
+      > </a
+      ><a name="104" class="Keyword"
+      >import</a
+      ><a name="110"
+      > </a
+      ><a name="111" href="ooAgda.SizedIO.Console.html#1" class="Module"
+      >ooAgda.SizedIO.Console</a
+      ><a name="133"
+      > </a
+      ><a name="134" class="Keyword"
+      >hiding</a
+      ><a name="140"
+      > </a
+      ><a name="141" class="Symbol"
+      >(</a
+      ><a name="142" href="ooAgda.SizedIO.Console.html#903" class="Function"
+      >main</a
+      ><a name="146" class="Symbol"
+      >)</a
+      ><a name="147"
+      >
+</a
+      ><a name="148" class="Keyword"
+      >open</a
+      ><a name="152"
+      > </a
+      ><a name="153" class="Keyword"
+      >import</a
+      ><a name="159"
+      > </a
+      ><a name="160" href="ooAgda.NativeIO.html#1" class="Module"
+      >ooAgda.NativeIO</a
+      ><a name="175"
+      >
+</a
+      ><a name="176" class="Keyword"
+      >open</a
+      ><a name="180"
+      > </a
+      ><a name="181" class="Keyword"
+      >import</a
+      ><a name="187"
+      > </a
+      ><a name="188" href="Size.html#1" class="Module"
+      >Size</a
+      ><a name="192"
+      >
+</a
+      ><a name="193" class="Keyword"
+      >open</a
+      ><a name="197"
+      > </a
+      ><a name="198" class="Keyword"
+      >import</a
+      ><a name="204"
+      > </a
+      ><a name="205" href="showFunction.html#1" class="Module"
+      >showFunction</a
+      ><a name="217"
+      >
+</a
+      ><a name="218" class="Keyword"
+      >open</a
+      ><a name="222"
+      > </a
+      ><a name="223" class="Keyword"
+      >import</a
+      ><a name="229"
+      > </a
+      ><a name="230" href="choiceSetU.html#1" class="Module"
+      >choiceSetU</a
+      ><a name="240"
+      >
+</a
+      ><a name="241" class="Keyword"
+      >open</a
+      ><a name="245"
+      > </a
+      ><a name="246" class="Keyword"
+      >import</a
+      ><a name="252"
+      > </a
+      ><a name="253" href="testExampleProcesses.html#1" class="Module"
+      >testExampleProcesses</a
+      ><a name="273"
+      >
+</a
+      ><a name="274" class="Keyword"
+      >open</a
+      ><a name="278"
+      > </a
+      ><a name="279" class="Keyword"
+      >import</a
+      ><a name="285"
+      > </a
+      ><a name="286" href="primitiveProcess.html#1" class="Module"
+      >primitiveProcess</a
+      ><a name="302"
+      >
+</a
+      ><a name="303" class="Keyword"
+      >open</a
+      ><a name="307"
+      > </a
+      ><a name="308" class="Keyword"
+      >import</a
+      ><a name="314"
+      > </a
+      ><a name="315" href="process.html#1" class="Module"
+      >process</a
+      ><a name="322"
+      >
+</a
+      ><a name="323" class="Keyword"
+      >open</a
+      ><a name="327"
+      > </a
+      ><a name="328" class="Keyword"
+      >import</a
+      ><a name="334"
+      > </a
+      ><a name="335" href="externalChoice.html#1" class="Module"
+      >externalChoice</a
+      ><a name="349"
+      >
+</a
+      ><a name="350" class="Keyword"
+      >open</a
+      ><a name="354"
+      > </a
+      ><a name="355" class="Keyword"
+      >import</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="simulator.html#1" class="Module"
+      >simulator</a
+      ><a name="371"
+      >
+
+</a
+      ><a name="373" href="testShowFunction.html#373" class="Function"
+      >c</a
+      ><a name="374"
+      > </a
+      ><a name="375" class="Symbol"
+      >:</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="383"
+      >
+</a
+      ><a name="384" href="testShowFunction.html#373" class="Function"
+      >c</a
+      ><a name="385"
+      > </a
+      ><a name="386" class="Symbol"
+      >=</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="choiceSetU.html#753" class="InductiveConstructor"
+      >namedElements</a
+      ><a name="401"
+      > </a
+      ><a name="402" class="Symbol"
+      >(</a
+      ><a name="403" class="String"
+      >&quot;ela&quot;</a
+      ><a name="408"
+      >  </a
+      ><a name="410" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="411"
+      > </a
+      ><a name="412" class="String"
+      >&quot;elb&quot;</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="419"
+      > </a
+      ><a name="420" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="422" class="Symbol"
+      >)</a
+      ><a name="423"
+      >
+
+</a
+      ><a name="425" href="testShowFunction.html#425" class="Function"
+      >d</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >:</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="choiceSetU.html#616" class="Datatype"
+      >Choice</a
+      ><a name="435"
+      >
+</a
+      ><a name="436" href="testShowFunction.html#425" class="Function"
+      >d</a
+      ><a name="437"
+      > </a
+      ><a name="438" class="Symbol"
+      >=</a
+      ><a name="439"
+      > </a
+      ><a name="440" href="choiceSetU.html#753" class="InductiveConstructor"
+      >namedElements</a
+      ><a name="453"
+      > </a
+      ><a name="454" class="Symbol"
+      >(</a
+      ><a name="455" class="String"
+      >&quot;elc&quot;</a
+      ><a name="460"
+      >  </a
+      ><a name="462" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="String"
+      >&quot;eld&quot;</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="Agda.Builtin.List.html#132" class="InductiveConstructor Operator"
+      >&#8759;</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="Agda.Builtin.List.html#117" class="InductiveConstructor"
+      >[]</a
+      ><a name="474" class="Symbol"
+      >)</a
+      ><a name="475"
+      >
+
+
+</a
+      ><a name="478" href="testShowFunction.html#478" class="Function"
+      >f</a
+      ><a name="479"
+      > </a
+      ><a name="480" class="Symbol"
+      >:</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="testShowFunction.html#373" class="Function"
+      >c</a
+      ><a name="493"
+      > </a
+      ><a name="494" class="Symbol"
+      >&#8594;</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="choiceSetU.html#1010" class="Function"
+      >ChoiceSet</a
+      ><a name="505"
+      > </a
+      ><a name="506" href="testShowFunction.html#425" class="Function"
+      >d</a
+      ><a name="507"
+      >
+</a
+      ><a name="508" href="testShowFunction.html#478" class="Function"
+      >f</a
+      ><a name="509"
+      > </a
+      ><a name="510" class="Symbol"
+      >(</a
+      ><a name="511" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="513"
+      > </a
+      ><a name="514" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="518" class="Symbol"
+      >)</a
+      ><a name="519"
+      > </a
+      ><a name="520" class="Symbol"
+      >=</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="529"
+      >
+</a
+      ><a name="530" href="testShowFunction.html#478" class="Function"
+      >f</a
+      ><a name="531"
+      > </a
+      ><a name="532" class="Symbol"
+      >(</a
+      ><a name="533" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >(</a
+      ><a name="537" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="545" class="Symbol"
+      >))</a
+      ><a name="547"
+      > </a
+      ><a name="548" class="Symbol"
+      >=</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="552"
+      > </a
+      ><a name="553" class="Symbol"
+      >(</a
+      ><a name="554" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="562" class="Symbol"
+      >)</a
+      ><a name="563"
+      >
+</a
+      ><a name="564" href="testShowFunction.html#478" class="Function"
+      >f</a
+      ><a name="565"
+      > </a
+      ><a name="566" class="Symbol"
+      >(</a
+      ><a name="567" href="choiceSetU.html#564" class="InductiveConstructor"
+      >ne</a
+      ><a name="569"
+      > </a
+      ><a name="570" class="Symbol"
+      >(</a
+      ><a name="571" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="574"
+      > </a
+      ><a name="575" class="Symbol"
+      >(</a
+      ><a name="576" href="Data.Fin.html#895" class="InductiveConstructor"
+      >suc</a
+      ><a name="579"
+      > </a
+      ><a name="580" class="Symbol"
+      >())))</a
+      ><a name="585"
+      >
+
+
+</a
+      ><a name="588" href="testShowFunction.html#588" class="Function"
+      >s</a
+      ><a name="589"
+      > </a
+      ><a name="590" class="Symbol"
+      >:</a
+      ><a name="591"
+      > </a
+      ><a name="592" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="598"
+      >
+</a
+      ><a name="599" href="testShowFunction.html#588" class="Function"
+      >s</a
+      ><a name="600"
+      > </a
+      ><a name="601" class="Symbol"
+      >=</a
+      ><a name="602"
+      > </a
+      ><a name="603" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="612"
+      > </a
+      ><a name="613" class="Symbol"
+      >(</a
+      ><a name="614" href="testExampleProcesses.html#1004" class="Function"
+      >transition&#8324;</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="627" class="Symbol"
+      >)</a
+      ><a name="628"
+      >
+
+</a
+      ><a name="630" href="testShowFunction.html#630" class="Function"
+      >s2</a
+      ><a name="632"
+      > </a
+      ><a name="633" class="Symbol"
+      >:</a
+      ><a name="634"
+      > </a
+      ><a name="635" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="641"
+      >
+</a
+      ><a name="642" href="testShowFunction.html#630" class="Function"
+      >s2</a
+      ><a name="644"
+      > </a
+      ><a name="645" class="Symbol"
+      >=</a
+      ><a name="646"
+      > </a
+      ><a name="647" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="656"
+      > </a
+      ><a name="657" class="Symbol"
+      >(</a
+      ><a name="658" href="primitiveProcess.html#1034" class="Function"
+      >SKIP</a
+      ><a name="662"
+      > </a
+      ><a name="663" class="Symbol"
+      >{</a
+      ><a name="664" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="665" class="Symbol"
+      >}</a
+      ><a name="666"
+      > </a
+      ><a name="667" class="Symbol"
+      >{</a
+      ><a name="668" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="671"
+      > </a
+      ><a name="672" class="Number"
+      >1</a
+      ><a name="673" class="Symbol"
+      >}</a
+      ><a name="674"
+      > </a
+      ><a name="675" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="679" class="Symbol"
+      >)</a
+      ><a name="680"
+      >
+
+</a
+      ><a name="682" href="testShowFunction.html#682" class="Function"
+      >skip</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >:</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >(</a
+      ><a name="700" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="703"
+      > </a
+      ><a name="704" class="Number"
+      >1</a
+      ><a name="705" class="Symbol"
+      >)</a
+      ><a name="706"
+      >
+</a
+      ><a name="707" href="testShowFunction.html#682" class="Function"
+      >skip</a
+      ><a name="711"
+      > </a
+      ><a name="712" class="Symbol"
+      >=</a
+      ><a name="713"
+      > </a
+      ><a name="714" href="primitiveProcess.html#1034" class="Function"
+      >SKIP</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >{</a
+      ><a name="720" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="721" class="Symbol"
+      >}</a
+      ><a name="722"
+      > </a
+      ><a name="723" class="Symbol"
+      >{</a
+      ><a name="724" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="727"
+      > </a
+      ><a name="728" class="Number"
+      >1</a
+      ><a name="729" class="Symbol"
+      >}</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="Data.Fin.html#864" class="InductiveConstructor"
+      >zero</a
+      ><a name="735"
+      >
+
+</a
+      ><a name="737" href="testShowFunction.html#737" class="Function"
+      >P</a
+      ><a name="738"
+      > </a
+      ><a name="739" class="Symbol"
+      >:</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="process.html#320" class="Datatype"
+      >Process</a
+      ><a name="748"
+      > </a
+      ><a name="749" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="750"
+      > </a
+      ><a name="751" class="Symbol"
+      >(</a
+      ><a name="752" href="choiceSetU.html#638" class="InductiveConstructor"
+      >fin</a
+      ><a name="755"
+      > </a
+      ><a name="756" class="Number"
+      >1</a
+      ><a name="757"
+      > </a
+      ><a name="758" href="choiceSetU.html#667" class="InductiveConstructor Operator"
+      >&#8846;'</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="testExampleProcesses.html#516" class="Function"
+      >setSTOP</a
+      ><a name="768" class="Symbol"
+      >)</a
+      ><a name="769"
+      > 
+</a
+      ><a name="771" href="testShowFunction.html#737" class="Function"
+      >P</a
+      ><a name="772"
+      > </a
+      ><a name="773" class="Symbol"
+      >=</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="testShowFunction.html#682" class="Function"
+      >skip</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="externalChoice.html#1181" class="Function Operator"
+      >&#9633;</a
+      ><a name="781"
+      > </a
+      ><a name="782" class="Symbol"
+      >(</a
+      ><a name="783" href="testExampleProcesses.html#616" class="Function"
+      >transition&#8321;</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="Agda.Builtin.Size.html#210" class="Postulate"
+      >&#8734;</a
+      ><a name="796" class="Symbol"
+      >)</a
+      ><a name="797"
+      > 
+
+</a
+      ><a name="800" href="testShowFunction.html#800" class="Function"
+      >s3</a
+      ><a name="802"
+      > </a
+      ><a name="803" class="Symbol"
+      >:</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="811"
+      >
+</a
+      ><a name="812" href="testShowFunction.html#800" class="Function"
+      >s3</a
+      ><a name="814"
+      > </a
+      ><a name="815" class="Symbol"
+      >=</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="showFunction.html#1173" class="Function"
+      >showTicks</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="testShowFunction.html#737" class="Function"
+      >P</a
+      ><a name="828"
+      >
+
+</a
+      ><a name="830" href="testShowFunction.html#830" class="Function"
+      >s4</a
+      ><a name="832"
+      > </a
+      ><a name="833" class="Symbol"
+      >:</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="Agda.Builtin.String.html#165" class="Postulate"
+      >String</a
+      ><a name="841"
+      >
+</a
+      ><a name="842" href="testShowFunction.html#830" class="Function"
+      >s4</a
+      ><a name="844"
+      > </a
+      ><a name="845" class="Symbol"
+      >=</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="showFunction.html#524" class="Function"
+      >showLabels&#8321;</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="testShowFunction.html#737" class="Function"
+      >P</a
+      ><a name="860"
+      >
+
+</a
+      ><a name="862" href="testShowFunction.html#862" class="Function"
+      >main</a
+      ><a name="866"
+      >  </a
+      ><a name="868" class="Symbol"
+      >:</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="ooAgda.NativeIO.html#119" class="Postulate"
+      >NativeIO</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="Unit.html#28" class="Record"
+      >Unit</a
+      ><a name="883"
+      > 
+</a
+      ><a name="885" href="testShowFunction.html#862" class="Function"
+      >main</a
+      ><a name="889"
+      >  </a
+      ><a name="891" class="Symbol"
+      >=</a
+      ><a name="892"
+      >  </a
+      ><a name="894" href="ooAgda.SizedIO.Console.html#785" class="Function"
+      >translateIOConsole</a
+      ><a name="912"
+      > </a
+      ><a name="913" class="Symbol"
+      >(</a
+      ><a name="914" href="simulator.html#2435" class="Function"
+      >myProgrami</a
+      ><a name="924"
+      > </a
+      ><a name="925" href="testShowFunction.html#737" class="Function"
+      >P</a
+      ><a name="926" class="Symbol"
+      >)</a
+      ><a name="927"
+      >
+
+
+
+</a
+      ></pre
+    ></body
+  ></html
+>
