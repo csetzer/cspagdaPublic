@@ -1,9 +1,0 @@
-rename
-  showLabels₁ to showProcessLabels
-
-
-determine Str for SKIP+
-
-in external choice terminate box terminate 
- maybe should be a process which can terminate with a and with b (2 termination
- ways)

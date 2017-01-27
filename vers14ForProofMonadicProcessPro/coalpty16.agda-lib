@@ -1,3 +1,0 @@
-name: coalpty16
-depend: std-lib  
-include: .

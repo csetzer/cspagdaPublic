@@ -1,8 +1,0 @@
-Reason for having termination a
-
-We could probably model recursion by modelling intermediate termination by 
-tick events giving result a
-But that would result in strange sets such as
-fin 0 +' (Sigma t : fin a ) something
-whereas we get directly that 
-terminat a >> f = f a

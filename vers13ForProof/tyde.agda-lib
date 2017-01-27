@@ -1,3 +1,0 @@
-name: tyde
-depend: std-lib
-include: . 
