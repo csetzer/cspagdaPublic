@@ -1,0 +1,11 @@
+showLabels₁...........................To...............showProLab
+showMaybeLabel........................To...............showMayLab
+showTicks.............................To...............show✓                                           *\Checkmark: ✓
+processChoiceIsEmpty..................To...............proChoiceIs∅                                 *\emptyset: ∅  
+processHasSuccessfullyTerminated......To...............proHasSuccessfullyTerminated
+processToE............................To...............proToE
+processToI............................To...............proToI
+processToSubprocess0..................To...............proPToSubPro∞
+processToSubprocess...................To...............proPToSubPrP
+choiceFunctionToString................To...............choiceFunToStr
+choiceFunctionToStringi...............To...............choiceFunToStr↓                                *\d: ↓

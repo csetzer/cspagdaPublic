@@ -1,0 +1,19 @@
+Install Agda 
+Install the Agda-standard library
+
+Add to the src directory in the Agda standard line  file
+named name: std-lib.agda-lib
+
+containing the following (excluding the lines beginning content end content
+--- beginning content ------
+std-lib
+include: .
+---- end content --------------
+
+
+Add to your file
+~/.agda/libraries
+
+the line
+<path>/src/std-lib.agda-lib
+with <path> replaced by the path to the standard library

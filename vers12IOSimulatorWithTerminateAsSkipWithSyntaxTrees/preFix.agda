@@ -1,0 +1,57 @@
+module preFix where
+
+open import Size
+open import Data.String renaming  (_==_ to _==strb_; _++_ to _++s_)
+open import label
+open import process
+open import choiceSetU
+open import showFunction
+open import dataAuxFunction
+open import showLabelP
+open Process∞
+open Process+
+open import CSPAgdaSyntax
+
+infixr 10 _⟶_ 
+infixr 10 _⟶+_ 
+infixr 10 _⟶∞_ 
+
+
+_⟶+_ : {i : Size} → {c : Choice} → Label
+        → Process∞ i c → Process+ i c
+l ⟶+ P = 
+    process+ ⊤' (λ _ →  l) (λ _ → P) ∅' efq ∅' efq
+             (l ⟶' Syn∞ P )
+
+_⟶∞_ : {i : Size} → {c : Choice} → Label
+       → Process∞ i c → Process i c
+l ⟶∞ P = node (l ⟶+ P )
+
+_⟶_ : {i : Size} → {c : Choice} → Label
+       → Process i c → Process i c
+l ⟶ P = l ⟶∞ delay P 
+
+
+
+_⟶+'_ : {i : Size} → {c : Choice} → Label → Process∞ i c → Process+ i c
+E    (l ⟶+' P)   = ⊤'
+Lab  (l ⟶+' P) c = l
+PE   (l ⟶+' P) c = P
+I    (l ⟶+' P)   = ∅'
+PI   (l ⟶+' P) ()
+T    (l ⟶+' P)   = ∅'
+PT   (l ⟶+' P) ()
+Syn+ (l ⟶+' P)   = l ⟶' Syn∞ P 
+
+_⟶++_ : {i : Size} → {c : Choice} → Label → Process+ i c → Process+ i c
+l ⟶++ P = l ⟶+ (delay (node P) )
+
+_⟶p+_ : {i : Size} → {c : Choice} → Label → Process i c → Process+ i c
+l ⟶p+ P = l ⟶+ (delay P )
+
+_⟶pp_ : {i : Size} → {c : Choice} → Label → Process i c → Process i c
+l ⟶pp P = node (l ⟶+ (delay P ))
+
+_⟶p∞_ : {i : Size} → {c : Choice} → Label → Process i c → Process∞ i c
+forcep (l ⟶p∞ P)    = l ⟶pp P 
+Syn∞   (l ⟶p∞ P)    = l ⟶' Syn P

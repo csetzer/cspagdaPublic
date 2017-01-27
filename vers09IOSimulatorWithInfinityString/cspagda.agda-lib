@@ -1,0 +1,3 @@
+name: cspagda
+depend: std-lib
+include: .
