@@ -1,3 +1,0 @@
-name: types
-depend: std-lib 
-include: .
