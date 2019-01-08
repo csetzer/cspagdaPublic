@@ -34,8 +34,8 @@ open import proofMonadicLaw
 open import proofTerHide
 open import proofTerPar
 open import proofTerInter
-open import proofSymInt
-open import proofAss
+--open import proofSymInt
+--open import proofAss
 open import proofRenamingSkip
 open import ProofLawsSeq
 open import proofInterruptLaw
