@@ -5,7 +5,8 @@ open import dataAuxFunction
 open import Data.Bool
 open import Data.Nat
 open import Data.Fin renaming (_+_ to _+,_;_<_ to _<F_)
-open import Data.String renaming  (_==_ to _==strb_; _++_ to _++s_)
+open import Data.String.Unsafe renaming  (_==_ to _==strb)
+open import Data.String renaming  (_++_ to _++s_) hiding (length; concat)
 open import Data.Nat.Show renaming (show to showℕ)
 open import Data.List.Base renaming (map to mapL)
 open import Data.Maybe
@@ -22,7 +23,7 @@ data NamedElements (s : List String) : Set where
   ne : Fin (length s) → NamedElements s
 
 mutual
- data Choice : Set where 
+ data Choice : Set where
   fin           : ℕ → Choice
   _⊎'_          : Choice → Choice → Choice
   _×'_          : Choice → Choice → Choice
@@ -30,15 +31,15 @@ mutual
   subset'  :  (E  :  Choice)  →  (ChoiceSet  E  →  Bool) →  Choice
   Σ'       :  (E  :  Choice)  →  (ChoiceSet  E  →  Choice) →  Choice
 
- ChoiceSet : Choice → Set 
+ ChoiceSet : Choice → Set
  ChoiceSet  (fin n)   =  Fin n
  ChoiceSet  (s ⊎' t)  =  ChoiceSet  s  ⊎  ChoiceSet  t
- ChoiceSet  (E ×' F)  =  ChoiceSet  E  ×  ChoiceSet  F 
+ ChoiceSet  (E ×' F)  =  ChoiceSet  E  ×  ChoiceSet  F
  ChoiceSet  (namedElements s) = NamedElements s
  ChoiceSet  (subset' E f) = subset (ChoiceSet E) f
  ChoiceSet  (Σ' A B)   =  Σ[ x ∈ ChoiceSet A ]
-                             ChoiceSet (B x) 
- 
+                             ChoiceSet (B x)
+
 
 ∅' : Choice
 ∅' = fin 0
@@ -64,7 +65,7 @@ choice2Str {Σ' c₀ c₁} (x₁ , x₂₁) = (choice2Str {c₀} x₁) ++s "," +
 choice2Str {subset' E f} (sub a x) = choice2Str {E} a
 
 choice2Stri : (c : Choice) → ChoiceSet c  → String
-choice2Stri c a = choice2Str {c} a  
+choice2Stri c a = choice2Str {c} a
 
 boolToMaybeTrue : (b : Bool) → Maybe (T b)
 boolToMaybeTrue false = nothing
@@ -77,18 +78,15 @@ set2MaybeSubset0 A f a nothing = nothing
 set2MaybeSubset  : (A : Set) → (f : A → Bool) → A → Maybe (subset A f)
 set2MaybeSubset  A f a = set2MaybeSubset0 A f a (boolToMaybeTrue (f a))
 
-choice2Enum : (c : Choice) → List (ChoiceSet c)   
-choice2Enum (fin n) = fin2Option0 n                                
+choice2Enum : (c : Choice) → List (ChoiceSet c)
+choice2Enum (fin n) = fin2Option0 n
 
 
-choice2Enum (c₀ ⊎' c₁) = mapL (λ a → inj₁ a) (choice2Enum c₀) ++ mapL (λ a → inj₂ a) (choice2Enum c₁) 
+choice2Enum (c₀ ⊎' c₁) = mapL (λ a → inj₁ a) (choice2Enum c₀) ++ mapL (λ a → inj₂ a) (choice2Enum c₁)
 choice2Enum (c₀ ×' c₁) = concat (mapL  (λ a → (mapL (λ b → (a ,, b)) (choice2Enum c₁) ))  (choice2Enum c₀))
-choice2Enum (namedElements s) = mapL (λ i → ne i) (fin2Option0 (length s))      
+choice2Enum (namedElements s) = mapL (λ i → ne i) (fin2Option0 (length s))
 choice2Enum (Σ' c₀ c₁) = concat (mapL  (λ a → (mapL (λ b → (a , b)) (choice2Enum (c₁ a)) ))  (choice2Enum c₀))
-choice2Enum (subset' E f) = gfilter (set2MaybeSubset (ChoiceSet E) f) (choice2Enum E)
+choice2Enum (subset' E f) = mapMaybe (set2MaybeSubset (ChoiceSet E) f) (choice2Enum E)
 
 choiceIsEmpty : Choice → Bool
 choiceIsEmpty c = null (choice2Enum c)
-
-
-

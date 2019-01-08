@@ -1,13 +1,14 @@
-module primitiveProcess where 
+module primitiveProcess where
 
 open import Size
-open import Data.String renaming  (_==_ to _==strb_; _++_ to _++s_)
+open import Data.String.Unsafe renaming  (_==_ to _==strb_)
+open import Data.String renaming  (_++_ to _++s_) hiding (length)
 open import Data.List
 open import process
 open import auxData
-open import dataAuxFunction 
+open import dataAuxFunction
 open import choiceSetU
-open Process∞  
+open Process∞
 open Process+
 
 STOP+ : {i : Size} → (c : Choice) →  Process+ i c
@@ -19,7 +20,7 @@ STOP c = node (STOP+ c)
 
 STOP∞ : {i : Size} → (c : Choice) → Process∞ i c
 forcep (STOP∞ c) =  STOP c
-Str∞ (STOP∞ c) = "STOP∞" 
+Str∞ (STOP∞ c) = "STOP∞"
 
 
 MSKIP+ : (i : Size) → (c : Choice) → (t : Choice) → (f : ChoiceSet t → ChoiceSet c) → Process+ i c
@@ -51,5 +52,3 @@ Str∞   (TERMINATE∞ a)   = "terminate(" ++s choice2Str a ++s ")"
 
 SKIPL+ : {i : Size} → {c : Choice} → List (ChoiceSet c) → Process+ i c
 SKIPL+ {i} {c} l = process+ ∅' efq efq ∅' efq (fin (length l)) (nth l) "SKIPL ???"
-
-  
