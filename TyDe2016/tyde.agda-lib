@@ -1,3 +1,8 @@
 name: tyde
+<<<<<<< HEAD
 depend: standard-library  
 include: .
+=======
+depend: standard-library
+include: . 
+>>>>>>> d75ea6b34ce54b30b16cc41fee1a4549cc80cd32
